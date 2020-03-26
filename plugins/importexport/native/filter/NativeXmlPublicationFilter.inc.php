@@ -82,9 +82,6 @@ class NativeXmlPublicationFilter extends NativeXmlPKPPublicationFilter {
 			case 'preprint_galley':
 				$this->parsePreprintGalley($n, $publication);
 				break;
-			case 'pages':
-				$publication->setData('pages', $n->textContent);
-				break;
 			case 'covers':
 				import('plugins.importexport.native.filter.NativeFilterHelper');
 				$nativeFilterHelper = new NativeFilterHelper();
