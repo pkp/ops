@@ -1,8 +1,15 @@
-OJS 3.2.0 Beta Release Notes
-GIT tag: 3_2_0-1
+OPS 3.2.0 Beta Release Notes
+GIT tag: 3_2_0-2
 
-Release date: April 14, 2020
+Release date: April 17, 2020
 ============================
+
+Bug Fixes (-2 build)
+	#5750 Check if current user can edit Galleys
+	#5749 Fix check to see whether sections are empty before deleting
+	#5738 use custom url in NOTIFICATION_TYPE_SUBMISSION_SUBMITTED
+	#5712 Move submission to production stage already in submission step 1
+	#5742 Add schema files to upgrade script
 
 Bug Fixes (-1 build)
 --------------------
