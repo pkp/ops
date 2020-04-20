@@ -27,12 +27,42 @@ describe('Data suite tests', function() {
 				'survey'
 			]
 		});
+	
+		cy.get('a').contains('Review this submission').click();
+		//cy.login('ckwantes', 'ckwantesckwantes', 'publicknowledge');
+		//cy.get('div[id=myQueue]').find('div').contains(title).parent().parent().click();
+		cy.get('button#metadata-button').click();
+		cy.get('#metadata-keywords-control-en_US').type('multinational', {delay: 0});
+		cy.wait(500);
+		cy.get('li').contains('multinational').click({force: true});
+		cy.get('#metadata button').contains('Save').click();
+		cy.contains('The metadata have been updated.');
+		cy.get('#metadata-keywords-selected-en_US').contains('multinational');
+
+		cy.get('button#contributors-button').click();
+		cy.get('a[id^="component-grid-users-author-authorgrid-addAuthor-button-"]').click();
+		cy.get('input[id^="givenName-en_US-"]').type('Urho', {delay: 0});
+		cy.get('input[id^="familyName-en_US-"]').type('Kekkonen', {delay: 0});
+		cy.get('select[id=country]').select('Finland');
+		cy.get('input[id^="email"]').type('ukk@mailinator.com', {delay: 0});
+		cy.get('input[id^="affiliation-en_US-"]').type('Academy of Finland', {delay: 0});
+		cy.get('label').contains('Author').click();
+		cy.get('form#editAuthor').find('button:contains("Save")').click();
+		cy.get('div[id^="component-grid-users-author-authorgrid-"] span.label:contains("' + Cypress.$.escapeSelector('Urho' + ' ' + 'Kekkonen') + '")');
+
+		cy.get('button#titleAbstract-button').click();
+		cy.get('input[id^="titleAbstract-title-control-en_US"').clear()
+		cy.get('input[id^="titleAbstract-title-control-en_US"').type('The Facets Of Job Satisfaction', {delay: 0});
+		cy.get('input[id^="titleAbstract-subtitle-control-en_US"').type('A Nine-Nation Comparative Study Of Construct Equivalence', {delay: 0});
+		cy.get('#titleAbstract button').contains('Save').click();
 
 		cy.logout();
-		cy.findSubmissionAsEditor('dbarnes', null, title);
+
+		cy.findSubmissionAsEditor('dbarnes', null, 'The Facets Of Job Satisfaction');
 		cy.get('ul.pkp_workflow_decisions button:contains("Schedule For Publication")').click();
 		cy.get('div.pkpPublication button:contains("Schedule For Publication"):visible').click();
 		cy.get('div:contains("All requirements have been met. Are you sure you want to publish this?")');
 		cy.get('button:contains("Publish")').click();
+
 	});
 })
