@@ -29,8 +29,6 @@ describe('Data suite tests', function() {
 		});
 	
 		cy.get('a').contains('Review this submission').click();
-		//cy.login('ckwantes', 'ckwantesckwantes', 'publicknowledge');
-		//cy.get('div[id=myQueue]').find('div').contains(title).parent().parent().click();
 		cy.get('button#metadata-button').click();
 		cy.get('#metadata-keywords-control-en_US').type('multinational', {delay: 0});
 		cy.wait(500);
