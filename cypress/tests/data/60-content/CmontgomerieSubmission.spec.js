@@ -41,12 +41,54 @@ describe('Data suite tests', function() {
 				}
 			]
 		});
-
 		cy.logout();
+
 		cy.findSubmissionAsEditor('dbarnes', null, title);
 		cy.get('ul.pkp_workflow_decisions button:contains("Schedule For Publication")').click();
 		cy.get('div.pkpPublication button:contains("Schedule For Publication"):visible').click();
 		cy.get('div:contains("All requirements have been met. Are you sure you want to publish this?")');
 		cy.get('button:contains("Publish")').click();
+		cy.logout();
+		
+		cy.login('dbarnes', 'dbarnesdbarnes', 'publicknowledge');
+		cy.get('button[id="archive-button"]').click();
+		cy.get('div[id=archive]').find('div').contains(title).parent().parent().click();
+
+		// Unpublish 1st version
+		cy.get('#publication-button').click();
+		cy.get('div.pkpPublication button:contains("Unpublish"):visible').click();
+		cy.get('div:contains("Are you sure you don\'t want this to be published?")');
+		cy.get('.pkpModalConfirmButton').click();
+
+		// Edit metadata in 1st version
+		cy.get('#metadata-button').click();
+		cy.get('#metadata-keywords-control-en_US').type('employees{enter}', {delay: 0});
+		cy.wait(100);
+		cy.get('#metadata button').contains('Save').click();
+		cy.contains('The metadata have been updated.');
+		cy.get('#metadata-keywords-selected-en_US').contains('employees');
+		cy.wait(1500);
+
+		// Publish 1st version again
+		cy.get('div.pkpPublication button:contains("Schedule For Publication"):visible').click();
+		cy.get('div:contains("All requirements have been met. Are you sure you want to publish this?")');
+		cy.get('button:contains("Publish")').click();
+
+		// Create 2nd version and change copyright holder
+		cy.get('div.pkpPublication button:contains("Create New Version"):visible').click();
+		cy.get('div:contains("Are you sure you want to create a new version?")');
+		cy.get('.pkpModalConfirmButton').click();
+		cy.get('#license-button').click();
+		cy.get('input[id^="publicationLicense-copyrightHolder-control-en_US"').clear()
+		cy.get('input[id^="publicationLicense-copyrightHolder-control-en_US"').type('Craig Montgomerie', {delay: 0});
+		cy.get('#license button').contains('Save').click();
+		cy.contains('The copyright and license information have been updated.');
+		cy.wait(1500);
+
+		// Publish 2nd version
+		cy.get('#publication button').contains('Publish').click();
+		cy.contains('All requirements have been met.');
+		cy.get('.pkpWorkflow__publishModal button').contains('Publish').click();		
+
 	});
 })
