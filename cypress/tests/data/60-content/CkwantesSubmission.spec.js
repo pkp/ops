@@ -53,10 +53,10 @@ describe('Data suite tests', function() {
 		cy.get('input[id^="titleAbstract-title-control-en_US"').type('The Facets Of Job Satisfaction', {delay: 0});
 		cy.get('input[id^="titleAbstract-subtitle-control-en_US"').type('A Nine-Nation Comparative Study Of Construct Equivalence', {delay: 0});
 		cy.get('#titleAbstract button').contains('Save').click();
-
+		cy.contains('The title and abstract have been updated.');
 		cy.logout();
 
-		cy.findSubmissionAsEditor('dbarnes', null, 'The Facets Of Job Satisfaction');
+		cy.findSubmissionAsEditor('dbarnes', null, 'The Facets Of Job Satisfaction', 'publicknowledge');
 		cy.get('ul.pkp_workflow_decisions button:contains("Schedule For Publication")').click();
 		cy.get('div.pkpPublication button:contains("Schedule For Publication"):visible').click();
 		cy.get('div:contains("All requirements have been met. Are you sure you want to publish this?")');
