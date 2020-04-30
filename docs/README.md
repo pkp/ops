@@ -1,9 +1,9 @@
 	===================================
 	=== Open Preprint Systems
 	=== The Public Knowledge Project
-	=== Version: 3.2.0 beta
-	=== GIT tag: 3_2_0-2
-	=== Release date: April 17, 2020
+	=== Version: 3.2.0-3 beta
+	=== GIT tag: 3_2_0-3
+	=== Release date: April 30, 2020
 	===================================
 
 

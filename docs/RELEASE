@@ -1,10 +1,34 @@
 OPS 3.2.0 Beta Release Notes
-GIT tag: 3_2_0-2
+GIT tag: 3_2_0-3
 
-Release date: April 17, 2020
+Release date: April 30, 2020
 ============================
 
+Bug Fixes (-3 build)
+--------------------
+	#5588: Author list: author name is empty if not included in submission's metadata
+	#5753: Submission checklist "edit" link leads to 404
+	#5407: Use v-cloak to hide unstyled content flash before Vue kicks in
+	#5712: [OPS] Number of Active queue doesn't match actual queue
+	#5769: Fatal error when generating custom report
+	#5793: SearchHandler::authors() can encounter fatal error with unpublished publications
+	#5786: [OPS] "Comments to the Moderator" not showing to Moderators
+	#5778: Homepage image alt text doesn't show up
+	#2689: Changing date formats in config.inc.php can lead to misparsed dates
+	#5690: Error saving in management/settings/website
+	#5776: Sort country lists by country name, not code
+	#5742: [OPS] Upgrade to OPS 3.2.0-1 does not sync database schema descriptors
+	#5749: [OPS] Unable to delete Series/Section
+	#5741: PostgreSQL "operator does not exist"
+	#5735: Resolve SQL errors with picky PostgreSQL servers
+	#5734: Component URL camelize/uncamelize functions do not use codesafe uc/lc functions
+	#5725: Notification query getByUserId often run with no indexes used
+	#5732: Cannot delete sections
+	#5731: Autoloader does not use codesafe upper/lower functions
+	#5718: Supporting Agencies field does not appear in submission process
+
 Bug Fixes (-2 build)
+--------------------
 	#5750 Check if current user can edit Galleys
 	#5749 Fix check to see whether sections are empty before deleting
 	#5738 use custom url in NOTIFICATION_TYPE_SUBMISSION_SUBMITTED
@@ -14,24 +38,24 @@ Bug Fixes (-2 build)
 Bug Fixes (-1 build)
 --------------------
 	#5675: Resolve various import/export issues
-	#5663: Can't upload cover image in Quick Submit with v3.2 Bug
+	#5663: Can't upload cover image in Quick Submit with v3.2
 	#5710: Escape journal title field on display
 	#5701: Upgrade error using PostgreSQL in createLicenseTerms
 	#5636: Handler adjustments for new versions
 	#5572: ORCID Profile Plugin prevents article publication
 	#5689: Make failures in provideSupplementaryFilesForReview more friendly
 	#5657: MEDRA export plugin: Wrong link in XML tag <DOIWebsiteLink> for issues
-	#5643: Error in journal settings form when locale active in Form but not UI Bug
+	#5643: Error in journal settings form when locale active in Form but not UI
 	#5682: DOAJ XML exports fail to validate
 	#5681: CrossRef exports are empty after upgrade
 	#4474: Review method fallback should be double blind instead of blind
 	#5666: Edit User, the password may not blank ??
 	#5671: Installing all locales leads to an error message
 	#5674: Fatal error in user import/export plugin
-	#5573: OAI ListRecords causes PHP Fatal Error Bug
-	#5438: Submission sequence no longer appears to be supported Critical Issue
-	#5659: Save button disabled after unpublishing a version Bug
-	#5661: In some cases discussions grid not loading for reviewers, 3.2 master Critical Issue
+	#5573: OAI ListRecords causes PHP Fatal Error
+	#5438: Submission sequence no longer appears to be supported
+	#5659: Save button disabled after unpublishing a version
+	#5661: In some cases discussions grid not loading for reviewers, 3.2 master
 	#5646: Call to undefined method AuthorDAO::getBySubmissionId()
 	#5600: pkp-native.xml uses publication element instead of pkppublication
 	#5643: Error in settings form when locale active in Form but not UI
