@@ -48,4 +48,8 @@
 
 	<!-- update plugin configuration - should be done as the final upgrade task -->
 	<code function="addPluginVersions" />
+
+	<upgrade minversion="3.0.0.0" maxversion="3.2.0.9">
+		<note file="docs/release-notes/README-3.2.1" />
+	</upgrade>
 </install>
