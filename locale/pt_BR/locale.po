@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-29 09:38+0000\n"
-"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"PO-Revision-Date: 2020-06-07 04:39+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "locale/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -350,3 +350,6 @@ msgstr "Existem {$numberOfVersions} versões deste preprint"
 
 msgid "submission.layout.galleyPublicIdentificationExists"
 msgstr "A identificação da composição final pública já existe."
+
+msgid "category.categories"
+msgstr "Categorias"
