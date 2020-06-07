@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-06-07 04:39+0000\n"
+"PO-Revision-Date: 2020-06-08 18:39+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "default/pt_BR/>\n"
@@ -148,3 +148,6 @@ msgstr "PRE"
 
 msgid "section.default.title"
 msgstr "Preprints"
+
+msgid "section.default.policy"
+msgstr "Política padrão da seção"
