@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-02-16 01:35+0000\n"
-"Last-Translator: Lilian Nassi Calo <calolilian@gmail.com>\n"
+"PO-Revision-Date: 2020-06-07 04:39+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "admin/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -24,10 +24,10 @@ msgid "admin.contexts.contextDescription"
 msgstr "Descrição do servidor"
 
 msgid "admin.contexts.form.edit.success"
-msgstr "{$ name} foi editado com sucesso."
+msgstr "{$name} foi editado com sucesso."
 
 msgid "admin.contexts.form.create.success"
-msgstr "{$ name} foi criado com sucesso."
+msgstr "{$name} foi criado com sucesso."
 
 msgid "admin.contexts.form.pathExists"
 msgstr "O caminho que você forneceu já está sendo usado por outro servidor."
@@ -55,7 +55,7 @@ msgid "admin.languages.download"
 msgstr "Faça o download do Locale"
 
 msgid "admin.languages.localeInstalled"
-msgstr "A localidade \"{$ locale}\" foi instalada."
+msgstr "A localidade \"{$locale}\" foi instalada."
 
 msgid "admin.languages.installNewLocalesInstructions"
 msgstr ""
