@@ -1,5 +1,16 @@
-OPS 3.2.1 Release Notes
-Git tag: 3_2_1-0
+OPS 3.2.1-1 Release Notes
+Git tag: 3_2_1-1
+
+Release date: June 26, 2020
+===========================
+
+3.2.1-1 Build
+-------------
+	#6045: Permit database collation configuration
+	#6041: License override formatting error
+	#6035: Plugin install does not work across filesystems
+	#6033: Announcements can be viewed even when disabled
+	#6007: User roles can be passed to the browser as an object instead of array
 
 New Features
 ------------
@@ -15,7 +26,7 @@ New Features
 	#3698: Support a "draft" option for reviews
 
 Bug Fixes
---------------------
+---------
 	#6026: Submission deletion can delete author records in other submissions
 	#6022: PostgreSQL upgrade to 3.2.0 resets all submissions to unpublished
 	#6000: Undefined const SCHEMA_PUBLICATION during upgrade
