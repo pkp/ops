@@ -25,6 +25,34 @@ import('lib.pkp.controllers.wizard.fileUpload.PKPFileUploadWizardHandler');
 class FileUploadWizardHandler extends PKPFileUploadWizardHandler {
 
 	/**
+	 * Constructor
+	 */
+	function __construct() {
+		parent::__construct();
+		HookRegistry::register('SubmissionFile::assignedFileStageIds', [$this, 'allowAuthorGalleyUploads']);
+	}
+
+	/**
+	 * Modify the assigned file stage ids to allow authors to upload to files to galleys
+	 *
+	 * @param string $hookName
+	 * @param array $args [
+	 * 	@option array The allowed file stage ids
+	 *  @option array The current user's stage assignments
+	 *  @option int One of SUBMISSION_FILE_READ or SUBMISSION_FILE_ACCESS_MODIFY
+	 * ]
+	 */
+	public function allowAuthorGalleyUploads($hookName, $args) {
+		$allowedFileStageIds =& $args[0];
+		$stageAssignments = $args[1];
+
+		if (array_key_exists(WORKFLOW_STAGE_ID_PRODUCTION, $stageAssignments)
+				&& !empty(in_array(ROLE_ID_AUTHOR, $stageAssignments[WORKFLOW_STAGE_ID_PRODUCTION]))) {
+			$allowedFileStageIds[] = SUBMISSION_FILE_PROOF;
+		}
+	}
+
+	/**
 	 * @copydoc PKPFileUploadWizardHandler::_attachEntities
 	 */
 	protected function _attachEntities($submissionFile) {
