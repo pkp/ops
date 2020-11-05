@@ -14,7 +14,8 @@
  */
 
 /** Notification associative types. */
-// OPS-specific trivial notifications
+// OPS-specific notifications
+define('NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE', 		0x1000020);
 
 import('lib.pkp.classes.notification.PKPNotification');
 import('lib.pkp.classes.notification.NotificationDAO');
