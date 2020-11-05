@@ -53,6 +53,39 @@ class NotificationManager extends PKPNotificationManager {
 	}
 
 	/**
+	 * Construct the contents for the notification based on its type and associated object
+	 * @param $request PKPRequest
+	 * @param $notification Notification
+	 * @return string
+	 */
+	function getNotificationMessage($request, $notification) {
+		// Allow hooks to override default behavior
+		$message = null;
+		HookRegistry::call('NotificationManager::getNotificationMessage', array(&$notification, &$message));
+		if($message) return $message;
+
+		switch ($notification->getType()) {
+			case NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE:
+				return __('notification.type.revertDecline');
+			default:
+				return parent::getNotificationMessage($request, $notification);
+		}
+	}
+
+	/**
+	 * get notification style class
+	 * @param $notification Notification
+	 * @return string
+	 */
+	function getStyleClass($notification) {
+		switch ($notification->getType()) {
+			case NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE:
+					return 'notifySuccess';
+			default: return parent::getStyleClass($notification);
+		}
+	}
+
+	/**
 	 * Return a CSS class containing the icon of this notification type
 	 * @param $notification Notification
 	 * @return string
@@ -61,6 +94,8 @@ class NotificationManager extends PKPNotificationManager {
 		switch ($notification->getType()) {
 			case NOTIFICATION_TYPE_NEW_ANNOUNCEMENT:
 				return 'notifyIconNewAnnouncement';
+			case NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE:
+				return 'notifyIconSuccess';
 			default: return parent::getIconClass($notification);
 		}
 	}

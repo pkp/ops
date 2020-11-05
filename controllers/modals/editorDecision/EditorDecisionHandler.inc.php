@@ -29,10 +29,30 @@ class EditorDecisionHandler extends PKPEditorDecisionHandler {
 			array(ROLE_ID_SUB_EDITOR, ROLE_ID_MANAGER),
 			array_merge(array(
 				'sendReviews', 'saveSendReviews',
+				'revertDecline', 'saveRevertDecline',
 			), $this->_getReviewRoundOps())
 		);
 	}
 
+	/**
+	 * Show a revert decline form.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return string Serialized JSON object
+	 */
+	function revertDecline($args, $request) {
+		return $this->_initiateEditorDecision($args, $request, 'RevertDeclineForm');
+	}
+
+	/**
+	 * Save the revert decline form.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return string Serialized JSON object
+	 */
+	function saveRevertDecline($args, $request) {
+		return $this->_saveEditorDecision($args, $request, 'RevertDeclineForm', WORKFLOW_STAGE_PATH_PRODUCTION, SUBMISSION_EDITOR_DECISION_REVERT_DECLINE);
+	}
 
 	//
 	// Implement template methods from PKPHandler
@@ -50,6 +70,23 @@ class EditorDecisionHandler extends PKPEditorDecisionHandler {
 	//
 	// Private helper methods
 	//
+
+	/**
+	 * @copydoc PKPEditorDecisionHandler::_getEditorDecisionForm()
+	 */
+	protected function _getEditorDecisionForm($formName, $decision) {
+		if ($formName == 'RevertDeclineForm'){
+			// Retrieve the authorized submission.
+			$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+			// Retrieve the stage id
+			$stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+			import('controllers.modals.editorDecision.form.RevertDeclineForm');
+			$editorDecisionForm = new $formName($submission, $decision, $stageId);
+			return $editorDecisionForm;
+		}
+		return parent::_getEditorDecisionForm($formName, $decision);
+	}
+
 	/**
 	 * Get editor decision notification type and level by decision.
 	 * @param $decision int
@@ -59,6 +96,8 @@ class EditorDecisionHandler extends PKPEditorDecisionHandler {
 		switch ($decision) {
 			case SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE:
 				return NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE;
+			case SUBMISSION_EDITOR_DECISION_REVERT_DECLINE:
+				return NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE;
 			default:
 				assert(false);
 				return null;
@@ -70,6 +109,13 @@ class EditorDecisionHandler extends PKPEditorDecisionHandler {
 	 * @return array
 	 */
 	protected function _getReviewStages() {
+		return array();
+	}
+
+	/**
+	 * Get review-related decision notifications.
+	 */
+	protected function _getReviewNotificationTypes() {
 		return array();
 	}
 

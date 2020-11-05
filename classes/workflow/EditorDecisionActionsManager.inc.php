@@ -19,6 +19,7 @@ define('SUBMISSION_EDITOR_DECISION_ACCEPT', 1);
 define('SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS', 2);
 define('SUBMISSION_EDITOR_DECISION_RESUBMIT', 3);
 define('SUBMISSION_EDITOR_DECISION_DECLINE', 4);
+define('SUBMISSION_EDITOR_DECISION_REVERT_DECLINE', 17);
 define('SUBMISSION_EDITOR_DECISION_NEW_ROUND', 16);
 define('SUBMISSION_EDITOR_DECISION_SEND_TO_PRODUCTION', 7);
 
@@ -41,17 +42,16 @@ class EditorDecisionActionsManager extends PKPEditorDecisionActionsManager {
 				$actionLabels[$decision] = $allDecisionsData[$decision]['title'];
 			}
 		}
-
 		return $actionLabels;
 	}
 
 	/**
 	 * @copydoc PKPEditorDecisionActionsManager::getStageDecisions()
 	 */
-	public  function getStageDecisions($request, $stageId, $makeDecision = true) {
+	public function getStageDecisions($request, $stageId, $makeDecision = true) {
 		switch ($stageId) {
 			case WORKFLOW_STAGE_ID_PRODUCTION:
-				return $this->_productionStageDecisions($makeDecision);
+				return $this->_productionStageDecisions($makeDecision, $request);
 		}
 		return parent::getStageDecisions($request, $stageId, $makeDecision);
 	}
@@ -66,14 +66,20 @@ class EditorDecisionActionsManager extends PKPEditorDecisionActionsManager {
 	 * @param $makeDecision boolean If the user can make decisions
 	 * @return array
 	 */
-	protected function _productionStageDecisions($makeDecision = true) {
+	protected function _productionStageDecisions($makeDecision = true, $request = null) {
 		$decisions = array();
 		if ($makeDecision) {
+			error_log(print_r($request, true));
 			$decisions = $decisions + array(
 				SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE => array(
 					'name' => 'decline',
 					'operation' => 'sendReviews',
 					'title' => 'editor.submission.decision.decline',
+				),
+				SUBMISSION_EDITOR_DECISION_REVERT_DECLINE => array(
+					'name' => 'revert',
+					'operation' => 'revertDecline',
+					'title' => 'editor.submission.decision.revertDecline',
 				),
 			);
 		}
