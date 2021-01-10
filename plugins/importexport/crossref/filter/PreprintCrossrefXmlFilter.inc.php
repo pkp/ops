@@ -215,9 +215,10 @@ class PreprintCrossrefXmlFilter extends NativeExportFilter {
 			$postedContentNode->appendChild($licenseNode);
 		}
 
-		// DOI relations
-		if ($submission->getLatestPublication()->getStoredPubId('doi') && $submission->getLatestPublication()->getStoredPubId('doi') != $publication->getStoredPubId('doi')){
-			$postedContentNode->appendChild($this->createRelationsDataNode($doc, $submission->getLatestPublication()->getStoredPubId('doi')));
+		// DOI relations: isVersionOf and isPreprintOf
+		$parentDoi = $submission->getLatestPublication()->getStoredPubId('doi') && $submission->getLatestPublication()->getStoredPubId('doi') != $publication->getStoredPubId('doi') ? $submission->getLatestPublication()->getStoredPubId('doi') : '';
+		if ($parentDoi || $publication->getData('vorDoi')) {
+			$postedContentNode->appendChild($this->createRelationsDataNode($doc, $parentDoi, $publication->getData('vorDoi')));
 		}
 
 		// DOI data
@@ -267,18 +268,26 @@ class PreprintCrossrefXmlFilter extends NativeExportFilter {
 	 * @param $parentDoi string
 	 * @return DOMElement
 	 */
-	function createRelationsDataNode($doc, $parentDoi) {
+	function createRelationsDataNode($doc, $parentDoi, $vorDoi) {
 		$deployment = $this->getDeployment();
 		$relationsDataNode = $doc->createElementNS($deployment->getRELNamespace(), 'rel:program');
 		$relationsDataNode->setAttribute('name', 'relations');
-
-		$relatedItemNode = $doc->createElementNS($deployment->getRELNamespace(), 'rel:related_item');
-		$intraWorkRelationNode = $doc->createElementNS($deployment->getRELNamespace(), 'rel:intra_work_relation',  htmlspecialchars($parentDoi, ENT_COMPAT, 'UTF-8'));
-		$intraWorkRelationNode->setAttribute('relationship-type', 'isVersionOf');
-		$intraWorkRelationNode->setAttribute('identifier-type', 'doi');
-		$relatedItemNode->appendChild($intraWorkRelationNode);
-		$relationsDataNode->appendChild($relatedItemNode);
-
+		if ($parentDoi) {
+			$relatedItemNode = $doc->createElementNS($deployment->getRELNamespace(), 'rel:related_item');
+			$intraWorkRelationNode = $doc->createElementNS($deployment->getRELNamespace(), 'rel:intra_work_relation',  htmlspecialchars($parentDoi, ENT_COMPAT, 'UTF-8'));
+			$intraWorkRelationNode->setAttribute('relationship-type', 'isVersionOf');
+			$intraWorkRelationNode->setAttribute('identifier-type', 'doi');
+			$relatedItemNode->appendChild($intraWorkRelationNode);
+			$relationsDataNode->appendChild($relatedItemNode);
+		}
+		if ($vorDoi) {
+			$relatedItemNode = $doc->createElementNS($deployment->getRELNamespace(), 'rel:related_item');
+			$intraWorkRelationNode = $doc->createElementNS($deployment->getRELNamespace(), 'rel:intra_work_relation',  htmlspecialchars($vorDoi, ENT_COMPAT, 'UTF-8'));
+			$intraWorkRelationNode->setAttribute('relationship-type', 'isPreprintOf');
+			$intraWorkRelationNode->setAttribute('identifier-type', 'doi');
+			$relatedItemNode->appendChild($intraWorkRelationNode);
+			$relationsDataNode->appendChild($relatedItemNode);
+		}
 		return $relationsDataNode;
 	}
 }

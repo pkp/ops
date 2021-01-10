@@ -60,7 +60,7 @@ msgid "plugins.pubIds.doi.manager.settings.doiSuffix.description"
 msgstr "A DOI suffix can take any form, but must be unique among all publishing objects with the same DOI prefix assigned:"
 
 msgid "plugins.pubIds.doi.manager.settings.doiSuffixPattern"
-msgstr "Use the pattern entered below to generate DOI suffixes. Use %j for server initials %a for the OPS preprint ID, %g for the OPS galley ID, %f for the OPS file ID and %x for \"Custom Identifier\"."
+msgstr "Use the pattern entered below to generate DOI suffixes. Use %j for server initials %a for the OPS preprint ID, %b for preprint version, %g for the OPS galley ID, %f for the OPS file ID and %x for \"Custom Identifier\"."
 
 msgid "plugins.pubIds.doi.manager.settings.doiSuffixPattern.example"
 msgstr "For example, %j.%a could create a DOI such as 10.1234/server_initials.12345"
