@@ -85,14 +85,5 @@ msgstr "Sektionsförkortningen \"{$section1Abbrev}\" och sektionsförkortningen 
 msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
 msgstr "Sektionsförkortningen \"{$sectionAbbrev}\" i numret \"{$issueTitle}\" matchade en existerande tidskriftssektion, men en annnan förkortning för den här sektionen matchar inte någon annan förkortning för den existerande tidskriftssektionen."
 
-msgid "plugins.importexport.native.import.error.issueIdentificationMatch"
-msgstr "Inget eller fler än ett nummer matchar nummeridentifikatorn \"{$issueIdentification}\"."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationDuplicate"
-msgstr "Det existerande numret med id {$issueId} matchar nummeridentifikatorn \"{$issueIdentification}\". Numret kommer inte att ändras, men artiklarna kommer att läggas till."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationMissing"
-msgstr "Numrets identifikationselement saknas för artikeln \"{$articleTitle}\"."
-
 msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr "Artikeln \"{$articleTitle}\" finns i ett nummer, men har inget publiceringsdatum."

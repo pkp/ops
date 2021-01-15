@@ -89,14 +89,5 @@ msgstr "L'abbreviazione della sezione \"{$section1Abbrev}\" e l'abbreviazione \"
 msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
 msgstr "L'abbreviazione della sezione \"{$sectionAbbrev}\" nel fascicolo \"{$issueTitle}\" coincide con una esistente sezione della rivista ma  un'altra abbbreviazione non corrisponde."
 
-msgid "plugins.importexport.native.import.error.issueIdentificationMatch"
-msgstr "Nessun o più di un fascicolo corrispone/dono all'id di fascicolo \"{$issueIdentification}\"."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationDuplicate"
-msgstr "Un fascicolo esistente con id {$issueId} corrisponde con l'identificatore inserito, \"{$issueIdentification}\". Questo fascicolo non verrà modificato ma gli articoli saranno aggiunti."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationMissing"
-msgstr "L'elemento identificativo del fascicolo non è presente nell'articolo \"{$articleTitle}\"."
-
 msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr "L'articolo \"{$articleTitle}\" è contenuto dentro un fascicolo, ma non ha data di pubblicazione."

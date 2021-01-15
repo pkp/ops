@@ -85,14 +85,5 @@ msgstr "Okrajšava rubrike \"{$section1Abbrev}\" in okrajšava rubrike \"{$secti
 msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
 msgstr "Okrajšava rubrike \"{$sectionAbbrev}\" v številki \"{$issueTitle}\" se ujema z obstoječo rubriko, ampak se druga okrajšava te rubrike ne ujema z drugo okrajšavo obstoječe rubrike revije."
 
-msgid "plugins.importexport.native.import.error.issueIdentificationMatch"
-msgstr "Nobena ali več kot ena številka se ujemata podani identifikaciji \"{$issueIdentification}\"."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationDuplicate"
-msgstr "Obstoječa številka z ID-jem {$issueId} se ujema s podano identifikacijo številke \"{$issueIdentification}\". Ta številka ne bo spremenjena, ampak bodo le dodani prispevki."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationMissing"
-msgstr "Elemnt za identifikacijo številke manjka za prispevek \"{$articleTitle}\"."
-
 msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr "Prispevek \"{$articleTitle}\" je vsebovan v številki, ampak nima datuma izdaje."

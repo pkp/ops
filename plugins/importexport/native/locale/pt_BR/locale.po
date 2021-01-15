@@ -94,21 +94,5 @@ msgstr ""
 "O artigo \"{$articleTitle}\"está contido em um fascículo, mas não possui "
 "data de publicação."
 
-msgid "plugins.importexport.native.import.error.issueIdentificationMissing"
-msgstr ""
-"O elemento de identificação do fascículo está ausente no artigo \""
-"{$articleTitle}\"."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationDuplicate"
-msgstr ""
-"O fascículo existente com o ID {$issueId} corresponde à identificação do "
-"fascículo fornecida \"{$issueIdentification}\".  Este fascículo não será "
-"modificado, mas os artigos serão adicionados."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationMatch"
-msgstr ""
-"Nenhum ou mais de um fascículo corresponde à identificação do fascículo "
-"fornecido \"{$issueIdentification}\"."
-
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Selecione arquivos para exportar"

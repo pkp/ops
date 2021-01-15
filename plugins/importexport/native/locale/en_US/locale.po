@@ -85,14 +85,5 @@ msgstr "The section abbreviation \"{$section1Abbrev}\" and the section abbreviat
 msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
 msgstr "The section abbreviation \"{$sectionAbbrev}\" in the \"{$issueTitle}\" issue matched an existing journal section, but another abbreviation of this section doesn't match with another abbreviation of the existing journal section."
 
-msgid "plugins.importexport.native.import.error.issueIdentificationMatch"
-msgstr "None or more than one issue matches the given issue identification \"{$issueIdentification}\"."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationDuplicate"
-msgstr "Existing issue with id {$issueId} matches the given issue identification \"{$issueIdentification}\".  This issue will not be modified, but articles will be added."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationMissing"
-msgstr "The issue identification element is missing for the article \"{$articleTitle}\"."
-
 msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr "The article \"{$articleTitle}\" is contained within an issue, but has no published date."

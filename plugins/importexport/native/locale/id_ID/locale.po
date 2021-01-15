@@ -42,20 +42,6 @@ msgstr ""
 "Artikel \"{$articleTitle}\" terdapat dalam issue, tapi tidak memiliki "
 "tanggal terbit."
 
-msgid "plugins.importexport.native.import.error.issueIdentificationMissing"
-msgstr "Elemen identifikasi issue untuk artikel \"{$articleTitle}\" hilang."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationDuplicate"
-msgstr ""
-"Issue yang ada dengan id {$issueId} sama dengan identifikasi issue yang ada "
-"\"{$issueIdentification}\".  Issue ini tidak akan diubah, tapi akan "
-"ditambahkan artikel."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationMatch"
-msgstr ""
-"Tidak ada atau lebih dari satu issue sama dengan identifikasi issue yang "
-"diberikan \"{$issueIdentification}\"."
-
 msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
 msgstr ""
 "Singkatan bagian \"{$sectionAbbrev}\" dalam issue \"{$issueTitle}\" sama "

@@ -62,14 +62,5 @@ msgstr "علامت اختصاری نوع مقاله اول \"{$section1Abbrev}\"
 msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
 msgstr "علامت اختصاری \"{$sectionAbbrev}\" در شماره مجله \"{$issueTitle}\" مطابق با مجله موجودی است ولی علامت اختصاری دیگر آن مطابقت ندارد."
 
-msgid "plugins.importexport.native.import.error.issueIdentificationMatch"
-msgstr "هیچ یا چندی شماره با این شناسه یافت شد. \"{$issueIdentification}\"."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationDuplicate"
-msgstr "شماره موجود با شناسه {$issueId} با شناسه داده شده «{$issueIdentification}» مطابقت دارد. اطلاعات کلی شماره تغییری نخواهد کرد و تنها مقالات به آن افزوده خواهد شد."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationMissing"
-msgstr "شناسه شماره مقاله «{$articleTitle}» یافت نشد."
-
 msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr "مقاله «{$articleTitle}» در داخل شماره‌ای گنجانده شده است، اما دارای تاریخ انتشاری نمی‌باشد."

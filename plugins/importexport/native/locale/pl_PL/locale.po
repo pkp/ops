@@ -90,14 +90,5 @@ msgstr "Skrót działu \"{$section1Abbrev}\" i skrót działu \"{$section2Abbrev
 msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
 msgstr "Skrót działu \"{$sectionAbbrev}\" w numerze \"{$issueTitle}\" połączył się z istniejącym działem czasopisma, ale inny skrót tego działu nie połączył się z innym skrótem istniejącego działu czasopisma."
 
-msgid "plugins.importexport.native.import.error.issueIdentificationMatch"
-msgstr "Żaden lub więcej niż jeden numer jest połączony z podanych identyfikatorem numeru: \"{$issueIdentification}\"."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationDuplicate"
-msgstr "Istniejący numer  {$issueId} jest połączony z podanym identyfikatorem: \"{$issueIdentification}\".  Ten numer nie może być modyfikowany, ale można do niego dodawać artykuły."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationMissing"
-msgstr "Brakuje elementu identyfikatora w artykule \"{$articleTitle}\"."
-
 msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr "Artykuł \"{$articleTitle}\" jest umieszczony w numerze, ale nie posiada daty publikacji."

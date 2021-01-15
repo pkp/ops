@@ -85,14 +85,5 @@ msgstr "Абревіатура розділу \"{$section1Abbrev}\" та абр�
 msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
 msgstr "Абревіатура розділу \"{$sectionAbbrev}\" у випуску \"{$issueTitle}\" співпадає з існуючим розділом журналу, але інша абревіатура цього розділу не співпадає з іншою абревіатурою існуючого розділу журналу."
 
-msgid "plugins.importexport.native.import.error.issueIdentificationMatch"
-msgstr "Жоден випуск або більше одного випуску співпадає з вказаною ідентифікацією випуску \"{$issueIdentification}\"."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationDuplicate"
-msgstr "Існуючий випуск з ідентифікатором {$issueId} співпадає з вказаною ідентифікацією випуску \"{$issueIdentification}\". Цей випуск не буде змінено, але статті будуть додані."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationMissing"
-msgstr "Елемент ідентифікації випуску відсутній для статті \"{$articleTitle}\"."
-
 msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr "Стаття \"{$articleTitle}\" є у випуску, але для неї не вказана дата публікації."

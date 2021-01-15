@@ -24,20 +24,6 @@ msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr ""
 "Artikkelen «{$articleTitle}» er i en utgave, men har ingen publiseringsdato."
 
-msgid "plugins.importexport.native.import.error.issueIdentificationMissing"
-msgstr "«{$articleTitle}» mangler utgaveidentifikatorelementet."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationDuplicate"
-msgstr ""
-"Eksisterende utgave med identiteten {$issueId} stemmer overens med "
-"utgaveidentifikatoren «{$issueIdentification}». Denne utgaven vil ikke bli "
-"modifisert, men artiklene vil bli lagt til."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationMatch"
-msgstr ""
-"Ingen eller flere enn en utgave stemmer overens med den oppgitte "
-"utgaveidentifikatoren {$issueIdentification}»."
-
 msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
 msgstr ""
 "Seksjonsforkortelsen «{$sectionAbbrev}» i utgaven «{$issueTitle}» stemte "

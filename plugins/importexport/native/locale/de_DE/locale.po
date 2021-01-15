@@ -85,14 +85,5 @@ msgstr "Rubrikenabkürzung \"{$section1Abbrev}\" und Rubrikenabkürzung \"{$sect
 msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
 msgstr "Die Rubrikenabkürzung \"{$sectionAbbrev}\" in Ausgabe \"{$issueTitle}\" ist mit einer existierenden Rubrik vereinbar, aber eine andere Rubrikenabkürzung ist mit existierenden Rubrikenabkürzungen in dieser Zeitschrift nicht vereinbar."
 
-msgid "plugins.importexport.native.import.error.issueIdentificationMatch"
-msgstr "Keine oder mehr als eine Ausgabe passen zu der angegebenen Ausgabenkennung \"{$issueIdentification}\"."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationDuplicate"
-msgstr "Die existierende Ausgabe mit der ID {$issueId} passt zur angegebenen Kennung \"{$issueIdentification}\". Diese Ausgabe wird nicht verändert, aber Artikel werden hinzugefügt werden."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationMissing"
-msgstr "Das Element zur Ausgabenidentifizierung fehlt für den Artikel \"{$articleTitle}\"."
-
 msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr "Der Artikel \"{$articleTitle}\" ist in einer Ausgabe enthalten, aber hat kein Veröffentlichungsdatum."

@@ -16,19 +16,6 @@ msgstr ""
 "Článok \"{$articleTitle}\" je obsiahnutý v tomto čísle, ale nemá zadaný "
 "dátum zverejnenia."
 
-msgid "plugins.importexport.native.import.error.issueIdentificationMissing"
-msgstr "Identifikačný element čísla chýba v článku \"{$articleTitle}\"."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationDuplicate"
-msgstr ""
-"Existujúce číslo s id {$issueId} zodpovedá zadanej identifikácii čísla \""
-"{$issueIdentification}\". Toto číslo sa nezmení, ale články budú pridané."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationMatch"
-msgstr ""
-"Žiadne alebo naopak viac ako jedno číslo zodpovedá identifikácii tohto čísla "
-"\"{$issueIdentification}\"."
-
 msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
 msgstr ""
 "Skratka sekcia \"{$sectionAbbrev}\" v čísle \"{$issueTitle}\" odpovedá "

@@ -17,22 +17,6 @@ msgstr ""
 "Articolul \"{$articleTitle}\"face parte dintr-un număr, dar nu are dată de "
 "publicare."
 
-msgid "plugins.importexport.native.import.error.issueIdentificationMissing"
-msgstr ""
-"Elementele de identificare ale numărului lipsesc pentru acest articol \""
-"{$articleTitle}\"."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationDuplicate"
-msgstr ""
-"Numărul existent cu id {$issueId} se potrivește cu numărul dat "
-"„{$issueIdentification}”. Această număr nu fa fi modificat, dar vor fi "
-"adăugate articole."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationMatch"
-msgstr ""
-"Niciun sau mai multe numere nu se potrivesc cu identificarea numărului \""
-"{$issueIdentification}\"."
-
 msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
 msgstr ""
 "Abreviația secțiunii „{$sectionAbbrev}” din numărul „{$issueTitle}” se "

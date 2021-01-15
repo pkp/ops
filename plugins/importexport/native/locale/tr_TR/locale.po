@@ -85,14 +85,5 @@ msgstr "\"{$section1Abbrev}\" bölümünün kısa adı ve \"{$issueTitle}\" say�
 msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
 msgstr "\"{$issueTitle}\" sayısındaki  \"{$sectionAbbrev}\" bölümünün kısaltması, mevcut bir dergi bölümü ile eşleşti, ancak bu bölümün başka bir kısaltması, mevcut dergi bölümünün başka bir kısaltmasıyla uyuşmuyor."
 
-msgid "plugins.importexport.native.import.error.issueIdentificationMatch"
-msgstr "Sayılardan hiçbiri veya birden fazla sayı, belirtilen sayı tanımlaması \"{$issueIdentification}\" ile eşleşmiyor."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationDuplicate"
-msgstr "{$issueId} ID'si ile mevcut sayı, \"{$issueIdentification}\" ID'si ile verilen sayı bilgisiyle eşleşiyor. Bu sayı değiştirilmeyecek, ancak makaleler eklenecektir."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationMissing"
-msgstr "\"{$articleTitle}\" makalesi için sayı tanımlama öğesi eksik."
-
 msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr "\"{$articleTitle}\" makalesi bir sayı içende yer alıyor, ancak yayın bir yayın tarihi yok."

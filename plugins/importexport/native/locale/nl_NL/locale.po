@@ -85,14 +85,5 @@ msgstr "De afkortingen van secties \"{$section1Abbrev}\" en \"{$section2Abbrev}\
 msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
 msgstr "De afkorting van sectie \"{$sectionAbbrev}\" in het nummer \"{$issueTitle}\" komt overeen met een bestaande tijdschriftsectie, maar een andere afkorting van deze sectie komt niet overeen met een andere afkorting van de huidige tijdschriftsectie."
 
-msgid "plugins.importexport.native.import.error.issueIdentificationMatch"
-msgstr "Er zijn geen nummers die overeenkomen met de opgegeven nummer-identificatie \"{$issueIdentification}\"."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationDuplicate"
-msgstr "Het bestaande nummer met id {$issueId} komt overeen met de opgegeven issue id \"{$issueIdentification}\". Het nummer zal niet worden gewijzigd, maar artkels zullen worden toegevoegd."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationMissing"
-msgstr "Het element met de identicatie van het nummer ontbreekt voor het artikel \"{$articleTitle}\"."
-
 msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr "Het artikel \"{$articleTitle}\" is opgenomen in een nummer, maar heeft geen publicatiedatum."

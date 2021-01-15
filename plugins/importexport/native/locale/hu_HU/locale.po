@@ -91,14 +91,5 @@ msgstr "A rovatrövidítés \"{$section1Abbrev}\" és a rovatrövidítés \"{$se
 msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
 msgstr "A rovat rövidítése \"{$sectionAbbrev}\" ebben \"{$issueTitle}\" számban megyegyezik egy létező folyóiratrovattal, egy másik rovatrövidítés nem egyezik meg vele."
 
-msgid "plugins.importexport.native.import.error.issueIdentificationMatch"
-msgstr "Egy vagy több kiadvány nem egyezik meg az adott folyóiratszám azonosítóval \"{$issueIdentification}\"."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationDuplicate"
-msgstr "Létező folyóiratszám ezzel az azonosítóval {$issueId} megfelel az adott folyóiratszám azonosítónak \"{$issueIdentification}\".  Ez a folyóiratszám nem módosul, de a cikkek hozzáadásra kerülnek."
-
-msgid "plugins.importexport.native.import.error.issueIdentificationMissing"
-msgstr "A szám azonosító elem hiányzik ennél a cikknél. \"{$articleTitle}\"."
-
 msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr "A cikk \"{$articleTitle}\" egy számban szerepel, de nincs közzétételi dátuma."
