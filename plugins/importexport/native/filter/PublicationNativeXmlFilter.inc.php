@@ -35,7 +35,7 @@ class PublicationNativeXmlFilter extends PKPPublicationNativeXmlFilter {
 	 * @return string
 	 */
 	function getRepresentationExportFilterGroupName() {
-		return 'article-galley=>native-xml';
+		return 'preprint-galley=>native-xml';
 	}
 
 	//
@@ -67,7 +67,7 @@ class PublicationNativeXmlFilter extends PKPPublicationNativeXmlFilter {
 		if (!empty($pages)) $entityNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'pages', htmlspecialchars($pages, ENT_COMPAT, 'UTF-8')));
 
 		// cover images
-		import('pkp.lib.plugins.importexport.native.filter.PKPNativeFilterHelper');
+		import('lib.pkp.plugins.importexport.native.filter.PKPNativeFilterHelper');
 		$nativeFilterHelper = new PKPNativeFilterHelper();
 		$coversNode = $nativeFilterHelper->createPublicationCoversNode($this, $doc, $entity);
 		if ($coversNode) $entityNode->appendChild($coversNode);

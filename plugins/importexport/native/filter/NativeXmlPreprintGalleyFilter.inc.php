@@ -42,7 +42,7 @@ class NativeXmlPreprintGalleyFilter extends NativeXmlRepresentationFilter {
 	 * @copydoc PersistableFilter::getClassName()
 	 */
 	function getClassName() {
-		return 'plugins.importexport.native.filter.NativeXmlArticleGalleyFilter';
+		return 'plugins.importexport.native.filter.NativeXmlPreprintGalleyFilter';
 	}
 
 
@@ -99,7 +99,7 @@ class NativeXmlPreprintGalleyFilter extends NativeXmlRepresentationFilter {
 	}
 
 	/**
-	 * Process the self_file_ref node found inside the article_galley node.
+	 * Process the self_file_ref node found inside the preprint_galley node.
 	 * @param $node DOMElement
 	 * @param $deployment NativeImportExportDeployment
 	 * @param $representation ArticleGalley

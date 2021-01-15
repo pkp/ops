@@ -23,7 +23,7 @@ class NativeXmlPreprintFilter extends NativeXmlSubmissionFilter {
 	 * @copydoc PersistableFilter::getClassName()
 	 */
 	function getClassName() {
-		return 'plugins.importexport.native.filter.NativeXmlArticleFilter';
+		return 'plugins.importexport.native.filter.NativeXmlPreprintFilter';
 	}
 
 	/**

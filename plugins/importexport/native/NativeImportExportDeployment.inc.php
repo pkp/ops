@@ -26,7 +26,7 @@ class NativeImportExportDeployment extends PKPNativeImportExportDeployment {
 	 * @return string
 	 */
 	function getSubmissionNodeName() {
-		return 'article';
+		return 'preprint';
 	}
 
 	/**
@@ -34,14 +34,14 @@ class NativeImportExportDeployment extends PKPNativeImportExportDeployment {
 	 * @return string
 	 */
 	function getSubmissionsNodeName() {
-		return 'articles';
+		return 'preprints';
 	}
 
 	/**
 	 * Get the representation node name
 	 */
 	function getRepresentationNodeName() {
-		return 'article_galley';
+		return 'preprint_galley';
 	}
 
 	/**

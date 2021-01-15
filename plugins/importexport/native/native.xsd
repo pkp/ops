@@ -17,8 +17,8 @@
 	  -->
 	<include schemaLocation="../../../lib/pkp/plugins/importexport/native/pkp-native.xsd" />
 
-	<!-- Allow the use of "article" in place of "submission" -->
-	<element name="article" substitutionGroup="pkp:submission">
+	<!-- Allow the use of "preprint" in place of "submission" -->
+	<element name="preprint" substitutionGroup="pkp:submission">
 		<complexType>
 			<complexContent>
 				<extension base="pkp:submission">
@@ -36,7 +36,7 @@
 			</complexContent>
 		</complexType>
 	</element>
-	<element name="articles" substitutionGroup="pkp:submissions" />
+	<element name="preprints" substitutionGroup="pkp:submissions" />
 
 	<!-- Permit "citation" as a root element to keep the filters happy -->
 	<element name="citation" type="string" />
@@ -58,8 +58,8 @@
 		</complexType>
 	</element>
 
-	<!-- Configure the use of the "article_galley" representation -->
-	<element name="article_galley" substitutionGroup="pkp:representation">
+	<!-- Configure the use of the "preprint_galley" representation -->
+	<element name="preprint_galley" substitutionGroup="pkp:representation">
 		<complexType>
 			<complexContent>
 				<extension base="pkp:representation">

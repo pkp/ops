@@ -45,7 +45,7 @@ class NativeImportExportPlugin extends PKPNativeImportExportPlugin {
 	 * @see PKPNativeImportExportPlugin::getImportFilter
 	 */
 	function getImportFilter($xmlFile) {
-		$filter = 'native-xml=>article';
+		$filter = 'native-xml=>preprint';
 
 		$xmlString = file_get_contents($xmlFile);
 
@@ -58,7 +58,7 @@ class NativeImportExportPlugin extends PKPNativeImportExportPlugin {
 	function getExportFilter($exportType) {
 		$filter = false;
 		if ($exportType == 'exportSubmissions') {
-			$filter = 'article=>native-xml';
+			$filter = 'preprint=>native-xml';
 		}
 
 		return $filter;

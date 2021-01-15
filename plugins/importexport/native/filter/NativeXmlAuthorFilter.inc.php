@@ -10,7 +10,7 @@
  * @class NativeXmlAuthorFilter
  * @ingroup plugins_importexport_native
  *
- * @brief Class that converts a Native XML document to a set of articles.
+ * @brief Class that converts a Native XML document to a set of authors.
  */
 
 import('lib.pkp.plugins.importexport.native.filter.NativeXmlPKPAuthorFilter');
