@@ -29,9 +29,6 @@ msgstr "Nahrát XML soubor pro import"
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Exportovat články"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "Exportovat čísla"
-
 msgid "plugins.importexport.native.results"
 msgstr "Výsledky"
 

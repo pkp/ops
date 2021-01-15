@@ -62,9 +62,6 @@ msgstr "Seleccione los artículos para exportar"
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Exportar artículos"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "Exportar números"
-
 msgid "plugins.importexport.native.cliUsage"
 msgstr ""
 "Uso: {$scriptName} {$pluginName} [command] ...\n"

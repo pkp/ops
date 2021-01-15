@@ -87,9 +87,6 @@ msgstr "Vă rugăm să încărcați un fișier la „Importați” pentru a cont
 msgid "plugins.importexport.native.results"
 msgstr "Rezultate"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "Export Numere"
-
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Export articole"
 

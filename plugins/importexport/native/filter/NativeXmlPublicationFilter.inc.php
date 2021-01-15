@@ -47,7 +47,7 @@ class NativeXmlPublicationFilter extends NativeXmlPKPPublicationFilter {
 	}
 
 	/**
-	 * Populate the submission object from the node, checking first for a valid section and published_date/issue relationship
+	 * Populate the submission object from the node, checking first for a valid section and published_date relationship
 	 * @param $publication Publication
 	 * @param $node DOMElement
 	 * @return Publication
@@ -79,9 +79,6 @@ class NativeXmlPublicationFilter extends NativeXmlPKPPublicationFilter {
 		switch ($n->tagName) {
 			case 'article_galley':
 				$this->parseArticleGalley($n, $publication);
-				break;
-			case 'issue_identification':
-				// do nothing, because this is done in populatePublishedSubmission
 				break;
 			case 'pages':
 				$publication->setData('pages', $n->textContent);

@@ -86,9 +86,6 @@ msgstr "Veuillez téléverser un fichier sous « Importer » pour continuer."
 msgid "plugins.importexport.native.results"
 msgstr "Résultats"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "Exporter les numéros"
-
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Exporter les articles"
 

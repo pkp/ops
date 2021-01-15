@@ -29,9 +29,6 @@ msgstr "مقاله مورد نظر برای برون دهی را انتخاب ک
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "برون دهی مقالات"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "برون دهی شماره ها"
-
 msgid "plugins.importexport.native.results"
 msgstr "نتایج"
 

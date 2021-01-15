@@ -32,9 +32,6 @@ msgstr "Válasszon cikkeket exportáláshoz"
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Cikkek exportálása"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "Folyóiratszámok exportálása"
-
 msgid "plugins.importexport.native.results"
 msgstr "Eredmények"
 

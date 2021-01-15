@@ -29,9 +29,6 @@ msgstr "Выберите статьи для экспорта"
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Экспортировать статьи"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "Экспортировать выпуски"
-
 msgid "plugins.importexport.native.results"
 msgstr "Результаты"
 

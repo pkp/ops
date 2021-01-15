@@ -46,10 +46,8 @@
 			<complexContent>
 				<extension base="pkp:pkppublication">
 					<sequence>
-						<element ref="pkp:issue_identification" minOccurs="0" maxOccurs="1" />
 						<element maxOccurs="1" minOccurs="0" name="pages" type="string" />
 						<element ref="pkp:covers" minOccurs="0" maxOccurs="1" />
-						<element maxOccurs="1" minOccurs="0" name="issueId" type="int" />
 						<element ref="pkp:citations" minOccurs="0" maxOccurs="unbounded"/>
 					</sequence>
 					<attribute name="section_ref" type="string" use="required" />
@@ -75,71 +73,6 @@
 	<!--
 	  - Composite / root elements
 	  -->
-	<!-- Permit "issues" as a root element -->
-	<element name="issues">
-		<complexType>
-			<sequence>
-				<element ref="pkp:issue" maxOccurs="unbounded" />
-			</sequence>
-		</complexType>
-	</element>
-
-	<complexType name="issue">
-		<sequence>
-			<element ref="pkp:id" minOccurs="0" maxOccurs="unbounded" />
-			<element name="description" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
-			<element ref="pkp:issue_identification" minOccurs="1" maxOccurs="1" />
-			<!-- Metadata -->
-			<element name="date_published" type="date" minOccurs="0" maxOccurs="1" />
-			<element name="date_notified" type="date" minOccurs="0" maxOccurs="1" />
-			<element name="last_modified" type="date" minOccurs="0" maxOccurs="1" />
-			<element name="open_access_date" type="date" minOccurs="0" maxOccurs="1" />
-			<!-- sub elements -->
-			<element ref="pkp:sections" minOccurs="0" maxOccurs="1" />
-			<element ref="pkp:covers" minOccurs="0" maxOccurs="1" />
-			<element ref="pkp:issue_galleys" minOccurs="0" maxOccurs="1" />
-			<element ref="pkp:articles" minOccurs="1" maxOccurs="1" />
-		</sequence>
-		<attribute name="journal_id" type="int" use="optional" />
-		<attribute name="published" type="int" use="optional" />
-		<attribute name="current" type="int" use="optional" />
-		<attribute name="access_status" type="int" use="optional" />
-		<attribute name="url_path" type="string" use="optional" />
-	</complexType>
-
-	<element name="issue_identification">
-		<complexType>
-			<sequence>
-				<element name="volume" type="int" minOccurs="0" maxOccurs="1" />
-				<element name="number" type="string" minOccurs="0" maxOccurs="1" />
-				<element name="year" type="int" minOccurs="0" maxOccurs="1" />
-				<element name="title" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
-			</sequence>
-		</complexType>
-	</element>
-
-	<complexType name="issue_galley">
-		<sequence>
-			<element name="label" type="string" minOccurs="1" maxOccurs="1" />
-			<element ref="pkp:id" minOccurs="0" maxOccurs="unbounded" />
-			<element ref="pkp:issue_file" minOccurs="0" maxOccurs="1" />
-		</sequence>
-		<attribute name="locale" type="string" />
-	</complexType>
-
-	<complexType name="issue_file">
-		<sequence>
-			<element name="file_name" type="string" minOccurs="1" maxOccurs="1" />
-			<element name="file_type" type="string" minOccurs="1" maxOccurs="1" />
-			<element name="file_size" type="int" minOccurs="1" maxOccurs="1" />
-			<element name="content_type" type="int" minOccurs="1" maxOccurs="1" />
-			<element name="original_file_name" type="string" minOccurs="1" maxOccurs="1" />
-			<element name="date_uploaded" type="date" minOccurs="1" maxOccurs="1" />
-			<element name="date_modified" type="date" minOccurs="1" maxOccurs="1" />
-			<element name="embed" type="pkp:embed" />
-		</sequence>
-	</complexType>
-
 	<element name="covers">
 		<complexType>
 			<sequence>
@@ -156,14 +89,6 @@
 				<element name="embed" type="pkp:embed" />
 			</sequence>
 			<attribute name="locale" type="string" />
-		</complexType>
-	</element>
-
-	<element name="issue_galleys">
-		<complexType>
-			<sequence>
-				<element ref="pkp:issue_galley" minOccurs="0" maxOccurs="unbounded" />
-			</sequence>
 		</complexType>
 	</element>
 
@@ -193,15 +118,6 @@
 		<attribute name="hide_author" type="int" />
 		<attribute name="abstract_word_count" type="int" />
 	</complexType>
-
-	<!-- Permit "issue" as a root element -->
-	<element name="issue" type="pkp:issue" />
-
-	<!-- Permit "issue_galley" as a root element -->
-	<element name="issue_galley" type="pkp:issue_galley" />
-
-	<!-- Permit "issue_file" as a root element -->
-	<element name="issue_file" type="pkp:issue_file" />
 
 	<!-- Permit "section" as a root element -->
 	<element name="section" type="pkp:section" />

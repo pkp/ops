@@ -29,9 +29,6 @@ msgstr "Selecteer artikels om te exporteren"
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Exporteer artikels"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "Exporteer nummers"
-
 msgid "plugins.importexport.native.results"
 msgstr "Resultaten"
 

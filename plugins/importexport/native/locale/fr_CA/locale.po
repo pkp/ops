@@ -32,9 +32,6 @@ msgstr "Téléverser un fichier XML pour l'importer"
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Exporter les articles"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "Exporter les numéros"
-
 msgid "plugins.importexport.native.results"
 msgstr "Résultats"
 

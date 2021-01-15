@@ -33,9 +33,6 @@ msgstr "Wybierz artykuły do eksportu"
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Eksportuj artykuły"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "Eksportuj numery"
-
 msgid "plugins.importexport.native.results"
 msgstr "Wyniki"
 

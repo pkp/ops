@@ -80,9 +80,6 @@ msgstr ""
 "{$scriptName} {$pluginName} import [xmlFileName] [journal_path]\n"
 "issue_id [issueId] section_abbrev [abrev]\n"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "Exportar Edições"
-
 msgid "plugins.importexport.native.error.unknownSection"
 msgstr "Seção desconhecida {$param}"
 

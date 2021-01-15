@@ -29,9 +29,6 @@ msgstr "Dışa aktarılacak makaleleri seçin"
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Makaleleri Dışa Aktar"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "Sayıları Dışa Aktar"
-
 msgid "plugins.importexport.native.results"
 msgstr "Sonuçlar"
 

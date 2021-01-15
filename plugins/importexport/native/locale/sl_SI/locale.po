@@ -29,9 +29,6 @@ msgstr "Izberi prispevke za izvoz"
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Izvozi prispevke"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "Izvozi številke"
-
 msgid "plugins.importexport.native.results"
 msgstr "Rezultati"
 

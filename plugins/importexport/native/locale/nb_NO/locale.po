@@ -91,9 +91,6 @@ msgstr "Last opp en fil under «Import» for å fortsette."
 msgid "plugins.importexport.native.results"
 msgstr "Resultater"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "Eksporter utgaver"
-
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Eksporter artikler"
 

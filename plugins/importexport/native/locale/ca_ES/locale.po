@@ -56,8 +56,6 @@ msgstr ""
 "\texport [xmlFileName] [journal_path] articles [articleId1] [articleId2] ..."
 "\n"
 "\texport [xmlFileName] [journal_path] article [articleId]\n"
-"\texport [xmlFileName] [journal_path] issues [issueId1] [issueId2] ...\n"
-"\texport [xmlFileName] [journal_path] issue [issueId]\n"
 "\n"
 "Són necessaris paràmetres addicionals per importar dades de la següent "
 "manera,\n"
@@ -86,9 +84,6 @@ msgstr "Carregueu un arxiu en l'apartat \"Importar\" per continuar."
 
 msgid "plugins.importexport.native.results"
 msgstr "Resultats"
-
-msgid "plugins.importexport.native.exportIssues"
-msgstr "Exportar números"
 
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Exportar articles"

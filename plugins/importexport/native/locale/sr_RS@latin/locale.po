@@ -26,9 +26,6 @@ msgstr "Dostavite XML fajl za uvoz"
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Izvoz članaka"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "Izvoz brojeva časopisa"
-
 msgid "plugins.importexport.native.results"
 msgstr "Rezultati"
 

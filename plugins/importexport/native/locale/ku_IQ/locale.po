@@ -67,9 +67,6 @@ msgstr "تکایە فایلێک لە ژێر ''هاوردەکردن'' بار بک
 msgid "plugins.importexport.native.results"
 msgstr "ئەنجامەکان"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "هەناردەکردنی ژمارەکانی گۆڤار"
-
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "هەناردەکردنی توێژینەوەکان"
 

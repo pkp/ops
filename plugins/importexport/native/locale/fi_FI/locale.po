@@ -29,9 +29,6 @@ msgstr "Lataa tuotava XML-tiedosto"
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Vie artikkeleita"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "Vie numeroita"
-
 msgid "plugins.importexport.native.results"
 msgstr "Tulokset"
 

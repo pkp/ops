@@ -80,9 +80,6 @@ msgstr "Unggahlah file pada \"Impor\" untuk melanjutkan."
 msgid "plugins.importexport.native.results"
 msgstr "Hasil"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "Ekspor Issue"
-
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Ekspor artikel"
 

@@ -83,9 +83,6 @@ msgstr "Vui lòng tải lên một tập tin trong \"Nhập\" để tiếp tục
 msgid "plugins.importexport.native.results"
 msgstr "Kết quả"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "Xuất các số"
-
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Xuất các bài báo"
 

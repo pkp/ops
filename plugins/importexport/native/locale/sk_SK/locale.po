@@ -80,9 +80,6 @@ msgstr "Nahrajte, prosím, súbor pod \"Import\", aby ste mohli pokračovať."
 msgid "plugins.importexport.native.results"
 msgstr "Výsledky"
 
-msgid "plugins.importexport.native.exportIssues"
-msgstr "Exportovať čísla"
-
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Exportovať články"
 
