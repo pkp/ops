@@ -87,8 +87,8 @@ class NativeXmlPublicationFilter extends NativeXmlPKPPublicationFilter {
 				$publication->setData('pages', $n->textContent);
 				break;
 			case 'covers':
-				import('plugins.importexport.native.filter.NativeFilterHelper');
-				$nativeFilterHelper = new NativeFilterHelper();
+				import('pkp.lib.plugins.importexport.native.filter.PKPNativeFilterHelper');
+				$nativeFilterHelper = new PKPNativeFilterHelper();
 				$nativeFilterHelper->parsePublicationCovers($this, $n, $publication);
 				break;
 			default:
