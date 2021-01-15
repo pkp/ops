@@ -1,21 +1,21 @@
 <?php
 
 /**
- * @file plugins/importexport/native/filter/NativeXmlArticleFilter.inc.php
+ * @file plugins/importexport/native/filter/NativeXmlPreprintFilter.inc.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2000-2020 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class NativeXmlArticleFilter
+ * @class NativeXmlPreprintFilter
  * @ingroup plugins_importexport_native
  *
- * @brief Class that converts a Native XML document to a set of articles.
+ * @brief Class that converts a Native XML document to a set of Preprints.
  */
 
 import('lib.pkp.plugins.importexport.native.filter.NativeXmlSubmissionFilter');
 
-class NativeXmlArticleFilter extends NativeXmlSubmissionFilter {
+class NativeXmlPreprintFilter extends NativeXmlSubmissionFilter {
 	//
 	// Implement template methods from PersistableFilter
 	//

@@ -14,14 +14,14 @@
 	<filterGroups>
 		<!-- Native XML article output -->
 		<filterGroup
-			symbolic="article=>native-xml"
+			symbolic="preprint=>native-xml"
 			displayName="plugins.importexport.native.displayName"
 			description="plugins.importexport.native.description"
 			inputType="class::classes.submission.Submission[]"
 			outputType="xml::schema(plugins/importexport/native/native.xsd)" />
 		<!-- Native XML article input -->
 		<filterGroup
-			symbolic="native-xml=>article"
+			symbolic="native-xml=>preprint"
 			displayName="plugins.importexport.native.displayName"
 			description="plugins.importexport.native.description"
 			inputType="xml::schema(plugins/importexport/native/native.xsd)"
@@ -56,14 +56,14 @@
 			outputType="class::lib.pkp.classes.submission.SubmissionFile[]" />
 		<!-- Article Galley native XML output -->
 		<filterGroup
-			symbolic="article-galley=>native-xml"
+			symbolic="preprint-galley=>native-xml"
 			displayName="plugins.importexport.native.displayName"
 			description="plugins.importexport.native.description"
 			inputType="class::classes.article.ArticleGalley"
 			outputType="xml::schema(plugins/importexport/native/native.xsd)" />
 		<!-- Article Galley native XML input -->
 		<filterGroup
-			symbolic="native-xml=>ArticleGalley"
+			symbolic="native-xml=>PreprintGalley"
 			displayName="plugins.importexport.native.displayName"
 			description="plugins.importexport.native.description"
 			inputType="xml::schema(plugins/importexport/native/native.xsd)"
@@ -86,13 +86,13 @@
 	<filters>
 		<!-- Native XML article output -->
 		<filter
-			inGroup="article=>native-xml"
-			class="plugins.importexport.native.filter.ArticleNativeXmlFilter"
+			inGroup="preprint=>native-xml"
+			class="plugins.importexport.native.filter.PreprintNativeXmlFilter"
 			isTemplate="0" />
 		<!-- Native XML article input -->
 		<filter
-			inGroup="native-xml=>article"
-			class="plugins.importexport.native.filter.NativeXmlArticleFilter"
+			inGroup="native-xml=>preprint"
+			class="plugins.importexport.native.filter.NativeXmlPreprintFilter"
 			isTemplate="0" />
 		<!-- Native XML author output -->
 		<filter
@@ -116,13 +116,13 @@
 			isTemplate="0" />
 		<!-- Native XML article galley output -->
 		<filter
-			inGroup="article-galley=>native-xml"
-			class="plugins.importexport.native.filter.ArticleGalleyNativeXmlFilter"
+			inGroup="preprint-galley=>native-xml"
+			class="plugins.importexport.native.filter.PreprintGalleyNativeXmlFilter"
 			isTemplate="0" />
 		<!-- Native XML article galley input -->
 		<filter
-			inGroup="native-xml=>ArticleGalley"
-			class="plugins.importexport.native.filter.NativeXmlArticleGalleyFilter"
+			inGroup="native-xml=>PreprintGalley"
+			class="plugins.importexport.native.filter.NativeXmlPreprintGalleyFilter"
 			isTemplate="0" />
 		<filter
 			inGroup="publication=>native-xml"
