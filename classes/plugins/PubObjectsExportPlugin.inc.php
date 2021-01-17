@@ -696,6 +696,27 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin {
 			DAORegistry::getDAO('SubmissionFileDAO'),
 		);
 	}
+
+	/**
+	 * @see ImportExportPlugin::getImportFilter
+	 */
+	function getImportFilter($xmlFile) {
+		throw new MethodNotImplementedException();
+	}
+
+	/**
+	 * @see ImportExportPlugin::getExportFilter
+	 */
+	function getExportFilter($exportType) {
+		throw new MethodNotImplementedException();
+	}
+
+	/**
+	 * @see ImportExportPlugin::getAppSpecificDeployment
+	 */
+	function getAppSpecificDeployment($context, $user) {
+		throw new MethodNotImplementedException();
+	}
 }
 
 
