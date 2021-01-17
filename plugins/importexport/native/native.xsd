@@ -25,9 +25,6 @@
 					<attribute name="stage" use="required">
 						<simpleType>
 							<restriction base="string">
-								<enumeration value="submission" />
-								<enumeration value="externalReview" />
-								<enumeration value="editorial" />
 								<enumeration value="production" />
 							</restriction>
 						</simpleType>
