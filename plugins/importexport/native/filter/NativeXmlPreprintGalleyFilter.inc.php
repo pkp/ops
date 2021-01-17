@@ -97,15 +97,6 @@ class NativeXmlPreprintGalleyFilter extends NativeXmlRepresentationFilter {
 		// representation proof files
 		return $representation;
 	}
-
-	/**
-	 * Process the self_file_ref node found inside the preprint_galley node.
-	 * @param $node DOMElement
-	 * @param $deployment NativeImportExportDeployment
-	 * @param $representation ArticleGalley
-	 */
-	function _processFileRef($node, $deployment, $representation) {
-	}
 }
 
 
