@@ -59,10 +59,6 @@ class PublicationNativeXmlFilter extends PKPPublicationNativeXmlFilter {
 			$entityNode->setAttribute('section_ref', $section->getLocalizedAbbrev());
 		}
 
-		$isPublished = $entity->getData('status') === STATUS_PUBLISHED;
-		$isPublished ? $entityNode->setAttribute('seq', (int) $entity->getData('seq')) : $entityNode->setAttribute('seq', '0');
-		$isPublished ? $entityNode->setAttribute('access_status', $entity->getData('accessStatus')) : $entityNode->setAttribute('access_status', '0');
-
 		$pages = $entity->getData('pages');
 		if (!empty($pages)) $entityNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'pages', htmlspecialchars($pages, ENT_COMPAT, 'UTF-8')));
 
