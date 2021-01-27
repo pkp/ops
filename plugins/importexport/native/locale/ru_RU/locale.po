@@ -70,17 +70,5 @@ msgstr "Неизвестный раздел {$param}"
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "Указанный пользователь, «{$userName}», не существует."
 
-msgid "plugins.importexport.native.import.error.sectionTitleMismatch"
-msgstr "Название раздела «{$section1Title}» и название раздела «{$section2Title}» в выпуске «{$issueTitle}» совпали с различными существующими разделами журнала."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMatch"
-msgstr "Название раздела «{$sectionTitle}» в выпуске «{$issueTitle}» совпало с существующим разделом журнала, но другое название этого раздела не совпадает с другим названием существующего раздела журнала."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMismatch"
-msgstr "Аббревиатура раздела «{$section1Abbrev}» и аббревиатура раздела «{$section2Abbrev}» в выпуске «{$issueTitle}» совпали с различными существующими разделами журнала."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
-msgstr "Аббревиатура раздела «{$sectionAbbrev}» в выпуске «{$issueTitle}» совпала с существующим разделом журнала, но другая аббревиатура этого раздела не совпала с другой аббревиатурой существующего раздела журнала."
-
 msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr "Статья «{$articleTitle}» есть в выпуске, но для нее не указана дата публикации."

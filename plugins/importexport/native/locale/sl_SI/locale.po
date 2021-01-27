@@ -70,17 +70,5 @@ msgstr "Neznana rubrika {$param}"
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "Podani uporabnik, \"{$userName}\", ne obstaja."
 
-msgid "plugins.importexport.native.import.error.sectionTitleMismatch"
-msgstr "Naslov rubrike \"{$section1Title}\" in naslov rubrike \"{$section2Title}\" v številki \"{$issueTitle}\" se ujemata z različnima obstoječima rubrikama revije."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMatch"
-msgstr "Naslov rubrike \"{$sectionTitle}\" v številki \"{$issueTitle}\" se ujema z obstoječo rubriko, ampak se drug naslov te rubrike ne ujema z drugim naslovom obstoječe rubrike revije."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMismatch"
-msgstr "Okrajšava rubrike \"{$section1Abbrev}\" in okrajšava rubrike \"{$section2Abbrev}\" v številki \"{$issueTitle}\" se ujemata z različnima obstoječima rubrikama revije."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
-msgstr "Okrajšava rubrike \"{$sectionAbbrev}\" v številki \"{$issueTitle}\" se ujema z obstoječo rubriko, ampak se druga okrajšava te rubrike ne ujema z drugo okrajšavo obstoječe rubrike revije."
-
 msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr "Prispevek \"{$articleTitle}\" je vsebovan v številki, ampak nima datuma izdaje."

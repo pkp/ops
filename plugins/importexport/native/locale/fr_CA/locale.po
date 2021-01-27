@@ -50,19 +50,6 @@ msgstr "Section {$param} inconnue"
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "L'utilisateur-trice spécifié-e, « {$userName} », n'existe pas."
 
-msgid "plugins.importexport.native.import.error.sectionTitleMismatch"
-msgstr ""
-"Le titre de rubrique « {$section1Title} » et le titre de rubrique « "
-"{$section2Title} » dans le numéro « {$issueTitle} » sont identiques à des "
-"rubriques existantes dans la revue."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMatch"
-msgstr ""
-"Le titre de rubrique « {$sectionTitle} » dans le numéro « {$issueTitle} » "
-"est identique à une rubrique existante dans la revue, mais un autre titre de "
-"cette rubrique ne correspond pas à un autre titre dans une rubrique "
-"existante de la revue."
-
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Sélectionner les articles à exporter"
 

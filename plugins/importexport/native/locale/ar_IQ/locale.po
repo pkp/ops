@@ -63,17 +63,5 @@ msgstr "قسم غير معروف: {$param}"
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "المستخدم المحدد: \"{$userName}\"غير موجود."
 
-msgid "plugins.importexport.native.import.error.sectionTitleMismatch"
-msgstr "إن عنوان القسم \"{$section1Title}\" وعنوان القسم \"{$section2Title}\" ضمن العدد \"{$issueTitle}\" يطابقان أقسام أخرى مغايرة في المجلة."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMatch"
-msgstr "إن عنوان القسم \"{$sectionTitle}\" ضمن العدد \"{$issueTitle}\" يطابق أحد الأقسام الموجودة في المجلة، غير أن عنواناً آخر في هذا القسم لا يطابق عنواناً آخر ضمن ذلك القسم من المجلة."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMismatch"
-msgstr "إن مختصر القسم \"{$section1Abbrev}\" ومختصر القسم \"{$section2Abbrev}\" ضمن العدد \"{$issueTitle}\" يطابقان أقسام أخرى مغايرة في المجلة."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
-msgstr "إن مختصر القسم \"{$sectionAbbrev}\" ضمن العدد \"{$issueTitle}\" يطابق أحد الأقسام الموجودة في المجلة، غير أن مختصراً آخر في هذا القسم لا يطابق مختصراً آخر ضمن ذلك القسم من المجلة."
-
 msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr "إن المقالة \"{$articleTitle}\" مضمنة في أحد الأعداد، لكنها بلا تأريخ نشر."

@@ -70,17 +70,5 @@ msgstr "Unbekannte Rubrik {$param}"
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "Der angegebene Nutzer/die angegebene Nutzerin, \"{$userName}\", existiert nicht."
 
-msgid "plugins.importexport.native.import.error.sectionTitleMismatch"
-msgstr "Rubrikentitel \"{$section1Title}\" und Rubrikentitel \"{$section2Title}\" in Ausgabe \"{$issueTitle}\" sind mit existierenden Rubriken vereinbar."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMatch"
-msgstr "Rubrikentitel \"{$sectionTitle}\" in Ausgabe \"{$issueTitle}\" ist mit einer existierenden Rubrik vereinbar, aber ein anderer Titel ist mit existierenden Rubrikentiteln in dieser Zeitschrift nicht vereinbar."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMismatch"
-msgstr "Rubrikenabkürzung \"{$section1Abbrev}\" und Rubrikenabkürzung \"{$section2Abbrev}\" in Ausgabe \"{$issueTitle}\" sind mit existierenden Rubriken vereinbar."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
-msgstr "Die Rubrikenabkürzung \"{$sectionAbbrev}\" in Ausgabe \"{$issueTitle}\" ist mit einer existierenden Rubrik vereinbar, aber eine andere Rubrikenabkürzung ist mit existierenden Rubrikenabkürzungen in dieser Zeitschrift nicht vereinbar."
-
 msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr "Der Artikel \"{$articleTitle}\" ist in einer Ausgabe enthalten, aber hat kein Veröffentlichungsdatum."

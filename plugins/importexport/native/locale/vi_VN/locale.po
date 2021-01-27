@@ -19,30 +19,6 @@ msgstr ""
 "Bài báo \"{$articleTitle}\" được chứa trong một số xuất bản, nhưng không có "
 "ngày xuất bản."
 
-msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
-msgstr ""
-"Viết tắt của chuyên mục \"{$sectionAbbrev}\" trong số \"{$issueTitle}\"phù "
-"hợp với các chuyên mục hiện có, nhưng một viết tắt khác của chuyên mục này "
-"không khớp với viết tắt của các chuyên mục tạp chí hiện có."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMismatch"
-msgstr ""
-"Viết tắt của chuyên mục \"{$section1Abbrev}\" và viết tắt của chuyên mục \""
-"{$section2Abbrev}\" của số \"{$issueTitle}\" phù hợp trong sự khác nhau "
-"với các chuyên mục hiện có của tạp chí."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMatch"
-msgstr ""
-"Tiêu đề của chuyên mục \"{$sectionTitle}\" trong số \"{$issueTitle}\" phù "
-"hợp với các chuyên mục hiện có, nhưng một tiêu đề khác của chuyên mục này "
-"không khớp với tiêu đề khác của các chuyên mục hiện có của tạp chí."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMismatch"
-msgstr ""
-"Tiêu đề của chuyên mục \"{$section1Title}\" và tiêu đề của chuyên mục \""
-"{$section2Title}\" trong số \"{$issueTitle}\" phù hợp với sự  khác nhau của "
-"các chuyên mục hiện có của tạp chí."
-
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "Người dùng được chỉ định, \"{$userName}\", không tồn tại."
 

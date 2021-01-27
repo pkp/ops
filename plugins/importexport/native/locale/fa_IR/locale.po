@@ -47,17 +47,5 @@ msgstr "بخش ناشناس {$param}"
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "کاربر ذکر شده \"{$userName}\" وجود ندارد."
 
-msgid "plugins.importexport.native.import.error.sectionTitleMismatch"
-msgstr "نوع مقاله ذکر شده \"{$section1Title}\" و \"{$section2Title}\" در شماره مجله \"{$issueTitle}\" برای نوع دیگری از مقاله در این مجله بکار رفته است."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMatch"
-msgstr "عنوان نوع مقاله \"{$sectionTitle}\" در شماره مجله \"{$issueTitle}\" برای یک نوع دیگز مقاله بکار رفته است ولی عنوان دیگر این نوع مقاله تکراری نیست."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMismatch"
-msgstr "علامت اختصاری نوع مقاله اول \"{$section1Abbrev}\" و دوم \"{$section2Abbrev}\" در مجله شماره \"{$issueTitle}\" مطابقت با مجلات مختلفی دارند."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
-msgstr "علامت اختصاری \"{$sectionAbbrev}\" در شماره مجله \"{$issueTitle}\" مطابق با مجله موجودی است ولی علامت اختصاری دیگر آن مطابقت ندارد."
-
 msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr "مقاله «{$articleTitle}» در داخل شماره‌ای گنجانده شده است، اما دارای تاریخ انتشاری نمی‌باشد."

@@ -16,32 +16,6 @@ msgstr ""
 "L'article \"{$articleTitle}\" està inclòs en un número, però no té data de "
 "publicació."
 
-msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
-msgstr ""
-"L'abreviatura de secció \"{$sectionTitle}\" en el número \"{$issueTitle}\" "
-"es correspon amb una secció existent de la revista, però una altra "
-"abreviatura d'aquesta secció no coincideix amb cap abreviatura de la secció "
-"existent de la revista."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMismatch"
-msgstr ""
-"Les abreviatures de les seccions \"{$section1Abbrev}\" i \"{$section2Abbrev}"
-"\" del número \"{$issueTitle}\" corresponen a les diferents seccions "
-"existents de la revista."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMatch"
-msgstr ""
-"El títol de secció \"{$sectionTitle}\" en el número \"{$issueTitle}\" es "
-"correspon amb una secció existent de la revista, però un altre títol "
-"d'aquesta secció no coincideix amb cap títol de la secció existent de la "
-"revista."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMismatch"
-msgstr ""
-"Els títols de les seccions \"{$section1Title}\" i \"{$section2Title}\" del "
-"número \"{$issueTitle}\" corresponen a les diferents seccions existents de "
-"la revista."
-
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "L'usuari/ària especificat (\"{$userName}\") no existeix."
 

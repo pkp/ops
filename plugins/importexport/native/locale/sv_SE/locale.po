@@ -70,17 +70,5 @@ msgstr "Okänd sektion: {$param}"
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "Användaren \"{$userName}\" existerar inte."
 
-msgid "plugins.importexport.native.import.error.sectionTitleMismatch"
-msgstr "Sektionstiteln \"{$section1Title}\" och sektionstiteln \"{$section2Title}\" i numret \"{$issueTitle}\" matchade flera existerande tidskriftssektioner."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMatch"
-msgstr "Sektionstiteln \"{$sectionTitle}\" i numret \"{$issueTitle}\" matchade en existerande tidskriftssektion, men en annan titel i den här sektionen matchar inte någon annan titel i den existerande tidskriftssektionen."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMismatch"
-msgstr "Sektionsförkortningen \"{$section1Abbrev}\" och sektionsförkortningen \"{$section2Abbrev}\" i numret \"{$issueTitle}\" matchade flera existerande tidskriftssektioner."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
-msgstr "Sektionsförkortningen \"{$sectionAbbrev}\" i numret \"{$issueTitle}\" matchade en existerande tidskriftssektion, men en annnan förkortning för den här sektionen matchar inte någon annan förkortning för den existerande tidskriftssektionen."
-
 msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr "Artikeln \"{$articleTitle}\" finns i ett nummer, men har inget publiceringsdatum."

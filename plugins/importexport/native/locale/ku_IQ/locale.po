@@ -11,21 +11,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "plugins.importexport.native.import.error.sectionAbbrevMismatch"
-msgstr ""
-"کورتکراوەی بەشی \"{$section1Abbrev}\" و کورتکراوەی بەشی \"{$section2Abbrev}\""
-" لە ژمارەی  \"{$issueTitle}\" هاوشێوەی بەشەکانی دیکەن لەم گۆڤارەدا."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMatch"
-msgstr ""
-"ناونیشانی بەشی  \"{$section1Title}\"  لە \"{$issueTitle}\" لەگەڵ بەشێکی "
-"دیکەی گۆڤارێکە هاوشێوەیە، بەڵام ناونیشانی بەشەکەی دیکە هاوشێوەیی تێدا نییە."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMismatch"
-msgstr ""
-"ناونیشانی بەشی\"{$section1Title}\" و ناونیشانی بەشی\"{$section2Title}\" لە \""
-"{$issueTitle}\" لەگەڵ بەشێکی دیکەی گۆڤارەکە هاوشێوەیە."
-
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "بەکارهێنەری دیاریکراو: \"{$userName}\"بەردەست نییە."
 

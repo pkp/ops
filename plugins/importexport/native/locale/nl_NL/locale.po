@@ -70,17 +70,5 @@ msgstr "Onbekende sectie {$param}"
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "De opgegeven gebruiker \"{$userName} bestaat niet."
 
-msgid "plugins.importexport.native.import.error.sectionTitleMismatch"
-msgstr "De sectietitels van \"{$section1Title}\" en \"{$section2Title}\" in  het nummer \"{$issueTitle}\" komen overeen met de verschillende secties in het tijdschrift."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMatch"
-msgstr "De sectietitel \"{$sectionTitle}\" in het nummer \"{$issueTitle}\" komt overeen met een bestaande tijdschriftsectie, maar een andere titel van deze sectie komt niet overeen met een andere titel van de huidige tijdschriftsectie."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMismatch"
-msgstr "De afkortingen van secties \"{$section1Abbrev}\" en \"{$section2Abbrev}\" in  het nummer \"{$issueTitle}\" komen overeen met de verschillende secties in het tijdschrift."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
-msgstr "De afkorting van sectie \"{$sectionAbbrev}\" in het nummer \"{$issueTitle}\" komt overeen met een bestaande tijdschriftsectie, maar een andere afkorting van deze sectie komt niet overeen met een andere afkorting van de huidige tijdschriftsectie."
-
 msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr "Het artikel \"{$articleTitle}\" is opgenomen in een nummer, maar heeft geen publicatiedatum."

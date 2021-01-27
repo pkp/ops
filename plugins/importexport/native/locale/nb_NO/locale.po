@@ -24,31 +24,6 @@ msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr ""
 "Artikkelen «{$articleTitle}» er i en utgave, men har ingen publiseringsdato."
 
-msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
-msgstr ""
-"Seksjonsforkortelsen «{$sectionAbbrev}» i utgaven «{$issueTitle}» stemte "
-"overens med en eksisterende tidsskriftsseksjon, men en annen forkortelse av "
-"denne seksjonen stemmer ikke overens med en annen forkortelse av den "
-"eksisterende tidsskriftsseksjonen."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMismatch"
-msgstr ""
-"Seksjonsforkortelsen «{$section1Abbrev}» og seksjonsforkortelsen "
-"«{$section2Abbrev}» i utgaven «{$issueTitle}» stemte overens med ulike "
-"eksisterende tidsskriftsseksjoner."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMatch"
-msgstr ""
-"Seksjonstittelen «{$sectionTitle}» i utgaven «{$issueTitle}» stemte med en "
-"eksisterende tidsskriftssekjson, men en annen tittel i denne seksjonen "
-"stemmer ikke overens med en annen tittel i den eksisterende "
-"tidsskriftsseksjonen."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMismatch"
-msgstr ""
-"Seksjonstitene «{$section1Title}» og «{$section2Title}» i utgaven "
-"«{$issueTitle}» stemte med ulike eksisterende tidsskriftseksjoner."
-
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "Brukeren du spesifiserte, «{$userName}», finnes ikke."
 

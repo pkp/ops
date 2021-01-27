@@ -70,17 +70,5 @@ msgstr "Невідомий розділ {$param}"
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "Вказаний користувач, \"{$userName}\", не існує."
 
-msgid "plugins.importexport.native.import.error.sectionTitleMismatch"
-msgstr "Назва розділу \"{$section1Title}\" та назва розділу \"{$section2Title}\" у випуску \"{$issueTitle}\" співпадають з різними існуючими розідлами журналу."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMatch"
-msgstr "Назва розділу \"{$sectionTitle}\" у випуску \"{$issueTitle}\" співпадає з існуючим розділом журналу, але інша назва цього розділу не збігається з іншою назвою існуючого розділу журналу."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMismatch"
-msgstr "Абревіатура розділу \"{$section1Abbrev}\" та абревіатура розділу \"{$section2Abbrev}\" у випуску \"{$issueTitle}\" співпадає з різними існуючими розділами журналу."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
-msgstr "Абревіатура розділу \"{$sectionAbbrev}\" у випуску \"{$issueTitle}\" співпадає з існуючим розділом журналу, але інша абревіатура цього розділу не співпадає з іншою абревіатурою існуючого розділу журналу."
-
 msgid "plugins.importexport.native.import.error.publishedDateMissing"
 msgstr "Стаття \"{$articleTitle}\" є у випуску, але для неї не вказана дата публікації."

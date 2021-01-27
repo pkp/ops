@@ -71,18 +71,6 @@ msgstr "Neznámá sekce {$param}"
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "Zadaný úživatel \"{$userName}\" neexistuje."
 
-msgid "plugins.importexport.native.import.error.sectionTitleMismatch"
-msgstr "Název sekce \"{$section1Title}\" a název sekce \"{$section2Title}\" v čísle {$issueTitle} odpovídá různým stávajícím sekcím časopisu."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMatch"
-msgstr "Název sekce \"{$sectionTitle}\" v čísle {$issueTitle} odpovídal existující sekci časopisu, ale jiný název této sekce neodpovídá jinému názvu stávající sekce časopisu."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMismatch"
-msgstr "Zkratka sekce \"{$section1Abbrev}\" a zkratka sekce {$section2Abbrev}\" čísla \"{$issueTitle}\" odpovídají různým stávajícím sekcím časopisu."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
-msgstr "Zkratka sekce \"{$sectionAbbrev}\" v čísle \"{$issueTitle}\" odpovídá existující sekci časopisu, ale další zkratka této sekce neodpovídá jiné zkratce existující sekce časopisu."
-
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Zvolte článek pro export"
 

@@ -38,18 +38,6 @@ msgstr "Ole hyvä ja lataa tiedosto kohdassa \"Tuo\" jatkaaksesi."
 msgid "plugins.importexport.native.importComplete"
 msgstr "Tuonti onnistui. Seuraavat kohteet tuotiin:"
 
-msgid "plugins.importexport.native.import.error.sectionTitleMismatch"
-msgstr "Osaston otsikko \"{$section1Title}\" ja osaston otsikko \"{$section2Title}\" numerossa \"{$issueTitle}\" täsmäsivät eri olemassa olevien osastojen kanssa."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
-msgstr "Osaston lyhenne \"{$sectionAbbrev}\"numerossa \"{$issueTitle}\" täsmää jo olemassa olevan lehden osaston kanssa, mutta toinen osastosta käytetty lyhenne ei täsmää toisen lyhenteen kanssa, joka on käytössä olemassa olevassa lehden osastossa."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMatch"
-msgstr "Osaston otsikko \"{$sectionTitle}\" numerossa \"{$issueTitle}\" täsmää jo olemassa olevan lehden osaston kanssa, mutta toinen osastosta käytetty lyhenne ei täsmää toisen lyhenteen kanssa, joka on käytössä olemassa olevassa lehden osastossa."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMismatch"
-msgstr "Osaston lyhenne \"{$section1Abbrev}\" ja osaston lyhenne \"{$section2Abbrev}\" numerossa\"{$issueTitle}\" täsmäsivät eri olemassa olevien osastojen kanssa."
-
 msgid "plugins.importexport.native.error.unknownSection"
 msgstr "Tuntematon osasto  {$param}"
 

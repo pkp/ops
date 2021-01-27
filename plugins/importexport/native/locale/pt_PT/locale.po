@@ -72,18 +72,6 @@ msgstr "Secção desconhecida {$param}"
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "O utilizador especificado, \"{$userName}\", não existe."
 
-msgid "plugins.importexport.native.import.error.sectionTitleMismatch"
-msgstr "O título da secção \"{$section1Title}\" e o título da secção \"{$section2Title}\" no número \"{$issueTitle}\" corresponderam com as diferentes secções existentes da revista."
-
-msgid "plugins.importexport.native.import.error.sectionTitleMatch"
-msgstr "O título da secção \"{$sectionTitle}\" no número \"{$issueTitle}\" corresponde a uma secção existente da revista, mas outro título desta secção não coincide com outro título da seção existente da revista."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMismatch"
-msgstr "A abreviatura da secção \"{$section1Abbrev}\" e a abreviatura da secção \"{$section2Abbrev}\" do número \"{$issueTitle}\" correspondem às diferentes secções existentes da revista ."
-
-msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
-msgstr "A abreviatura da secção \"{$sectionAbbrev}\" no número \"{$issueTitle}\" corresponde a uma secção existente da revista, mas uma outra abreviatura desta secção não corresponde a outra abreviatura da secção existente da revista."
-
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Selecione artigos para exportar"
 
