@@ -75,6 +75,3 @@ msgstr "O utilizador especificado, \"{$userName}\", não existe."
 
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Selecione artigos para exportar"
-
-msgid "plugins.importexport.native.import.error.publishedDateMissing"
-msgstr "O artigo  \"{$articleTitle}\" faz parte de um número, mas não tem data de publicação."

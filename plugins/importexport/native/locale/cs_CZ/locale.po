@@ -74,6 +74,3 @@ msgstr "Zadaný úživatel \"{$userName}\" neexistuje."
 
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Zvolte článek pro export"
-
-msgid "plugins.importexport.native.import.error.publishedDateMissing"
-msgstr "Článek \"{$articleTitle}\" je obsažen v tomto čísle, ale nemá zadáno datum zveřejnění."

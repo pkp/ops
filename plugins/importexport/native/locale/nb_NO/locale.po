@@ -20,10 +20,6 @@ msgstr "Programtillegg for Lokal XML"
 msgid "plugins.importexport.native.description"
 msgstr "Importer og eksporter artikler og hefter i OJS lokale XML format."
 
-msgid "plugins.importexport.native.import.error.publishedDateMissing"
-msgstr ""
-"Artikkelen «{$articleTitle}» er i en utgave, men har ingen publiseringsdato."
-
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "Brukeren du spesifiserte, «{$userName}», finnes ikke."
 

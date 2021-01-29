@@ -94,8 +94,3 @@ msgstr ""
 "correspond à un rubrique existante de la revue, mais une autre abréviation "
 "de cette rubrique ne correspond pas à aucune autre abréviation de rubrique "
 "existante."
-
-msgid "plugins.importexport.native.import.error.publishedDateMissing"
-msgstr ""
-"L'article intitulé « {$articleTitle} » se retrouve dans un numéro, mais n'a "
-"pas de date de publication."

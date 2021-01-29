@@ -70,6 +70,3 @@ msgstr "Neznana rubrika {$param}"
 
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "Podani uporabnik, \"{$userName}\", ne obstaja."
-
-msgid "plugins.importexport.native.import.error.publishedDateMissing"
-msgstr "Prispevek \"{$articleTitle}\" je vsebovan v številki, ampak nima datuma izdaje."

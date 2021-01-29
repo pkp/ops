@@ -63,6 +63,3 @@ msgstr "قسم غير معروف: {$param}"
 
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "المستخدم المحدد: \"{$userName}\"غير موجود."
-
-msgid "plugins.importexport.native.import.error.publishedDateMissing"
-msgstr "إن المقالة \"{$articleTitle}\" مضمنة في أحد الأعداد، لكنها بلا تأريخ نشر."

@@ -73,11 +73,6 @@ msgstr ""
 msgid "plugins.importexport.native.displayName"
 msgstr "گرێدانی XMLی ڕەسەن"
 
-msgid "plugins.importexport.native.import.error.publishedDateMissing"
-msgstr ""
-"توێژینەوەی \"{$articleTitle}\" لەگەڵ ژمارەیەکی گۆڤارە بەڵام ڕێککەوتی "
-"بڵاوکردنەوەی لەسەر نییە."
-
 msgid "plugins.importexport.native.import.error.sectionAbbrevMatch"
 msgstr ""
 "کورتکراوەی بەشی\"{$sectionAbbrev}\" لە ژمارەی \"{$issueTitle}\" هاوشێوەی "
