@@ -14,6 +14,10 @@ New config.inc.php parameters:
 		is to be disabled. Not recommended unless you're sure. Default: Off
 	- curl.cainfo - Path to Certificate Authority (CA) bundle.
 
+3.2.1-4 Build
+-------------
+	#6718: SECURITY Revisit Update Illuminate Database library for GHSA-3p32-j457-pg5x (#6632)
+
 3.2.1-3 Build
 -------------
 	#6632: Update Illuminate Database library for GHSA-3p32-j457-pg5x
