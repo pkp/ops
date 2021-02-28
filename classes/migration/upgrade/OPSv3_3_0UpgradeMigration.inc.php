@@ -22,7 +22,7 @@ class OPSv3_3_0UpgradeMigration extends Migration {
 	 * @return void
 	 */
 	public function up() {
-		Capsule::schema()->table('server_settings', function (Blueprint $table) {
+		Capsule::schema()->table('journal_settings', function (Blueprint $table) {
 			// pkp/pkp-lib#6096 DB field type TEXT is cutting off long content
 			$table->mediumText('setting_value')->nullable()->change();
 		});
@@ -34,8 +34,8 @@ class OPSv3_3_0UpgradeMigration extends Migration {
 		$this->_migrateSubmissionFiles();
 
 		// Delete the old MODS34 filters
-		Capsule::statement("DELETE FROM filters WHERE class_name='plugins.metadata.mods34.filter.Mods34SchemaPreprintAdapter'");
-		Capsule::statement("DELETE FROM filter_groups WHERE symbolic IN ('preprint=>mods34', 'mods34=>preprint')");
+		Capsule::statement("DELETE FROM filters WHERE class_name='plugins.metadata.mods34.filter.Mods34SchemaArticleAdapter'");
+		Capsule::statement("DELETE FROM filter_groups WHERE symbolic IN ('article=>mods34', 'mods34=>article')");
 	}
 
 	/**
@@ -43,7 +43,7 @@ class OPSv3_3_0UpgradeMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Capsule::schema()->table('server_settings', function (Blueprint $table) {
+		Capsule::schema()->table('journal_settings', function (Blueprint $table) {
 			// pkp/pkp-lib#6096 DB field type TEXT is cutting off long content
 			$table->text('setting_value')->nullable()->change();
 		});
@@ -56,7 +56,7 @@ class OPSv3_3_0UpgradeMigration extends Migration {
 	private function _settingsAsJSON() {
 
 		// Convert settings where type can be retrieved from schema.json
-		$schemaDAOs = ['SiteDAO', 'AnnouncementDAO', 'AuthorDAO', 'PreprintGalleyDAO', 'ServerDAO', 'EmailTemplateDAO', 'PublicationDAO', 'SubmissionDAO'];
+		$schemaDAOs = ['SiteDAO', 'AnnouncementDAO', 'AuthorDAO', 'ArticleGalleyDAO', 'JournalDAO', 'EmailTemplateDAO', 'PublicationDAO', 'SubmissionDAO'];
 		$processedTables = [];
 		foreach ($schemaDAOs as $daoName) {
 			$dao = DAORegistry::getDAO($daoName);
