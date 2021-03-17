@@ -22,6 +22,7 @@ msgstr "Zadaný používateľ \"{$userName}\" neexistuje."
 msgid "plugins.importexport.native.error.unknownSection"
 msgstr "Neznáma sekcia {$param}"
 
+#, fuzzy
 msgid "plugins.importexport.native.cliUsage"
 msgstr ""
 "Použitie: {$scriptName} {$pluginName} [command] ...\n"

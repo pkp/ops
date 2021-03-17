@@ -41,6 +41,7 @@ msgstr "A importação foi concluída com êxito. Os seguintes itens foram impor
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Exportar Artigos"
 
+#, fuzzy
 msgid "plugins.importexport.native.cliUsage"
 msgstr ""
 "Uso: {$scriptName} {$pluginName} [comando] ...\n"

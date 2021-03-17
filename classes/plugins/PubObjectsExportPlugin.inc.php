@@ -515,7 +515,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin {
 		if (!$context) {
 			if ($contextPath != '') {
 				echo __('plugins.importexport.common.cliError') . "\n";
-				echo __('plugins.importexport.common.error.unknownServer', array('serverPath' => $contextPath)) . "\n\n";
+				echo __('plugins.importexport.common.error.unknownContext', array('contextPath' => $contextPath)) . "\n\n";
 			}
 			$this->usage($scriptName);
 			return;
