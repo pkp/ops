@@ -14,9 +14,11 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "Plugin nativního XML"
 
+#, fuzzy
 msgid "plugins.importexport.native.description"
 msgstr "Importuje a exportuje v OJS články a čísla v OJS nativním XML formátu."
 
@@ -72,5 +74,6 @@ msgstr "Neznámá sekce {$param}"
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "Zadaný úživatel \"{$userName}\" neexistuje."
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Zvolte článek pro export"

@@ -57,6 +57,7 @@ msgstr "Výsledky"
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Exportovať články"
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Zvoľte článok pre export"
 
@@ -69,5 +70,6 @@ msgstr "Import"
 msgid "plugins.importexport.native.description"
 msgstr "Importuje a exportuje v OJS články a čísla v OJS natívnom XML formáte."
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "Plugin natívneho XML"

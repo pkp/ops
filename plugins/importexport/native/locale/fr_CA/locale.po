@@ -15,9 +15,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "Plugiciel XML natif d'OJS"
 
+#, fuzzy
 msgid "plugins.importexport.native.description"
 msgstr ""
 "Importer et exporter des articles et des numéros dans le format XML natif "
@@ -50,6 +52,7 @@ msgstr "Section {$param} inconnue"
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "L'utilisateur-trice spécifié-e, « {$userName} », n'existe pas."
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Sélectionner les articles à exporter"
 

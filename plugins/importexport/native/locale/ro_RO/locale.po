@@ -61,6 +61,7 @@ msgstr "Rezultate"
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Export articole"
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Selectați articolele pentru export"
 
@@ -70,9 +71,11 @@ msgstr "Încărcați fișierul XML pentru import"
 msgid "plugins.importexport.native.import"
 msgstr "Importați"
 
+#, fuzzy
 msgid "plugins.importexport.native.description"
 msgstr ""
 "Importă și exportă articole și numerele în formatul original XML al OJS."
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "Plugin XML Nativ"

@@ -11,9 +11,11 @@ msgstr ""
 "PO-Revision-Date: 2019-11-19T11:05:44+00:00\n"
 "Language: \n"
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "Native XML dodatak"
 
+#, fuzzy
 msgid "plugins.importexport.native.description"
 msgstr "Uvozi i izvozi članke  i brojeve časopisa u primarnom  OJS XML formatu."
 

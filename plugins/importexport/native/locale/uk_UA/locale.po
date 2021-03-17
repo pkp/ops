@@ -11,9 +11,11 @@ msgstr ""
 "PO-Revision-Date: 2019-11-19T11:05:44+00:00\n"
 "Language: \n"
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "Модуль \"Власний XML\""
 
+#, fuzzy
 msgid "plugins.importexport.native.description"
 msgstr "Імпортує та експортує статті та випуски у власний XML-формат OJS."
 
@@ -23,6 +25,7 @@ msgstr "Імпорт"
 msgid "plugins.importexport.native.import.instructions"
 msgstr "Завантажити файл з XMLдля імпорту"
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Оберіть статті для експорту"
 

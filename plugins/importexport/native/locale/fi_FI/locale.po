@@ -14,9 +14,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "Järjestelmän XML-lisäosa"
 
+#, fuzzy
 msgid "plugins.importexport.native.description"
 msgstr "Tuo ja vie artikkeleita ja numeroita OJS-järjestelmän omassa XML-muodossa."
 
@@ -44,6 +46,7 @@ msgstr "Tuntematon osasto  {$param}"
 msgid "plugins.importexport.native.error.unknownUser"
 msgstr "Annettua käyttäjää \"{$userName}\" ei ole olemassa."
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Valitse vietävät artikkelit"
 

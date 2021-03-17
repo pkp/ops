@@ -11,9 +11,11 @@ msgstr ""
 "PO-Revision-Date: 2019-11-19T11:05:44+00:00\n"
 "Language: \n"
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "Domači XML vtičnik"
 
+#, fuzzy
 msgid "plugins.importexport.native.description"
 msgstr "Uvozi ali izvozi prispevke in številke v domači OJS XML obliki."
 
@@ -23,6 +25,7 @@ msgstr "Uvoz"
 msgid "plugins.importexport.native.import.instructions"
 msgstr "Naloži XML datoteko za uvoz"
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Izberi prispevke za izvoz"
 

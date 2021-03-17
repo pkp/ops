@@ -56,6 +56,7 @@ msgstr "Hasil"
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Ekspor artikel"
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Pilih artikel untuk diekspor"
 
@@ -65,8 +66,10 @@ msgstr "Unggah file XML untuk diimpor"
 msgid "plugins.importexport.native.import"
 msgstr "Impor"
 
+#, fuzzy
 msgid "plugins.importexport.native.description"
 msgstr "Impor dan ekspor artikel dan issue dalam format XML Natif OJS."
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "Plugin XML Natif"

@@ -69,7 +69,7 @@ class NativeXmlPreprintGalleyFilter extends NativeXmlRepresentationFilter {
 
 		for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) if (is_a($n, 'DOMElement')) switch($n->tagName) {
 			case 'name':
-				// Labels are not localized in OJS ArticleGalleys, but we use the <name locale="....">...</name> structure.
+				// Labels are not localized in ArticleGalleys, but we use the <name locale="....">...</name> structure.
 				$locale = $n->getAttribute('locale');
 				if (empty($locale)) $locale = $submission->getLocale();
 				$representation->setLabel($n->textContent);

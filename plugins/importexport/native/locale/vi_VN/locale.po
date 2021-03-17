@@ -11,6 +11,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "Plugin XML gốc"
 
@@ -58,6 +59,7 @@ msgstr "Kết quả"
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Xuất các bài báo"
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Chọn các bài báo để xuất"
 
@@ -67,6 +69,7 @@ msgstr "Tải lên tệp XML để nhập"
 msgid "plugins.importexport.native.import"
 msgstr "Nhập"
 
+#, fuzzy
 msgid "plugins.importexport.native.description"
 msgstr ""
 "Nhập và xuất các bài báo và các số xuất bản theo định dạng XML gốc của OJS."

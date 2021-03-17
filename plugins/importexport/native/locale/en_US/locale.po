@@ -23,7 +23,6 @@ msgstr "Import"
 msgid "plugins.importexport.native.import.instructions"
 msgstr "Upload XML file to import"
 
-#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Select preprints to export"
 

@@ -11,9 +11,11 @@ msgstr ""
 "PO-Revision-Date: 2019-11-19T11:05:44+00:00\n"
 "Language: \n"
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "Plugin för OJS-XML"
 
+#, fuzzy
 msgid "plugins.importexport.native.description"
 msgstr "Importerar och exporterar artiklar och nummer i OJS:s XML-format."
 
@@ -23,6 +25,7 @@ msgstr "Importera"
 msgid "plugins.importexport.native.import.instructions"
 msgstr "Ladda upp XML-fil som ska importeras"
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Välj artiklar att exportera"
 

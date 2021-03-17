@@ -59,6 +59,7 @@ msgstr "Résultats"
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Exporter les articles"
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Sélectionner les articles à exporter"
 
@@ -68,8 +69,10 @@ msgstr "Téléverser un fichier XML à importer"
 msgid "plugins.importexport.native.import"
 msgstr "Importer"
 
+#, fuzzy
 msgid "plugins.importexport.native.description"
 msgstr "Importer et exporter des articles et numéros au format XML natif d'OJS."
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "Module XML natif"

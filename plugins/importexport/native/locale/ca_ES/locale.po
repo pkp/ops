@@ -58,6 +58,7 @@ msgstr "Resultats"
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "Exportar articles"
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Seleccioneu els articles per exportar"
 
@@ -70,5 +71,6 @@ msgstr "Importar"
 msgid "plugins.importexport.native.description"
 msgstr "Importar i exportar articles i números en el format XML nadiu d'OJS."
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "Mòdul XML nadiu"

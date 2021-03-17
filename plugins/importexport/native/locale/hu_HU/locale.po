@@ -14,9 +14,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "Eredeti XML Plugin"
 
+#, fuzzy
 msgid "plugins.importexport.native.description"
 msgstr "Cikkek és folyóiratszámok importálása és exportálása eredeti OJS XML formátumban."
 
@@ -26,6 +28,7 @@ msgstr "Import"
 msgid "plugins.importexport.native.import.instructions"
 msgstr "XML fájl feltöltése importáláshoz"
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Válasszon cikkeket exportáláshoz"
 

@@ -15,9 +15,11 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "إضافة Native XML"
 
+#, fuzzy
 msgid "plugins.importexport.native.description"
 msgstr "استيراد وتصدير المقالات والأعداد بالصيغ المحلية لـ XML."
 
@@ -27,6 +29,7 @@ msgstr "استيراد"
 msgid "plugins.importexport.native.import.instructions"
 msgstr "إرفع ملف XML لاستيراده"
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "إختر المقالات المزمع تصديرها"
 

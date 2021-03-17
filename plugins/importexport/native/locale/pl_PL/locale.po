@@ -15,9 +15,11 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "Wtyczka natywnego XML"
 
+#, fuzzy
 msgid "plugins.importexport.native.description"
 msgstr "Importuje i eksportuje artykuły i numery z OJS w natywnym formacie XML."
 
@@ -27,6 +29,7 @@ msgstr "Import"
 msgid "plugins.importexport.native.import.instructions"
 msgstr "Prześlij plik XML do importu"
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Wybierz artykuły do eksportu"
 

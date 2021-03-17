@@ -11,9 +11,11 @@ msgstr ""
 "PO-Revision-Date: 2019-11-19T11:05:44+00:00\n"
 "Language: \n"
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "Native XML Eklentisi"
 
+#, fuzzy
 msgid "plugins.importexport.native.description"
 msgstr "Makaleleri ve sayıları OJS'nin doğal XML formatına içe ve dışa aktarın."
 
@@ -23,6 +25,7 @@ msgstr "İçe Aktar"
 msgid "plugins.importexport.native.import.instructions"
 msgstr "İçe aktarılacak XML dosyası yükle"
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Dışa aktarılacak makaleleri seçin"
 

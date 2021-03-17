@@ -14,9 +14,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "Native XML-plugin"
 
+#, fuzzy
 msgid "plugins.importexport.native.description"
 msgstr "Importér og eksportér artikler og numre i OJS' eget XML-format."
 
@@ -26,6 +28,7 @@ msgstr "Importér"
 msgid "plugins.importexport.native.import.instructions"
 msgstr "Upload XML-fil til import"
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Udvælg artikler til eksport"
 
@@ -61,15 +64,15 @@ msgstr ""
 "\n"
 "Følgende formater accepteres:\n"
 "\n"
-"{$ scriptName} {$ pluginName} importere [xmlFileName] [journal_path] "
+"{$scriptName} {$pluginName} importere [xmlFileName] [journal_path] "
 "[user_name]\n"
 "issue_id [issueId] section_id [sectionId]\n"
 "\n"
-"{$ scriptName} {$ pluginName} importere [xmlFileName] [journal_path] "
+"{$scriptName} {$pluginName} importere [xmlFileName] [journal_path] "
 "[user_name]\n"
 "issue_id [issueId] section_name [name]\n"
 "\n"
-"{$ scriptName} {$ pluginName} importere [xmlFileName] [journal_path]\n"
+"{$scriptName} {$pluginName} importere [xmlFileName] [journal_path]\n"
 "issue_id [issueId] section_abbrev [abbrev]\n"
 
 msgid "plugins.importexport.native.error.unknownSection"

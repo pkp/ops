@@ -14,9 +14,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "Módulo XML nativo"
 
+#, fuzzy
 msgid "plugins.importexport.native.description"
 msgstr "Importar y exportar libros en el formato XML nativo."
 
@@ -38,6 +40,7 @@ msgstr "Cargue un archivo en el apartado \"Importar\" para continuar."
 msgid "plugins.importexport.native.importComplete"
 msgstr "La importación se ha completado con éxito. Se han importado los siguientes elementos:"
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Seleccione los artículos para exportar"
 

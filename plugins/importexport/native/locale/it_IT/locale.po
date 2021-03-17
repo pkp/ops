@@ -14,9 +14,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "Plugin per il formato XML nativo"
 
+#, fuzzy
 msgid "plugins.importexport.native.description"
 msgstr "Importa ed esporta articoli e  fascicoli nel formato XML nativo di OJS"
 
@@ -26,6 +28,7 @@ msgstr "Importa"
 msgid "plugins.importexport.native.import.instructions"
 msgstr "Carica file XML per importare"
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "Seleziona articoli da esportare"
 

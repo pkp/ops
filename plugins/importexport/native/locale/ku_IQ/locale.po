@@ -56,6 +56,7 @@ msgstr "ئەنجامەکان"
 msgid "plugins.importexport.native.exportSubmissions"
 msgstr "هەناردەکردنی توێژینەوەکان"
 
+#, fuzzy
 msgid "plugins.importexport.native.exportSubmissionsSelect"
 msgstr "ئەو توێژینەوانە دیاری بکە کە دەتەوێت هەناردەیان بکەیت"
 
@@ -65,11 +66,13 @@ msgstr "بارکردنی XML بۆ هاوردەکردن"
 msgid "plugins.importexport.native.import"
 msgstr "هاوردەکردن"
 
+#, fuzzy
 msgid "plugins.importexport.native.description"
 msgstr ""
 "هاوردەکردن و هەناردەکردنی توێژینەوە و ژمارەی گۆڤارەکان لە سیستەمی گۆڤاری "
 "کراوە بە ڕێکخستنی XML."
 
+#, fuzzy
 msgid "plugins.importexport.native.displayName"
 msgstr "گرێدانی XMLی ڕەسەن"
 
