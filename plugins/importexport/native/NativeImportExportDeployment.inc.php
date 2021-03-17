@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/NativeImportExportDeployment.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NativeImportExportDeployment
@@ -19,7 +19,7 @@ import('lib.pkp.plugins.importexport.native.PKPNativeImportExportDeployment');
 class NativeImportExportDeployment extends PKPNativeImportExportDeployment {
 
 	//
-	// Deploymenturation items for subclasses to override
+	// Deployment items for subclasses to override
 	//
 	/**
 	 * Get the submission node name
@@ -59,7 +59,7 @@ class NativeImportExportDeployment extends PKPNativeImportExportDeployment {
 		$objectTypes = parent::getObjectTypes();
 		AppLocale::requireComponents(LOCALE_COMPONENT_APP_EDITOR);
 		$objectTypes = $objectTypes + array(
-				ASSOC_TYPE_JOURNAL => __('context.context'),
+				ASSOC_TYPE_SERVER => __('context.context'),
 				ASSOC_TYPE_SECTION => __('section.section'),
 				ASSOC_TYPE_PUBLICATION => __('common.publication'),
 		);
