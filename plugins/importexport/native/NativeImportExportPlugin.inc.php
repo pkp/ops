@@ -70,14 +70,6 @@ class NativeImportExportPlugin extends PKPNativeImportExportPlugin {
 	function getAppSpecificDeployment($journal, $user) {
 		return new NativeImportExportDeployment($journal, $user);
 	}
-
-	/**
-	 * @see PKPNativeImportExportPlugin::loadCLILocales
-	 */
-	function loadCLILocales() {
-		parent::loadCLILocales();
-		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
-	}
 }
 
 
