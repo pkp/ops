@@ -521,6 +521,8 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin {
 			return;
 		}
 
+		PluginRegistry::loadCategory('pubIds', true, $context->getId());
+
 		if ($outputFile) {
 			if ($this->isRelativePath($outputFile)) {
 				$outputFile = PWD . '/' . $outputFile;
