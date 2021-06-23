@@ -1,7 +1,7 @@
 OPS 3.3.0 Release Notes
-Git tag: 3_3_0-6
+Git tag: 3_3_0-7
 
-Release date: April 29, 2021
+Release date: June 23, 2021
 ===========================
 
 Configuration Changes
@@ -25,6 +25,20 @@ New config.inc.php parameters added for OAuth-based SMTP authorization:
 - email.smtp_oauth_clientid
 - email.smtp_oauth_clientsecret
 - email.smtp_oauth_refreshtoken
+
+3.3.0-7 Build
+-------------
+	#7121: Call to undefined function create_function
+	#7108: The pubIds plugins not loaded for CLI in ImportExportPlugins
+	#7098: Custom email templates lost upon changing language configuration
+	#7093: Error in XML Schema for Import/Export
+	#7090: Warning in administration interface about latestVersionInfo
+	#7078: Dropzone.js causes upload timeouts on large files
+	#7004: Document the REST API endpoints for announcements
+	#6944: User search phrases should match against the user's preferred name field
+	#6898: Diacritics are stripped from filenames when downloading
+	#6747: List of contexts inside the Dashboard in unsorted
+	#6469: Exporting users "Slim application error"
 
 3.3.0-6 Build
 -------------
