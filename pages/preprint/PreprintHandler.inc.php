@@ -20,6 +20,9 @@ use APP\security\authorization\OpsServerMustPublishPolicy;
 use APP\template\TemplateManager;
 
 use Firebase\JWT\JWT;
+use Illuminate\Http\Testing\File;
+use Illuminate\Support\Facades\App;
+use PKP\core\FileService;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\submission\PKPSubmission;
 
@@ -42,12 +45,15 @@ class PreprintHandler extends Handler
     /** fileId associated with the request **/
     public $fileId;
 
+    protected FileService $fileService;
 
     /**
      * @copydoc PKPHandler::authorize()
      */
     public function authorize($request, &$args, $roleAssignments)
     {
+        $this->fileService = App::make(FileService::class);
+
         // Permit the use of the Authorization header and an API key for access to unpublished/subscription content
         if ($header = array_search('Authorization', array_flip(getallheaders()))) {
             [$bearer, $jwt] = explode(' ', $header);
@@ -364,16 +370,16 @@ class PreprintHandler extends Handler
             if (!HookRegistry::call('PreprintHandler::download', [$this->preprint, &$this->galley, &$this->fileId])) {
                 $submissionFile = Services::get('submissionFile')->get($this->fileId);
 
-                if (!Services::get('file')->fs->has($submissionFile->getData('path'))) {
+                if (!$this->fileService->fs->has($submissionFile->getData('path'))) {
                     $request->getDispatcher()->handle404();
                 }
 
-                $filename = Services::get('file')->formatFilename($submissionFile->getData('path'), $submissionFile->getLocalizedData('name'));
+                $filename = $this->fileService->formatFilename($submissionFile->getData('path'), $submissionFile->getLocalizedData('name'));
 
                 $returner = true;
                 HookRegistry::call('FileManager::downloadFileFinished', [&$returner]);
 
-                Services::get('file')->download($submissionFile->getData('fileId'), $filename);
+                $this->fileService->download($submissionFile->getData('fileId'), $filename);
             }
         } else {
             header('HTTP/1.0 403 Forbidden');
