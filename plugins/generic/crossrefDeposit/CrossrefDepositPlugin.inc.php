@@ -11,6 +11,9 @@
  *
  * @brief Deposit DOIs during the publish action
  */
+
+import('lib.pkp.classes.plugins.GenericPlugin');
+
 class CrossrefDepositPlugin extends GenericPlugin {
 	/**
 	 * @copydoc Plugin::register
