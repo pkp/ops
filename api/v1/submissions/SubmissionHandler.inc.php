@@ -80,7 +80,25 @@ class SubmissionHandler extends PKPSubmissionHandler {
 			return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
 		}
 
-		$publication = Services::get('publication')->relate($publication, $slimRequest->getParams());
+		// Only accept publication props for relations
+		$params = array_intersect_key($slimRequest->getParsedBody(), array_flip(['relationStatus', 'vorDoi']));
+
+		$params = $this->convertStringsToSchema(SCHEMA_PUBLICATION, $params);
+
+		$submissionContext = $request->getContext();
+		if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
+			$submissionContext = Services::get('context')->get($submission->getData('contextId'));
+		}
+		$primaryLocale = $publication->getData('locale');
+		$allowedLocales = $submissionContext->getData('supportedSubmissionLocales');
+
+		$errors = Services::get('publication')->validate(VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
+
+		if (!empty($errors)) {
+			return $response->withStatus(400)->withJson($errors);
+		}
+
+		$publication = Services::get('publication')->relate($publication, $params);
 
 		$publicationProps = Services::get('publication')->getFullProperties(
 			$publication,
