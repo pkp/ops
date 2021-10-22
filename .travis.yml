@@ -42,6 +42,7 @@ cache:
     - $HOME/.composer/cache
 addons:
   chrome: beta
+  postgresql: "9.5"
   apt:
     update: true
 before_install:
