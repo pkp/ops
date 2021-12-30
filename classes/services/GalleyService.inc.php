@@ -111,33 +111,19 @@ class GalleyService implements EntityReadInterface, EntityWriteInterface, Entity
 		foreach ($props as $prop) {
 			switch ($prop) {
 				case 'urlPublished':
-					if (is_a($galley, 'IssueGalley')) {
-						$values[$prop] = $dispatcher->url(
-							$request,
-							ROUTE_PAGE,
-							$context->getPath(),
-							'issue',
-							'view',
-							[
-								$galley->getIssueId(),
-								$galley->getId()
-							]
-						);
-					} else {
-						$values[$prop] = $dispatcher->url(
-							$request,
-							ROUTE_PAGE,
-							$context->getPath(),
-							'article',
-							'view',
-							[
-								$submission->getBestId(),
-								'version',
-								$publication->getId(),
-								$galley->getBestGalleyId(),
-							]
-						);
-					}
+					$values[$prop] = $dispatcher->url(
+						$request,
+						ROUTE_PAGE,
+						$context->getPath(),
+						'preprint',
+						'view',
+						[
+							$submission->getBestId(),
+							'version',
+							$publication->getId(),
+							$galley->getBestGalleyId(),
+						]
+					);
 					break;
 				case 'file':
 					$values[$prop] = null;
