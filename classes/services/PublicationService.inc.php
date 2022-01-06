@@ -82,7 +82,7 @@ class PublicationService extends PKPPublicationService {
 						$request,
 						ROUTE_PAGE,
 						$submissionContext->getData('urlPath'),
-						'article',
+						'preprint',
 						'view',
 						[$submission->getBestId(), 'version', $publication->getId()]
 					);
