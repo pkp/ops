@@ -67,31 +67,6 @@ class SubmissionHandler extends PKPSubmissionHandler {
 		return parent::step($args, $request);
 	}
 
-	/**
-	 * Retrieves a JSON list of available choices for a tagit metadata input field.
-	 * @param $args array
-	 * @param $request Request
-	 */
-	function fetchChoices($args, $request) {
-		$term = $request->getUserVar('term');
-		$locale = $request->getUserVar('locale');
-		if (!$locale) {
-			$locale = AppLocale::getLocale();
-		}
-		switch ($request->getUserVar('list')) {
-			case 'languages':
-				$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
-				$matches = array();
-				foreach ($isoCodes->getLanguages(\Sokil\IsoCodes\IsoCodesFactory::OPTIMISATION_IO) as $language) {
-					if (!$language->getAlpha2() || $language->getType() != 'L' || $language->getScope() != 'I') continue;
-					if (stristr($language->getLocalName(), $term)) $matches[$language->getAlpha3()] = $language->getLocalName();
-				};
-				header('Content-Type: text/json');
-				echo json_encode($matches);
-		}
-		assert(false);
-	}
-
 
 	//
 	// Protected helper methods
