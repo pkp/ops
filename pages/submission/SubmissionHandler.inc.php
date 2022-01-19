@@ -51,7 +51,7 @@ class SubmissionHandler extends PKPSubmissionHandler {
 				$errors = Services::get('publication')->validatePublish($submission->getLatestPublication(), $submission, $allowedLocales, $primaryLocale);
 
 				if (!empty($errors)){
-					$msg .= '<ul class="plain">';
+					$msg = '<ul class="plain">';
 					foreach ($errors as $error) {
 						$msg .= '<li>' . $error . '</li>';
 					}
