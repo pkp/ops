@@ -12,7 +12,6 @@
  *
  * @brief Native XML import/export plugin
  */
-use Colors\Color;
 
 import('lib.pkp.plugins.importexport.native.PKPNativeImportExportPlugin');
 
