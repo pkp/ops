@@ -393,6 +393,21 @@ class SectionDAO extends PKPSectionDAO {
 	}
 
 	/**
+	 * Check if the section is empty.
+	 * @param $sectionId int Section ID
+	 * @param $contextId int Context ID
+	 * @return boolean
+	 */
+	function sectionEmpty($sectionId, $contextId) {
+		$result = $this->retrieve(
+			'SELECT p.publication_id FROM publications p JOIN submissions s ON (s.submission_id = p.submission_id) WHERE p.section_id = ? AND s.context_id = ?',
+			[(int) $sectionId, (int) $contextId]
+		);
+		$row = $result->current();
+		return $row ? false : true;
+	}
+
+	/**
 	 * Check if a section exists with the specified ID.
 	 * @param $sectionId int Section ID
 	 * @param $journalId int Journal ID
