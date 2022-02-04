@@ -11,7 +11,7 @@
  * @brief Describe database table structures.
  */
 
-namespace PKP\migration\upgrade\v3_4_0;
+namespace APP\migration\upgrade\v3_4_0;
 
 use APP\core\Application;
 use Illuminate\Database\Schema\Blueprint;
