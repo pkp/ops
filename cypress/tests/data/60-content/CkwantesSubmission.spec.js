@@ -27,7 +27,46 @@ describe('Data suite tests', function() {
 			]
 		});
 
+		cy.get('a').contains('Review this submission').click();
+
+		// Edit metadata
+		cy.get('button#metadata-button').click();
+		cy.get('#metadata-keywords-control-en_US').type('multinational', {delay: 0});
+		cy.wait(500);
+		cy.get('#metadata-keywords-control-en_US').type('{enter}', {delay: 0});
+		cy.get('#metadata button').contains('Save').click();
+		cy.get('#metadata-keywords-selected-en_US').contains('multinational');
+		cy.get('#metadata [role="status"]').contains('Saved');
+
+		// Edit Contributors
+		cy.wait(1500);
+		cy.get('button#contributors-button').click();
+		cy.get('a[id^="component-grid-users-author-authorgrid-addAuthor-button-"]').click();
+		cy.wait(250);
+		cy.get('input[id^="givenName-en_US-"]').type('Urho', {delay: 0});
+		cy.get('input[id^="familyName-en_US-"]').type('Kekkonen', {delay: 0});
+		cy.get('select[id=country]').select('Finland');
+		cy.get('input[id^="email"]').type('ukk@mailinator.com', {delay: 0});
+		cy.get('input[id^="affiliation-en_US-"]').type('Academy of Finland', {delay: 0});
+		cy.get('label').contains('Author').click();
+		cy.get('form#editAuthor').find('button:contains("Save")').click();
+		cy.contains('Author added.');
+		cy.wait(500);
+		cy.get('[id*="authorgrid-row"] span').contains('Urho Kekkonen');
+
+		// Edit title
+		cy.get('button#titleAbstract-button').click();
+		cy.get('input[id^="titleAbstract-title-control-en_US"').clear()
+		cy.get('input[id^="titleAbstract-title-control-en_US"').type('The Facets Of Job Satisfaction', {delay: 0});
+		cy.get('input[id^="titleAbstract-subtitle-control-en_US"').type('A Nine-Nation Comparative Study Of Construct Equivalence', {delay: 0});
+		cy.get('#titleAbstract button').contains('Save').click();
+		cy.get('#titleAbstract [role="status"]').contains('Saved');
+		cy.wait(500);
+
 		cy.logout();
+		});
+
+	it('Publish submission', function() {
 		cy.findSubmissionAsEditor('dbarnes', null, 'Kwantes');
 		cy.get('ul.pkp_workflow_decisions button:contains("Post the preprint")').click();
 		cy.get('div.pkpPublication button:contains("Post"):visible').click();
