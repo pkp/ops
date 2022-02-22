@@ -28,6 +28,8 @@ class StatsEditorialService extends \PKP\Services\PKPStatsEditorialService {
 
 		$received = $this->countSubmissionsReceived($args);
 		$accepted = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_ACCEPT, $args);
+		$submissionsPublished = $this->countSubmissionsPublished($args);
+		$submissionsSkipped = $this->countSubmissionsSkipped($args);
 		$declinedDesk = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, $args);
 		$declinedReview = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_DECLINE, $args);
 		$declined = $declinedDesk + $declinedReview;
@@ -51,7 +53,12 @@ class StatsEditorialService extends \PKP\Services\PKPStatsEditorialService {
 			[
 				'key' => 'submissionsPublished',
 				'name' => 'stats.name.submissionsPublished',
-				'value' => $this->countSubmissionsPublished($args),
+				'value' => $submissionsPublished,
+			],
+			[
+				'key' => 'submissionsSkipped',
+				'name' => 'stats.name.submissionsSkipped',
+				'value' => $submissionsSkipped,
 			],
 		];
 
