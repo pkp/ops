@@ -27,7 +27,6 @@ class StatsEditorialService extends \PKP\Services\PKPStatsEditorialService {
 		\AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER);
 
 		$received = $this->countSubmissionsReceived($args);
-		$accepted = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_ACCEPT, $args);
 		$submissionsPublished = $this->countSubmissionsPublished($args);
 		$submissionsSkipped = $this->countSubmissionsSkipped($args);
 		$declinedDesk = $this->countByDecisions(SUBMISSION_EDITOR_DECISION_INITIAL_DECLINE, $args);
@@ -39,11 +38,6 @@ class StatsEditorialService extends \PKP\Services\PKPStatsEditorialService {
 				'key' => 'submissionsReceived',
 				'name' => 'stats.name.submissionsReceived',
 				'value' => $received,
-			],
-			[
-				'key' => 'submissionsAccepted',
-				'name' => 'stats.name.submissionsAccepted',
-				'value' => $accepted,
 			],
 			[
 				'key' => 'submissionsDeclined',
