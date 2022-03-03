@@ -223,10 +223,9 @@ class DOIPubIdPlugin extends PubIdPlugin {
 	public function getCitationData($hookname, $args) {
 		$citationData = $args[0];
 		$article = $args[2];
-		#$issue = $args[3];
-		$journal = $args[4];
+		$pubId = $this->getPubId($article);
 
-		if (!$this->getPubId($article)) {
+		if (!$pubId) {
 			return;
 		}
 
