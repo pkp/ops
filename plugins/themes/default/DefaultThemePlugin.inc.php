@@ -104,6 +104,25 @@ class DefaultThemePlugin extends ThemePlugin
             ],
             'default' => false,
         ]);
+        $this->addOption('displayStats', 'FieldOptions', [
+            'type' => 'radio',
+            'label' => __('plugins.themes.default.option.displayStats.label'),
+            'options' => [
+                [
+                    'value' => 'none',
+                    'label' => __('plugins.themes.default.option.displayStats.none'),
+                ],
+                [
+                    'value' => 'bar',
+                    'label' => __('plugins.themes.default.option.displayStats.bar'),
+                ],
+                [
+                    'value' => 'line',
+                    'label' => __('plugins.themes.default.option.displayStats.line'),
+                ],
+            ],
+            'default' => 'none',
+        ]);
 
         // Load primary stylesheet
         $this->addStyle('stylesheet', 'styles/index.less');
@@ -235,5 +254,13 @@ class DefaultThemePlugin extends ThemePlugin
     public function getDescription()
     {
         return __('plugins.themes.default.description');
+    }
+
+    /**
+     * Get the context for inclusion of usage stats display related JavaScripts in the submission view page
+     */
+    protected function getSubmissionViewContext(): string
+    {
+        return 'frontend-preprint-view';
     }
 }
