@@ -13,9 +13,10 @@
  * @brief Handle site index requests.
  */
 
+use APP\core\Application;
 use APP\facades\Repo;
+use APP\observers\events\UsageEvent;
 use APP\submission\Submission;
-
 use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
@@ -94,6 +95,10 @@ class IndexHandler extends PKPIndexHandler
             $this->_setupAnnouncements($server, $templateMgr);
 
             $templateMgr->display('frontend/pages/indexServer.tpl');
+            if (!$request->isDNTSet()) {
+                event(new UsageEvent(Application::ASSOC_TYPE_SERVER, $server->getId(), $server->getId()));
+            }
+            return;
         } else {
             $serverDao = DAORegistry::getDAO('ServerDAO'); /** @var APP\server\ServerDAO $serverDao */
             $site = $request->getSite();
