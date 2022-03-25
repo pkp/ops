@@ -34,6 +34,7 @@ class ScreeningForm extends FormComponent {
 	public function __construct($action, $locales, $context) {
 		$this->action = $action;
 
+		$screeningPluginRules = '';
 		$rules = [];
 		\HookRegistry::call('Settings::Workflow::listScreeningPlugins', array(&$rules));
 		if (!empty($rules)){
