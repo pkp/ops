@@ -96,18 +96,18 @@ class SubmissionSubmitStep4Form extends PKPSubmissionSubmitStep4Form {
 				$canAuthorPublish = __('author.submit.authorCanPublish');
 			}
 
-			$mail->assignParams(array(
-				'authorName' => $user->getFullName(),
-				'authorUsername' => $user->getUsername(),
-				'editorialContactSignature' => $context->getData('contactName'),
-				'canAuthorPublish' => $canAuthorPublish,
+			$mail->assignParams([
+				'authorName' => htmlspecialchars($user->getFullName()),
+				'authorUsername' => htmlspecialchars($user->getUsername()),
+				'editorialContactSignature' => htmlspecialchars($context->getData('contactName')),
+				'canAuthorPublish' => PKPString::stripUnsafeHtml($canAuthorPublish),
 				'submissionUrl' => $router->url($request, null, 'authorDashboard', 'submission', $submission->getId()),
-			));
+			]);
 
-			$authorMail->assignParams(array(
-				'submitterName' => $user->getFullName(),
-				'editorialContactSignature' => $context->getData('contactName'),
-			));
+			$authorMail->assignParams([
+				'submitterName' => htmlspecialchars($user->getFullName()),
+				'editorialContactSignature' => htmlspecialchars($context->getData('contactName')),
+			]);
 
 			if (!$mail->send($request)) {
 				import('classes.notification.NotificationManager');

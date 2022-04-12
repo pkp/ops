@@ -299,12 +299,12 @@ class PublicationService extends PKPPublicationService {
 				$user = $request->getUser();
 				$mail->addRecipient($user->getEmail(), $user->getFullName());
 
-				$mail->assignParams(array(
-					'authorName' => $user->getFullName(),
-					'authorUsername' => $user->getUsername(),
-					'editorialContactSignature' => $context->getData('contactName'),
+				$mail->assignParams([
+					'authorName' => htmlspecialchars($user->getFullName()),
+					'authorUsername' => htmlspecialchars($user->getUsername()),
+					'editorialContactSignature' => htmlspecialchars($context->getData('contactName')),
 					'publicationUrl' => $dispatcher->url($request, ROUTE_PAGE, $context->getData('urlPath'), 'preprint', 'view', $submission->getBestId(), null, null, true),
-				));
+				]);
 
 				if (!$mail->send($request)) {
 					import('classes.notification.NotificationManager');
