@@ -124,6 +124,9 @@ class Application extends PKPApplication
             'MetricsDAO' => 'APP\statistics\MetricsDAO',
             'OAIDAO' => 'APP\oai\ops\OAIDAO',
             'SectionDAO' => 'APP\server\SectionDAO',
+            'UsageStatsTotalTemporaryRecordDAO' => 'APP\statistics\UsageStatsTotalTemporaryRecordDAO',
+            'UsageStatsUniqueItemInvestigationsTemporaryRecordDAO' => 'APP\statistics\UsageStatsUniqueItemInvestigationsTemporaryRecordDAO',
+            'UsageStatsUniqueItemRequestsTemporaryRecordDAO' => 'APP\statistics\UsageStatsUniqueItemRequestsTemporaryRecordDAO',
         ]);
     }
 
