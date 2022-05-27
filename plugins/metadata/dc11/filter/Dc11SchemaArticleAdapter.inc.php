@@ -150,7 +150,7 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
 		// Relation
 		// full text URLs
 		if ($includeUrls) foreach ($galleys as $galley) {
-			$relation = $request->url($journal->getPath(), 'article', 'view', [$submission->getBestId(), $galley->getBestGalleyId()]);
+			$relation = $request->url($journal->getPath(), 'preprint', 'view', [$submission->getBestId(), $galley->getBestGalleyId()]);
 			$dc11Description->addStatement('dc:relation', $relation);
 		}
 
