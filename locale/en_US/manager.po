@@ -240,7 +240,7 @@ msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Submission Preparation Checklist"
 
 msgid "manager.setup.disableSubmissions.description"
-msgstr "Prevent users from submitting new preprints to the server. Submissions can be disabled for individual server sections on the <a href="{$url}">server sections</a> settings page."
+msgstr "Prevent users from submitting new preprints to the server. Submissions can be disabled for individual server sections on the <a href=\"{$url}\">server sections</a> settings page."
 
 msgid "manager.setup.disableSubmissions.notAccepting"
 msgstr "This server is not accepting submissions at this time. Visit the workflow settings to allow submissions."
@@ -304,7 +304,7 @@ msgstr "Server main page views"
 
 msgid "manager.statistics.reports.filters.byObject.description"
 msgstr "Narrow results by object type (server, preprint, file types) and/or by one or more object id(s)."
-\t
+
 msgid "grid.category.path"
 msgstr "Path"
 
@@ -342,7 +342,7 @@ msgid "plugins.importexport.common.missingRequirements"
 msgstr "Plugin requirements not met"
 
 msgid "plugins.importexport.common.error.DOIsNotAvailable"
-msgstr "In order to use this plugin please go to the "Public Identifier" plugin category, enable and configure the DOI plugin and specify a valid DOI prefix there."
+msgstr "In order to use this plugin please go to the \"Public Identifier\" plugin category, enable and configure the DOI plugin and specify a valid DOI prefix there."
 
 msgid "plugins.importexport.common.error.pluginNotConfigured"
 msgstr "The plugin is not fully set up."
@@ -405,7 +405,7 @@ msgid "plugins.importexport.common.cliError"
 msgstr "ERROR:"
 
 msgid "plugins.importexport.common.error.unknownJournal"
-msgstr "The specified server path, "{$journalPath}", does not exist."
+msgstr "The specified server path, \"{$journalPath}\", does not exist."
 
 msgid "plugins.importexport.common.error.unknownObjects"
 msgstr "The specified objects could not be found."
@@ -430,4 +430,3 @@ msgstr "{$count} of {$total} preprints"
 
 msgid "stats.publications.abstracts"
 msgstr "Abstracts"
-
