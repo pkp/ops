@@ -18,3 +18,8 @@ namespace APP\plugins\metadata\dc11;
 class Dc11MetadataPlugin extends \PKP\plugins\metadata\dc11\PKPDc11MetadataPlugin
 {
 }
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\plugins\metadata\dc11\Dc11MetadataPlugin', '\Dc11MetadataPlugin');
+}
+
