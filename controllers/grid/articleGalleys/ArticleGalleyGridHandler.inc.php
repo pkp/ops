@@ -357,7 +357,8 @@ class ArticleGalleyGridHandler extends GridHandler {
 			$request,
 			$this->getSubmission(),
 			$this->getPublication(),
-			$this->getGalley()
+			$this->getGalley(),
+			$this->canEdit()
 		);
 		$galleyForm->initData();
 		return new JSONMessage(true, $galleyForm->fetch($request));
@@ -373,7 +374,7 @@ class ArticleGalleyGridHandler extends GridHandler {
 		$galley = $this->getGalley();
 
 		import('controllers.grid.articleGalleys.form.ArticleGalleyForm');
-		$galleyForm = new ArticleGalleyForm($request, $this->getSubmission(), $this->getPublication(), $galley);
+		$galleyForm = new ArticleGalleyForm($request, $this->getSubmission(), $this->getPublication(), $galley, $this->canEdit());
 		$galleyForm->readInputData();
 
 		if ($galleyForm->validate()) {
