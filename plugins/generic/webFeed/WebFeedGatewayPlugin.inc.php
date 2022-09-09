@@ -84,17 +84,17 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 	 * @param $request PKPRequest Request object.
 	 */
 	public function fetch($args, $request) {
-		// Make sure we're within a Journal context
+		// Make sure we're within a server context
 		$request = Application::get()->getRequest();
-		$journal = $request->getJournal();
-		if (!$journal) return false;
+		$server = $request->getJournal();
+		if (!$server) return false;
 
-		// Make sure there's a current issue for this journal
+		// Make sure there's a current issue for this server
 		$issueDao = DAORegistry::getDAO('IssueDAO'); /* @var $issueDao IssueDAO */
-		$issue = $issueDao->getCurrent($journal->getId(), true);
+		$issue = $issueDao->getCurrent($server->getId(), true);
 		if (!$issue) return false;
 
-		if (!$this->_parentPlugin->getEnabled($journal->getId())) return false;
+		if (!$this->_parentPlugin->getEnabled($server->getId())) return false;
 
 		// Make sure the feed type is specified and valid
 		$type = array_shift($args);
@@ -111,12 +111,12 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 		if (!isset($typeMap[$type])) return false;
 
 		// Get limit setting from web feeds plugin
-		$recentItems = (int) $this->_parentPlugin->getSetting($journal->getId(), 'recentItems');
+		$recentItems = (int) $this->_parentPlugin->getSetting($server->getId(), 'recentItems');
 		if ($recentItems < 1) {
 			$recentItems = self::DEFAULT_RECENT_ITEMS;
 		}
 
-		$submissionsIterator = Services::get('submission')->getMany(['contextId' => $journal->getId(), 'status' => STATUS_PUBLISHED, 'count' => $recentItems]);
+		$submissionsIterator = Services::get('submission')->getMany(['contextId' => $server->getId(), 'status' => STATUS_PUBLISHED, 'count' => $recentItems]);
 		$submissionsInSections = [];
 		foreach ($submissionsIterator as $submission) {
 			$submissionsInSections[]['articles'][] = $submission;
@@ -129,7 +129,7 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 		$templateMgr->assign(array(
 			'opsVersion' => $version->getVersionString(),
 			'publishedSubmissions' => $submissionsInSections,
-			'journal' => $journal,
+			'server' => $server,
 			'issue' => $issue,
 			'showToc' => true,
 		));

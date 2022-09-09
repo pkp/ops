@@ -66,18 +66,18 @@ class WebFeedPlugin extends GenericPlugin {
 		if (!is_a($request->getRouter(), 'PKPPageRouter')) return false;
 
 		$templateManager =& $args[0];
-		$currentJournal = $templateManager->getTemplateVars('currentJournal');
-		if (is_null($currentJournal)) {
+		$currentServer = $templateManager->getTemplateVars('currentJournal');
+		if (is_null($currentServer)) {
 			return;
 		}
 		$issueDao = DAORegistry::getDAO('IssueDAO'); /* @var $issueDao IssueDAO */
-		$currentIssue = $issueDao->getCurrent($currentJournal->getId(), true);
+		$currentIssue = $issueDao->getCurrent($currentServer->getId(), true);
 
 		if (!$currentIssue) {
 			return;
 		}
 
-		$displayPage = $this->getSetting($currentJournal->getId(), 'displayPage');
+		$displayPage = $this->getSetting($currentServer->getId(), 'displayPage');
 
 		// Define when the <link> elements should appear
 		$contexts = $displayPage == 'homepage' ? array('frontend-index', 'frontend-issue') : 'frontend';
