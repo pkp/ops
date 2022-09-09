@@ -14,26 +14,20 @@ msgstr ""
 msgid "plugins.generic.webfeed.displayName"
 msgstr "Πρόσθετο Web Feed"
 
+#, fuzzy
 msgid "plugins.generic.webfeed.description"
 msgstr "Αυτή η προσθήκη παράγει ροές διανομής ιστού RSS/Atom για το τρέχον άρθρο."
 
 msgid "plugins.generic.webfeed.settings"
 msgstr "Ρυθμίσεις"
 
-msgid "plugins.generic.webfeed.settings.issue"
-msgstr "Εμφάνιση συνδέσμων τροφοδοσίας Ιστού μόνο στις σελίδες τεύχους."
-
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Εμφάνιση συνδέσμων τροφοδοσίας Ιστού μόνο στην αρχική σελίδα και τις σελίδες τεύχους."
 
+#, fuzzy
 msgid "plugins.generic.webfeed.settings.all"
 msgstr "Εμφάνιση συνδέσμων τροφοδοσίας Ιστού σε όλες τις σελίδες του περιοδικού."
-
-msgid "plugins.generic.webfeed.settings.currentIssue"
-msgstr "Εμφάνιση στοιχείων στο τρέχον δημοσιευμένο τεύχος."
-
-msgid "plugins.generic.webfeed.settings.recent"
-msgstr "Εμφανίστε έναν σταθερό αριθμό από τα πιο πρόσφατα στοιχεία."
 
 msgid "plugins.generic.webfeed.settings.recentArticles"
 msgstr "Αριθμός στοιχείων προς εμφάνιση"
