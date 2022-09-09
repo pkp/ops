@@ -111,6 +111,7 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 			$recentItems = self::DEFAULT_RECENT_ITEMS;
 		}
 
+		import('classes.submission.Submission'); // STATUS_PUBLISHED constant
 		$submissionsIterator = Services::get('submission')->getMany(['contextId' => $server->getId(), 'status' => STATUS_PUBLISHED, 'count' => $recentItems]);
 		$submissionsInSections = [];
 		foreach ($submissionsIterator as $submission) {
