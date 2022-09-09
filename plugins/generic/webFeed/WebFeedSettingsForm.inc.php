@@ -45,7 +45,6 @@ class WebFeedSettingsForm extends Form {
 		$plugin = $this->_plugin;
 
 		$this->setData('displayPage', $plugin->getSetting($contextId, 'displayPage'));
-		$this->setData('displayItems', $plugin->getSetting($contextId, 'displayItems'));
 		$this->setData('recentItems', $plugin->getSetting($contextId, 'recentItems'));
 	}
 
@@ -53,16 +52,12 @@ class WebFeedSettingsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('displayPage','displayItems','recentItems'));
+		$this->readUserVars(array('displayPage','recentItems'));
 
 		// check that recent items value is a positive integer
 		if ((int) $this->getData('recentItems') <= 0) $this->setData('recentItems', '');
 
-		// if recent items is selected, check that we have a value
-		if ($this->getData('displayItems') == 'recent') {
-			$this->addCheck(new FormValidator($this, 'recentItems', 'required', 'plugins.generic.webfeed.settings.recentItemsRequired'));
-		}
-
+		$this->addCheck(new FormValidator($this, 'recentItems', 'required', 'plugins.generic.webfeed.settings.recentItemsRequired'));
 	}
 
 	/**
@@ -83,7 +78,6 @@ class WebFeedSettingsForm extends Form {
 		$contextId = $this->_contextId;
 
 		$plugin->updateSetting($contextId, 'displayPage', $this->getData('displayPage'));
-		$plugin->updateSetting($contextId, 'displayItems', $this->getData('displayItems'));
 		$plugin->updateSetting($contextId, 'recentItems', $this->getData('recentItems'));
 
 		parent::execute(...$functionArgs);

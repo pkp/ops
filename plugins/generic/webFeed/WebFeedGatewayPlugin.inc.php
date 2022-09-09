@@ -17,6 +17,8 @@
 import('lib.pkp.classes.plugins.GatewayPlugin');
 
 class WebFeedGatewayPlugin extends GatewayPlugin {
+	const DEFAULT_RECENT_ITEMS = 30;
+
 	/** @var WebFeedPlugin Parent plugin */
 	protected $_parentPlugin;
 
@@ -109,17 +111,15 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 		if (!isset($typeMap[$type])) return false;
 
 		// Get limit setting from web feeds plugin
-		$displayItems = $this->_parentPlugin->getSetting($journal->getId(), 'displayItems');
 		$recentItems = (int) $this->_parentPlugin->getSetting($journal->getId(), 'recentItems');
+		if ($recentItems < 1) {
+			$recentItems = self::DEFAULT_RECENT_ITEMS;
+		}
 
-		if ($displayItems == 'recent' && $recentItems > 0) {
-			$submissionsIterator = Services::get('submission')->getMany(['contextId' => $journal->getId(), 'status' => STATUS_PUBLISHED, 'count' => $recentItems]);
-			$submissionsInSections = [];
-			foreach ($submissionsIterator as $submission) {
-				$submissionsInSections[]['articles'][] = $submission;
-			}
-		} else {
-			$submissionsInSections = Services::get('submission')->getInSections($issue->getId(), $journal->getId());
+		$submissionsIterator = Services::get('submission')->getMany(['contextId' => $journal->getId(), 'status' => STATUS_PUBLISHED, 'count' => $recentItems]);
+		$submissionsInSections = [];
+		foreach ($submissionsIterator as $submission) {
+			$submissionsInSections[]['articles'][] = $submission;
 		}
 
 		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
