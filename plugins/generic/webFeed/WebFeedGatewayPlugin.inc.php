@@ -127,7 +127,7 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
-			'ojsVersion' => $version->getVersionString(),
+			'opsVersion' => $version->getVersionString(),
 			'publishedSubmissions' => $submissionsInSections,
 			'journal' => $journal,
 			'issue' => $issue,
