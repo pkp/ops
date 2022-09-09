@@ -72,19 +72,4 @@ class WebFeedBlockPlugin extends BlockPlugin {
 	public function getTemplatePath($inCore = false) {
 		return $this->_parentPlugin->getTemplatePath($inCore) . '/templates';
 	}
-
-	/**
-	 * Get the HTML contents for this block.
-	 * @param $templateMgr object
-	 * @param $request PKPRequest
-	 * @return $string
-	 */
-	public function getContents($templateMgr, $request = null) {
-		$server = $request->getJournal();
-		$issueDao = DAORegistry::getDAO('IssueDAO'); /* @var $issueDao IssueDAO */
-		if ($issueDao->getCurrent($server->getId(), true)) {
-			return parent::getContents($templateMgr, $request);
-		}
-		return '';
-	}
 }

@@ -70,17 +70,11 @@ class WebFeedPlugin extends GenericPlugin {
 		if (is_null($currentServer)) {
 			return;
 		}
-		$issueDao = DAORegistry::getDAO('IssueDAO'); /* @var $issueDao IssueDAO */
-		$currentIssue = $issueDao->getCurrent($currentServer->getId(), true);
-
-		if (!$currentIssue) {
-			return;
-		}
 
 		$displayPage = $this->getSetting($currentServer->getId(), 'displayPage');
 
 		// Define when the <link> elements should appear
-		$contexts = $displayPage == 'homepage' ? array('frontend-index', 'frontend-issue') : 'frontend';
+		$contexts = $displayPage == 'homepage' ? 'frontend-index' : 'frontend';
 
 		$templateManager->addHeader(
 			'webFeedAtom+xml',
@@ -129,7 +123,7 @@ class WebFeedPlugin extends GenericPlugin {
 		);
 	}
 
- 	/**
+	/**
 	 * @copydoc Plugin::manage()
 	 */
 	public function manage($args, $request) {

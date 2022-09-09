@@ -89,11 +89,6 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 		$server = $request->getJournal();
 		if (!$server) return false;
 
-		// Make sure there's a current issue for this server
-		$issueDao = DAORegistry::getDAO('IssueDAO'); /* @var $issueDao IssueDAO */
-		$issue = $issueDao->getCurrent($server->getId(), true);
-		if (!$issue) return false;
-
 		if (!$this->_parentPlugin->getEnabled($server->getId())) return false;
 
 		// Make sure the feed type is specified and valid
@@ -130,7 +125,6 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 			'opsVersion' => $version->getVersionString(),
 			'publishedSubmissions' => $submissionsInSections,
 			'server' => $server,
-			'issue' => $issue,
 			'showToc' => true,
 		));
 
