@@ -38,7 +38,7 @@ class WebFeedPlugin extends GenericPlugin {
 	public function register($category, $path, $mainContextId = null) {
 		if (!parent::register($category, $path, $mainContextId)) return false;
 		if ($this->getEnabled($mainContextId)) {
-			HookRegistry::register('TemplateManager::display',array($this, 'callbackAddLinks'));
+			HookRegistry::register('TemplateManager::display', [$this, 'callbackAddLinks']);
 			$this->import('WebFeedBlockPlugin');
 			PluginRegistry::register('blocks', new WebFeedBlockPlugin($this), $this->getPluginPath());
 
@@ -78,24 +78,18 @@ class WebFeedPlugin extends GenericPlugin {
 
 		$templateManager->addHeader(
 			'webFeedAtom+xml',
-			'<link rel="alternate" type="application/atom+xml" href="' . $request->url(null, 'gateway', 'plugin', array('WebFeedGatewayPlugin', 'atom')) . '">',
-			array(
-				'contexts' => $contexts,
-			)
+			'<link rel="alternate" type="application/atom+xml" href="' . $request->url(null, 'gateway', 'plugin', ['WebFeedGatewayPlugin', 'atom']) . '">',
+			['contexts' => $contexts]
 		);
 		$templateManager->addHeader(
 			'webFeedRdf+xml',
-			'<link rel="alternate" type="application/rdf+xml" href="'. $request->url(null, 'gateway', 'plugin', array('WebFeedGatewayPlugin', 'rss')) . '">',
-			array(
-				'contexts' => $contexts,
-			)
+			'<link rel="alternate" type="application/rdf+xml" href="'. $request->url(null, 'gateway', 'plugin', ['WebFeedGatewayPlugin', 'rss']) . '">',
+			['contexts' => $contexts]
 		);
 		$templateManager->addHeader(
 			'webFeedRss+xml',
-			'<link rel="alternate" type="application/rss+xml" href="'. $request->url(null, 'gateway', 'plugin', array('WebFeedGatewayPlugin', 'rss2')) . '">',
-			array(
-				'contexts' => $contexts,
-			)
+			'<link rel="alternate" type="application/rss+xml" href="'. $request->url(null, 'gateway', 'plugin', ['WebFeedGatewayPlugin', 'rss2']) . '">',
+			['contexts' => $contexts]
 		);
 
 		return false;
@@ -108,17 +102,17 @@ class WebFeedPlugin extends GenericPlugin {
 		$router = $request->getRouter();
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		return array_merge(
-			$this->getEnabled()?array(
+			$this->getEnabled() ? [
 				new LinkAction(
 					'settings',
 					new AjaxModal(
-						$router->url($request, null, null, 'manage', null, array('verb' => 'settings', 'plugin' => $this->getName(), 'category' => 'generic')),
+						$router->url($request, null, null, 'manage', null, ['verb' => 'settings', 'plugin' => $this->getName(), 'category' => 'generic']),
 						$this->getDisplayName()
 					),
 					__('manager.plugins.settings'),
 					null
 				),
-			):array(),
+			] : [],
 			parent::getActions($request, $verb)
 		);
 	}

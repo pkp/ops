@@ -25,8 +25,8 @@ class WebFeedSettingsForm extends Form {
 
 	/**
 	 * Constructor
-	 * @param $plugin WebFeedPlugin Web feed plugin
-	 * @param $contextId int Context ID
+	 * @param WebFeedPlugin $plugin Web feed plugin
+	 * @param int $contextId Context ID
 	 */
 	function __construct($plugin, $contextId) {
 		$this->_contextId = $contextId;
@@ -52,7 +52,7 @@ class WebFeedSettingsForm extends Form {
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('displayPage','recentItems'));
+		$this->readUserVars(['displayPage','recentItems']);
 
 		// check that recent items value is a positive integer
 		if ((int) $this->getData('recentItems') <= 0) $this->setData('recentItems', '');
