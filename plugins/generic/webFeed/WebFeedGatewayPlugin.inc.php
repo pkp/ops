@@ -23,7 +23,7 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 	protected $_parentPlugin;
 
 	/**
-	 * @param $parentPlugin WebFeedPlugin
+	 * @param WebFeedPlugin $parentPlugin
 	 */
 	public function __construct($parentPlugin) {
 		parent::__construct();
@@ -40,7 +40,7 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 	/**
 	 * Get the name of this plugin. The name must be unique within
 	 * its category.
-	 * @return String name of plugin
+	 * @return string name of plugin
 	 */
 	public function getName() {
 		return 'WebFeedGatewayPlugin';
@@ -71,7 +71,7 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 	/**
 	 * Get whether or not this plugin is enabled. (Should always return true, as the
 	 * parent plugin will take care of loading this one when needed)
-	 * @param $contextId int Context ID (optional)
+	 * @param int $contextId Context ID (optional)
 	 * @return boolean
 	 */
 	public function getEnabled($contextId = null) {
@@ -80,30 +80,30 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 
 	/**
 	 * Handle fetch requests for this plugin.
-	 * @param $args array Arguments.
-	 * @param $request PKPRequest Request object.
+	 * @param array $args Arguments.
+	 * @param Request $request Request object.
 	 */
 	public function fetch($args, $request) {
-		// Make sure we're within a server context
-		$request = Application::get()->getRequest();
 		$server = $request->getJournal();
-		if (!$server) return false;
+		if (!$server) {
+			return false;
+		}
 
-		if (!$this->_parentPlugin->getEnabled($server->getId())) return false;
+		if (!$this->_parentPlugin->getEnabled($server->getId())) {
+			return false;
+		}
 
 		// Make sure the feed type is specified and valid
 		$type = array_shift($args);
-		$typeMap = array(
-			'rss' => 'rss.tpl',
-			'rss2' => 'rss2.tpl',
-			'atom' => 'atom.tpl'
-		);
-		$mimeTypeMap = array(
-			'rss' => 'application/rdf+xml',
-			'rss2' => 'application/rss+xml',
-			'atom' => 'application/atom+xml'
-		);
-		if (!isset($typeMap[$type])) return false;
+		$templateConfig = [
+			'rss' => ['template' => 'rss.tpl', 'mimeType' => 'application/rdf+xml'],
+			'rss2' => ['template' => 'rss2.tpl', 'mimeType' => 'application/rss+xml'],
+			'atom' => ['template' => 'atom.tpl', 'mimeType' => 'application/atom+xml']
+		][$type] ?? null;
+
+		if (!$templateConfig) {
+			return false;
+		}
 
 		// Get limit setting from web feeds plugin
 		$recentItems = (int) $this->_parentPlugin->getSetting($server->getId(), 'recentItems');
@@ -112,26 +112,68 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 		}
 
 		import('classes.submission.Submission'); // STATUS_PUBLISHED constant
-		$submissionsIterator = Services::get('submission')->getMany(['contextId' => $server->getId(), 'status' => STATUS_PUBLISHED, 'count' => $recentItems]);
-		$submissionsInSections = [];
+		/** @var SectionDAO */
+		$sectionDao = DAORegistry::getDAO('SectionDAO');
+		/** @var CategoryDAO */
+		$categoryDao = DAORegistry::getDAO('CategoryDAO');
+		$submissionsIterator = Services::get('submission')->getMany([
+			'contextId' => $server->getId(),
+			'status' => STATUS_PUBLISHED,
+			'count' => $recentItems,
+			'orderBy' => 'datePublished',
+			'orderDirection' => 'DESC'
+		]);
+		$sections = [];
+		$submissions = [];
+		$latestDate = null;
+		/** @var Submission */
 		foreach ($submissionsIterator as $submission) {
-			$submissionsInSections[]['articles'][] = $submission;
+			$latestDate = $latestDate ?? $submission->getLastModified();
+			$identifiers = [];
+			/** @var ?Section */
+			$section = ($sectionId = $submission->getSectionId())
+				? $sections[$sectionId] ?? $sections[$sectionId] = $sectionDao->getById($sectionId)
+				: null;
+			if ($section) {
+				$identifiers[] = ['type' => 'section', 'value' => $section->getLocalizedTitle()];
+			}
+
+			$publication = $submission->getCurrentPublication();
+			$categories = $categoryDao->getByPublicationId($publication->getId())->toIterator();
+			/** @var Category */
+			foreach ($categories as $category) {
+				$identifiers[] = ['type' => 'category', 'value' => $category->getLocalizedTitle()];
+			}
+
+			foreach (['keywords', 'subjects', 'disciplines'] as $type) {
+				$values = $publication->getLocalizedData($type) ?? [];
+				foreach ($values as $value) {
+					$identifiers[] = ['type' => $type, 'value' => $value];
+				}
+			}
+
+			$submissions[] = [
+				'submission' => $submission,
+				'identifiers' => $identifiers
+			];
 		}
 
-		$versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
+		/** @var VersionDAO */
+		$versionDao = DAORegistry::getDAO('VersionDAO');
 		$version = $versionDao->getCurrentVersion();
 
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign(array(
-			'opsVersion' => $version->getVersionString(),
-			'publishedSubmissions' => $submissionsInSections,
+		$templateMgr->assign([
+			'systemVersion' => $version->getVersionString(),
+			'submissions' => $submissions,
 			'server' => $server,
-			'showToc' => true,
-		));
+			'latestDate' => $latestDate,
+			'feedUrl' => $request->getRequestUrl()
+		]);
 
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION); // submission.copyrightStatement
 
-		$templateMgr->display($this->_parentPlugin->getTemplateResource($typeMap[$type]), $mimeTypeMap[$type]);
+		$templateMgr->display($this->_parentPlugin->getTemplateResource($templateConfig['template']), $templateConfig['mimeType']);
 
 		return true;
 	}
