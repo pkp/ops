@@ -41,7 +41,7 @@
 			<webMaster>{$server->getData('supportEmail')|strip|escape:"html"}{if $server->getData('contactName')} ({$server->getData('supportName')|strip|escape:"html"}){/if}</webMaster>
 		{/if}
 
-		<pubDate>{$smarty.const.DATE_RSS|date:$latestDate}</pubDate>
+		<pubDate>{$latestDate|date_format:$smarty.const.DATE_RSS}</pubDate>
 
 		{* <lastBuildDate/> *}
 		{* <category/> *}
