@@ -18,9 +18,6 @@ msgstr "Πρόσθετο Web Feed"
 msgid "plugins.generic.webfeed.description"
 msgstr "Αυτή η προσθήκη παράγει ροές διανομής ιστού RSS/Atom για το τρέχον άρθρο."
 
-msgid "plugins.generic.webfeed.settings"
-msgstr "Ρυθμίσεις"
-
 #, fuzzy
 msgid "plugins.generic.webfeed.settings.homepage"
 msgstr "Εμφάνιση συνδέσμων τροφοδοσίας Ιστού μόνο στην αρχική σελίδα και τις σελίδες τεύχους."
