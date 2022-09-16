@@ -17,17 +17,27 @@
 import('lib.pkp.classes.plugins.GatewayPlugin');
 
 class WebFeedGatewayPlugin extends GatewayPlugin {
-	const DEFAULT_RECENT_ITEMS = 30;
+	public const ATOM = 'atom';
+	public const RSS = 'rss';
+	public const RSS2 = 'rss2';
+
+	public const FEED_MIME_TYPE = [
+		self::ATOM => 'application/atom+xml',
+		self::RSS => 'application/rdf+xml',
+		self::RSS2 => 'application/rss+xml'
+	];
+
+	public const DEFAULT_RECENT_ITEMS = 30;
 
 	/** @var WebFeedPlugin Parent plugin */
-	protected $_parentPlugin;
+	protected $parentPlugin;
 
 	/**
 	 * @param WebFeedPlugin $parentPlugin
 	 */
 	public function __construct($parentPlugin) {
 		parent::__construct();
-		$this->_parentPlugin = $parentPlugin;
+		$this->parentPlugin = $parentPlugin;
 	}
 
 	/**
@@ -65,7 +75,7 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 	 * @return string
 	 */
 	public function getPluginPath() {
-		return $this->_parentPlugin->getPluginPath();
+		return $this->parentPlugin->getPluginPath();
 	}
 
 	/**
@@ -75,7 +85,7 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 	 * @return boolean
 	 */
 	public function getEnabled($contextId = null) {
-		return $this->_parentPlugin->getEnabled($contextId);
+		return $this->parentPlugin->getEnabled($contextId);
 	}
 
 	/**
@@ -85,37 +95,24 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 	 */
 	public function fetch($args, $request) {
 		$server = $request->getJournal();
-		if (!$server) {
-			return false;
-		}
-
-		if (!$this->_parentPlugin->getEnabled($server->getId())) {
+		if (!$server || !$this->parentPlugin->getEnabled($server->getId())) {
 			return false;
 		}
 
 		// Make sure the feed type is specified and valid
-		$type = array_shift($args);
-		$templateConfig = [
-			'rss' => ['template' => 'rss.tpl', 'mimeType' => 'application/rdf+xml'],
-			'rss2' => ['template' => 'rss2.tpl', 'mimeType' => 'application/rss+xml'],
-			'atom' => ['template' => 'atom.tpl', 'mimeType' => 'application/atom+xml']
-		][$type] ?? null;
-
-		if (!$templateConfig) {
-			return false;
+		$feedType = array_shift($args);
+		if (!in_array($feedType, array_keys(static::FEED_MIME_TYPE))) {
+			throw new Exception('Invalid feed format');
 		}
 
 		// Get limit setting from web feeds plugin
-		$recentItems = (int) $this->_parentPlugin->getSetting($server->getId(), 'recentItems');
+		$recentItems = (int) $this->parentPlugin->getSetting($server->getId(), 'recentItems');
 		if ($recentItems < 1) {
 			$recentItems = self::DEFAULT_RECENT_ITEMS;
 		}
+		$includeIdentifiers = (bool) $this->parentPlugin->getSetting($server->getId(), 'includeIdentifiers');
 
 		import('classes.submission.Submission'); // STATUS_PUBLISHED constant
-		/** @var SectionDAO */
-		$sectionDao = DAORegistry::getDAO('SectionDAO');
-		/** @var CategoryDAO */
-		$categoryDao = DAORegistry::getDAO('CategoryDAO');
 		$submissionsIterator = Services::get('submission')->getMany([
 			'contextId' => $server->getId(),
 			'status' => STATUS_PUBLISHED,
@@ -123,58 +120,83 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 			'orderBy' => 'datePublished',
 			'orderDirection' => 'DESC'
 		]);
-		$sections = [];
 		$submissions = [];
 		$latestDate = null;
 		/** @var Submission */
 		foreach ($submissionsIterator as $submission) {
-			$latestDate = $latestDate ?? $submission->getLastModified();
-			$identifiers = [];
-			/** @var ?Section */
-			$section = ($sectionId = $submission->getSectionId())
-				? $sections[$sectionId] ?? $sections[$sectionId] = $sectionDao->getById($sectionId)
-				: null;
-			if ($section) {
-				$identifiers[] = ['type' => 'section', 'value' => $section->getLocalizedTitle()];
-			}
-
-			$publication = $submission->getCurrentPublication();
-			$categories = $categoryDao->getByPublicationId($publication->getId())->toIterator();
-			/** @var Category */
-			foreach ($categories as $category) {
-				$identifiers[] = ['type' => 'category', 'value' => $category->getLocalizedTitle()];
-			}
-
-			foreach (['keywords', 'subjects', 'disciplines'] as $type) {
-				$values = $publication->getLocalizedData($type) ?? [];
-				foreach ($values as $value) {
-					$identifiers[] = ['type' => $type, 'value' => $value];
-				}
-			}
-
-			$submissions[] = [
-				'submission' => $submission,
-				'identifiers' => $identifiers
-			];
+			$latestDate = $latestDate ?? $submission->getCurrentPublication()->getData('lastModified');
+			$submissions[] = ['submission' => $submission, 'identifiers' => $this->_getIdentifiers($submission)];
 		}
+
+		/** @var UserGroupDAO */
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$userGroups = $userGroupDao->getByContextId($server->getId())->toArray();
+
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION); // submission.copyrightStatement
 
 		/** @var VersionDAO */
 		$versionDao = DAORegistry::getDAO('VersionDAO');
 		$version = $versionDao->getCurrentVersion();
 
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign([
-			'systemVersion' => $version->getVersionString(),
-			'submissions' => $submissions,
-			'server' => $server,
-			'latestDate' => $latestDate,
-			'feedUrl' => $request->getRequestUrl()
-		]);
-
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION); // submission.copyrightStatement
-
-		$templateMgr->display($this->_parentPlugin->getTemplateResource($templateConfig['template']), $templateConfig['mimeType']);
-
+		TemplateManager::getManager($request)
+			->assign(
+				[
+					'systemVersion' => $version->getVersionString(),
+					'submissions' => $submissions,
+					'server' => $server,
+					'latestDate' => $latestDate,
+					'feedUrl' => $request->getRequestUrl(),
+					'userGroups' => $userGroups,
+					'includeIdentifiers' => $includeIdentifiers
+				]
+			)
+			->display($this->parentPlugin->getTemplateResource("{$feedType}.tpl"), static::FEED_MIME_TYPE[$feedType]);
 		return true;
+	}
+
+	/**
+	 * Retrieves the identifiers assigned to a submission
+	 */
+	private function _getIdentifiers(Submission $submission): array
+	{
+		$identifiers = [];
+		if ($section = $this->_getSection($submission->getSectionId())) {
+			$identifiers[] = ['type' => 'section', 'label' => __('section.section'), 'values' => [$section->getLocalizedTitle()]];
+		}
+
+		$publication = $submission->getCurrentPublication();
+		/** @var CategoryDAO */
+		$categoryDao = DAORegistry::getDAO('CategoryDAO');
+		$categoryList = $categoryDao->getByPublicationId($publication->getId())->toIterator();
+		$categories = [];
+		/** @var Category */
+		foreach ($categoryList as $category) {
+			$categories[] = $category->getLocalizedTitle();
+		}
+		if (count($categories)) {
+			$identifiers[] = ['type' => 'category', 'label' => __('category.category'), 'values' => $categories];
+		}
+
+		foreach (['keywords' => 'common.keywords', 'subjects' => 'common.subjects', 'disciplines' => 'search.discipline'] as $field => $label) {
+			$values = $publication->getLocalizedData($field) ?? [];
+			if (count($values)) {
+				$identifiers[] = ['type' => $field, 'label' => __($label), 'values' => $values];
+			}
+		}
+
+		return $identifiers;
+	}
+
+	/**
+	 * Retrieves a section
+	 */
+	private function _getSection(?int $sectionId): Section
+	{
+		static $sections = [];
+		/** @var SectionDAO */
+		$sectionDao = DAORegistry::getDAO('SectionDAO');
+		return $sectionId
+			? $sections[$sectionId] = $sections[$sectionId] ?? $sectionDao->getById($sectionId)
+			: null;
 	}
 }

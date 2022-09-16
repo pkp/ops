@@ -1,8 +1,8 @@
 {**
  * plugins/generic/webFeed/templates/rss2.tpl
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2022 Simon Fraser University
+ * Copyright (c) 2003-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * RSS 2 feed template
@@ -14,7 +14,7 @@
 		<atom:link href="{$feedUrl}" rel="self" type="application/rss+xml" />
 		{* required elements *}
 		<title>{$server->getLocalizedName()|strip|escape:"html"}</title>
-		<link>{url journal=$server->getPath()}</link>
+		<link>{url server=$server->getPath()}</link>
 
 		{if $server->getLocalizedDescription()}
 			{assign var="description" value=$server->getLocalizedDescription()}
@@ -56,35 +56,39 @@
 			{assign var=publication value=$submission->getCurrentPublication()}
 			<item>
 				{* required elements *}
-				<title>{$submission->getLocalizedTitle()|strip|escape:"html"}</title>
-				<link>{url page="article" op="view" path=$submission->getBestId()}</link>
-				<description>{$submission->getLocalizedAbstract()|strip|escape:"html"}</description>
+				<title>{$publication->getLocalizedTitle()|strip|escape:"html"}</title>
+				<link>{url page="preprint" op="view" path=$submission->getBestId()}</link>
+				{if $publication->getLocalizedData('abstract') || $includeIdentifiers}
+					<description>
+						{if $includeIdentifiers}
+							{foreach from=$item.identifiers item=identifier}
+								{$identifier.label|strip|escape:"html"}: {', '|implode:$identifier.values|strip|escape:"html"}&lt;br /&gt;
+							{/foreach}{* categories *}
+							&lt;br /&gt;
+						{/if}
+						{$publication->getLocalizedData('abstract')|strip|escape:"html"}
+					</description>
+				{/if}
 
 				{* optional elements *}
 				{* <author/> *}
-				<dc:creator>{$submission->getAuthorString(false)|escape:"html"}</dc:creator>
+				<dc:creator>{$submission->getAuthorString($userGroups)|escape:"html"}</dc:creator>
 
 				{foreach from=$item.identifiers item=identifier}
-					<category domain="https://pkp.sfu.ca/ops/category/{$identifier.type|strip|escape:"html"}">{$identifier.value|strip|escape:"html"}</category>
+					{foreach from=$identifier.values item=value}
+						<category domain="https://pkp.sfu.ca/ops/category/{$identifier.type|strip|escape:"html"}">{$value|strip|escape:"html"}</category>
+					{/foreach}
 				{/foreach}{* categories *}
 				{* <comments/> *}
 				{* <source/> *}
 
 				<dc:rights>
-					{translate|escape key="submission.copyrightStatement" copyrightYear=$submission->getCopyrightYear() copyrightHolder=$submission->getLocalizedCopyrightHolder()}
-					{$submission->getLicenseURL()|escape}
+					{translate|escape key="submission.copyrightStatement" copyrightYear=$publication->getData('copyrightYear') copyrightHolder=$publication->getLocalizedData('copyrightHolder')}
+					{$publication->getData('licenseUrl')|escape}
 				</dc:rights>
-				{if $publication->getData('accessStatus') == $smarty.const.ARTICLE_ACCESS_OPEN && $submission->isCCLicense()}
-					<cc:license rdf:resource="{$submission->getLicenseURL()|escape}" />
-				{else}
-					<cc:license></cc:license>
-				{/if}
-
-				<guid isPermaLink="true">{url page="article" op="view" path=$submission->getBestId()}</guid>
-				{if $submission->getDatePublished()}
-					{capture assign="datePublished"}{$submission->getDatePublished()|strtotime}{/capture}
-					<pubDate>{$smarty.const.DATE_RSS|date:$datePublished}</pubDate>
-				{/if}
+				<cc:license {if $publication->getData('accessStatus') == $smarty.const.ARTICLE_ACCESS_OPEN && $publication->isCCLicense()}rdf:resource="{$publication->getData('licenseUrl')|escape}"{/if} />
+				<guid isPermaLink="true">{url page="preprint" op="view" path=$submission->getBestId()}</guid>
+				<pubDate>{$publication->getData('datePublished')|date_format:$smarty.const.DATE_RSS}</pubDate>
 			</item>
 		{/foreach}{* articles *}
 	</channel>

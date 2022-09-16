@@ -46,16 +46,19 @@ class WebFeedSettingsForm extends Form {
 
 		$this->setData('displayPage', $plugin->getSetting($contextId, 'displayPage'));
 		$this->setData('recentItems', $plugin->getSetting($contextId, 'recentItems'));
+		$this->setData('includeIdentifiers', $plugin->getSetting($contextId, 'includeIdentifiers'));
 	}
 
 	/**
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(['displayPage','recentItems']);
+		$this->readUserVars(['displayPage', 'recentItems', 'includeIdentifiers']);
 
 		// check that recent items value is a positive integer
-		if ((int) $this->getData('recentItems') <= 0) $this->setData('recentItems', '');
+		if ((int) $this->getData('recentItems') <= 0) {
+			$this->setData('recentItems', '');
+		}
 
 		$this->addCheck(new FormValidator($this, 'recentItems', 'required', 'plugins.generic.webfeed.settings.recentItemsRequired'));
 	}
@@ -78,7 +81,8 @@ class WebFeedSettingsForm extends Form {
 		$contextId = $this->_contextId;
 
 		$plugin->updateSetting($contextId, 'displayPage', $this->getData('displayPage'));
-		$plugin->updateSetting($contextId, 'recentItems', $this->getData('recentItems'));
+		$plugin->updateSetting($contextId, 'recentItems', $this->getData('recentItems'), 'int');
+		$plugin->updateSetting($contextId, 'includeIdentifiers', $this->getData('includeIdentifiers'), 'bool');
 
 		parent::execute(...$functionArgs);
 	}

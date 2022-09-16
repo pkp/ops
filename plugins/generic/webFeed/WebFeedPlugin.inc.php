@@ -65,7 +65,8 @@ class WebFeedPlugin extends GenericPlugin {
 		$request = Application::get()->getRequest();
 		if (!is_a($request->getRouter(), 'PKPPageRouter')) return false;
 
-		$templateManager =& $args[0];
+		/** @var TemplateManager */
+		$templateManager = $args[0];
 		$currentServer = $templateManager->getTemplateVars('currentJournal');
 		if (is_null($currentServer)) {
 			return;
@@ -75,22 +76,10 @@ class WebFeedPlugin extends GenericPlugin {
 
 		// Define when the <link> elements should appear
 		$contexts = $displayPage == 'homepage' ? 'frontend-index' : 'frontend';
-
-		$templateManager->addHeader(
-			'webFeedAtom+xml',
-			'<link rel="alternate" type="application/atom+xml" href="' . $request->url(null, 'gateway', 'plugin', ['WebFeedGatewayPlugin', 'atom']) . '">',
-			['contexts' => $contexts]
-		);
-		$templateManager->addHeader(
-			'webFeedRdf+xml',
-			'<link rel="alternate" type="application/rdf+xml" href="'. $request->url(null, 'gateway', 'plugin', ['WebFeedGatewayPlugin', 'rss']) . '">',
-			['contexts' => $contexts]
-		);
-		$templateManager->addHeader(
-			'webFeedRss+xml',
-			'<link rel="alternate" type="application/rss+xml" href="'. $request->url(null, 'gateway', 'plugin', ['WebFeedGatewayPlugin', 'rss2']) . '">',
-			['contexts' => $contexts]
-		);
+		foreach (WebFeedGatewayPlugin::FEED_MIME_TYPE as $feedType => $mimeType) {
+			$url = $request->url(null, 'gateway', 'plugin', ['WebFeedGatewayPlugin', $feedType]);
+			$templateManager->addHeader("webFeedPlugin{$feedType}", "<link rel=\"alternate\" type=\"{$mimeType}\" href=\"{$url}\">", ['contexts' => $contexts]);
+		}
 
 		return false;
 	}
