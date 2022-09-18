@@ -138,6 +138,12 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 		$versionDao = DAORegistry::getDAO('VersionDAO');
 		$version = $versionDao->getCurrentVersion();
 
+		HookRegistry::register('TemplateResource::getFilename', function () use ($feedType) {
+			if (!headers_sent()) {
+				header('Content-Type: ' . static::FEED_MIME_TYPE[$feedType] . '; charset=' . Config::getVar('i18n', 'client_charset'));
+			}
+		});
+
 		TemplateManager::getManager($request)
 			->assign(
 				[
@@ -150,7 +156,7 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 					'includeIdentifiers' => $includeIdentifiers
 				]
 			)
-			->display($this->parentPlugin->getTemplateResource("{$feedType}.tpl"), static::FEED_MIME_TYPE[$feedType]);
+			->display($this->parentPlugin->getTemplateResource("{$feedType}.tpl"));
 		return true;
 	}
 
@@ -174,7 +180,7 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 			$categories[] = $category->getLocalizedTitle();
 		}
 		if (count($categories)) {
-			$identifiers[] = ['type' => 'category', 'label' => __('category.category'), 'values' => $categories];
+			$identifiers[] = ['type' => 'category', 'label' => __('category.categories'), 'values' => $categories];
 		}
 
 		foreach (['keywords' => 'common.keywords', 'subjects' => 'common.subjects', 'disciplines' => 'search.discipline'] as $field => $label) {
