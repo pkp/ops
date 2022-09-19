@@ -38,7 +38,7 @@ class WebFeedSettingsForm extends Form {
 	}
 
 	/**
-	 * Initialize form data.
+	 * @copydoc Form::initData()
 	 */
 	function initData() {
 		$contextId = $this->_contextId;
@@ -47,10 +47,11 @@ class WebFeedSettingsForm extends Form {
 		$this->setData('displayPage', $plugin->getSetting($contextId, 'displayPage'));
 		$this->setData('recentItems', $plugin->getSetting($contextId, 'recentItems'));
 		$this->setData('includeIdentifiers', $plugin->getSetting($contextId, 'includeIdentifiers'));
+		parent::initData();
 	}
 
 	/**
-	 * Assign form data to user-submitted data.
+	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
 		$this->readUserVars(['displayPage', 'recentItems', 'includeIdentifiers']);
