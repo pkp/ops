@@ -191,7 +191,7 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 	/**
 	 * Retrieves a section
 	 */
-	private function _getSection(?int $sectionId): Section
+	private function _getSection(?int $sectionId): ?Section
 	{
 		static $sections = [];
 		/** @var SectionDAO */
