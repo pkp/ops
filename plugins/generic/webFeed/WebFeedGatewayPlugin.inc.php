@@ -117,7 +117,7 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
 			'contextId' => $server->getId(),
 			'status' => STATUS_PUBLISHED,
 			'count' => $recentItems,
-			'orderBy' => 'datePublished',
+			'orderBy' => 'lastModified',
 			'orderDirection' => 'DESC'
 		]);
 		$submissions = [];
