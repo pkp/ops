@@ -81,7 +81,7 @@ class WebFeedSettingsForm extends Form {
 		$plugin = $this->_plugin;
 		$contextId = $this->_contextId;
 
-		$plugin->updateSetting($contextId, 'displayPage', $this->getData('displayPage'));
+		$plugin->updateSetting($contextId, 'displayPage', $this->getData('displayPage'), 'string');
 		$plugin->updateSetting($contextId, 'recentItems', $this->getData('recentItems'), 'int');
 		$plugin->updateSetting($contextId, 'includeIdentifiers', $this->getData('includeIdentifiers'), 'bool');
 
