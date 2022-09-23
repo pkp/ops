@@ -7,4 +7,4 @@ This plugin is based on the OJS' webFeed plugin, which was authored by MJ Suhono
 
 # Sponsors
 
-The initial release of this plugin was funded by the [engrXiv (Engineering Archive)](https://engrxiv.org).
+The initial release of this plugin was sponsored by the [engrXiv (Engineering Archive)](https://engrxiv.org).
