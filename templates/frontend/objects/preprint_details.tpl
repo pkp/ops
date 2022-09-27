@@ -178,14 +178,6 @@
 				</section>
 			{/if}
 
-			{* Data Availability Statement *}
-			{if $publication->getLocalizedData('dataAvailability')}
-				<section class="item dataAvailability">
-					<h2 class="label">{translate key="submission.dataAvailability"}</h2>
-					{$publication->getLocalizedData('dataAvailability')|strip_unsafe_html}
-				</section>
-			{/if}
-
 			{call_hook name="Templates::Preprint::Main"}
 
 			{* Usage statistics chart*}
@@ -414,6 +406,14 @@
 						</div>
 					</section>
 				</div>
+			{/if}
+
+            {* Data Availability Statement *}
+			{if $publication->getLocalizedData('dataAvailability')}
+				<section class="item dataAvailability">
+					<h2 class="label">{translate key="submission.dataAvailability"}</h2>
+					{$publication->getLocalizedData('dataAvailability')|strip_unsafe_html}
+				</section>
 			{/if}
 
 			{* PubIds (requires plugins) *}
