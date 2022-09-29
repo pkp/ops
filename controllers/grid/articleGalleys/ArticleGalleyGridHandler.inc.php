@@ -222,8 +222,7 @@ class ArticleGalleyGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function identifiers($args, $request) {
-		$representationDao = Application::getRepresentationDAO();
-		$representation = $representationDao->getById($request->getUserVar('representationId'));
+		$representation = $this->getGalley();
 		import('controllers.tab.pubIds.form.PublicIdentifiersForm');
 		$form = new PublicIdentifiersForm($representation);
 		$form->initData();
@@ -237,8 +236,7 @@ class ArticleGalleyGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function updateIdentifiers($args, $request) {
-		$representationDao = Application::getRepresentationDAO();
-		$representation = $representationDao->getById($request->getUserVar('representationId'));
+		$representation = $this->getGalley();
 		import('controllers.tab.pubIds.form.PublicIdentifiersForm');
 		$form = new PublicIdentifiersForm($representation, null, array_merge($this->getRequestArgs(), ['representationId' => $representation->getId()]));
 		$form->readInputData();
@@ -260,8 +258,7 @@ class ArticleGalleyGridHandler extends GridHandler {
 		if (!$request->checkCSRF()) return new JSONMessage(false);
 
 		$submission = $this->getSubmission();
-		$representationDao = Application::getRepresentationDAO();
-		$representation = $representationDao->getById($request->getUserVar('representationId'));
+		$representation = $this->getGalley();
 		import('controllers.tab.pubIds.form.PublicIdentifiersForm');
 		$form = new PublicIdentifiersForm($representation);
 		$form->clearPubId($request->getUserVar('pubIdPlugIn'));
