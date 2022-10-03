@@ -22,9 +22,10 @@ class PublicIdentifiersForm extends PKPPublicIdentifiersForm {
 	 * @param $pubObject object
 	 * @param $stageId integer
 	 * @param $formParams array
+	 * @param bool $isEditable (optional, default = true)
 	 */
-	function __construct($pubObject, $stageId = null, $formParams = null) {
-		parent::__construct($pubObject, $stageId, $formParams);
+	function __construct($pubObject, $stageId = null, $formParams = null, $isDisabled = true) {
+		parent::__construct($pubObject, $stageId, $formParams, $isDisabled);
 	}
 
 	/**
