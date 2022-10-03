@@ -224,7 +224,7 @@ class ArticleGalleyGridHandler extends GridHandler {
 	function identifiers($args, $request) {
 		$representation = $this->getGalley();
 		import('controllers.tab.pubIds.form.PublicIdentifiersForm');
-		$form = new PublicIdentifiersForm($representation);
+		$form = new PublicIdentifiersForm($representation, null, null, $this->canEdit());
 		$form->initData();
 		return new JSONMessage(true, $form->fetch($request));
 	}
@@ -238,7 +238,7 @@ class ArticleGalleyGridHandler extends GridHandler {
 	function updateIdentifiers($args, $request) {
 		$representation = $this->getGalley();
 		import('controllers.tab.pubIds.form.PublicIdentifiersForm');
-		$form = new PublicIdentifiersForm($representation, null, array_merge($this->getRequestArgs(), ['representationId' => $representation->getId()]));
+		$form = new PublicIdentifiersForm($representation, null, array_merge($this->getRequestArgs(), ['representationId' => $representation->getId()]), $this->canEdit());
 		$form->readInputData();
 		if ($form->validate()) {
 			$form->execute();
@@ -260,7 +260,7 @@ class ArticleGalleyGridHandler extends GridHandler {
 		$submission = $this->getSubmission();
 		$representation = $this->getGalley();
 		import('controllers.tab.pubIds.form.PublicIdentifiersForm');
-		$form = new PublicIdentifiersForm($representation);
+		$form = new PublicIdentifiersForm($representation, null, null, $this->canEdit());
 		$form->clearPubId($request->getUserVar('pubIdPlugIn'));
 		return new JSONMessage(true);
 	}

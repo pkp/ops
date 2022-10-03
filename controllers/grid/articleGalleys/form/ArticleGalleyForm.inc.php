@@ -34,6 +34,7 @@ class ArticleGalleyForm extends Form {
 	 * @param $submission Submission
 	 * @param $publication Publication
 	 * @param $articleGalley ArticleGalley (optional)
+	 * @param bool $isEditable (optional, default = true)
 	 */
 	function __construct($request, $submission, $publication, $articleGalley = null, $isEditable = true) {
 		parent::__construct('controllers/grid/articleGalleys/form/articleGalleyForm.tpl');
@@ -109,6 +110,10 @@ class ArticleGalleyForm extends Form {
 					$this->addErrorField('urlPath');
 				}
 			}
+		}
+
+		if (!$this->_isEditable) {
+			$this->addError('', __('publication.notEditable'));
 		}
 
 		return parent::validate($callHooks);
