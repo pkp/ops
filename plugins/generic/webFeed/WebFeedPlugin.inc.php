@@ -8,7 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class WebFeedPlugin
- * @ingroup plugins_block_webFeed
+ * @ingroup plugins_generic_webFeed
  *
  * @brief Web Feeds plugin class
  */
