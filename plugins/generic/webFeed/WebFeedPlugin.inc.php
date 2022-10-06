@@ -1,0 +1,134 @@
+<?php
+
+/**
+ * @file plugins/generic/webFeed/WebFeedPlugin.inc.php
+ *
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class WebFeedPlugin
+ * @ingroup plugins_generic_webFeed
+ *
+ * @brief Web Feeds plugin class
+ */
+
+import('lib.pkp.classes.plugins.GenericPlugin');
+
+class WebFeedPlugin extends GenericPlugin {
+	/**
+	 * Get the display name of this plugin
+	 * @return string
+	 */
+	public function getDisplayName() {
+		return __('plugins.generic.webfeed.displayName');
+	}
+
+	/**
+	 * Get the description of this plugin
+	 * @return string
+	 */
+	public function getDescription() {
+		return __('plugins.generic.webfeed.description');
+	}
+
+	/**
+	 * @copydoc Plugin::register()
+	 */
+	public function register($category, $path, $mainContextId = null) {
+		if (!parent::register($category, $path, $mainContextId)) return false;
+		if ($this->getEnabled($mainContextId)) {
+			HookRegistry::register('TemplateManager::display', [$this, 'callbackAddLinks']);
+			$this->import('WebFeedBlockPlugin');
+			PluginRegistry::register('blocks', new WebFeedBlockPlugin($this), $this->getPluginPath());
+
+			$this->import('WebFeedGatewayPlugin');
+			PluginRegistry::register('gateways', new WebFeedGatewayPlugin($this), $this->getPluginPath());
+		}
+		return true;
+	}
+
+	/**
+	 * Get the name of the settings file to be installed on new context
+	 * creation.
+	 * @return string
+	 */
+	public function getContextSpecificPluginSettingsFile() {
+		return $this->getPluginPath() . '/settings.xml';
+	}
+
+	/**
+	 * Add feed links to page <head> on select/all pages.
+	 */
+	public function callbackAddLinks($hookName, $args) {
+		// Only page requests will be handled
+		$request = Application::get()->getRequest();
+		if (!is_a($request->getRouter(), 'PKPPageRouter')) return false;
+
+		/** @var TemplateManager */
+		$templateManager = $args[0];
+		$currentServer = $templateManager->getTemplateVars('currentJournal');
+		if (is_null($currentServer)) {
+			return;
+		}
+
+		$displayPage = $this->getSetting($currentServer->getId(), 'displayPage');
+
+		// Define when the <link> elements should appear
+		$contexts = $displayPage == 'homepage' ? 'frontend-index' : 'frontend';
+		foreach (WebFeedGatewayPlugin::FEED_MIME_TYPE as $feedType => $mimeType) {
+			$url = $request->url(null, 'gateway', 'plugin', ['WebFeedGatewayPlugin', $feedType]);
+			$templateManager->addHeader("webFeedPlugin{$feedType}", "<link rel=\"alternate\" type=\"{$mimeType}\" href=\"{$url}\">", ['contexts' => $contexts]);
+		}
+
+		return false;
+	}
+
+	/**
+	 * @copydoc Plugin::getActions()
+	 */
+	public function getActions($request, $verb) {
+		$router = $request->getRouter();
+		import('lib.pkp.classes.linkAction.request.AjaxModal');
+		return array_merge(
+			$this->getEnabled() ? [
+				new LinkAction(
+					'settings',
+					new AjaxModal(
+						$router->url($request, null, null, 'manage', null, ['verb' => 'settings', 'plugin' => $this->getName(), 'category' => 'generic']),
+						$this->getDisplayName()
+					),
+					__('manager.plugins.settings'),
+					null
+				),
+			] : [],
+			parent::getActions($request, $verb)
+		);
+	}
+
+	/**
+	 * @copydoc Plugin::manage()
+	 */
+	public function manage($args, $request) {
+		switch ($request->getUserVar('verb')) {
+			case 'settings':
+				AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON,  LOCALE_COMPONENT_PKP_MANAGER);
+				$this->import('WebFeedSettingsForm');
+				$form = new WebFeedSettingsForm($this, $request->getContext()->getId());
+
+				if ($request->getUserVar('save')) {
+					$form->readInputData();
+					if ($form->validate()) {
+						$form->execute();
+						$notificationManager = new NotificationManager();
+						$notificationManager->createTrivialNotification($request->getUser()->getId());
+						return new JSONMessage(true);
+					}
+				} else {
+					$form->initData();
+				}
+				return new JSONMessage(true, $form->fetch($request));
+		}
+		return parent::manage($args, $request);
+	}
+}
