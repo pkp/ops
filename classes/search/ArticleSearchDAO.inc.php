@@ -71,9 +71,13 @@ class ArticleSearchDAO extends SubmissionSearchDAO {
 				COUNT(*) AS count
 			FROM
 				submissions s
-				JOIN publications p ON (p.publication_id = s.current_publication_id),
+				JOIN publications p ON (p.publication_id = s.current_publication_id)
+				JOIN journals j ON j.journal_id = s.context_id
+				LEFT JOIN journal_settings js ON j.journal_id = js.journal_id AND js.setting_name = \'publishingMode\',
 				submission_search_objects o NATURAL JOIN ' . $sqlFrom . '
 			WHERE
+				(js.setting_value <> \'' . PUBLISHING_MODE_NONE . '\' OR
+				js.setting_value IS NULL) AND j.enabled = 1 AND
 				s.submission_id = o.submission_id AND
 				s.status = ' . STATUS_PUBLISHED . ' AND
 				' . $sqlWhere . '
