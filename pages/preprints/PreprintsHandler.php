@@ -68,7 +68,7 @@ class PreprintsHandler extends Handler
         $collector = Repo::submission()->getCollector()
             ->filterByContextIds([$context->getId()])
             ->filterByStatus([Submission::STATUS_PUBLISHED])
-            ->orderBy($collector::ORDERBY_DATE_PUBLISHED);
+            ->orderBy(Repo::submission()->getCollector()::ORDERBY_DATE_PUBLISHED);
         $total = $collector->getCount();
         $publishedSubmissions = $collector->limit($count)->getMany();
 

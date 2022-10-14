@@ -89,6 +89,13 @@
 			"validation": [
 				"nullable"
 			]
+		},
+		"publishingMode": {
+			"type": "integer",
+			"validation": [
+				"nullable",
+				"in:0,2"
+			]
 		}
 	}
 }

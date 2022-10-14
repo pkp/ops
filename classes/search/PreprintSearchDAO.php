@@ -17,6 +17,7 @@
 
 namespace APP\search;
 
+use APP\server\Server;
 use PKP\search\SubmissionSearchDAO;
 use PKP\submission\PKPSubmission;
 
@@ -80,21 +81,25 @@ class PreprintSearchDAO extends SubmissionSearchDAO
 
         $result = $this->retrieve(
             'SELECT
-				o.submission_id,
-				MAX(s.context_id) AS server_id,
-				MAX(p.date_published) AS s_pub,
-				COUNT(*) AS count
-			FROM
-				submissions s
-				JOIN publications p ON (p.publication_id = s.current_publication_id),
-				submission_search_objects o NATURAL JOIN ' . $sqlFrom . '
-			WHERE
-				s.submission_id = o.submission_id AND
-				s.status = ' . PKPSubmission::STATUS_PUBLISHED . ' AND
-				' . $sqlWhere . '
-			GROUP BY o.submission_id
-			ORDER BY count DESC
-			LIMIT ' . $limit,
+                o.submission_id,
+                MAX(s.context_id) AS server_id,
+                MAX(p.date_published) AS s_pub,
+                COUNT(*) AS count
+            FROM
+                submissions s
+                JOIN publications p ON (p.publication_id = s.current_publication_id)
+                JOIN servers j ON j.server_id = s.context_id
+                LEFT JOIN server_settings js ON j.server_id = js.server_id AND js.setting_name = \'publishingMode\',
+                submission_search_objects o NATURAL JOIN ' . $sqlFrom . '
+            WHERE
+                (js.setting_value <> \'' . Server::PUBLISHING_MODE_NONE . '\' OR
+                js.setting_value IS NULL) AND j.enabled = 1 AND
+                s.submission_id = o.submission_id AND
+                s.status = ' . PKPSubmission::STATUS_PUBLISHED . ' AND
+                ' . $sqlWhere . '
+            GROUP BY o.submission_id
+            ORDER BY count DESC
+            LIMIT ' . $limit,
             $params,
             3600 * $cacheHours // Cache for 24 hours
         );
