@@ -22,7 +22,7 @@
 			<input type="hidden" name="{$paramKey|escape}" value="{$paramValue|escape}"/>
 		{/foreach}
 		{block name=searchQueryFrontpage}
-			<input name="query" value="{$searchQuery|escape}" type="text" aria-label="{translate|escape key="common.searchQuery"}">
+			<input name="query" value="{$searchQuery|default:""|escape}" type="text" aria-label="{translate|escape key="common.searchQuery"}">
 		{/block}
 		<button class="cmp_button" type="submit">
 			{translate key="common.search"}
