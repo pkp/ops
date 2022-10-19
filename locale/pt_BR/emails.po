@@ -102,6 +102,7 @@ msgstr ""
 msgid "emails.notification.subject"
 msgstr "Nova notificação de {$siteTitle}"
 
+#, fuzzy
 msgid "emails.postedAck.body"
 msgstr ""
 "{$recipientName}: <br />\n"
