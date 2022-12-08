@@ -35,6 +35,7 @@ use PKP\security\authorization\internal\RepresentationRequiredPolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
+use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use APP\publication\Publication;
 use APP\submission\Submission;
@@ -63,9 +64,8 @@ class PreprintGalleyGridHandler extends GridHandler
     /**
      * Get the authorized submission.
      *
-     * @return Submission
      */
-    public function getSubmission() : Submission
+    public function getSubmission(): Submission
     {
         return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
     }
@@ -73,9 +73,8 @@ class PreprintGalleyGridHandler extends GridHandler
     /**
      * Get the authorized publication.
      *
-     * @return Publication
      */
-    public function getPublication() : Publication
+    public function getPublication(): Publication
     {
         return $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
     }
@@ -128,7 +127,7 @@ class PreprintGalleyGridHandler extends GridHandler
     public function initialize($request, $args = null)
     {
         parent::initialize($request, $args);
-        $this->setTitle('submission.layout.galleys');
+        $this->setTitle('submission.files');
 
         $cellProvider = new PreprintGalleyGridCellProvider($this->getSubmission(), $this->getPublication(), $this->canEdit());
 
@@ -147,10 +146,10 @@ class PreprintGalleyGridHandler extends GridHandler
                 'addGalley',
                 new AjaxModal(
                     $request->getRouter()->url($request, null, null, 'addGalley', null, $this->getRequestArgs()),
-                    __('submission.layout.newGalley'),
+                    __('common.addFile'),
                     'modal_add_item'
                 ),
-                __('grid.action.addGalley'),
+                __('common.addFile'),
                 'add_item'
             ));
         }
@@ -265,7 +264,9 @@ class PreprintGalleyGridHandler extends GridHandler
         $form->readInputData();
         if ($form->validate()) {
             $form->execute();
-            return DAO::getDataChangedEvent();
+            $json = DAO::getDataChangedEvent();
+            $json->setGlobalEvent('galley:edited', $this->getGalleyData($representation->getId()));
+            return $json;
         } else {
             return new JSONMessage(true, $form->fetch($request));
         }
@@ -288,7 +289,9 @@ class PreprintGalleyGridHandler extends GridHandler
         $representation = $this->getGalley();
         $form = new PublicIdentifiersForm($representation, null, null, $this->canEdit());
         $form->clearPubId($request->getUserVar('pubIdPlugIn'));
-        return new JSONMessage(true);
+        $json = new JSONMessage(true);
+        $json->setGlobalEvent('galley:edited', $this->getGalleyData($representation->getId()));
+        return $json;
     }
 
     /**
@@ -342,7 +345,9 @@ class PreprintGalleyGridHandler extends GridHandler
             );
         }
 
-        return DAO::getDataChangedEvent($galley->getId());
+        $json = DAO::getDataChangedEvent($galley->getId());
+        $json->setGlobalEvent('galley:deleted', ['id' => $galley->getId()]);
+        return $json;
     }
 
     /**
@@ -431,7 +436,13 @@ class PreprintGalleyGridHandler extends GridHandler
                 );
             }
 
-            return DAO::getDataChangedEvent($galley->getId());
+            $json = DAO::getDataChangedEvent($galley->getId());
+            if ($this->getGalley()) {
+                $json->setGlobalEvent('galley:edited', $this->getGalleyData($galley->getId()));
+            } else {
+                $json->setGlobalEvent('galley:added', $this->getGalleyData($galley->getId()));
+            }
+            return $json;
         }
         return new JSONMessage(true, $galleyForm->fetch($request));
     }
@@ -487,5 +498,27 @@ class PreprintGalleyGridHandler extends GridHandler
 
         // Default: Read-only.
         return false;
+    }
+
+    /**
+     * Get the galley data to return in a global event
+     *
+     * This is used to pass updated galley to the UI's state
+     */
+    protected function getGalleyData(int $id): array
+    {
+        $galley = Repo::galley()->get($id);
+
+        if (!$galley) {
+            return [];
+        }
+
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId(Application::get()->getRequest()->getContext()->getId())->toArray();
+
+        return Repo::galley()
+            ->getSchemaMap($this->getSubmission(), $this->getPublication(), $genres)
+            ->map($galley);
     }
 }

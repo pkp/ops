@@ -7,9 +7,34 @@
  *
  */
 
-describe('Data suite tests', function() {
+describe('Data suite: Jmwandenga', function() {
+	let submission;
+
+	before(function() {
+		const title = 'Signalling Theory Dividends: A Review Of The Literature And Empirical Evidence';
+		submission = {
+			id: 0,
+			section: 'Preprints',
+			prefix: '',
+			title: title,
+			subtitle: '',
+			abstract: 'The signaling theory suggests that dividends signal future prospects of a firm. However, recent empirical evidence from the US and the Uk does not offer a conclusive evidence on this issue. There are conflicting policy implications among financial economists so much that there is no practical dividend policy guidance to management, existing and potential investors in shareholding. Since corporate investment, financing and distribution decisions are a continuous function of management, the dividend decisions seem to rely on intuitive evaluation.',
+			shortAuthorString: 'Mwandenga',
+			authorNames: ['John Mwandenga'],
+			sectionId: 1,
+			assignedAuthorNames: ['John Mwandenga'],
+			files: [
+				{
+					'file': 'dummy.pdf',
+					'fileName': title + '.pdf',
+					'mimeType': 'application/pdf',
+					'genre': Cypress.env('defaultGenre')
+				},
+			]
+		};
+	});
+
 	it('Create a submission', function() {
-		var title = 'Signalling Theory Dividends: A Review Of The Literature And Empirical Evidence';
 		cy.register({
 			'username': 'jmwandenga',
 			'givenName': 'John',
@@ -18,10 +43,14 @@ describe('Data suite tests', function() {
 			'country': 'South Africa',
 		});
 
-		cy.createSubmission({
-			title,
-			'abstract': 'The signaling theory suggests that dividends signal future prospects of a firm. However, recent empirical evidence from the US and the Uk does not offer a conclusive evidence on this issue. There are conflicting policy implications among financial economists so much that there is no practical dividend policy guidance to management, existing and potential investors in shareholding. Since corporate investment, financing and distribution decisions are a continuous function of management, the dividend decisions seem to rely on intuitive evaluation.',
-		});
+		cy.getCsrfToken();
+		cy.window()
+			.then(() => {
+				return cy.createSubmissionWithApi(submission, this.csrfToken);
+			})
+			.then(xhr => {
+				return cy.submitSubmissionWithApi(submission.id, this.csrfToken);
+			});
 
 		cy.logout();
 		cy.findSubmissionAsEditor('dbarnes', null, 'Mwandenga');

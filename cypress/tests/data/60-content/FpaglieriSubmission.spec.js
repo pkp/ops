@@ -7,9 +7,34 @@
  *
  */
 
-describe('Data suite tests', function() {
+describe('Data suite: Fpaglieri', function() {
+	let submission;
+
+	before(function() {
+		const title = 'Hansen & Pinto: Reason Reclaimed';
+		submission = {
+			id: 0,
+			section: 'Preprints',
+			prefix: '',
+			title: title,
+			subtitle: '',
+			abstract: 'None.',
+			shortAuthorString: 'Paglieri',
+			authorNames: ['Fabio Paglieri'],
+			sectionId: 1,
+			assignedAuthorNames: ['Fabio Paglieri'],
+			files: [
+				{
+					'file': 'dummy.pdf',
+					'fileName': title + '.pdf',
+					'mimeType': 'application/pdf',
+					'genre': Cypress.env('defaultGenre')
+				},
+			]
+		};
+	});
+
 	it('Create a submission', function() {
-		var title = 'Hansen & Pinto: Reason Reclaimed';
 		cy.register({
 			'username': 'fpaglieri',
 			'givenName': 'Fabio',
@@ -18,10 +43,14 @@ describe('Data suite tests', function() {
 			'country': 'Italy',
 		});
 
-		cy.createSubmission({
-			title,
-			'abstract': 'None.',
-		});
+		cy.getCsrfToken();
+		cy.window()
+			.then(() => {
+				return cy.createSubmissionWithApi(submission, this.csrfToken);
+			})
+			.then(xhr => {
+				return cy.submitSubmissionWithApi(submission.id, this.csrfToken);
+			});
 
 		cy.logout();
 		cy.findSubmissionAsEditor('dbarnes', null, 'Paglieri');

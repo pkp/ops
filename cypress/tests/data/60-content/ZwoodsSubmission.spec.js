@@ -7,9 +7,38 @@
  *
  */
 
-describe('Data suite tests', function() {
+describe('Data suite: Zwoods', function() {
+	let submission;
+
+	before(function() {
+		const title = 'Finocchiaro: Arguments About Arguments';
+		submission = {
+			id: 0,
+			section: 'Preprints',
+			prefix: '',
+			title: title,
+			subtitle: '',
+			abstract: 'None.',
+			shortAuthorString: 'Woods',
+			authorNames: ['Zita Woods'],
+			sectionId: 1,
+			assignedAuthorNames: ['Zita Woods'],
+			files: [
+				{
+					'file': 'dummy.pdf',
+					'fileName': title + '.pdf',
+					'mimeType': 'application/pdf',
+					'genre': Cypress.env('defaultGenre')
+				},
+			],
+			keywords: [
+				'education',
+				'citizenship'
+			]
+		};
+	});
+
 	it('Create a submission', function() {
-		var title = 'Finocchiaro: Arguments About Arguments';
 		cy.register({
 			'username': 'zwoods',
 			'givenName': 'Zita',
@@ -18,10 +47,14 @@ describe('Data suite tests', function() {
 			'country': 'United States',
 		});
 
-		cy.createSubmission({
-			title,
-			'abstract': 'None.'
-		});
+		cy.getCsrfToken();
+		cy.window()
+			.then(() => {
+				return cy.createSubmissionWithApi(submission, this.csrfToken);
+			})
+			.then(xhr => {
+				return cy.submitSubmissionWithApi(submission.id, this.csrfToken);
+			});
 
 		cy.logout();
 		cy.findSubmissionAsEditor('dbarnes', null, 'Woods');

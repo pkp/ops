@@ -7,9 +7,34 @@
  *
  */
 
-describe('Data suite tests', function() {
+describe('Data suite: Ddiouf', function() {
+	let submission;
+
+	before(function() {
+		const title = 'Genetic transformation of forest trees';
+		submission = {
+			id: 0,
+			section: 'Preprints',
+			prefix: '',
+			title: title,
+			subtitle: '',
+			abstract: 'In this review, the recent progress on genetic transformation of forest trees were discussed. Its described also, different applications of genetic engineering for improving forest trees or understanding the mechanisms governing genes expression in woody plants.',
+			shortAuthorString: 'Diouf',
+			authorNames: ['Diaga Diouf'],
+			sectionId: 1,
+			assignedAuthorNames: ['Diaga Diouf'],
+			files: [
+				{
+					'file': 'dummy.pdf',
+					'fileName': title + '.pdf',
+					'mimeType': 'application/pdf',
+					'genre': Cypress.env('defaultGenre')
+				},
+			]
+		};
+	});
+
 	it('Create a submission', function() {
-		var title = 'Genetic transformation of forest trees';
 		cy.register({
 			'username': 'ddiouf',
 			'givenName': 'Diaga',
@@ -18,10 +43,14 @@ describe('Data suite tests', function() {
 			'country': 'Egypt',
 		});
 
-		cy.createSubmission({
-			title,
-			'abstract': 'In this review, the recent progress on genetic transformation of forest trees were discussed. Its described also, different applications of genetic engineering for improving forest trees or understanding the mechanisms governing genes expression in woody plants.',
-		});
+		cy.getCsrfToken();
+		cy.window()
+			.then(() => {
+				return cy.createSubmissionWithApi(submission, this.csrfToken);
+			})
+			.then(xhr => {
+				return cy.submitSubmissionWithApi(submission.id, this.csrfToken);
+			});
 	});
 
 	it('Declines the submission, reverts the decline, and declines it again', function() {

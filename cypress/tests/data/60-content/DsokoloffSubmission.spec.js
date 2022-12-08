@@ -7,7 +7,37 @@
  *
  */
 
-describe('Data suite tests', function() {
+describe('Data suite: Dsokoloff', function() {
+	let submission;
+
+	before(function() {
+		const title = 'Developing efficacy beliefs in the classroom';
+		submission = {
+			id: 0,
+			section: 'Preprints',
+			prefix: '',
+			title: title,
+			subtitle: '',
+			abstract: 'A major goal of education is to equip children with the knowledge, skills and self-belief to be confident and informed citizens - citizens who continue to see themselves as learners beyond graduation. This paper looks at the key role of nurturing efficacy beliefs in order to learn and participate in school and society. Research findings conducted within a social studies context are presented, showing how strategy instruction can enhance self-efficacy for learning. As part of this research, Creative Problem Solving (CPS) was taught to children as a means to motivate and support learning. It is shown that the use of CPS can have positive effects on self-efficacy for learning, and be a valuable framework to involve children in decision-making that leads to social action. Implications for enhancing self-efficacy and motivation to learn in the classroom are discussed.',
+			shortAuthorString: 'Sokoloff',
+			authorNames: ['Domatilia Sokoloff'],
+			sectionId: 1,
+			assignedAuthorNames: ['Domatilia Sokoloff'],
+			files: [
+				{
+					'file': 'dummy.pdf',
+					'fileName': title + '.pdf',
+					'mimeType': 'application/pdf',
+					'genre': Cypress.env('defaultGenre')
+				},
+			],
+			keywords: [
+				'education',
+				'citizenship'
+			]
+		};
+	});
+
 	it('Create a submission', function() {
 		var title = 'Developing efficacy beliefs in the classroom';
 		cy.register({
@@ -18,14 +48,14 @@ describe('Data suite tests', function() {
 			'country': 'Ireland',
 		});
 
-		cy.createSubmission({
-			title,
-			'abstract': 'A major goal of education is to equip children with the knowledge, skills and self-belief to be confident and informed citizens - citizens who continue to see themselves as learners beyond graduation. This paper looks at the key role of nurturing efficacy beliefs in order to learn and participate in school and society. Research findings conducted within a social studies context are presented, showing how strategy instruction can enhance self-efficacy for learning. As part of this research, Creative Problem Solving (CPS) was taught to children as a means to motivate and support learning. It is shown that the use of CPS can have positive effects on self-efficacy for learning, and be a valuable framework to involve children in decision-making that leads to social action. Implications for enhancing self-efficacy and motivation to learn in the classroom are discussed.',
-			'keywords': [
-				'education',
-				'citizenship',
-			],
-		});
+		cy.getCsrfToken();
+		cy.window()
+			.then(() => {
+				return cy.createSubmissionWithApi(submission, this.csrfToken);
+			})
+			.then(xhr => {
+				return cy.submitSubmissionWithApi(submission.id, this.csrfToken);
+			});
 
 		cy.logout();
 		cy.findSubmissionAsEditor('dbarnes', null, 'Sokoloff');
