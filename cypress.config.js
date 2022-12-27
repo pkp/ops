@@ -17,6 +17,7 @@ module.exports = defineConfig({
     },
     defaultGenre: 'Preprint Text',
     authorUserGroupId: 4,
+    loginViaForm: false,
   },
   watchForFileChanges: false,
   defaultCommandTimeout: 500000,
