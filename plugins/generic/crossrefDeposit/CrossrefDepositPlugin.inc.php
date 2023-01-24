@@ -80,6 +80,6 @@ class CrossrefDepositPlugin extends GenericPlugin {
 			}
 			$fileManager->deleteByPath($exportFileName);
 		}
-		return true;
+		return false;
 	}
 }
