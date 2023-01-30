@@ -2,20 +2,52 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-08T22:59:42+00:00\n"
+"PO-Revision-Date: 2021-01-08T22:59:42+00:00\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-01-08T22:59:42+00:00\n"
-"PO-Revision-Date: 2021-01-08T22:59:42+00:00\n"
-"Language: \n"
 
 msgid "plugins.reports.counter.description"
-msgstr "サイトの運用状況を記録し、<a href=\"http://www.projectcounter.org/about.html\" target=\"_new\">COUNTER</a>準拠の報告書を作成します。"
+msgstr ""
+"サイトの運用状況を記録し、<a href=\"http://www.projectcounter.org/about.html"
+"\" target=\"_new\">COUNTER</a>準拠の報告書を作成します。"
 
 msgid "plugins.reports.counter"
 msgstr "COUNTER統計"
+
+msgid "plugins.reports.counter.release"
+msgstr ""
+
+msgid "plugins.reports.counter.olderReports"
+msgstr ""
+
+msgid "plugins.reports.counter.error.badParameters"
+msgstr ""
+
+msgid "plugins.reports.counter.error.badRequest"
+msgstr ""
+
+msgid "plugins.reports.counter.error.noResults"
+msgstr ""
+
+msgid "plugins.reports.counter.error.noXML"
+msgstr ""
+
+msgid "plugins.reports.counter.1a.introduction"
+msgstr ""
+
+msgid "plugins.reports.counter.1a.name"
+msgstr ""
+
+msgid "plugins.reports.counter.1a.xml"
+msgstr ""
+
+msgid "plugins.reports.counter.1a.description"
+msgstr ""
 
 msgid "plugins.reports.counter.1a.title"
 msgstr "雑誌報告書 1 (R3): 月別・雑誌別の雑誌フルテキストへのリクエスト"
@@ -53,5 +85,14 @@ msgstr "YTD PDF"
 msgid "plugins.reports.counter.1a.totalForAllJournals"
 msgstr "全雑誌の合計"
 
-msgid "plugins.reports.counter.migrate"
-msgstr "ログファイルを移行する。"
+msgid "plugins.reports.counter.1a.anonymous"
+msgstr ""
+
+msgid "plugins.reports.counter.legacyStats"
+msgstr ""
+
+msgid "plugins.reports.counter.allCustomers"
+msgstr ""
+
+#~ msgid "plugins.reports.counter.migrate"
+#~ msgstr "ログファイルを移行する。"

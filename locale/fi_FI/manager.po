@@ -11,108 +11,201 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "manager.statistics.reports.defaultReport.journalIndexPageViews"
-msgstr "Palvelimen pääsivun katselukerrat"
+msgid "manager.distribution.access"
+msgstr "Saatavuus"
 
-msgid "manager.statistics.statistics.registeredReaders"
-msgstr "Rekisteröityneet lukijat"
-
-msgid "manager.statistics.statistics.numSubmissions"
-msgstr "Käsikirjoituksia yhteensä"
-
-msgid "manager.statistics.statistics.itemsPublished"
-msgstr "Kohteita julkaistu"
-
-msgid "manager.statistics.statistics.daysToPublication"
-msgstr "Aikaa julkaisuun (pv)"
-
-msgid "manager.statistics.statistics.count.revise"
-msgstr "Lähetä uudelleen"
-
-msgid "manager.statistics.statistics.count.decline"
-msgstr "Hylkää"
-
-msgid "manager.statistics.statistics.count.accept"
-msgstr "Hyväksy"
-
-msgid "manager.statistics.statistics"
-msgstr "Palvelimen tilastot"
-
-msgid "manager.setup.userRegistration"
-msgstr "Käyttäjärekisteröinti"
-
-msgid "manager.setup.enableOai.description"
+msgid "manager.distribution.copyrightYearBasis.description"
 msgstr ""
-"Tarjoa palvelimen kuvailutietoja kolmansille osapuolille <a href=\""
-"https://www.openarchives.org/\">Open Archives Initiative</a> -standardin "
-"mukaisen rajapinnan kautta."
 
-msgid "manager.setup.enableOai"
-msgstr "Ota OAI-rajapinta käyttöön"
-
-msgid "manager.setup.disableSubmissions.notAccepting"
+msgid "manager.distribution.copyrightYearBasis.submission"
 msgstr ""
-"Palvelin ei ota vastaan käsikirjoituksia tällä hetkellä. Käy työnkulun "
-"asetuksissa sallimassa käsikirjoitukset."
 
-msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Käsikirjoituksen lähettämisen tarkistuslista"
+msgid "manager.distribution.publishingMode"
+msgstr "Sisällön saatavuus"
 
-msgid "manager.setup.sponsoringOrganization"
-msgstr "Tukiorganisaatiot"
+msgid "manager.distribution.publishingMode.none"
+msgstr "OPS-järjestelmää ei käytetä palvelimen sisällön julkaisuun verkossa."
 
-msgid "manager.setup.siteAccess.view"
-msgstr "Pääsy verkkosivulle"
+msgid "manager.distribution.publishingMode.openAccess"
+msgstr "Palvelimen sisältö on avoimesti saatavilla."
 
-msgid "manager.setup.searchDescription.description"
+msgid "manager.language.ui"
+msgstr "Käyttöliittymä"
+
+msgid "manager.language.submissions"
+msgstr "Käsikirjoitukset"
+
+msgid "manager.language.forms"
+msgstr "Lomakkeet"
+
+msgid "manager.language.confirmDefaultSettingsOverwrite"
 msgstr ""
-"Anna lyhyt (50-300 merkkiä) kuvaus, jonka hakukoneet voivat näyttää "
-"palvelimen sivustoa koskevissa hakutuloksissaan."
+"Tämä korvaa kaikki tähän kielialueeseen liittyvät, kielialuekohtaiset "
+"palvelimen sivuston asetukset"
 
-msgid "manager.setup.searchEngineIndexing.description"
+msgid "manager.people.allUsers"
+msgstr "Kaikki käyttäjät, joilla on rooleja"
+
+msgid "manager.people.confirmRemove"
 msgstr ""
-"Auta Googlea ja muita hakukoneita löytämään sivustosi. Suosittelemme sinua "
-"lähettämään <a href=\"{$sitemapUrl}\" target=\"_blank\">sivustokarttasi</a> "
-"hakukoneille tiedoksi."
+"Poistetaanko tämä käyttäjä tämän tältä palvelimelta? Tämä toiminto poistaa "
+"käyttäjän kaikista tähän palvelimeen liittyvistä rooleista."
 
-msgid "manager.setup.searchEngineIndexing"
-msgstr "Hakukoneindeksointi"
+msgid "manager.sections.abstractsNotRequired"
+msgstr "Älä vaadi abstrakteja"
 
-msgid "manager.setup.restrictSiteAccess"
+msgid "manager.section.noSectionEditors"
 msgstr ""
-"Käyttäjien tulee olla rekisteröityneitä ja sisäänkirjautuneita katsellakseen "
-"palvelimen sivustoa."
+"Moderaattoreita ei vielä ole. Lisää ensin tämä rooli vähintään yhdelle "
+"käyttäjälle seuraavasti: Hallinnointi > Asetukset > Käyttäjät &amp; Roolit."
 
-msgid "manager.setup.restrictArticleAccess"
+msgid "manager.sections.confirmDelete"
+msgstr "Haluatko varmasti poistaa tämän osaston pysyvästi?"
+
+msgid "manager.sections.alertDelete"
 msgstr ""
-"Käyttäjien tulee olla rekisteröityneitä ja sisäänkirjautuneita katsellakseen "
-"avoimesti saatavilla olevaa sisältöä."
 
-msgid "manager.setup.numPageLinks.description"
-msgstr "Rajoita listauksessa näkyvien sivulinkkien määrää."
+msgid "manager.sections.create"
+msgstr "Luo osasto"
 
-msgid "manager.setup.numPageLinks"
-msgstr "Sivun linkit"
-
-msgid "manager.setup.lists"
-msgstr "Listat"
-
-msgid "manager.setup.keyInfo"
-msgstr "Avaintiedot"
-
-msgid "manager.setup.contextTitle"
-msgstr "Palvelimen nimi"
-
-msgid "manager.setup.serverThumbnail.description"
+msgid "manager.sections.editorRestriction"
 msgstr ""
-"Pieni logo tai palvelinta edustava kuva, jota voidaan käyttää palvelinten "
-"listauksessa."
+"Ainoastaan hallinnoijat ja moderaattorit voivat lähettää uusia "
+"käsikirjoituksia."
 
-msgid "manager.setup.serverThumbnail"
-msgstr "Palvelimen pikkukuva"
+msgid "manager.sections.confirmDeactivateSection.error"
+msgstr ""
+"Vähintään yhden osaston tulee olla käytössä. Käy työnkulun asetuksissa "
+"estämässä käsikirjoitusten lähettäminen tälle palvelimelle."
 
-msgid "manager.setup.contextInitials"
-msgstr "Palvelimen alkukirjaimet"
+msgid "manager.sections.form.abbrevRequired"
+msgstr "Osastolle vaaditaan lyhennetty nimi"
+
+msgid "manager.setup.form.section.pathRequired"
+msgstr "Osastolle vaaditaan URL-polku"
+
+msgid "manager.sections.identifyType"
+msgstr "Merkitse tässä osastossa julkaistut kohteet seuraavasti"
+
+msgid "manager.sections.identifyTypeExamples"
+msgstr "(Esimerkiksi jne.)"
+
+msgid "manager.sections.policy"
+msgstr "Osaston käytännöt"
+
+msgid "manager.sections.submissionIndexing"
+msgstr "Ei sisällytetä tämän palvelimen indeksointiin"
+
+msgid "manager.sections.wordCount"
+msgstr "Sanamäärä"
+
+msgid "manager.sections.wordCountInstructions"
+msgstr "Rajaa tämän osaston abstraktien sanamäärät (0 ei rajoitusta)"
+
+msgid "manager.setup"
+msgstr "Palvelimen asetukset"
+
+msgid "manager.setup.masthead"
+msgstr "Tunnuslaatikko"
+
+msgid "manager.setup.editorialTeam"
+msgstr ""
+
+msgid "manager.setup.useStyleSheet"
+msgstr "Palvelimen tyylitiedosto"
+
+msgid "manager.setup.announcements"
+msgstr "Ilmoitukset"
+
+msgid "manager.setup.announcementsIntroduction"
+msgstr "Esittely"
+
+msgid "manager.setup.announcementsIntroduction.description"
+msgstr ""
+"Syötä mitä tahansa lisätietoja, joiden halutaan näkyvän Ilmoitukset-sivun "
+"lukijoille."
+
+msgid "manager.setup.authorScreening"
+msgstr ""
+
+msgid "manager.setup.disableUserRegistration"
+msgstr "Palvelimen hallinnoija rekisteröi kaikki käyttäjätilit."
+
+msgid "manager.setup.emailBounceAddress"
+msgstr "Palautusosoite"
+
+msgid "manager.setup.emailBounceAddress.description"
+msgstr ""
+"Tähän osoitteeseen lähetetään virheilmoitus aina, kun sähköpostia ei voida "
+"toimittaa perille."
+
+msgid "manager.setup.emailBounceAddress.disabled"
+msgstr ""
+"Aktivoidakseen tämän valinnan sivuston ylläpitäjän täytyy ottaa käyttöön "
+"<code>allow_envelope_sender</code> -valinta OPS:n määritystiedostossa. "
+"Verkkopalvelimen lisämäärityksiä saatetaan edellyttää tämän toiminnon "
+"tukemiseksi (joka ei välttämättä ole mahdollista kaikilla "
+"verkkopalvelimilla), kuten OPS:n käyttöohjeissa mainitaan."
+
+msgid "manager.setup.emailSignature"
+msgstr "Allekirjoitus"
+
+msgid "manager.setup.emailSignature.description"
+msgstr ""
+"Valmiisiin sähköposteihin, jotka järjestelmä lähettää palvelimen puolesta, "
+"lisätään seuraava allekirjoitus."
+
+msgid "manager.setup.enableAnnouncements.enable"
+msgstr "Ota ilmoitukset käyttöön"
+
+msgid "manager.setup.enableAnnouncements.description"
+msgstr ""
+
+msgid "manager.setup.numAnnouncementsHomepage"
+msgstr "Näytä kotisivulla"
+
+msgid "manager.setup.numAnnouncementsHomepage.description"
+msgstr ""
+"Montako ilmoitusta näytetään kotisivulla? Jätä tyhjäksi jos et halu näyttää "
+"yhtään."
+
+msgid "manager.setup.enableUserRegistration"
+msgstr "Vierailijat voivat rekisteröidä käyttäjätilin palvelimelle."
+
+msgid "manager.setup.identity"
+msgstr "Palvelimen tiedot"
+
+msgid "manager.setup.information"
+msgstr "Tietoja"
+
+msgid "manager.setup.information.description"
+msgstr ""
+
+msgid "manager.setup.information.forAuthors"
+msgstr ""
+
+msgid "manager.setup.information.forLibrarians"
+msgstr ""
+
+msgid "manager.setup.information.forReaders"
+msgstr ""
+
+msgid "manager.setup.itemsPerPage"
+msgstr "Kohteita per sivu"
+
+msgid "manager.setup.itemsPerPage.description"
+msgstr ""
+"Rajoita niiden kohteiden (käsikirjoitus, käyttäjä jne.) lukumäärä, jotka "
+"näytetään yhdellä sivulla."
+
+msgid "manager.setup.journalAbbreviation"
+msgstr "Palvelimen lyhenne"
+
+msgid "manager.setup.contextSummary"
+msgstr "Palvelimen yhteenveto"
+
+msgid "manager.setup.contextAbout"
+msgstr "Tietoa palvelimesta"
 
 msgid "manager.setup.contextAbout.description"
 msgstr ""
@@ -121,168 +214,261 @@ msgstr ""
 "saatavuuden periaate, palvelimen  tarkoitus ja toimintaperiaatteet, "
 "tekijänoikeushuomautus, palvelimen historia ja tietosuojaseloste."
 
-msgid "manager.setup.contextAbout"
-msgstr "Tietoa palvelimesta"
+msgid "manager.setup.contextInitials"
+msgstr "Palvelimen alkukirjaimet"
 
-msgid "manager.setup.contextSummary"
-msgstr "Palvelimen yhteenveto"
+msgid "manager.setup.serverThumbnail"
+msgstr "Palvelimen pikkukuva"
 
-msgid "manager.setup.journalAbbreviation"
-msgstr "Palvelimen lyhenne"
-
-msgid "manager.setup.itemsPerPage.description"
+msgid "manager.setup.serverThumbnail.description"
 msgstr ""
-"Rajoita niiden kohteiden (käsikirjoitus, käyttäjä jne.) lukumäärä, jotka "
-"näytetään yhdellä sivulla."
+"Pieni logo tai palvelinta edustava kuva, jota voidaan käyttää palvelinten "
+"listauksessa."
 
-msgid "manager.setup.itemsPerPage"
-msgstr "Kohteita per sivu"
+msgid "manager.setup.contextTitle"
+msgstr "Palvelimen nimi"
 
-msgid "manager.setup.information"
-msgstr "Tietoja"
+msgid "manager.setup.keyInfo"
+msgstr "Avaintiedot"
 
-msgid "manager.setup.identity"
-msgstr "Palvelimen tiedot"
-
-msgid "manager.setup.enableUserRegistration"
-msgstr "Vierailijat voivat rekisteröidä käyttäjätilin palvelimelle."
-
-msgid "manager.setup.numAnnouncementsHomepage.description"
+msgid "manager.setup.keyInfo.description"
 msgstr ""
-"Montako ilmoitusta näytetään kotisivulla? Jätä tyhjäksi jos et halu näyttää "
-"yhtään."
 
-msgid "manager.setup.numAnnouncementsHomepage"
-msgstr "Näytä kotisivulla"
+msgid "manager.setup.lists"
+msgstr "Listat"
 
-msgid "manager.setup.enableAnnouncements.enable"
-msgstr "Ota ilmoitukset käyttöön"
+msgid "manager.setup.numPageLinks"
+msgstr "Sivun linkit"
 
-msgid "manager.setup.emailSignature.description"
+msgid "manager.setup.numPageLinks.description"
+msgstr "Rajoita listauksessa näkyvien sivulinkkien määrää."
+
+msgid "manager.setup.restrictArticleAccess"
 msgstr ""
-"Valmiisiin sähköposteihin, jotka järjestelmä lähettää palvelimen puolesta, "
-"lisätään seuraava allekirjoitus."
+"Käyttäjien tulee olla rekisteröityneitä ja sisäänkirjautuneita katsellakseen "
+"avoimesti saatavilla olevaa sisältöä."
 
-msgid "manager.setup.emailSignature"
-msgstr "Allekirjoitus"
-
-msgid "manager.setup.emailBounceAddress.disabled"
+msgid "manager.setup.restrictSiteAccess"
 msgstr ""
-"Aktivoidakseen tämän valinnan sivuston ylläpitäjän täytyy ottaa käyttöön "
-"<code>allow_envelope_sender</code> -valinta OPS:n määritystiedostossa. "
-"Verkkopalvelimen lisämäärityksiä saatetaan edellyttää tämän toiminnon "
-"tukemiseksi (joka ei välttämättä ole mahdollista kaikilla verkkopalvelimilla)"
-", kuten OPS:n käyttöohjeissa mainitaan."
+"Käyttäjien tulee olla rekisteröityneitä ja sisäänkirjautuneita katsellakseen "
+"palvelimen sivustoa."
 
-msgid "manager.setup.emailBounceAddress.description"
+msgid "manager.setup.searchEngineIndexing"
+msgstr "Hakukoneindeksointi"
+
+msgid "manager.setup.searchEngineIndexing.description"
 msgstr ""
-"Tähän osoitteeseen lähetetään virheilmoitus aina, kun sähköpostia ei voida "
-"toimittaa perille."
+"Auta Googlea ja muita hakukoneita löytämään sivustosi. Suosittelemme sinua "
+"lähettämään <a href=\"{$sitemapUrl}\" target=\"_blank\">sivustokarttasi</a> "
+"hakukoneille tiedoksi."
 
-msgid "manager.setup.emailBounceAddress"
-msgstr "Palautusosoite"
-
-msgid "manager.setup.disableUserRegistration"
-msgstr "Palvelimen hallinnoija rekisteröi kaikki käyttäjätilit."
-
-msgid "manager.setup.announcementsIntroduction.description"
+msgid "manager.setup.searchDescription.description"
 msgstr ""
-"Syötä mitä tahansa lisätietoja, joiden halutaan näkyvän Ilmoitukset-sivun "
-"lukijoille."
+"Anna lyhyt (50-300 merkkiä) kuvaus, jonka hakukoneet voivat näyttää "
+"palvelimen sivustoa koskevissa hakutuloksissaan."
 
-msgid "manager.setup.announcementsIntroduction"
-msgstr "Esittely"
+msgid "manager.setup.siteAccess.view"
+msgstr "Pääsy verkkosivulle"
 
-msgid "manager.setup.announcements"
-msgstr "Ilmoitukset"
-
-msgid "manager.setup.useStyleSheet"
-msgstr "Palvelimen tyylitiedosto"
-
-msgid "manager.setup.masthead"
-msgstr "Tunnuslaatikko"
-
-msgid "manager.setup"
-msgstr "Palvelimen asetukset"
-
-msgid "manager.sections.wordCountInstructions"
-msgstr "Rajaa tämän osaston abstraktien sanamäärät (0 ei rajoitusta)"
-
-msgid "manager.sections.wordCount"
-msgstr "Sanamäärä"
-
-msgid "manager.sections.submissionIndexing"
-msgstr "Ei sisällytetä tämän palvelimen indeksointiin"
-
-msgid "manager.sections.policy"
-msgstr "Osaston käytännöt"
-
-msgid "manager.sections.identifyTypeExamples"
-msgstr "(Esimerkiksi jne.)"
-
-msgid "manager.sections.identifyType"
-msgstr "Merkitse tässä osastossa julkaistut kohteet seuraavasti"
-
-msgid "manager.setup.form.section.pathRequired"
-msgstr "Osastolle vaaditaan URL-polku"
-
-msgid "manager.sections.form.abbrevRequired"
-msgstr "Osastolle vaaditaan lyhennetty nimi"
-
-msgid "manager.sections.confirmDeactivateSection.error"
+msgid "manager.setup.siteAccess.viewContent"
 msgstr ""
-"Vähintään yhden osaston tulee olla käytössä. Käy työnkulun asetuksissa "
-"estämässä käsikirjoitusten lähettäminen tälle palvelimelle."
 
-msgid "manager.sections.editorRestriction"
+msgid "manager.setup.sponsoringOrganization"
+msgstr "Tukiorganisaatiot"
+
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Käsikirjoituksen lähettämisen tarkistuslista"
+
+msgid "manager.setup.disableSubmissions.description"
 msgstr ""
-"Ainoastaan hallinnoijat ja moderaattorit voivat lähettää uusia "
-"käsikirjoituksia."
 
-msgid "manager.sections.create"
-msgstr "Luo osasto"
-
-msgid "manager.sections.confirmDelete"
-msgstr "Haluatko varmasti poistaa tämän osaston pysyvästi?"
-
-msgid "manager.section.noSectionEditors"
+msgid "manager.setup.disableSubmissions.notAccepting"
 msgstr ""
-"Moderaattoreita ei vielä ole. Lisää ensin tämä rooli vähintään yhdelle "
-"käyttäjälle seuraavasti: Hallinnointi > Asetukset > Käyttäjät &amp; Roolit."
+"Palvelin ei ota vastaan käsikirjoituksia tällä hetkellä. Käy työnkulun "
+"asetuksissa sallimassa käsikirjoitukset."
 
-msgid "manager.sections.abstractsNotRequired"
-msgstr "Älä vaadi abstrakteja"
+msgid "manager.setup.enableOai"
+msgstr "Ota OAI-rajapinta käyttöön"
 
-msgid "manager.people.confirmRemove"
+msgid "manager.setup.enableOai.description"
 msgstr ""
-"Poistetaanko tämä käyttäjä tämän tältä palvelimelta? Tämä toiminto poistaa "
-"käyttäjän kaikista tähän palvelimeen liittyvistä rooleista."
+"Tarjoa palvelimen kuvailutietoja kolmansille osapuolille <a href=\"https://"
+"www.openarchives.org/\">Open Archives Initiative</a> -standardin mukaisen "
+"rajapinnan kautta."
 
-msgid "manager.people.allUsers"
-msgstr "Kaikki käyttäjät, joilla on rooleja"
+msgid "manager.setup.userRegistration"
+msgstr "Käyttäjärekisteröinti"
 
-msgid "manager.language.confirmDefaultSettingsOverwrite"
+msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
-"Tämä korvaa kaikki tähän kielialueeseen liittyvät, kielialuekohtaiset "
-"palvelimen sivuston asetukset"
 
-msgid "manager.language.forms"
-msgstr "Lomakkeet"
+msgid "manager.statistics.statistics"
+msgstr "Palvelimen tilastot"
 
-msgid "manager.language.submissions"
-msgstr "Käsikirjoitukset"
+msgid "manager.statistics.statistics.articleViews"
+msgstr ""
 
-msgid "manager.language.ui"
-msgstr "Käyttöliittymä"
+msgid "manager.statistics.statistics.count.accept"
+msgstr "Hyväksy"
 
-msgid "manager.distribution.publishingMode.openAccess"
-msgstr "Palvelimen sisältö on avoimesti saatavilla."
+msgid "manager.statistics.statistics.count.decline"
+msgstr "Hylkää"
 
-msgid "manager.distribution.publishingMode.none"
-msgstr "OPS-järjestelmää ei käytetä palvelimen sisällön julkaisuun verkossa."
+msgid "manager.statistics.statistics.count.revise"
+msgstr "Lähetä uudelleen"
 
-msgid "manager.distribution.publishingMode"
-msgstr "Sisällön saatavuus"
+msgid "manager.statistics.statistics.daysToPublication"
+msgstr "Aikaa julkaisuun (pv)"
 
-msgid "manager.distribution.access"
-msgstr "Saatavuus"
+msgid "manager.statistics.statistics.itemsPublished"
+msgstr "Kohteita julkaistu"
+
+msgid "manager.statistics.statistics.makePublic"
+msgstr ""
+
+msgid "manager.statistics.statistics.note"
+msgstr ""
+
+msgid "manager.statistics.statistics.numSubmissions"
+msgstr "Käsikirjoituksia yhteensä"
+
+msgid "manager.statistics.statistics.registeredReaders"
+msgstr "Rekisteröityneet lukijat"
+
+msgid "manager.statistics.reports.defaultReport.articleDownloads"
+msgstr ""
+
+msgid "manager.statistics.reports.defaultReport.articleAbstract"
+msgstr ""
+
+msgid "manager.statistics.reports.defaultReport.journalIndexPageViews"
+msgstr "Palvelimen pääsivun katselukerrat"
+
+msgid "manager.statistics.reports.filters.byObject.description"
+msgstr ""
+
+msgid "grid.category.path"
+msgstr ""
+
+msgid "manager.publication.library"
+msgstr ""
+
+msgid "manager.setup.resetPermissions"
+msgstr ""
+
+msgid "manager.setup.resetPermissions.confirm"
+msgstr ""
+
+msgid "manager.setup.resetPermissions.description"
+msgstr ""
+
+msgid "manager.setup.resetPermissions.success"
+msgstr ""
+
+msgid "grid.genres.title.short"
+msgstr ""
+
+msgid "grid.genres.title"
+msgstr ""
+
+msgid "plugins.importexport.common.settings"
+msgstr ""
+
+msgid "plugins.importexport.common.settings.DOIPluginSettings"
+msgstr ""
+
+msgid "plugins.importexport.common.export.articles"
+msgstr ""
+
+msgid "plugins.importexport.common.missingRequirements"
+msgstr ""
+
+msgid "plugins.importexport.common.error.DOIsNotAvailable"
+msgstr ""
+
+msgid "plugins.importexport.common.error.pluginNotConfigured"
+msgstr ""
+
+msgid "plugins.importexport.common.settings.form.password"
+msgstr ""
+
+msgid "plugins.importexport.common.settings.form.password.description"
+msgstr ""
+
+msgid "plugins.importexport.common.status.any"
+msgstr ""
+
+msgid "plugins.importexport.common.status.notDeposited"
+msgstr ""
+
+msgid "plugins.importexport.common.status.markedRegistered"
+msgstr ""
+
+msgid "plugins.importexport.common.status.registered"
+msgstr ""
+
+msgid "plugins.importexport.common.action"
+msgstr ""
+
+msgid "plugins.importexport.common.action.export"
+msgstr ""
+
+msgid "plugins.importexport.common.action.markRegistered"
+msgstr ""
+
+msgid "plugins.importexport.common.action.register"
+msgstr ""
+
+msgid "plugins.importexport.common.validation"
+msgstr ""
+
+msgid "plugins.importexport.common.error.noObjectsSelected"
+msgstr ""
+
+msgid "plugins.importexport.common.error.validation"
+msgstr ""
+
+msgid "plugins.importexport.common.invalidXML"
+msgstr ""
+
+msgid "plugins.importexport.common.export.error.outputFileNotWritable"
+msgstr ""
+
+msgid "plugins.importexport.common.register.error.mdsError"
+msgstr ""
+
+msgid "plugins.importexport.common.register.success"
+msgstr ""
+
+msgid "plugins.importexport.common.senderTask.warning.noDOIprefix"
+msgstr ""
+
+msgid "plugins.importexport.common.cliError"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownJournal"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownObjects"
+msgstr ""
+
+msgid "stats.publicationStats"
+msgstr ""
+
+msgid "stats.publications.details"
+msgstr ""
+
+msgid "stats.publications.none"
+msgstr ""
+
+msgid "stats.publications.totalAbstractViews.timelineInterval"
+msgstr ""
+
+msgid "stats.publications.totalGalleyViews.timelineInterval"
+msgstr ""
+
+msgid "stats.publications.countOfTotal"
+msgstr ""
+
+msgid "stats.publications.abstracts"
+msgstr ""

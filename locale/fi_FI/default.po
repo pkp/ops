@@ -11,58 +11,31 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "default.contextSettings.emailSignature"
+msgid "section.default.title"
 msgstr ""
-"<br/"
-">________________________________________________________________________<br/"
-"><a href=\"{$contextUrl}\">{$contextName}</a>"
 
-msgid "default.genres.sourceTexts"
-msgstr "Lähdetekstit"
-
-msgid "default.genres.dataSet"
-msgstr "Tietoaineisto"
-
-msgid "default.genres.dataAnalysis"
-msgstr "Data-analyysi"
-
-msgid "default.genres.transcripts"
-msgstr "Transkriptiot"
-
-msgid "default.genres.researchResults"
-msgstr "Tutkimustulokset"
-
-msgid "default.genres.researchMaterials"
-msgstr "Tutkimusaineisto"
-
-msgid "default.genres.researchInstrument"
-msgstr "Tutkimusväline"
-
-msgid "default.groups.abbrev.sectionEditor"
-msgstr "MOD"
-
-msgid "default.groups.plural.sectionEditor"
-msgstr "Moderaattorit"
-
-msgid "default.groups.name.sectionEditor"
-msgstr "Moderaattori"
-
-msgid "default.contextSettings.openAccessPolicy"
+msgid "section.default.abbrev"
 msgstr ""
-"Tämä palvelimen sisällöt ovat välittömästi avoimesti saatavilla noudattaen "
-"periaatetta, jonka mukaan tutkimuksen tekeminen vapaasti saatavilla olevaksi "
-"suurelle yleisölle tukee suurempaa globaalia tiedonvaihtoa."
 
-msgid "default.contextSettings.privacyStatement"
+msgid "section.default.path"
 msgstr ""
-"<p>Tälle palvelimelle annettuja nimiä ja sähköpostiosoitteita käytetään "
-"yksinomaan tämän palvelimen tarkoituksiin, eikä niitä luovuteta mihinkään "
-"muuhun tarkoitukseen tai muille osapuolille.</p>"
 
-msgid "default.contextSettings.checklist.bibliographicRequirements"
+msgid "section.default.policy"
 msgstr ""
-"Teksti noudattaa kirjoittajan ohjeissa määriteltyjä stilistisiä ja "
-"bibliografisia vaatimuksia."
+
+msgid "default.genres.article"
+msgstr ""
+
+msgid "default.contextSettings.checklist.notPreviouslyPublished"
+msgstr ""
+
+msgid "default.contextSettings.checklist.fileFormat"
+msgstr ""
+"Käsikirjoitustiedosto on OpenOffice-, Microsoft Word- tai RTF-asiakirjan "
+"tiedostomuodossa."
+
+msgid "default.contextSettings.checklist.addressesLinked"
+msgstr "Lähteiden URL-osoitteet on annettu, mikäli ne ovat saatavilla."
 
 msgid "default.contextSettings.checklist.submissionAppearance"
 msgstr ""
@@ -71,10 +44,73 @@ msgstr ""
 "taulukot on sijoitettu ensisijaisesti sopiviin kohtiin tekstin lomaan, ei "
 "tekstin loppuun."
 
-msgid "default.contextSettings.checklist.addressesLinked"
-msgstr "Lähteiden URL-osoitteet on annettu, mikäli ne ovat saatavilla."
-
-msgid "default.contextSettings.checklist.fileFormat"
+msgid "default.contextSettings.checklist.bibliographicRequirements"
 msgstr ""
-"Käsikirjoitustiedosto on OpenOffice-, Microsoft Word- tai RTF-asiakirjan "
-"tiedostomuodossa."
+"Teksti noudattaa kirjoittajan ohjeissa määriteltyjä stilistisiä ja "
+"bibliografisia vaatimuksia."
+
+msgid "default.contextSettings.forReaders"
+msgstr ""
+
+msgid "default.contextSettings.forAuthors"
+msgstr ""
+
+msgid "default.contextSettings.forLibrarians"
+msgstr ""
+
+msgid "default.contextSettings.privacyStatement"
+msgstr ""
+"<p>Tälle palvelimelle annettuja nimiä ja sähköpostiosoitteita käytetään "
+"yksinomaan tämän palvelimen tarkoituksiin, eikä niitä luovuteta mihinkään "
+"muuhun tarkoitukseen tai muille osapuolille.</p>"
+
+msgid "default.contextSettings.openAccessPolicy"
+msgstr ""
+"Tämä palvelimen sisällöt ovat välittömästi avoimesti saatavilla noudattaen "
+"periaatetta, jonka mukaan tutkimuksen tekeminen vapaasti saatavilla olevaksi "
+"suurelle yleisölle tukee suurempaa globaalia tiedonvaihtoa."
+
+msgid "default.groups.name.manager"
+msgstr ""
+
+msgid "default.groups.plural.manager"
+msgstr ""
+
+msgid "default.groups.abbrev.manager"
+msgstr ""
+
+msgid "default.groups.name.sectionEditor"
+msgstr "Moderaattori"
+
+msgid "default.groups.plural.sectionEditor"
+msgstr "Moderaattorit"
+
+msgid "default.groups.abbrev.sectionEditor"
+msgstr "MOD"
+
+msgid "default.genres.researchInstrument"
+msgstr "Tutkimusväline"
+
+msgid "default.genres.researchMaterials"
+msgstr "Tutkimusaineisto"
+
+msgid "default.genres.researchResults"
+msgstr "Tutkimustulokset"
+
+msgid "default.genres.transcripts"
+msgstr "Transkriptiot"
+
+msgid "default.genres.dataAnalysis"
+msgstr "Data-analyysi"
+
+msgid "default.genres.dataSet"
+msgstr "Tietoaineisto"
+
+msgid "default.genres.sourceTexts"
+msgstr "Lähdetekstit"
+
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br/"
+">________________________________________________________________________<br/"
+"><a href=\"{$contextUrl}\">{$contextName}</a>"

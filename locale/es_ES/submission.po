@@ -11,55 +11,64 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "catalog.browseTitles"
-msgstr "{$numTitles} elementos"
+msgid "submission.submit.title"
+msgstr "Enviar un preprint"
 
-#, fuzzy
-msgid "publication.publish.confirmation"
+msgid "submission.submit.userGroup"
+msgstr "Envío en mi rol de ..."
+
+msgid "submission.submit.userGroupDescription"
+msgstr "Elija la capacidad bajo la cual está enviando este preprint."
+
+msgid "submission.upload.selectComponent"
+msgstr "Seleccionar el componente de preprint"
+
+msgid "submission.title"
+msgstr "Título de preprint"
+
+msgid "submission.submit.newSubmissionSingle"
+msgstr "Nuevo Envío"
+
+msgid "submission.abstract.wordCount.description"
+msgstr "El resumen debe ser {$wordCount} palabras o menos."
+
+msgid "submission.submit.noContext"
+msgstr "No se pudo encontrar el servidor de este envío."
+
+msgid "submission.galleyFiles"
+msgstr "Archivos de galerada"
+
+msgid "submission.confirmSubmit"
+msgstr "¿Está seguro de que desea enviar este preprint al servidor?"
+
+msgid "submission.upload.fileContents"
+msgstr "Componente de preprint"
+
+msgid "submission.complete"
+msgstr "Aprobado"
+
+msgid "submission.submit.form.localeRequired"
+msgstr "Por favor seleccione un idioma de envío."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Lista de verificación de envío"
+
+msgid "submission.submit.submissionChecklistDescription"
 msgstr ""
-"Se han cumplido todos los requisitos de publicación. ¿Está seguro de que "
-"quiere publicar esto?"
+"Debe leer y reconocer que ha completado los requisitos a continuación antes "
+"de continuar."
 
-msgid "preprint.relations"
-msgstr "Relaciones"
+msgid "submission.submit.contributorRole"
+msgstr "Rol del colaborador"
 
-msgid "publication.datePublished.description"
-msgstr ""
-"La fecha de publicación se establecerá automáticamente cuando se publique el "
-"preprint. No ingrese una fecha de publicación a menos que necesite "
-"antedatarla."
+msgid "submission.submit.form.authorRequired"
+msgstr "Se requiere al menos un autor."
 
-msgid "publication.issue.success"
-msgstr "Los detalles de la entrada de preprint se han actualizado."
+msgid "submission.submit.form.titleRequired"
+msgstr "Por favor, introduzca el título de su preprint."
 
-msgid "preprint.entry"
-msgstr "Entrada de preprint"
-
-msgid "publication.invalidSection"
-msgstr "No se pudo encontrar la sección de esta publicación."
-
-msgid "galley.publicationNotFound"
-msgstr "La publicación de esta galerada no se pudo encontrar."
-
-msgid "galley.editPublishedDisabled"
-msgstr ""
-"Las galeradas de esta publicación no se pueden editar porque ya se ha "
-"postado."
-
-msgid "catalog.category.heading"
-msgstr "Todos los artículos"
-
-#, fuzzy
-msgid "submission.sectionOptions"
-msgstr "Opciones de serie"
-
-msgid "submission.metadataDescription"
-msgstr ""
-"Estas especificaciones se basan en el conjunto de metadatos Dublin Core, un "
-"estándar internacional utilizado para describir contenido."
-
-msgid "submission.submit.form.contributorRoleRequired"
-msgstr "Seleccione el rol del colaborador."
+msgid "submission.submit.form.abstractRequired"
+msgstr "Por favor, introduzca el resumen de su preprint."
 
 #, fuzzy
 msgid "submission.submit.form.wordCountAlert"
@@ -67,79 +76,160 @@ msgstr ""
 "Su resumen es demasiado largo. Acorte por debajo del límite de palabras "
 "indicado para esta serie."
 
-msgid "submission.submit.form.abstractRequired"
-msgstr "Por favor, introduzca el resumen de su preprint."
+msgid "submission.submit.form.contributorRoleRequired"
+msgstr "Seleccione el rol del colaborador."
 
-msgid "submission.submit.form.titleRequired"
-msgstr "Por favor, introduzca el título de su preprint."
-
-msgid "submission.submit.form.authorRequired"
-msgstr "Se requiere al menos un autor."
-
-msgid "submission.submit.contributorRole"
-msgstr "Rol del colaborador"
-
-msgid "submission.submit.submissionChecklistDescription"
+msgid "submission.metadataDescription"
 msgstr ""
-"Debe leer y reconocer que ha completado los requisitos a continuación antes "
-"de continuar."
+"Estas especificaciones se basan en el conjunto de metadatos Dublin Core, un "
+"estándar internacional utilizado para describir contenido."
 
-msgid "submission.submit.submissionChecklist"
-msgstr "Lista de verificación de envío"
+#, fuzzy
+msgid "submission.sectionOptions"
+msgstr "Opciones de serie"
 
-msgid "submission.submit.form.localeRequired"
-msgstr "Por favor seleccione un idioma de envío."
+msgid "catalog.browseTitles"
+msgstr "{$numTitles} elementos"
 
-msgid "submission.complete"
-msgstr "Aprobado"
+msgid "catalog.category.heading"
+msgstr "Todos los artículos"
 
-msgid "submission.upload.fileContents"
-msgstr "Componente de preprint"
+msgid "galley.editPublishedDisabled"
+msgstr ""
+"Las galeradas de esta publicación no se pueden editar porque ya se ha "
+"postado."
 
-msgid "submission.confirmSubmit"
-msgstr "¿Está seguro de que desea enviar este preprint al servidor?"
+msgid "galley.publicationNotFound"
+msgstr "La publicación de esta galerada no se pudo encontrar."
 
-msgid "submission.galleyFiles"
-msgstr "Archivos de galerada"
+msgid "publication.invalidSection"
+msgstr "No se pudo encontrar la sección de esta publicación."
 
-msgid "submission.submit.noContext"
-msgstr "No se pudo encontrar el servidor de este envío."
+msgid "publication.inactiveSection"
+msgstr ""
 
-msgid "submission.abstract.wordCount.description"
-msgstr "El resumen debe ser {$wordCount} palabras o menos."
+msgid "preprint.entry"
+msgstr "Entrada de preprint"
 
-msgid "submission.submit.newSubmissionSingle"
-msgstr "Nuevo Envío"
+msgid "publication.issue.success"
+msgstr "Los detalles de la entrada de preprint se han actualizado."
 
-msgid "submission.title"
-msgstr "Título de preprint"
+msgid "publication.datePublished.description"
+msgstr ""
+"La fecha de publicación se establecerá automáticamente cuando se publique el "
+"preprint. No ingrese una fecha de publicación a menos que necesite "
+"antedatarla."
 
-msgid "submission.upload.selectComponent"
-msgstr "Seleccionar el componente de preprint"
-
-msgid "submission.submit.userGroupDescription"
-msgstr "Elija la capacidad bajo la cual está enviando este preprint."
-
-msgid "submission.submit.userGroup"
-msgstr "Envío en mi rol de ..."
-
-msgid "submission.submit.title"
-msgstr "Enviar un preprint"
-
-msgid "publication.relation.vorDoi"
-msgstr "DOI del artículo publicado"
-
-msgid "publication.relation.published"
-msgstr "El preprint ha sido publicado como artículo en una revista"
-
-msgid "publication.relation.submitted"
-msgstr "El preprint ha sido enviado para publicación en revista"
-
-msgid "publication.relation.none"
-msgstr "El preprint no ha sido enviado para publicación"
+msgid "publication.relation"
+msgstr "Relaciones"
 
 msgid "publication.relation.label"
 msgstr "Enviado para publicación"
 
-msgid "publication.relation"
-msgstr "Relaciones"
+msgid "publication.relation.none"
+msgstr "El preprint no ha sido enviado para publicación"
+
+msgid "publication.relation.submitted"
+msgstr "El preprint ha sido enviado para publicación en revista"
+
+msgid "publication.relation.published"
+msgstr "El preprint ha sido publicado como artículo en una revista"
+
+msgid "publication.relation.vorDoi"
+msgstr "DOI del artículo publicado"
+
+#, fuzzy
+msgid "publication.publish.confirmation"
+msgstr ""
+"Se han cumplido todos los requisitos de publicación. ¿Está seguro de que "
+"quiere publicar esto?"
+
+msgid "author.submit.authorsCanNotPublish"
+msgstr ""
+
+msgid "publication.status.published"
+msgstr ""
+
+msgid "submission.status.scheduled"
+msgstr ""
+
+msgid "publication.status.unscheduled"
+msgstr ""
+
+msgid "submission.publication"
+msgstr ""
+
+msgid "submission.publications"
+msgstr ""
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+
+msgid "publication.datePublished"
+msgstr ""
+
+msgid "publication.editDisabled"
+msgstr ""
+
+msgid "publication.event.published"
+msgstr ""
+
+msgid "publication.event.scheduled"
+msgstr ""
+
+msgid "publication.event.unpublished"
+msgstr ""
+
+msgid "publication.event.versionPublished"
+msgstr ""
+
+msgid "publication.event.versionScheduled"
+msgstr ""
+
+msgid "publication.event.versionUnpublished"
+msgstr ""
+
+msgid "publication.invalidSubmission"
+msgstr ""
+
+msgid "publication.publish"
+msgstr ""
+
+msgid "publication.publish.requirements"
+msgstr ""
+
+msgid "publication.required.declined"
+msgstr ""
+
+msgid "publication.required.reviewStage"
+msgstr ""
+
+msgid "submission.license.description"
+msgstr ""
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+
+msgid "submission.copyrightOther.description"
+msgstr ""
+
+msgid "publication.unpublish"
+msgstr ""
+
+msgid "publication.unpublish.confirm"
+msgstr ""
+
+msgid "publication.unschedule.confirm"
+msgstr ""
+
+msgid "publication.version.details"
+msgstr ""
+
+msgid "submission.queries.production"
+msgstr ""
+
+#~ msgid "preprint.relations"
+#~ msgstr "Relaciones"

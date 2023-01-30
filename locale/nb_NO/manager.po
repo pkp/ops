@@ -1,2 +1,423 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Weblate\n"
+
+msgid "manager.distribution.access"
+msgstr ""
+
+msgid "manager.distribution.copyrightYearBasis.description"
+msgstr ""
+
+msgid "manager.distribution.copyrightYearBasis.submission"
+msgstr ""
+
+msgid "manager.distribution.publishingMode"
+msgstr ""
+
+msgid "manager.distribution.publishingMode.none"
+msgstr ""
+
+msgid "manager.distribution.publishingMode.openAccess"
+msgstr ""
+
+msgid "manager.language.ui"
+msgstr ""
+
+msgid "manager.language.submissions"
+msgstr ""
+
+msgid "manager.language.forms"
+msgstr ""
+
+msgid "manager.language.confirmDefaultSettingsOverwrite"
+msgstr ""
+
+msgid "manager.people.allUsers"
+msgstr ""
+
+msgid "manager.people.confirmRemove"
+msgstr ""
+
+msgid "manager.sections.abstractsNotRequired"
+msgstr ""
+
+msgid "manager.section.noSectionEditors"
+msgstr ""
+
+msgid "manager.sections.confirmDelete"
+msgstr ""
+
+msgid "manager.sections.alertDelete"
+msgstr ""
+
+msgid "manager.sections.create"
+msgstr ""
+
+msgid "manager.sections.editorRestriction"
+msgstr ""
+
+msgid "manager.sections.confirmDeactivateSection.error"
+msgstr ""
+
+msgid "manager.sections.form.abbrevRequired"
+msgstr ""
+
+msgid "manager.setup.form.section.pathRequired"
+msgstr ""
+
+msgid "manager.sections.identifyType"
+msgstr ""
+
+msgid "manager.sections.identifyTypeExamples"
+msgstr ""
+
+msgid "manager.sections.policy"
+msgstr ""
+
+msgid "manager.sections.submissionIndexing"
+msgstr ""
+
+msgid "manager.sections.wordCount"
+msgstr ""
+
+msgid "manager.sections.wordCountInstructions"
+msgstr ""
+
+msgid "manager.setup"
+msgstr ""
+
+msgid "manager.setup.masthead"
+msgstr ""
+
+msgid "manager.setup.editorialTeam"
+msgstr ""
+
+msgid "manager.setup.useStyleSheet"
+msgstr ""
+
+msgid "manager.setup.announcements"
+msgstr ""
+
+msgid "manager.setup.announcementsIntroduction"
+msgstr ""
+
+msgid "manager.setup.announcementsIntroduction.description"
+msgstr ""
+
+msgid "manager.setup.authorScreening"
+msgstr ""
+
+msgid "manager.setup.disableUserRegistration"
+msgstr ""
+
+msgid "manager.setup.emailBounceAddress"
+msgstr ""
+
+msgid "manager.setup.emailBounceAddress.description"
+msgstr ""
+
+msgid "manager.setup.emailBounceAddress.disabled"
+msgstr ""
+
+msgid "manager.setup.emailSignature"
+msgstr ""
+
+msgid "manager.setup.emailSignature.description"
+msgstr ""
+
+msgid "manager.setup.enableAnnouncements.enable"
+msgstr ""
+
+msgid "manager.setup.enableAnnouncements.description"
+msgstr ""
+
+msgid "manager.setup.numAnnouncementsHomepage"
+msgstr ""
+
+msgid "manager.setup.numAnnouncementsHomepage.description"
+msgstr ""
+
+msgid "manager.setup.enableUserRegistration"
+msgstr ""
+
+msgid "manager.setup.identity"
+msgstr ""
+
+msgid "manager.setup.information"
+msgstr ""
+
+msgid "manager.setup.information.description"
+msgstr ""
+
+msgid "manager.setup.information.forAuthors"
+msgstr ""
+
+msgid "manager.setup.information.forLibrarians"
+msgstr ""
+
+msgid "manager.setup.information.forReaders"
+msgstr ""
+
+msgid "manager.setup.itemsPerPage"
+msgstr ""
+
+msgid "manager.setup.itemsPerPage.description"
+msgstr ""
+
+msgid "manager.setup.journalAbbreviation"
+msgstr ""
+
+msgid "manager.setup.contextSummary"
+msgstr ""
+
+msgid "manager.setup.contextAbout"
+msgstr ""
+
+msgid "manager.setup.contextAbout.description"
+msgstr ""
+
+msgid "manager.setup.contextInitials"
+msgstr ""
+
+msgid "manager.setup.serverThumbnail"
+msgstr ""
+
+msgid "manager.setup.serverThumbnail.description"
+msgstr ""
+
+msgid "manager.setup.contextTitle"
+msgstr ""
+
+msgid "manager.setup.keyInfo"
+msgstr ""
+
+msgid "manager.setup.keyInfo.description"
+msgstr ""
+
+msgid "manager.setup.lists"
+msgstr ""
+
+msgid "manager.setup.numPageLinks"
+msgstr ""
+
+msgid "manager.setup.numPageLinks.description"
+msgstr ""
+
+msgid "manager.setup.restrictArticleAccess"
+msgstr ""
+
+msgid "manager.setup.restrictSiteAccess"
+msgstr ""
+
+msgid "manager.setup.searchEngineIndexing"
+msgstr ""
+
+msgid "manager.setup.searchEngineIndexing.description"
+msgstr ""
+
+msgid "manager.setup.searchDescription.description"
+msgstr ""
+
+msgid "manager.setup.siteAccess.view"
+msgstr ""
+
+msgid "manager.setup.siteAccess.viewContent"
+msgstr ""
+
+msgid "manager.setup.sponsoringOrganization"
+msgstr ""
+
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr ""
+
+msgid "manager.setup.disableSubmissions.description"
+msgstr ""
+
+msgid "manager.setup.disableSubmissions.notAccepting"
+msgstr ""
+
+msgid "manager.setup.enableOai"
+msgstr ""
+
+msgid "manager.setup.enableOai.description"
+msgstr ""
+
+msgid "manager.setup.userRegistration"
+msgstr ""
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+
+msgid "manager.statistics.statistics"
+msgstr ""
+
+msgid "manager.statistics.statistics.articleViews"
+msgstr ""
+
+msgid "manager.statistics.statistics.count.accept"
+msgstr ""
+
+msgid "manager.statistics.statistics.count.decline"
+msgstr ""
+
+msgid "manager.statistics.statistics.count.revise"
+msgstr ""
+
+msgid "manager.statistics.statistics.daysToPublication"
+msgstr ""
+
+msgid "manager.statistics.statistics.itemsPublished"
+msgstr ""
+
+msgid "manager.statistics.statistics.makePublic"
+msgstr ""
+
+msgid "manager.statistics.statistics.note"
+msgstr ""
+
+msgid "manager.statistics.statistics.numSubmissions"
+msgstr ""
+
+msgid "manager.statistics.statistics.registeredReaders"
+msgstr ""
+
+msgid "manager.statistics.reports.defaultReport.articleDownloads"
+msgstr ""
+
+msgid "manager.statistics.reports.defaultReport.articleAbstract"
+msgstr ""
+
+msgid "manager.statistics.reports.defaultReport.journalIndexPageViews"
+msgstr ""
+
+msgid "manager.statistics.reports.filters.byObject.description"
+msgstr ""
+
+msgid "grid.category.path"
+msgstr ""
+
+msgid "manager.publication.library"
+msgstr ""
+
+msgid "manager.setup.resetPermissions"
+msgstr ""
+
+msgid "manager.setup.resetPermissions.confirm"
+msgstr ""
+
+msgid "manager.setup.resetPermissions.description"
+msgstr ""
+
+msgid "manager.setup.resetPermissions.success"
+msgstr ""
+
+msgid "grid.genres.title.short"
+msgstr ""
+
+msgid "grid.genres.title"
+msgstr ""
+
+msgid "plugins.importexport.common.settings"
+msgstr ""
+
+msgid "plugins.importexport.common.settings.DOIPluginSettings"
+msgstr ""
+
+msgid "plugins.importexport.common.export.articles"
+msgstr ""
+
+msgid "plugins.importexport.common.missingRequirements"
+msgstr ""
+
+msgid "plugins.importexport.common.error.DOIsNotAvailable"
+msgstr ""
+
+msgid "plugins.importexport.common.error.pluginNotConfigured"
+msgstr ""
+
+msgid "plugins.importexport.common.settings.form.password"
+msgstr ""
+
+msgid "plugins.importexport.common.settings.form.password.description"
+msgstr ""
+
+msgid "plugins.importexport.common.status.any"
+msgstr ""
+
+msgid "plugins.importexport.common.status.notDeposited"
+msgstr ""
+
+msgid "plugins.importexport.common.status.markedRegistered"
+msgstr ""
+
+msgid "plugins.importexport.common.status.registered"
+msgstr ""
+
+msgid "plugins.importexport.common.action"
+msgstr ""
+
+msgid "plugins.importexport.common.action.export"
+msgstr ""
+
+msgid "plugins.importexport.common.action.markRegistered"
+msgstr ""
+
+msgid "plugins.importexport.common.action.register"
+msgstr ""
+
+msgid "plugins.importexport.common.validation"
+msgstr ""
+
+msgid "plugins.importexport.common.error.noObjectsSelected"
+msgstr ""
+
+msgid "plugins.importexport.common.error.validation"
+msgstr ""
+
+msgid "plugins.importexport.common.invalidXML"
+msgstr ""
+
+msgid "plugins.importexport.common.export.error.outputFileNotWritable"
+msgstr ""
+
+msgid "plugins.importexport.common.register.error.mdsError"
+msgstr ""
+
+msgid "plugins.importexport.common.register.success"
+msgstr ""
+
+msgid "plugins.importexport.common.senderTask.warning.noDOIprefix"
+msgstr ""
+
+msgid "plugins.importexport.common.cliError"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownJournal"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownObjects"
+msgstr ""
+
+msgid "stats.publicationStats"
+msgstr ""
+
+msgid "stats.publications.details"
+msgstr ""
+
+msgid "stats.publications.none"
+msgstr ""
+
+msgid "stats.publications.totalAbstractViews.timelineInterval"
+msgstr ""
+
+msgid "stats.publications.totalGalleyViews.timelineInterval"
+msgstr ""
+
+msgid "stats.publications.countOfTotal"
+msgstr ""
+
+msgid "stats.publications.abstracts"
+msgstr ""

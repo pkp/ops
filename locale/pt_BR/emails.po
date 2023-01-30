@@ -11,61 +11,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "emails.submissionAck.body"
+msgid "emails.notification.subject"
+msgstr "Nova notificação de {$siteTitle}"
+
+msgid "emails.notification.body"
 msgstr ""
-"{$authorName}:<br />\n"
+"Você tem uma nova notificação de {$siteTitle}:<br />\n"
 "<br />\n"
-"Obrigado por submeter o manuscrito, &quot;{$submissionTitle}&quot; para "
-"{$contextName}. Você pode gerenciar sua submissão efetuando login no site do "
-"servidor.<br />\n"
-
-msgid "emails.submissionAck.subject"
-msgstr "Confirmação de Submissão"
-
-#, fuzzy
-msgid "emails.publishNotify.description"
-msgstr ""
-"Este e-mail é enviado aos leitores registrados através do link \"Notificar "
-"usuários\" na página do usuário do Editor. Ele notifica os leitores sobre um "
-"novo preprint e os convida a visitar o servidor em uma URL fornecida."
-
-msgid "emails.publishNotify.body"
-msgstr ""
-"Leitores:<br />\n"
+"{$notificationContents}<br />\n"
 "<br />\n"
-"{$contextName} acaba de postar seu último preprint em {$contextUrl}.\n"
+"Link: {$url}<br />\n"
 "<br />\n"
-"Obrigado pelo contínuo interesse em nosso trabalho,<br />\n"
-"{$editorialContactSignature}"
-
-msgid "emails.publishNotify.subject"
-msgstr "Novo Preprint Postado"
-
-msgid "emails.userValidate.description"
-msgstr ""
-"Este e-mail é enviado a um usuário recém-registrado para validar sua conta "
-"de e-mail."
-
-msgid "emails.userValidate.body"
-msgstr ""
-"{$userFullName}<br />\n"
-"<br />\n"
-"Você criou uma conta com {$contextName}, mas antes de começar a usá-lo, você "
-"precisa validar sua conta de e-mail. Para fazer isso, basta seguir o link "
-"abaixo:<br />\n"
-"<br />\n"
-"{$activateUrl}<br />\n"
-"<br />\n"
-"Obrigado,<br />\n"
 "{$principalContactSignature}"
 
-msgid "emails.userValidate.subject"
-msgstr "Valide Sua Conta"
-
-msgid "emails.userRegister.description"
+msgid "emails.notification.description"
 msgstr ""
-"Esse e-mail é enviado a um usuário recém-registrado para recebê-lo no "
-"sistema e fornecer um registro do nome de usuário e senha."
+"O e-mail é enviado aos usuários registrados que selecionaram para receber "
+"este tipo de notificação por e-mail."
+
+msgid "emails.passwordResetConfirm.subject"
+msgstr "Confirmação de Redefinição de Senha"
+
+msgid "emails.passwordResetConfirm.body"
+msgstr ""
+"Recebemos uma solicitação para redefinir sua senha para o site {$siteTitle}."
+"<br />\n"
+"<br />\n"
+"Se você não fez esta solicitação, ignore este e-mail e sua senha não será "
+"alterada. Se você deseja redefinir sua senha, clique na URL abaixo.<br />\n"
+"<br />\n"
+"Redefina minha senha: {$url}<br />\n"
+"<br />\n"
+"{$principalContactSignature}"
+
+msgid "emails.passwordResetConfirm.description"
+msgstr ""
+"Este e-mail é enviado a um usuário registrado quando ele indica que esqueceu "
+"sua senha ou não consegue fazer o login. Ele fornece uma URL que pode ser "
+"usada para redefinir sua senha."
+
+msgid "emails.userRegister.subject"
+msgstr "Registro do servidor"
 
 msgid "emails.userRegister.body"
 msgstr ""
@@ -82,47 +68,53 @@ msgstr ""
 "Obrigado,<br />\n"
 "{$principalContactSignature}"
 
-msgid "emails.userRegister.subject"
-msgstr "Registro do servidor"
-
-msgid "emails.passwordResetConfirm.body"
+msgid "emails.userRegister.description"
 msgstr ""
-"Recebemos uma solicitação para redefinir sua senha para o site {$siteTitle}.<"
-"br />\n"
+"Esse e-mail é enviado a um usuário recém-registrado para recebê-lo no "
+"sistema e fornecer um registro do nome de usuário e senha."
+
+msgid "emails.userValidate.subject"
+msgstr "Valide Sua Conta"
+
+msgid "emails.userValidate.body"
+msgstr ""
+"{$userFullName}<br />\n"
 "<br />\n"
-"Se você não fez esta solicitação, ignore este e-mail e sua senha não será "
-"alterada. Se você deseja redefinir sua senha, clique na URL abaixo.<br />\n"
+"Você criou uma conta com {$contextName}, mas antes de começar a usá-lo, você "
+"precisa validar sua conta de e-mail. Para fazer isso, basta seguir o link "
+"abaixo:<br />\n"
 "<br />\n"
-"Redefina minha senha: {$url}<br />\n"
+"{$activateUrl}<br />\n"
 "<br />\n"
+"Obrigado,<br />\n"
 "{$principalContactSignature}"
 
-msgid "emails.passwordResetConfirm.description"
+msgid "emails.userValidate.description"
 msgstr ""
-"Este e-mail é enviado a um usuário registrado quando ele indica que esqueceu "
-"sua senha ou não consegue fazer o login. Ele fornece uma URL que pode ser "
-"usada para redefinir sua senha."
+"Este e-mail é enviado a um usuário recém-registrado para validar sua conta "
+"de e-mail."
 
-msgid "emails.passwordResetConfirm.subject"
-msgstr "Confirmação de Redefinição de Senha"
+msgid "emails.publishNotify.subject"
+msgstr "Novo Preprint Postado"
 
-msgid "emails.notification.description"
+msgid "emails.publishNotify.body"
 msgstr ""
-"O e-mail é enviado aos usuários registrados que selecionaram para receber "
-"este tipo de notificação por e-mail."
+"Leitores:<br />\n"
+"<br />\n"
+"{$contextName} acaba de postar seu último preprint em {$contextUrl}.\n"
+"<br />\n"
+"Obrigado pelo contínuo interesse em nosso trabalho,<br />\n"
+"{$editorialContactSignature}"
 
-msgid "emails.notification.body"
+#, fuzzy
+msgid "emails.publishNotify.description"
 msgstr ""
-"Você tem uma nova notificação de {$siteTitle}:<br />\n"
-"<br />\n"
-"{$notificationContents}<br />\n"
-"<br />\n"
-"Link: {$url}<br />\n"
-"<br />\n"
-"{$principalContactSignature}"
+"Este e-mail é enviado aos leitores registrados através do link \"Notificar "
+"usuários\" na página do usuário do Editor. Ele notifica os leitores sobre um "
+"novo preprint e os convida a visitar o servidor em uma URL fornecida."
 
-msgid "emails.notification.subject"
-msgstr "Nova notificação de {$siteTitle}"
+msgid "emails.postedAck.subject"
+msgstr "Aviso de postagem de preprint"
 
 msgid "emails.postedAck.body"
 msgstr ""
@@ -131,5 +123,100 @@ msgstr ""
 "Seu preprint, &quot;{$submissionTitle}&quot; foi postado no servidor "
 "{$contextName}.<br />\n"
 
-msgid "emails.postedAck.subject"
-msgstr "Aviso de postagem de preprint"
+msgid "emails.postedAck.description"
+msgstr ""
+
+msgid "emails.submissionAck.subject"
+msgstr "Confirmação de Submissão"
+
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$authorName}:<br />\n"
+"<br />\n"
+"Obrigado por submeter o manuscrito, &quot;{$submissionTitle}&quot; para "
+"{$contextName}. Você pode gerenciar sua submissão efetuando login no site do "
+"servidor.<br />\n"
+
+msgid "emails.submissionAck.description"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.subject"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
+
+msgid "emails.editorAssign.subject"
+msgstr ""
+
+msgid "emails.editorAssign.body"
+msgstr ""
+
+msgid "emails.editorAssign.description"
+msgstr ""
+
+msgid "emails.editorDecisionAccept.subject"
+msgstr ""
+
+msgid "emails.editorDecisionAccept.body"
+msgstr ""
+
+msgid "emails.editorDecisionAccept.description"
+msgstr ""
+
+msgid "emails.editorRecommendation.subject"
+msgstr ""
+
+msgid "emails.editorRecommendation.body"
+msgstr ""
+
+msgid "emails.editorRecommendation.description"
+msgstr ""
+
+msgid "emails.revisedVersionNotify.subject"
+msgstr ""
+
+msgid "emails.revisedVersionNotify.body"
+msgstr ""
+
+msgid "emails.revisedVersionNotify.description"
+msgstr ""
+
+msgid "emails.notificationCenterDefault.subject"
+msgstr ""
+
+msgid "emails.notificationCenterDefault.body"
+msgstr ""
+
+msgid "emails.notificationCenterDefault.description"
+msgstr ""
+
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionInitialDecline.description"
+msgstr ""
+
+msgid "emails.statisticsReportNotification.subject"
+msgstr ""
+
+msgid "emails.statisticsReportNotification.body"
+msgstr ""
+
+msgid "emails.statisticsReportNotification.description"
+msgstr ""
+
+msgid "emails.announcement.subject"
+msgstr ""
+
+msgid "emails.announcement.body"
+msgstr ""
+
+msgid "emails.announcement.description"
+msgstr ""

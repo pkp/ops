@@ -11,41 +11,50 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-#, fuzzy
-msgid "api.publications.403.submissionsDidNotMatch"
-msgstr "A publicação solicitada não é parte desta submissão."
-
-msgid "api.emailTemplates.403.notAllowedChangeContext"
+msgid "api.announcements.400.contextsNotMatched"
 msgstr ""
-"Você não tem permissão para mover este modelo de e-mail para outro servidor."
 
-msgid "api.contexts.404.contextNotFound"
-msgstr "O servidor que você requisitou não foi encontrado."
-
-msgid "api.contexts.403.notAllowedDelete"
-msgstr "Você não tem permissão para deletar este servidor."
-
-msgid "api.contexts.403.notAllowedEdit"
-msgstr "Você não tem permissão para editar este servidor."
-
-msgid "api.contexts.403.requiresContext"
-msgstr "Não é possível editar este servidor a partir da API de todo o site."
-
-msgid "api.contexts.403.contextsDidNotMatch"
-msgstr ""
-"Você não pode visualizar ou editar este servidor a menos que realize uma "
-"solicitação à API do servidor ou à API de todo o site."
-
-msgid "api.contexts.403.notAllowed"
-msgstr "Você não tem permissão para visualizar este servidor."
-
-msgid "api.contexts.403.requestedDisabledContexts"
-msgstr "Você apenas pode ver servidores que foram habilitados."
+msgid "api.submissions.403.cantChangeContext"
+msgstr "Não é possível alterar o servidor de uma submissão."
 
 msgid "api.submissions.403.contextRequired"
 msgstr ""
 "Para realizar ou editar uma submissão, você deve fazer uma solicitação ao "
 "API do terminal do servidor."
 
-msgid "api.submissions.403.cantChangeContext"
-msgstr "Não é possível alterar o servidor de uma submissão."
+msgid "api.contexts.403.requestedDisabledContexts"
+msgstr "Você apenas pode ver servidores que foram habilitados."
+
+msgid "api.contexts.403.notAllowed"
+msgstr "Você não tem permissão para visualizar este servidor."
+
+msgid "api.contexts.403.contextsDidNotMatch"
+msgstr ""
+"Você não pode visualizar ou editar este servidor a menos que realize uma "
+"solicitação à API do servidor ou à API de todo o site."
+
+msgid "api.contexts.403.requiresContext"
+msgstr "Não é possível editar este servidor a partir da API de todo o site."
+
+msgid "api.contexts.403.notAllowedEdit"
+msgstr "Você não tem permissão para editar este servidor."
+
+msgid "api.contexts.403.notAllowedDelete"
+msgstr "Você não tem permissão para deletar este servidor."
+
+msgid "api.contexts.404.contextNotFound"
+msgstr "O servidor que você requisitou não foi encontrado."
+
+msgid "api.emails.403.disabled"
+msgstr ""
+
+msgid "api.emailTemplates.403.notAllowedChangeContext"
+msgstr ""
+"Você não tem permissão para mover este modelo de e-mail para outro servidor."
+
+#, fuzzy
+msgid "api.publications.403.submissionsDidNotMatch"
+msgstr "A publicação solicitada não é parte desta submissão."
+
+msgid "api.submissionFiles.400.badRepresentationAssocType"
+msgstr ""

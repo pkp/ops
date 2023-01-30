@@ -2,29 +2,66 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-08T22:59:42+00:00\n"
+"PO-Revision-Date: 2021-01-08T22:59:42+00:00\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-01-08T22:59:42+00:00\n"
-"PO-Revision-Date: 2021-01-08T22:59:42+00:00\n"
-"Language: \n"
 
 msgid "plugins.reports.counter.description"
-msgstr "Το COUNTER plugin επιτρέπει την καταγραφή και την σύνταξη αναφορών συμβατών με το <a href=\"http://www.projectcounter.org/about.html\" target=\"_new\">COUNTER</a> για τα στατιστικά του ιστοτόπου."
+msgstr ""
+"Το COUNTER plugin επιτρέπει την καταγραφή και την σύνταξη αναφορών συμβατών "
+"με το <a href=\"http://www.projectcounter.org/about.html\" target=\"_new"
+"\">COUNTER</a> για τα στατιστικά του ιστοτόπου."
 
 msgid "plugins.reports.counter"
 msgstr "Στατιστικά COUNTER"
 
+msgid "plugins.reports.counter.release"
+msgstr ""
+
+msgid "plugins.reports.counter.olderReports"
+msgstr ""
+
+msgid "plugins.reports.counter.error.badParameters"
+msgstr ""
+
+msgid "plugins.reports.counter.error.badRequest"
+msgstr ""
+
+msgid "plugins.reports.counter.error.noResults"
+msgstr ""
+
+msgid "plugins.reports.counter.error.noXML"
+msgstr ""
+
+msgid "plugins.reports.counter.1a.introduction"
+msgstr ""
+
+msgid "plugins.reports.counter.1a.name"
+msgstr ""
+
+msgid "plugins.reports.counter.1a.xml"
+msgstr ""
+
+msgid "plugins.reports.counter.1a.description"
+msgstr ""
+
 msgid "plugins.reports.counter.1a.title"
-msgstr "Αναφορά Περιοδικού 1 (R3): Αιτήματα για Πλήρες Κείμενο Άρθρων κατά Μήνα και Περιοδικό"
+msgstr ""
+"Αναφορά Περιοδικού 1 (R3): Αιτήματα για Πλήρες Κείμενο Άρθρων κατά Μήνα και "
+"Περιοδικό"
 
 msgid "plugins.reports.counter.1a.title1"
 msgstr "Αναφορά Περιοδικού 1 1 (R3)"
 
 msgid "plugins.reports.counter.1a.title2"
-msgstr "Αριθμός Επιτυχημένων Αιτημάτων για Πλήρες Κείμενο Άρθρων κατά Μήνα και Περιοδικό (Έτος {$year})"
+msgstr ""
+"Αριθμός Επιτυχημένων Αιτημάτων για Πλήρες Κείμενο Άρθρων κατά Μήνα και "
+"Περιοδικό (Έτος {$year})"
 
 msgid "plugins.reports.counter.1a.dateRun"
 msgstr "Ημερομηνία:"
@@ -53,5 +90,14 @@ msgstr "YTD PDF"
 msgid "plugins.reports.counter.1a.totalForAllJournals"
 msgstr "Σύνολο για όλα τα περιοδικά"
 
+msgid "plugins.reports.counter.1a.anonymous"
+msgstr ""
+
 msgid "plugins.reports.counter.legacyStats"
-msgstr "Οι παρακάτω σύνδεσμοι παράγουν αναφορές με τη χρήση του παλιού COUNTER plugin. Αν θέλετε να δημιουργήσετε COUNTER αναφορές με τη χρήση του νέου OJS COUNTER μετρικού συστήματος, χρησιμοποιείστε τους παραπάνω συνδέσμους."
+msgstr ""
+"Οι παρακάτω σύνδεσμοι παράγουν αναφορές με τη χρήση του παλιού COUNTER "
+"plugin. Αν θέλετε να δημιουργήσετε COUNTER αναφορές με τη χρήση του νέου OJS "
+"COUNTER μετρικού συστήματος, χρησιμοποιείστε τους παραπάνω συνδέσμους."
+
+msgid "plugins.reports.counter.allCustomers"
+msgstr ""

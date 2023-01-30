@@ -11,147 +11,225 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "manager.statistics.reports.filters.byObject.description"
+msgid "manager.distribution.access"
+msgstr "Acesso"
+
+msgid "manager.distribution.copyrightYearBasis.description"
 msgstr ""
-"Restrinja os resultados por tipo de objeto (servidor, preprint, tipo de "
-"arquivo) e/ou por um ou mais identificadores de objeto."
-
-msgid "manager.statistics.reports.defaultReport.journalIndexPageViews"
-msgstr "Número de visualizações da página principal do servidor"
-
-msgid "manager.statistics.reports.defaultReport.articleAbstract"
-msgstr "Páginas visualizadas de resumos de preprints"
-
-msgid "manager.statistics.reports.defaultReport.articleDownloads"
-msgstr "Downloads de arquivos de preprints"
-
-msgid "manager.statistics.statistics.registeredReaders"
-msgstr "Leitores registrados"
-
-msgid "manager.statistics.statistics.numSubmissions"
-msgstr "Total de submissões"
-
-msgid "manager.statistics.statistics.note"
-msgstr ""
-"Nota: As percentagens para submissões revisadas pelos pares podem não somar "
-"100%, uma vez que os artigos reenviados são aceitos, reprovados ou ainda "
-"estão em processo."
-
-msgid "manager.statistics.statistics.makePublic"
-msgstr ""
-"Verifique os itens que estarão disponíveis para os leitores em Sobre o "
-"servidor."
-
-msgid "manager.statistics.statistics.itemsPublished"
-msgstr "Itens postados"
+"Escolha como selecionar uma data predeterminada de copyright para um "
+"preprint. Este valor predeterminado pode ser cancelado caso a caso."
 
 #, fuzzy
-msgid "manager.statistics.statistics.daysToPublication"
-msgstr "Dias até a publicação"
+msgid "manager.distribution.copyrightYearBasis.submission"
+msgstr "Use a data de publicação do preprint"
 
-msgid "manager.statistics.statistics.count.revise"
-msgstr "Reenviar"
+#, fuzzy
+msgid "manager.distribution.publishingMode"
+msgstr "Modo de publicação"
 
-msgid "manager.statistics.statistics.count.decline"
-msgstr "Diminuição"
+#, fuzzy
+msgid "manager.distribution.publishingMode.none"
+msgstr "OPS não será utilizado para publicar os conteúdos do servidos online."
 
-msgid "manager.statistics.statistics.count.accept"
-msgstr "Aceitar"
+msgid "manager.distribution.publishingMode.openAccess"
+msgstr "O servidor fornecerá acesso aberto aos seus conteúdos."
 
-msgid "manager.statistics.statistics.articleViews"
-msgstr "Contagem de visualizações do preprint (apenas para autores)"
+msgid "manager.language.ui"
+msgstr "UI"
 
-msgid "manager.statistics.statistics"
-msgstr "Estatísticas do servidor"
+msgid "manager.language.submissions"
+msgstr "Submissões"
 
-msgid "manager.statistics.defaultMetricDescription"
+msgid "manager.language.forms"
+msgstr "Formulários"
+
+msgid "manager.language.confirmDefaultSettingsOverwrite"
 msgstr ""
-"\t\t→→Seu servidor está configurado para registrar mais de uma métrica de "
-"uso. As estatísticas de uso serão mostradas em vários contextos.→→ Há casos "
-"nos quais se deve utilizar uma única estatística de uso, por ex. para "
-"mostrar uma lista ordenada dos preprints mais utilizados ou para "
-"classificar→→os resultados da busca. Selecione uma das métricas configuradas "
-"como predeterminada."
+"Este substituirá qualquer configuração de servidor local-específica que você "
+"tenha tido para esta localidade"
 
-msgid "manager.setup.userRegistration"
-msgstr "Registro de usuário"
+msgid "manager.people.allUsers"
+msgstr "Todos os usuários inscritos"
 
-msgid "manager.setup.enableOai.description"
+msgid "manager.people.confirmRemove"
 msgstr ""
-"Forneça metadatos a serviços de indexação de terceiros através de <a href=\""
-"https://www.openarchives.org/\">Open Archives Initiative</a>."
+"Remover este usuário deste servidor? Esta ação anulará a inscrição deste "
+"usuário de todas as funções dentro deste servidor."
 
-msgid "manager.setup.enableOai"
-msgstr "Habilitar OAI"
+msgid "manager.sections.abstractsNotRequired"
+msgstr "Não requer resumos"
 
-msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Lista de verificação de preparação de submissão"
-
-msgid "manager.setup.sponsoringOrganization"
-msgstr "Organização patrocinadora"
-
-msgid "manager.setup.siteAccess.viewContent"
-msgstr "Ver conteúdo do preprint"
-
-msgid "manager.setup.siteAccess.view"
-msgstr "Acesso ao site"
-
-msgid "manager.setup.searchDescription.description"
+#, fuzzy
+msgid "manager.section.noSectionEditors"
 msgstr ""
-"Forneça uma breve descrição ((50-300 caracteres) do servidor para que os "
-"motores de busca possam mostrar ao incluir o servidor nos resultados da "
-"busca."
+"Não há editores de série. Adicione esta função ao menos a um usuário através "
+"da Administração > Configuração > Usuários &amp; Funções primeiro."
 
-msgid "manager.setup.searchEngineIndexing.description"
+#, fuzzy
+msgid "manager.sections.confirmDelete"
+msgstr "Está seguro de que deseja eliminar está serie de forma permanente?"
+
+msgid "manager.sections.alertDelete"
 msgstr ""
-"Ajude motores de busca  como o Google a descobrir e mostrar seu site. "
-"Recomendamos que você submeta sua <a href=\"{$sitemapUrl}\" target=\"_blank\""
-">mapa do site</a>."
+"Antes de eliminar esta série, você deve mover os preprints postados nesta "
+"série para outra série."
 
-msgid "manager.setup.searchEngineIndexing"
-msgstr "Indexação de busca"
+#, fuzzy
+msgid "manager.sections.create"
+msgstr "Criar série"
 
-msgid "manager.setup.restrictSiteAccess"
+#, fuzzy
+msgid "manager.sections.editorRestriction"
 msgstr ""
-"Os usuários devem estar registrados e iniciar a sessão para visualizar o "
-"conteúdo em acesso aberto."
+"Os artigos podem apenas ser submetidos por Editores e Editores de Série."
 
-msgid "manager.setup.restrictArticleAccess"
+msgid "manager.sections.confirmDeactivateSection.error"
 msgstr ""
-"Os usuários devem estar registrados e iniciar a sessão para visualizar o "
-"conteúdo em acesso aberto."
+"Pelo menos uma série deve estar ativa. Visite as configurações de fluxo de "
+"trabalho para desabilitar todas as submissões para esse servidor."
 
-msgid "manager.setup.numPageLinks.description"
+#, fuzzy
+msgid "manager.sections.form.abbrevRequired"
+msgstr "Um título abreviado para a série é requerido"
+
+#, fuzzy
+msgid "manager.setup.form.section.pathRequired"
+msgstr "Uma rota de URL para a série é requerida"
+
+#, fuzzy
+msgid "manager.sections.identifyType"
+msgstr "Identifique os artigos postados nesta série como um"
+
+msgid "manager.sections.identifyTypeExamples"
+msgstr "(Por exemplo, etc.)"
+
+#, fuzzy
+msgid "manager.sections.policy"
+msgstr "Política de série"
+
+msgid "manager.sections.submissionIndexing"
+msgstr "Não será incluída a indexação do servidor"
+
+msgid "manager.sections.wordCount"
+msgstr "Contagem de palavras"
+
+#, fuzzy
+msgid "manager.sections.wordCountInstructions"
 msgstr ""
-"Limite o número de links mostrados nas páginas subsequentes de uma lista."
+"Limite de contagem de palavras do resumo para esta série (0 para sem limite)"
 
-msgid "manager.setup.numPageLinks"
-msgstr "Links de página"
+msgid "manager.setup"
+msgstr "Configuração do servidor"
 
-msgid "manager.setup.lists"
-msgstr "Listas"
+msgid "manager.setup.masthead"
+msgstr "Corpo Editorial"
 
-msgid "manager.setup.keyInfo.description"
+#, fuzzy
+msgid "manager.setup.editorialTeam"
+msgstr "Equipe Editorial"
+
+msgid "manager.setup.useStyleSheet"
+msgstr "Página de estilo do servidor"
+
+msgid "manager.setup.announcements"
+msgstr "Anúncios"
+
+msgid "manager.setup.announcementsIntroduction"
+msgstr "Introdução"
+
+msgid "manager.setup.announcementsIntroduction.description"
 msgstr ""
-"Forneça uma breve descrição de seu servidor e identifique os editores, "
-"diretores executivos e outros membros de sua equipe editorial."
+"Insira qualquer informação que você gostaria que aparecesse em sua página de "
+"anúncios."
 
-msgid "manager.setup.keyInfo"
-msgstr "Informação chave"
+msgid "manager.setup.authorScreening"
+msgstr "Complementos de seleção do autor"
 
-msgid "manager.setup.contextTitle"
-msgstr "Título do servidor"
+msgid "manager.setup.disableUserRegistration"
+msgstr "O Administrador do servidor registrará todas as contas do usuário."
 
-msgid "manager.setup.serverThumbnail.description"
+msgid "manager.setup.emailBounceAddress"
+msgstr "Endereço de devolução"
+
+msgid "manager.setup.emailBounceAddress.description"
 msgstr ""
-"Um pequeno logotipo ou representação do servidor que pode ser usada em "
-"listas de servidores."
+"Qualquer e-mail que não se possa entregar dará como resultado uma mensagem "
+"de erro a este endereço."
 
-msgid "manager.setup.serverThumbnail"
-msgstr "Miniatura do servidor"
+msgid "manager.setup.emailBounceAddress.disabled"
+msgstr ""
+"Para enviar e-mails aos quais não se pode entregar a um endereço de "
+"devolução, o administrador do site deve habilitar a opção "
+"<code>allow_envelope_sender</code> no arquivo de configuração do site. A "
+"configuração do servidor pode ser necessária, como está indicado na "
+"documentação do OPS."
 
-msgid "manager.setup.contextInitials"
-msgstr "Iniciais do servidor"
+msgid "manager.setup.emailSignature"
+msgstr "Assinatura"
+
+msgid "manager.setup.emailSignature.description"
+msgstr ""
+"Os e-mails preparados que o sistema envia em nome do servidor terão a "
+"seguinte assinatura inserida no final."
+
+msgid "manager.setup.enableAnnouncements.enable"
+msgstr "Habilitar anúncios"
+
+msgid "manager.setup.enableAnnouncements.description"
+msgstr ""
+"Anúncios podem ser publicados para informar aos leitores sobre notícias e "
+"eventos do servidor. Os anúncios publicados aparecerão na página de Anúncios."
+
+msgid "manager.setup.numAnnouncementsHomepage"
+msgstr "Mostrar na página inicial"
+
+msgid "manager.setup.numAnnouncementsHomepage.description"
+msgstr ""
+"Quantos anúncios mostrar na página inicial. Deixe em branco para não mostrar "
+"nenhum."
+
+msgid "manager.setup.enableUserRegistration"
+msgstr "Os visitantes podem registrar uma conta de usuário com o servidor."
+
+#, fuzzy
+msgid "manager.setup.identity"
+msgstr "Identidade do servidor"
+
+msgid "manager.setup.information"
+msgstr "Informação"
+
+msgid "manager.setup.information.description"
+msgstr ""
+"Breves descrições do servidor para bibliotecários e futuros autores e "
+"leitores. Estas estarão disponíveis na barra lateral do site quando o bloco "
+"de informação for adicionado."
+
+msgid "manager.setup.information.forAuthors"
+msgstr "Para os autores"
+
+msgid "manager.setup.information.forLibrarians"
+msgstr "Para bibliotecários"
+
+msgid "manager.setup.information.forReaders"
+msgstr "Para leitores"
+
+msgid "manager.setup.itemsPerPage"
+msgstr "Itens por página"
+
+msgid "manager.setup.itemsPerPage.description"
+msgstr ""
+"Limite o número de itens (por exemplo, submissões, usuários, ou tarefas de "
+"edição) para mostrar em uma lista antes de mostrar itens subsequentes em "
+"outra página."
+
+msgid "manager.setup.journalAbbreviation"
+msgstr "Abreviatura do servidor"
+
+msgid "manager.setup.contextSummary"
+msgstr "Resumo do servidor"
+
+msgid "manager.setup.contextAbout"
+msgstr "Sobre o servidor"
 
 #, fuzzy
 msgid "manager.setup.contextAbout.description"
@@ -162,225 +240,74 @@ msgstr ""
 "divulgação do patrocínio, o histórico do servidor e uma declaração de "
 "privacidade."
 
-msgid "manager.setup.contextAbout"
-msgstr "Sobre o servidor"
+msgid "manager.setup.contextInitials"
+msgstr "Iniciais do servidor"
 
-msgid "manager.setup.contextSummary"
-msgstr "Resumo do servidor"
+msgid "manager.setup.serverThumbnail"
+msgstr "Miniatura do servidor"
 
-msgid "manager.setup.journalAbbreviation"
-msgstr "Abreviatura do servidor"
-
-msgid "manager.setup.itemsPerPage.description"
+msgid "manager.setup.serverThumbnail.description"
 msgstr ""
-"Limite o número de itens (por exemplo, submissões, usuários, ou tarefas de "
-"edição) para mostrar em uma lista antes de mostrar itens subsequentes em "
-"outra página."
+"Um pequeno logotipo ou representação do servidor que pode ser usada em "
+"listas de servidores."
 
-msgid "manager.setup.itemsPerPage"
-msgstr "Itens por página"
+msgid "manager.setup.contextTitle"
+msgstr "Título do servidor"
 
-msgid "manager.setup.information.forReaders"
-msgstr "Para leitores"
+msgid "manager.setup.keyInfo"
+msgstr "Informação chave"
 
-msgid "manager.setup.information.forLibrarians"
-msgstr "Para bibliotecários"
-
-msgid "manager.setup.information.forAuthors"
-msgstr "Para os autores"
-
-msgid "manager.setup.information.description"
+msgid "manager.setup.keyInfo.description"
 msgstr ""
-"Breves descrições do servidor para bibliotecários e futuros autores e "
-"leitores. Estas estarão disponíveis na barra lateral do site quando o bloco "
-"de informação for adicionado."
+"Forneça uma breve descrição de seu servidor e identifique os editores, "
+"diretores executivos e outros membros de sua equipe editorial."
 
-msgid "manager.setup.information"
-msgstr "Informação"
+msgid "manager.setup.lists"
+msgstr "Listas"
 
-#, fuzzy
-msgid "manager.setup.identity"
-msgstr "Identidade do servidor"
+msgid "manager.setup.numPageLinks"
+msgstr "Links de página"
 
-msgid "manager.setup.enableUserRegistration"
-msgstr "Os visitantes podem registrar uma conta de usuário com o servidor."
-
-msgid "manager.setup.numAnnouncementsHomepage.description"
+msgid "manager.setup.numPageLinks.description"
 msgstr ""
-"Quantos anúncios mostrar na página inicial. Deixe em branco para não mostrar "
-"nenhum."
+"Limite o número de links mostrados nas páginas subsequentes de uma lista."
 
-msgid "manager.setup.numAnnouncementsHomepage"
-msgstr "Mostrar na página inicial"
-
-msgid "manager.setup.enableAnnouncements.description"
+msgid "manager.setup.restrictArticleAccess"
 msgstr ""
-"Anúncios podem ser publicados para informar aos leitores sobre notícias e "
-"eventos do servidor. Os anúncios publicados aparecerão na página de Anúncios."
+"Os usuários devem estar registrados e iniciar a sessão para visualizar o "
+"conteúdo em acesso aberto."
 
-msgid "manager.setup.enableAnnouncements.enable"
-msgstr "Habilitar anúncios"
-
-msgid "manager.setup.emailSignature.description"
+msgid "manager.setup.restrictSiteAccess"
 msgstr ""
-"Os e-mails preparados que o sistema envia em nome do servidor terão a "
-"seguinte assinatura inserida no final."
+"Os usuários devem estar registrados e iniciar a sessão para visualizar o "
+"conteúdo em acesso aberto."
 
-msgid "manager.setup.emailSignature"
-msgstr "Assinatura"
+msgid "manager.setup.searchEngineIndexing"
+msgstr "Indexação de busca"
 
-msgid "manager.setup.emailBounceAddress.disabled"
+msgid "manager.setup.searchEngineIndexing.description"
 msgstr ""
-"Para enviar e-mails aos quais não se pode entregar a um endereço de "
-"devolução, o administrador do site deve habilitar a opção "
-"<code>allow_envelope_sender</code> no arquivo de configuração do site. A "
-"configuração do servidor pode ser necessária, como está indicado na "
-"documentação do OPS."
+"Ajude motores de busca  como o Google a descobrir e mostrar seu site. "
+"Recomendamos que você submeta sua <a href=\"{$sitemapUrl}\" target=\"_blank"
+"\">mapa do site</a>."
 
-msgid "manager.setup.emailBounceAddress.description"
+msgid "manager.setup.searchDescription.description"
 msgstr ""
-"Qualquer e-mail que não se possa entregar dará como resultado uma mensagem "
-"de erro a este endereço."
+"Forneça uma breve descrição ((50-300 caracteres) do servidor para que os "
+"motores de busca possam mostrar ao incluir o servidor nos resultados da "
+"busca."
 
-msgid "manager.setup.emailBounceAddress"
-msgstr "Endereço de devolução"
+msgid "manager.setup.siteAccess.view"
+msgstr "Acesso ao site"
 
-msgid "manager.setup.disableUserRegistration"
-msgstr "O Administrador do servidor registrará todas as contas do usuário."
+msgid "manager.setup.siteAccess.viewContent"
+msgstr "Ver conteúdo do preprint"
 
-msgid "manager.setup.authorScreening"
-msgstr "Complementos de seleção do autor"
+msgid "manager.setup.sponsoringOrganization"
+msgstr "Organização patrocinadora"
 
-msgid "manager.setup.announcementsIntroduction.description"
-msgstr ""
-"Insira qualquer informação que você gostaria que aparecesse em sua página de "
-"anúncios."
-
-msgid "manager.setup.announcementsIntroduction"
-msgstr "Introdução"
-
-msgid "manager.setup.announcements"
-msgstr "Anúncios"
-
-msgid "manager.setup.useStyleSheet"
-msgstr "Página de estilo do servidor"
-
-#, fuzzy
-msgid "manager.setup.editorialTeam"
-msgstr "Equipe Editorial"
-
-msgid "manager.setup.masthead"
-msgstr "Corpo Editorial"
-
-msgid "manager.setup"
-msgstr "Configuração do servidor"
-
-#, fuzzy
-msgid "manager.sections.wordCountInstructions"
-msgstr ""
-"Limite de contagem de palavras do resumo para esta série (0 para sem limite)"
-
-msgid "manager.sections.wordCount"
-msgstr "Contagem de palavras"
-
-msgid "manager.sections.submissionIndexing"
-msgstr "Não será incluída a indexação do servidor"
-
-#, fuzzy
-msgid "manager.sections.policy"
-msgstr "Política de série"
-
-msgid "manager.sections.identifyTypeExamples"
-msgstr "(Por exemplo, etc.)"
-
-#, fuzzy
-msgid "manager.sections.identifyType"
-msgstr "Identifique os artigos postados nesta série como um"
-
-#, fuzzy
-msgid "manager.setup.form.section.pathRequired"
-msgstr "Uma rota de URL para a série é requerida"
-
-#, fuzzy
-msgid "manager.sections.form.abbrevRequired"
-msgstr "Um título abreviado para a série é requerido"
-
-#, fuzzy
-msgid "manager.sections.editorRestriction"
-msgstr ""
-"Os artigos podem apenas ser submetidos por Editores e Editores de Série."
-
-#, fuzzy
-msgid "manager.sections.create"
-msgstr "Criar série"
-
-msgid "manager.sections.alertDelete"
-msgstr ""
-"Antes de eliminar esta série, você deve mover os preprints postados nesta "
-"série para outra série."
-
-#, fuzzy
-msgid "manager.sections.confirmDelete"
-msgstr "Está seguro de que deseja eliminar está serie de forma permanente?"
-
-#, fuzzy
-msgid "manager.section.noSectionEditors"
-msgstr ""
-"Não há editores de série. Adicione esta função ao menos a um usuário através "
-"da Administração > Configuração > Usuários &amp; Funções primeiro."
-
-msgid "manager.sections.abstractsNotRequired"
-msgstr "Não requer resumos"
-
-msgid "manager.people.confirmRemove"
-msgstr ""
-"Remover este usuário deste servidor? Esta ação anulará a inscrição deste "
-"usuário de todas as funções dentro deste servidor."
-
-msgid "manager.people.allUsers"
-msgstr "Todos os usuários inscritos"
-
-msgid "manager.language.confirmDefaultSettingsOverwrite"
-msgstr ""
-"Este substituirá qualquer configuração de servidor local-específica que você "
-"tenha tido para esta localidade"
-
-msgid "manager.language.forms"
-msgstr "Formulários"
-
-msgid "manager.language.submissions"
-msgstr "Submissões"
-
-msgid "manager.language.ui"
-msgstr "UI"
-
-msgid "manager.distribution.publishingMode.openAccess"
-msgstr "O servidor fornecerá acesso aberto aos seus conteúdos."
-
-#, fuzzy
-msgid "manager.distribution.publishingMode.none"
-msgstr "OPS não será utilizado para publicar os conteúdos do servidos online."
-
-#, fuzzy
-msgid "manager.distribution.publishingMode"
-msgstr "Modo de publicação"
-
-#, fuzzy
-msgid "manager.distribution.copyrightYearBasis.submission"
-msgstr "Use a data de publicação do preprint"
-
-msgid "manager.distribution.copyrightYearBasis.description"
-msgstr ""
-"Escolha como selecionar uma data predeterminada de copyright para um "
-"preprint. Este valor predeterminado pode ser cancelado caso a caso."
-
-msgid "manager.distribution.access"
-msgstr "Acesso"
-
-msgid "manager.setup.disableSubmissions.notAccepting"
-msgstr ""
-"Este servidor não está aceitando submissões atualmente. Visite as "
-"configurações de fluxo de trabalho para permitir que submissões sejam feitas."
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Lista de verificação de preparação de submissão"
 
 msgid "manager.setup.disableSubmissions.description"
 msgstr ""
@@ -388,7 +315,206 @@ msgstr ""
 "podem ser desabilitadas para séries específicas na página de configuração de "
 "<a href=\"{$url}\">séries do servidor</a>."
 
-msgid "manager.sections.confirmDeactivateSection.error"
+msgid "manager.setup.disableSubmissions.notAccepting"
 msgstr ""
-"Pelo menos uma série deve estar ativa. Visite as configurações de fluxo de "
-"trabalho para desabilitar todas as submissões para esse servidor."
+"Este servidor não está aceitando submissões atualmente. Visite as "
+"configurações de fluxo de trabalho para permitir que submissões sejam feitas."
+
+msgid "manager.setup.enableOai"
+msgstr "Habilitar OAI"
+
+msgid "manager.setup.enableOai.description"
+msgstr ""
+"Forneça metadatos a serviços de indexação de terceiros através de <a href="
+"\"https://www.openarchives.org/\">Open Archives Initiative</a>."
+
+msgid "manager.setup.userRegistration"
+msgstr "Registro de usuário"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"\t\t→→Seu servidor está configurado para registrar mais de uma métrica de "
+"uso. As estatísticas de uso serão mostradas em vários contextos.→→ Há casos "
+"nos quais se deve utilizar uma única estatística de uso, por ex. para "
+"mostrar uma lista ordenada dos preprints mais utilizados ou para "
+"classificar→→os resultados da busca. Selecione uma das métricas configuradas "
+"como predeterminada."
+
+msgid "manager.statistics.statistics"
+msgstr "Estatísticas do servidor"
+
+msgid "manager.statistics.statistics.articleViews"
+msgstr "Contagem de visualizações do preprint (apenas para autores)"
+
+msgid "manager.statistics.statistics.count.accept"
+msgstr "Aceitar"
+
+msgid "manager.statistics.statistics.count.decline"
+msgstr "Diminuição"
+
+msgid "manager.statistics.statistics.count.revise"
+msgstr "Reenviar"
+
+#, fuzzy
+msgid "manager.statistics.statistics.daysToPublication"
+msgstr "Dias até a publicação"
+
+msgid "manager.statistics.statistics.itemsPublished"
+msgstr "Itens postados"
+
+msgid "manager.statistics.statistics.makePublic"
+msgstr ""
+"Verifique os itens que estarão disponíveis para os leitores em Sobre o "
+"servidor."
+
+msgid "manager.statistics.statistics.note"
+msgstr ""
+"Nota: As percentagens para submissões revisadas pelos pares podem não somar "
+"100%, uma vez que os artigos reenviados são aceitos, reprovados ou ainda "
+"estão em processo."
+
+msgid "manager.statistics.statistics.numSubmissions"
+msgstr "Total de submissões"
+
+msgid "manager.statistics.statistics.registeredReaders"
+msgstr "Leitores registrados"
+
+msgid "manager.statistics.reports.defaultReport.articleDownloads"
+msgstr "Downloads de arquivos de preprints"
+
+msgid "manager.statistics.reports.defaultReport.articleAbstract"
+msgstr "Páginas visualizadas de resumos de preprints"
+
+msgid "manager.statistics.reports.defaultReport.journalIndexPageViews"
+msgstr "Número de visualizações da página principal do servidor"
+
+msgid "manager.statistics.reports.filters.byObject.description"
+msgstr ""
+"Restrinja os resultados por tipo de objeto (servidor, preprint, tipo de "
+"arquivo) e/ou por um ou mais identificadores de objeto."
+
+msgid "grid.category.path"
+msgstr ""
+
+msgid "manager.publication.library"
+msgstr ""
+
+msgid "manager.setup.resetPermissions"
+msgstr ""
+
+msgid "manager.setup.resetPermissions.confirm"
+msgstr ""
+
+msgid "manager.setup.resetPermissions.description"
+msgstr ""
+
+msgid "manager.setup.resetPermissions.success"
+msgstr ""
+
+msgid "grid.genres.title.short"
+msgstr ""
+
+msgid "grid.genres.title"
+msgstr ""
+
+msgid "plugins.importexport.common.settings"
+msgstr ""
+
+msgid "plugins.importexport.common.settings.DOIPluginSettings"
+msgstr ""
+
+msgid "plugins.importexport.common.export.articles"
+msgstr ""
+
+msgid "plugins.importexport.common.missingRequirements"
+msgstr ""
+
+msgid "plugins.importexport.common.error.DOIsNotAvailable"
+msgstr ""
+
+msgid "plugins.importexport.common.error.pluginNotConfigured"
+msgstr ""
+
+msgid "plugins.importexport.common.settings.form.password"
+msgstr ""
+
+msgid "plugins.importexport.common.settings.form.password.description"
+msgstr ""
+
+msgid "plugins.importexport.common.status.any"
+msgstr ""
+
+msgid "plugins.importexport.common.status.notDeposited"
+msgstr ""
+
+msgid "plugins.importexport.common.status.markedRegistered"
+msgstr ""
+
+msgid "plugins.importexport.common.status.registered"
+msgstr ""
+
+msgid "plugins.importexport.common.action"
+msgstr ""
+
+msgid "plugins.importexport.common.action.export"
+msgstr ""
+
+msgid "plugins.importexport.common.action.markRegistered"
+msgstr ""
+
+msgid "plugins.importexport.common.action.register"
+msgstr ""
+
+msgid "plugins.importexport.common.validation"
+msgstr ""
+
+msgid "plugins.importexport.common.error.noObjectsSelected"
+msgstr ""
+
+msgid "plugins.importexport.common.error.validation"
+msgstr ""
+
+msgid "plugins.importexport.common.invalidXML"
+msgstr ""
+
+msgid "plugins.importexport.common.export.error.outputFileNotWritable"
+msgstr ""
+
+msgid "plugins.importexport.common.register.error.mdsError"
+msgstr ""
+
+msgid "plugins.importexport.common.register.success"
+msgstr ""
+
+msgid "plugins.importexport.common.senderTask.warning.noDOIprefix"
+msgstr ""
+
+msgid "plugins.importexport.common.cliError"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownJournal"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownObjects"
+msgstr ""
+
+msgid "stats.publicationStats"
+msgstr ""
+
+msgid "stats.publications.details"
+msgstr ""
+
+msgid "stats.publications.none"
+msgstr ""
+
+msgid "stats.publications.totalAbstractViews.timelineInterval"
+msgstr ""
+
+msgid "stats.publications.totalGalleyViews.timelineInterval"
+msgstr ""
+
+msgid "stats.publications.countOfTotal"
+msgstr ""
+
+msgid "stats.publications.abstracts"
+msgstr ""

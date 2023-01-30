@@ -11,61 +11,48 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "emails.postedAck.body"
+msgid "emails.notification.subject"
+msgstr "Ново известување од {$siteTitle}"
+
+msgid "emails.notification.body"
 msgstr ""
-"{$authorName}: <br />\n"
+"Имате ново известување од {$siteTitle}: <br />\n"
 "<br />\n"
-"Вашиот препечаток, &quot;{$submissionTitle}&quot; е објавено на Интернет на "
-"{$contextName}. <br />\n"
-
-msgid "emails.postedAck.subject"
-msgstr "Објавено признание од предпечаток"
-
-msgid "emails.publishNotify.description"
-msgstr ""
-"Оваа е-пошта е испратена до регистрираните читатели преку врската \""
-"Известете ги корисниците\" во Корисничкиот дом на модераторот. Ги известува "
-"читателите за нов отпечаток и ги поканува да го посетат серверот на "
-"доставена URL-адреса."
-
-msgid "emails.publishNotify.body"
-msgstr ""
-"Читатели: <br />\n"
+"{$notificationContents} <br />\n"
 "<br />\n"
-"{$contextName} штотуку го објави својот последен отпечаток на {$contextUrl}."
-"\n"
+"Врска: {$url} <br />\n"
 "<br />\n"
-"Ви благодариме за постојаниот интерес за нашата работа, <br />\n"
-"{$editorialContactSignature}"
-
-msgid "emails.publishNotify.subject"
-msgstr "Објавено ново печатење"
-
-msgid "emails.userValidate.description"
-msgstr ""
-"Оваа е-пошта е испратена до новорегистриран корисник за да ја потврди "
-"неговата сметка за е-пошта."
-
-msgid "emails.userValidate.body"
-msgstr ""
-"{$userFullName} <br />\n"
-"<br />\n"
-"Создадовте сметка со {$contextName}, но пред да започнете да ја користите, "
-"треба да ја потврдите вашата е-пошта. За да го направите ова, едноставно "
-"следете ја врската подолу: <br />\n"
-"<br />\n"
-"{$ activateUrl} <br />\n"
-"<br />\n"
-"Ви благодариме, <br />\n"
 "{$principalContactSignature}"
 
-msgid "emails.userValidate.subject"
-msgstr "Потврдете ја вашата сметка"
-
-msgid "emails.userRegister.description"
+msgid "emails.notification.description"
 msgstr ""
-"Оваа е-пошта е испратена до новорегистриран корисник за да ги пречека во "
-"системот и да им обезбеди запис за нивното корисничко име и лозинка."
+"Е-поштата се испраќа до регистрираните корисници кои избрале да им се "
+"испраќа овој вид на известување по е-пошта."
+
+msgid "emails.passwordResetConfirm.subject"
+msgstr "Потврда за ресетирање на лозинка"
+
+msgid "emails.passwordResetConfirm.body"
+msgstr ""
+"Добивме барање за ресетирање на вашата лозинка за веб-страницата "
+"{$siteTitle}. <br />\n"
+"<br />\n"
+"Ако не сте го побарале ова барање, игнорирајте ја оваа е-пошта и лозинката "
+"нема да се смени. Ако сакате да ја ресетирате вашата лозинка, кликнете на "
+"подолу URL. <br />\n"
+"<br />\n"
+"Ресетирај ја мојата лозинка: {$url} <br />\n"
+"<br />\n"
+"{$principalContactSignature}"
+
+msgid "emails.passwordResetConfirm.description"
+msgstr ""
+"Оваа е-пошта се испраќа до регистриран корисник кога тие означуваат дека ја "
+"заборавиле лозинката или не се во можност да се најават. Дава URL-адреса што "
+"можат да ја следат за да ја ресетираат лозинката."
+
+msgid "emails.userRegister.subject"
+msgstr "Регистрација на сервер"
 
 msgid "emails.userRegister.body"
 msgstr ""
@@ -83,45 +70,151 @@ msgstr ""
 "Ви благодариме, <br />\n"
 "{$principalContactSignature}"
 
-msgid "emails.userRegister.subject"
-msgstr "Регистрација на сервер"
-
-msgid "emails.passwordResetConfirm.description"
+msgid "emails.userRegister.description"
 msgstr ""
-"Оваа е-пошта се испраќа до регистриран корисник кога тие означуваат дека ја "
-"заборавиле лозинката или не се во можност да се најават. Дава URL-адреса што "
-"можат да ја следат за да ја ресетираат лозинката."
+"Оваа е-пошта е испратена до новорегистриран корисник за да ги пречека во "
+"системот и да им обезбеди запис за нивното корисничко име и лозинка."
 
-msgid "emails.passwordResetConfirm.body"
+msgid "emails.userValidate.subject"
+msgstr "Потврдете ја вашата сметка"
+
+msgid "emails.userValidate.body"
 msgstr ""
-"Добивме барање за ресетирање на вашата лозинка за веб-страницата {$siteTitle}"
-". <br />\n"
+"{$userFullName} <br />\n"
 "<br />\n"
-"Ако не сте го побарале ова барање, игнорирајте ја оваа е-пошта и лозинката "
-"нема да се смени. Ако сакате да ја ресетирате вашата лозинка, кликнете на "
-"подолу URL. <br />\n"
+"Создадовте сметка со {$contextName}, но пред да започнете да ја користите, "
+"треба да ја потврдите вашата е-пошта. За да го направите ова, едноставно "
+"следете ја врската подолу: <br />\n"
 "<br />\n"
-"Ресетирај ја мојата лозинка: {$url} <br />\n"
+"{$ activateUrl} <br />\n"
 "<br />\n"
+"Ви благодариме, <br />\n"
 "{$principalContactSignature}"
 
-msgid "emails.passwordResetConfirm.subject"
-msgstr "Потврда за ресетирање на лозинка"
-
-msgid "emails.notification.description"
+msgid "emails.userValidate.description"
 msgstr ""
-"Е-поштата се испраќа до регистрираните корисници кои избрале да им се "
-"испраќа овој вид на известување по е-пошта."
+"Оваа е-пошта е испратена до новорегистриран корисник за да ја потврди "
+"неговата сметка за е-пошта."
 
-msgid "emails.notification.body"
+msgid "emails.publishNotify.subject"
+msgstr "Објавено ново печатење"
+
+msgid "emails.publishNotify.body"
 msgstr ""
-"Имате ново известување од {$siteTitle}: <br />\n"
+"Читатели: <br />\n"
 "<br />\n"
-"{$notificationContents} <br />\n"
+"{$contextName} штотуку го објави својот последен отпечаток на "
+"{$contextUrl}.\n"
 "<br />\n"
-"Врска: {$url} <br />\n"
-"<br />\n"
-"{$principalContactSignature}"
+"Ви благодариме за постојаниот интерес за нашата работа, <br />\n"
+"{$editorialContactSignature}"
 
-msgid "emails.notification.subject"
-msgstr "Ново известување од {$siteTitle}"
+msgid "emails.publishNotify.description"
+msgstr ""
+"Оваа е-пошта е испратена до регистрираните читатели преку врската "
+"\"Известете ги корисниците\" во Корисничкиот дом на модераторот. Ги "
+"известува читателите за нов отпечаток и ги поканува да го посетат серверот "
+"на доставена URL-адреса."
+
+msgid "emails.postedAck.subject"
+msgstr "Објавено признание од предпечаток"
+
+msgid "emails.postedAck.body"
+msgstr ""
+"{$authorName}: <br />\n"
+"<br />\n"
+"Вашиот препечаток, &quot;{$submissionTitle}&quot; е објавено на Интернет на "
+"{$contextName}. <br />\n"
+
+msgid "emails.postedAck.description"
+msgstr ""
+
+msgid "emails.submissionAck.subject"
+msgstr ""
+
+msgid "emails.submissionAck.body"
+msgstr ""
+
+msgid "emails.submissionAck.description"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.subject"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
+
+msgid "emails.editorAssign.subject"
+msgstr ""
+
+msgid "emails.editorAssign.body"
+msgstr ""
+
+msgid "emails.editorAssign.description"
+msgstr ""
+
+msgid "emails.editorDecisionAccept.subject"
+msgstr ""
+
+msgid "emails.editorDecisionAccept.body"
+msgstr ""
+
+msgid "emails.editorDecisionAccept.description"
+msgstr ""
+
+msgid "emails.editorRecommendation.subject"
+msgstr ""
+
+msgid "emails.editorRecommendation.body"
+msgstr ""
+
+msgid "emails.editorRecommendation.description"
+msgstr ""
+
+msgid "emails.revisedVersionNotify.subject"
+msgstr ""
+
+msgid "emails.revisedVersionNotify.body"
+msgstr ""
+
+msgid "emails.revisedVersionNotify.description"
+msgstr ""
+
+msgid "emails.notificationCenterDefault.subject"
+msgstr ""
+
+msgid "emails.notificationCenterDefault.body"
+msgstr ""
+
+msgid "emails.notificationCenterDefault.description"
+msgstr ""
+
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionInitialDecline.description"
+msgstr ""
+
+msgid "emails.statisticsReportNotification.subject"
+msgstr ""
+
+msgid "emails.statisticsReportNotification.body"
+msgstr ""
+
+msgid "emails.statisticsReportNotification.description"
+msgstr ""
+
+msgid "emails.announcement.subject"
+msgstr ""
+
+msgid "emails.announcement.body"
+msgstr ""
+
+msgid "emails.announcement.description"
+msgstr ""

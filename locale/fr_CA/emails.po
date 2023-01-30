@@ -4,8 +4,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-04T10:02:26-08:00\n"
 "PO-Revision-Date: 2020-02-27 19:02+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
-"helene.vezina@umontreal.ca>\n"
+"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
+"vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/ops/"
 "emails/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -29,23 +29,31 @@ msgstr ""
 "{$principalContactSignature}"
 
 msgid "emails.notification.description"
-msgstr "Ce courriel est envoyé aux utilisateurs-trices inscrits-es qui ont choisi de recevoir par courriel ce type d'avis."
+msgstr ""
+"Ce courriel est envoyé aux utilisateurs-trices inscrits-es qui ont choisi de "
+"recevoir par courriel ce type d'avis."
 
 msgid "emails.passwordResetConfirm.subject"
 msgstr "Confirmation de la réinitialisation du mot de passe"
 
 msgid "emails.passwordResetConfirm.body"
 msgstr ""
-"Nous avons reçu une demande concernant la réinitialisation de votre mot de passe pour le site Web {$siteTitle}.<br />\n"
+"Nous avons reçu une demande concernant la réinitialisation de votre mot de "
+"passe pour le site Web {$siteTitle}.<br />\n"
 "<br />\n"
-"Si vous n'avez pas fait cette demande, veuillez ne pas tenir compte du présent message, votre mot de passe restera le même. Si vous souhaitez réinitialiser votre mot de passe, cliquer sur l'URL ci-dessous.<br />\n"
+"Si vous n'avez pas fait cette demande, veuillez ne pas tenir compte du "
+"présent message, votre mot de passe restera le même. Si vous souhaitez "
+"réinitialiser votre mot de passe, cliquer sur l'URL ci-dessous.<br />\n"
 "<br />\n"
 "Réinitialisation de mon mot de passe : {$url}<br />\n"
 "<br />\n"
 "{$principalContactSignature}"
 
 msgid "emails.passwordResetConfirm.description"
-msgstr "Ce courriel est envoyé à l'utilisateur-trice inscrit-e qui nous signale avoir oublié son mot de passe ou qui est incapable d'ouvrir une session. Il fournit le lien URL à cliquer pour pouvoir réinitialiser son mot de passe."
+msgstr ""
+"Ce courriel est envoyé à l'utilisateur-trice inscrit-e qui nous signale "
+"avoir oublié son mot de passe ou qui est incapable d'ouvrir une session. Il "
+"fournit le lien URL à cliquer pour pouvoir réinitialiser son mot de passe."
 
 msgid "emails.userRegister.subject"
 msgstr "Inscription au serveur"
@@ -80,7 +88,9 @@ msgid "emails.userValidate.body"
 msgstr ""
 "{$userFullName},<br />\n"
 "<br />\n"
-"Vous avez créé un compte avec {$contextName}. Pour pouvoir commencer à l'utiliser vous devez d'abord valider votre compte de courriel. Pour ce faire, vous n'avez qu'à suivre le lien ci-dessous :<br />\n"
+"Vous avez créé un compte avec {$contextName}. Pour pouvoir commencer à "
+"l'utiliser vous devez d'abord valider votre compte de courriel. Pour ce "
+"faire, vous n'avez qu'à suivre le lien ci-dessous :<br />\n"
 "<br />\n"
 "{$activateUrl}<br />\n"
 "<br />\n"
@@ -88,45 +98,12 @@ msgstr ""
 "{$principalContactSignature}"
 
 msgid "emails.userValidate.description"
-msgstr "Ce courriel est envoyé à un,une utilisateur-trice nouvellement inscrit-e pour valider son compte de courriel."
-
-msgid "emails.submissionAck.subject"
-msgstr "Accusé de réception de la soumission"
-
-msgid "emails.submissionAck.body"
 msgstr ""
-"{$authorName},<br />\n"
-"<br />\n"
-"Nous vous remercions d'avoir soumis le manuscrit intitulé « "
-"{$submissionTitle} » au serveur {$contextName}. Vous pourrez suivre le "
-"traitement de votre soumission en accédant au site Web du serveur .<br />\n"
+"Ce courriel est envoyé à un,une utilisateur-trice nouvellement inscrit-e "
+"pour valider son compte de courriel."
 
-msgid "emails.submissionAck.description"
-msgstr "Ce courriel, lorsqu'activé, est envoyé automatiquement à un-e auteur-e quand il ou elle a complété le processus de soumission d'un manuscrit à la seveur. Il fournit les informations sur comment suivre la soumission à travers le processus éditorial, et remercie l'auteur-e de sa soumission."
-
-msgid "emails.submissionAckNotUser.subject"
-msgstr "Accusé de réception de la soumission"
-
-msgid "emails.submissionAckNotUser.body"
-msgstr ""
-"Bonjour,<br />\n"
-"<br />\n"
-"Le manuscrit intitulé , « {$submissionTitle} » , a été soumis par {$submitterName} à {$contextName}.<br />\n"
-"<br />\n"
-"Si vous avez des questions, n'hésitez pas à communiquer avec nous. Nous vous remercions d'avoir pensé à {$contextName} pour la publication de vos travaux.<br />\n"
-"<br />\n"
-"{$editorialContactSignature}"
-
-msgid "emails.submissionAckNotUser.description"
-msgstr "Ce courriel, lorsque activé, est envoyé automatiquement aux autres auteur-e-s qui ne sont pas des utilisateurs-trices de OPS signalés-es comme effectuant la soumission."
-
-#, fuzzy
-msgid "emails.publishNotify.description"
-msgstr ""
-"Ce courriel est envoyé à tous et toutes les lecteurs-trices inscrits-es, via "
-"le lien « Aviser les utilisateurs-trices » sur la page d'accueil du,de la "
-"rédacteur-trice. Il avise les lecteurs-trices d'une nouvelle prépublication "
-"et les invite à visiter le serveur en cliquant sur l'URL fourni."
+msgid "emails.publishNotify.subject"
+msgstr "Nouvelle prépublication publiée"
 
 msgid "emails.publishNotify.body"
 msgstr ""
@@ -138,5 +115,131 @@ msgstr ""
 "Nous vous remercions de l'intérêt que vous portez à notre travail,<br />\n"
 "{$editorialContactSignature}"
 
-msgid "emails.publishNotify.subject"
-msgstr "Nouvelle prépublication publiée"
+#, fuzzy
+msgid "emails.publishNotify.description"
+msgstr ""
+"Ce courriel est envoyé à tous et toutes les lecteurs-trices inscrits-es, via "
+"le lien « Aviser les utilisateurs-trices » sur la page d'accueil du,de la "
+"rédacteur-trice. Il avise les lecteurs-trices d'une nouvelle prépublication "
+"et les invite à visiter le serveur en cliquant sur l'URL fourni."
+
+msgid "emails.postedAck.subject"
+msgstr ""
+
+msgid "emails.postedAck.body"
+msgstr ""
+
+msgid "emails.postedAck.description"
+msgstr ""
+
+msgid "emails.submissionAck.subject"
+msgstr "Accusé de réception de la soumission"
+
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$authorName},<br />\n"
+"<br />\n"
+"Nous vous remercions d'avoir soumis le manuscrit intitulé "
+"« {$submissionTitle} » au serveur {$contextName}. Vous pourrez suivre le "
+"traitement de votre soumission en accédant au site Web du serveur .<br />\n"
+
+msgid "emails.submissionAck.description"
+msgstr ""
+"Ce courriel, lorsqu'activé, est envoyé automatiquement à un-e auteur-e quand "
+"il ou elle a complété le processus de soumission d'un manuscrit à la seveur. "
+"Il fournit les informations sur comment suivre la soumission à travers le "
+"processus éditorial, et remercie l'auteur-e de sa soumission."
+
+msgid "emails.submissionAckNotUser.subject"
+msgstr "Accusé de réception de la soumission"
+
+msgid "emails.submissionAckNotUser.body"
+msgstr ""
+"Bonjour,<br />\n"
+"<br />\n"
+"Le manuscrit intitulé , « {$submissionTitle} » , a été soumis par "
+"{$submitterName} à {$contextName}.<br />\n"
+"<br />\n"
+"Si vous avez des questions, n'hésitez pas à communiquer avec nous. Nous vous "
+"remercions d'avoir pensé à {$contextName} pour la publication de vos travaux."
+"<br />\n"
+"<br />\n"
+"{$editorialContactSignature}"
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
+"Ce courriel, lorsque activé, est envoyé automatiquement aux autres auteur-e-"
+"s qui ne sont pas des utilisateurs-trices de OPS signalés-es comme "
+"effectuant la soumission."
+
+msgid "emails.editorAssign.subject"
+msgstr ""
+
+msgid "emails.editorAssign.body"
+msgstr ""
+
+msgid "emails.editorAssign.description"
+msgstr ""
+
+msgid "emails.editorDecisionAccept.subject"
+msgstr ""
+
+msgid "emails.editorDecisionAccept.body"
+msgstr ""
+
+msgid "emails.editorDecisionAccept.description"
+msgstr ""
+
+msgid "emails.editorRecommendation.subject"
+msgstr ""
+
+msgid "emails.editorRecommendation.body"
+msgstr ""
+
+msgid "emails.editorRecommendation.description"
+msgstr ""
+
+msgid "emails.revisedVersionNotify.subject"
+msgstr ""
+
+msgid "emails.revisedVersionNotify.body"
+msgstr ""
+
+msgid "emails.revisedVersionNotify.description"
+msgstr ""
+
+msgid "emails.notificationCenterDefault.subject"
+msgstr ""
+
+msgid "emails.notificationCenterDefault.body"
+msgstr ""
+
+msgid "emails.notificationCenterDefault.description"
+msgstr ""
+
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionInitialDecline.description"
+msgstr ""
+
+msgid "emails.statisticsReportNotification.subject"
+msgstr ""
+
+msgid "emails.statisticsReportNotification.body"
+msgstr ""
+
+msgid "emails.statisticsReportNotification.description"
+msgstr ""
+
+msgid "emails.announcement.subject"
+msgstr ""
+
+msgid "emails.announcement.body"
+msgstr ""
+
+msgid "emails.announcement.description"
+msgstr ""

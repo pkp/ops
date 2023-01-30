@@ -11,94 +11,214 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "publication.inactiveSection"
-msgstr "{$section} (Inaktiv)"
+msgid "submission.submit.title"
+msgstr "Lever inn en preprint"
 
-msgid "publication.invalidSection"
-msgstr "Seksjonen til denne versjonen ble ikke funnet."
+msgid "submission.submit.userGroup"
+msgstr "Lever inn i min rolle som ..."
 
-msgid "galley.publicationNotFound"
-msgstr "Versjonen til dette oppsettet ble ikke funnet."
+msgid "submission.submit.userGroupDescription"
+msgstr "Velg en rolle for å levere inn denne preprinten."
 
-msgid "galley.editPublishedDisabled"
-msgstr ""
-"Oppsettene til denne versjonen kan ikke redigeres fordi den allerede har "
-"blitt deponert."
+msgid "submission.upload.selectComponent"
+msgstr "Velg preprintkomponent"
 
-msgid "catalog.category.heading"
-msgstr "Alle objekter"
+msgid "submission.title"
+msgstr "Tittel"
 
-msgid "catalog.browseTitles"
-msgstr "{$numTitles} titler"
+msgid "submission.submit.newSubmissionSingle"
+msgstr "Ny innlevering"
 
-msgid "submission.metadataDescription"
-msgstr ""
-"Disse spesifikasjonene er basert på metadatasettet Dublin Core, en "
-"internasjonal standard som bl.a. brukes til å beskrive innhold."
+msgid "submission.abstract.wordCount.description"
+msgstr "Sammendraget må være {$wordCount} ord eller færre."
 
-msgid "submission.submit.form.contributorRoleRequired"
-msgstr "Velg bidragsyterens rolle."
+msgid "submission.submit.noContext"
+msgstr "Denne innleveringens tjener ble ikke funnet."
 
-msgid "submission.submit.form.wordCountAlert"
-msgstr ""
-"Sammendraget ditt er for langt. Gjør det kortere i tråd med ordgrensen for "
-"denne seksjonen."
+msgid "submission.galleyFiles"
+msgstr "Oppsettfiler"
 
-msgid "submission.submit.form.abstractRequired"
-msgstr "Legg inn sammendraget."
+msgid "submission.confirmSubmit"
+msgstr "Er du sikker på at du vil levere inn denne artikkelen til tjeneren?"
 
-msgid "submission.submit.form.titleRequired"
-msgstr "Legg inn tittelen på preprinten."
+msgid "submission.upload.fileContents"
+msgstr "Preprintkomponent"
 
-msgid "submission.submit.form.authorRequired"
-msgstr "Legg inn minst en forfatter."
+msgid "submission.complete"
+msgstr "Utført"
 
-msgid "submission.submit.contributorRole"
-msgstr "Bidragsyterens rolle"
+msgid "submission.submit.form.localeRequired"
+msgstr "Velg et språk."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Sjekkliste"
 
 msgid "submission.submit.submissionChecklistDescription"
 msgstr ""
 "Du må lese gjennom og bekrefte at du har gjort alt på listen før du "
 "fortsetter."
 
-msgid "submission.submit.submissionChecklist"
-msgstr "Sjekkliste"
+msgid "submission.submit.contributorRole"
+msgstr "Bidragsyterens rolle"
 
-msgid "submission.submit.form.localeRequired"
-msgstr "Velg et språk."
+msgid "submission.submit.form.authorRequired"
+msgstr "Legg inn minst en forfatter."
 
-msgid "submission.complete"
-msgstr "Utført"
+msgid "submission.submit.form.titleRequired"
+msgstr "Legg inn tittelen på preprinten."
 
-msgid "submission.upload.fileContents"
-msgstr "Preprintkomponent"
+msgid "submission.submit.form.abstractRequired"
+msgstr "Legg inn sammendraget."
 
-msgid "submission.confirmSubmit"
-msgstr "Er du sikker på at du vil levere inn denne artikkelen til tjeneren?"
+msgid "submission.submit.form.wordCountAlert"
+msgstr ""
+"Sammendraget ditt er for langt. Gjør det kortere i tråd med ordgrensen for "
+"denne seksjonen."
 
-msgid "submission.galleyFiles"
-msgstr "Oppsettfiler"
+msgid "submission.submit.form.contributorRoleRequired"
+msgstr "Velg bidragsyterens rolle."
 
-msgid "submission.submit.noContext"
-msgstr "Denne innleveringens tjener ble ikke funnet."
+msgid "submission.metadataDescription"
+msgstr ""
+"Disse spesifikasjonene er basert på metadatasettet Dublin Core, en "
+"internasjonal standard som bl.a. brukes til å beskrive innhold."
 
-msgid "submission.abstract.wordCount.description"
-msgstr "Sammendraget må være {$wordCount} ord eller færre."
+msgid "submission.sectionOptions"
+msgstr ""
 
-msgid "submission.submit.newSubmissionSingle"
-msgstr "Ny innlevering"
+msgid "catalog.browseTitles"
+msgstr "{$numTitles} titler"
 
-msgid "submission.title"
-msgstr "Tittel"
+msgid "catalog.category.heading"
+msgstr "Alle objekter"
 
-msgid "submission.upload.selectComponent"
-msgstr "Velg preprintkomponent"
+msgid "galley.editPublishedDisabled"
+msgstr ""
+"Oppsettene til denne versjonen kan ikke redigeres fordi den allerede har "
+"blitt deponert."
 
-msgid "submission.submit.userGroupDescription"
-msgstr "Velg en rolle for å levere inn denne preprinten."
+msgid "galley.publicationNotFound"
+msgstr "Versjonen til dette oppsettet ble ikke funnet."
 
-msgid "submission.submit.userGroup"
-msgstr "Lever inn i min rolle som ..."
+msgid "publication.invalidSection"
+msgstr "Seksjonen til denne versjonen ble ikke funnet."
 
-msgid "submission.submit.title"
-msgstr "Lever inn en preprint"
+msgid "publication.inactiveSection"
+msgstr "{$section} (Inaktiv)"
+
+msgid "preprint.entry"
+msgstr ""
+
+msgid "publication.issue.success"
+msgstr ""
+
+msgid "publication.datePublished.description"
+msgstr ""
+
+msgid "publication.relation"
+msgstr ""
+
+msgid "publication.relation.label"
+msgstr ""
+
+msgid "publication.relation.none"
+msgstr ""
+
+msgid "publication.relation.submitted"
+msgstr ""
+
+msgid "publication.relation.published"
+msgstr ""
+
+msgid "publication.relation.vorDoi"
+msgstr ""
+
+msgid "publication.publish.confirmation"
+msgstr ""
+
+msgid "author.submit.authorsCanNotPublish"
+msgstr ""
+
+msgid "publication.status.published"
+msgstr ""
+
+msgid "submission.status.scheduled"
+msgstr ""
+
+msgid "publication.status.unscheduled"
+msgstr ""
+
+msgid "submission.publication"
+msgstr ""
+
+msgid "submission.publications"
+msgstr ""
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+
+msgid "publication.datePublished"
+msgstr ""
+
+msgid "publication.editDisabled"
+msgstr ""
+
+msgid "publication.event.published"
+msgstr ""
+
+msgid "publication.event.scheduled"
+msgstr ""
+
+msgid "publication.event.unpublished"
+msgstr ""
+
+msgid "publication.event.versionPublished"
+msgstr ""
+
+msgid "publication.event.versionScheduled"
+msgstr ""
+
+msgid "publication.event.versionUnpublished"
+msgstr ""
+
+msgid "publication.invalidSubmission"
+msgstr ""
+
+msgid "publication.publish"
+msgstr ""
+
+msgid "publication.publish.requirements"
+msgstr ""
+
+msgid "publication.required.declined"
+msgstr ""
+
+msgid "publication.required.reviewStage"
+msgstr ""
+
+msgid "submission.license.description"
+msgstr ""
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+
+msgid "submission.copyrightOther.description"
+msgstr ""
+
+msgid "publication.unpublish"
+msgstr ""
+
+msgid "publication.unpublish.confirm"
+msgstr ""
+
+msgid "publication.unschedule.confirm"
+msgstr ""
+
+msgid "publication.version.details"
+msgstr ""
+
+msgid "submission.queries.production"
+msgstr ""
