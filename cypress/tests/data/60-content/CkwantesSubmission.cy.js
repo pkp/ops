@@ -191,7 +191,7 @@ describe('Data suite: Ckwantes', function() {
 			.find('h4').contains('Keywords').siblings('.submissionWizard__reviewPanel__item__value').contains('employees, survey')
 			.parents('.submissionWizard__reviewPanel')
 			.find('h4').contains('Abstract').siblings('.submissionWizard__reviewPanel__item__value').contains(submission.abstract);
-		cy.get('h3').contains('Details (French/)')
+		cy.get('h3').contains('Details (French)')
 			.parents('.submissionWizard__reviewPanel')
 			.find('h4').contains('Title').siblings('.submissionWizard__reviewPanel__item__value').contains('None provided')
 			.parents('.submissionWizard__reviewPanel')
