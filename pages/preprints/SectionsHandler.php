@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file pages/sections/SeriesHandler.php
+ * @file pages/preprints/SectionsHandler.inc.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -44,8 +44,8 @@ class SectionsHandler extends Handler
      * View a section
      *
      * @param array $args [
-     *		@option string Section ID
-     *		@option string page number
+     *      @option string Section ID
+     *      @option string page number
      * ]
      *
      * @param \PKP\core\PKPRequest $request
@@ -54,7 +54,7 @@ class SectionsHandler extends Handler
      */
     public function section($args, $request)
     {
-        $sectionPath = $args[0] ?? null;
+        $sectionUrlPath = $args[0] ?? null;
         $page = isset($args[1]) && ctype_digit((string) $args[1]) ? (int) $args[1] : 1;
         $context = $request->getContext();
         $contextId = $context ? $context->getId() : Application::CONTEXT_ID_NONE;
@@ -66,35 +66,35 @@ class SectionsHandler extends Handler
             exit;
         }
 
-        if (!$sectionPath || !$contextId) {
+        if (!$sectionUrlPath || !$contextId) {
             $request->getDispatcher()->handle404();
             exit;
         }
 
-        $sections = Repo::section()->getCollector()->filterByContextIds([$contextId])->getMany();
+        $section = Repo::section()->getCollector()
+            ->filterByUrlPaths([$sectionUrlPath])
+            ->filterByContextIds([$context->getId()])
+            ->getMany()
+            ->first();
 
-        $sectionExists = false;
-        foreach ($sections as $section) {
-            if ($section->getData('path') === $sectionPath) {
-                $sectionExists = true;
-                break;
-            }
-        }
-
-        if (!$sectionExists) {
+        if (!$section || $section->getNotBrowsable()) {
             $request->getDispatcher()->handle404();
             exit;
         }
 
-        $collector = Repo::submission()->getCollector()
+        $limit = $context->getData('itemsPerPage') ? $context->getData('itemsPerPage') : Config::getVar('interface', 'items_per_page');
+        $offset = $page > 1 ? ($page - 1) * $limit : 0;
+
+        $collector = Repo::submission()->getCollector();
+        $collector
             ->filterByContextIds([$contextId])
-            ->filterByStatus([Submission::STATUS_PUBLISHED])
             ->filterBySectionIds([(int) $section->getId()])
-            ->orderBy(Collector::ORDERBY_DATE_PUBLISHED);
+            ->filterByStatus([Submission::STATUS_PUBLISHED])
+            ->orderBy(Collector::ORDERBY_DATE_PUBLISHED, Collector::ORDER_DIR_ASC);
         $total = $collector->getCount();
         $submissions = $collector
-            ->limit($context->getData('itemsPerPage'))
-            ->offset($page ? ($page - 1) * $context->getData('itemsPerPage') : 0)
+            ->limit($limit)
+            ->offset($offset)
             ->getMany();
 
         if ($page > 1 && !$submissions->count()) {
@@ -102,20 +102,18 @@ class SectionsHandler extends Handler
             exit;
         }
 
-        $submissions = [];
-        foreach ($submissions as $submission) {
-            $submissions[] = $submission;
-        }
-
         $showingStart = $collector->offset + 1;
-        $showingEnd = min($collector->offset + $collector->count, $collector->offset + count($submissions));
+        $showingEnd = min($collector->offset + $collector->count, $collector->offset + $submissions->count());
         $nextPage = $total > $showingEnd ? $page + 1 : null;
         $prevPage = $showingStart > 1 ? $page - 1 : null;
 
+        $authorUserGroups = Repo::userGroup()->getCollector()->filterByRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])->getMany();
+
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
+            'authorUserGroups' => $authorUserGroups,
             'section' => $section,
-            'sectionPath' => $sectionPath,
+            'sectionUrlPath' => $section->getData('urlPath'),
             'preprints' => $submissions,
             'showingStart' => $showingStart,
             'showingEnd' => $showingEnd,

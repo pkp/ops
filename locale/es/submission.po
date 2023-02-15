@@ -56,7 +56,7 @@ msgstr "Opciones de serie"
 msgid "catalog.browseTitles"
 msgstr "{$numTitles} elementos"
 
-msgid "catalog.category.heading"
+msgid "category.heading"
 msgstr "Todos los artículos"
 
 msgid "galley.editPublishedDisabled"

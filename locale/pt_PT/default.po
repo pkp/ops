@@ -17,7 +17,7 @@ msgstr "Pré-prints"
 msgid "section.default.abbrev"
 msgstr "PRE"
 
-msgid "section.default.path"
+msgid "section.default.urlPath"
 msgstr "pré-prints"
 
 msgid "section.default.policy"

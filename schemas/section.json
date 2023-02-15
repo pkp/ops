@@ -21,6 +21,7 @@
 		"description": {
 			"type": "string",
 			"multilingual": true,
+			"apiSummary": true,
 			"validation": [
 				"nullable"
 			]
@@ -49,9 +50,12 @@
 			"type": "boolean",
 			"apiSummary": true
 		},
-		"path": {
+		"urlPath": {
 			"type": "string",
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"regex:/^[a-zA-Z0-9]+([\\.\\-_][a-zA-Z0-9]+)*$/"
+			]
 		},
 		"policy": {
 			"type": "string",
@@ -67,6 +71,10 @@
 			"validation": [
 				"nullable"
 			]
+		},
+		"notBrowsable": {
+			"type": "boolean",
+			"apiSummary": true
 		},
 		"wordCount": {
 			"type": "integer",

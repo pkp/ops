@@ -26,7 +26,7 @@ class SubmissionEmailVariable extends \PKP\mail\variables\SubmissionEmailVariabl
             Application::get()->getRequest(),
             Application::ROUTE_PAGE,
             $context->getPath(),
-            'preprint',
+            'preprints',
             'view',
             $this->submission->getBestId()
         );

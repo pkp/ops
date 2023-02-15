@@ -55,7 +55,7 @@ msgstr "Опции за дел"
 msgid "catalog.browseTitles"
 msgstr "{$numTitles} Предмети"
 
-msgid "catalog.category.heading"
+msgid "category.heading"
 msgstr "Сите предмети"
 
 msgid "galley.editPublishedDisabled"

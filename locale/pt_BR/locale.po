@@ -263,6 +263,10 @@ msgstr "Instruções aos Autores"
 msgid "about.submissionPreparationChecklist"
 msgstr "Checklist para Preparação da Submissão"
 
+#, fuzzy
+msgid "section.urlPathDescription"
+msgstr ""
+
 msgid "about.submissionPreparationChecklist.description"
 msgstr ""
 "Como parte do processo de submissão, os autores devem verificar a "

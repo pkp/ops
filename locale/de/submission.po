@@ -58,7 +58,7 @@ msgstr "Abschnitt Optionen"
 msgid "catalog.browseTitles"
 msgstr "{$numTitles} Einträge"
 
-msgid "catalog.category.heading"
+msgid "category.heading"
 msgstr "Alle Einträge"
 
 msgid "galley.editPublishedDisabled"

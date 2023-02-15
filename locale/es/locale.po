@@ -387,6 +387,9 @@ msgstr ""
 msgid "installer.additionalLocalesInstructions"
 msgstr ""
 
+msgid "section.urlPathDescription"
+msgstr ""
+
 msgid "installer.filesDirInstructions"
 msgstr ""
 

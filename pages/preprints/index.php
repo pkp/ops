@@ -17,13 +17,17 @@
  */
 
 switch ($op) {
+    case 'view':
+    case 'download':
+        define('HANDLER_CLASS', 'APP\pages\preprints\PreprintHandler');
+        break;
     case 'index':
         define('HANDLER_CLASS', 'APP\pages\preprints\PreprintsHandler');
         break;
     case 'category':
     case 'fullSize':
     case 'thumbnail':
-        define('HANDLER_CLASS', 'PKP\pages\catalog\PKPCatalogHandler');
+        define('HANDLER_CLASS', 'PKP\pages\publication\PKPCategoryHandler');
         break;
     case 'section':
         define('HANDLER_CLASS', 'APP\pages\preprints\SectionsHandler');

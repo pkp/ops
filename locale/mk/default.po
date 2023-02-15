@@ -17,7 +17,7 @@ msgstr "Отпечатоци"
 msgid "section.default.abbrev"
 msgstr "ПРЕ"
 
-msgid "section.default.path"
+msgid "section.default.urlPath"
 msgstr "отпечатоци"
 
 msgid "section.default.policy"

@@ -32,6 +32,8 @@ class OPSMigration extends \PKP\migration\Migration
             $table->foreign('server_id')->references('server_id')->on('servers')->onDelete('cascade');
             $table->index(['server_id'], 'sections_server_id');
 
+            $table->string('url_path', 255);
+
             $table->bigInteger('review_form_id')->nullable();
             $table->foreign('review_form_id')->references('review_form_id')->on('review_forms')->onDelete('set null');
             $table->index(['review_form_id'], 'sections_review_form_id');
@@ -44,6 +46,7 @@ class OPSMigration extends \PKP\migration\Migration
             $table->tinyInteger('hide_title')->default(0);
             $table->tinyInteger('hide_author')->default(0);
             $table->tinyInteger('is_inactive')->default(0);
+            $table->smallInteger('not_browsable')->default(0);
             $table->bigInteger('abstract_word_count')->nullable();
         });
 

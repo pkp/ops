@@ -28,7 +28,7 @@
 		{/fbvFormSection}
 
 		{fbvFormSection}
-			{fbvElement type="text" id="path" required=true value=$path label="section.pathDescription"}
+			{fbvElement type="text" id="urlPath" required=true value=$urlPath label="section.urlPathDescription"}
 		{/fbvFormSection}
 
 		{fbvFormSection title="section.description"}
@@ -54,6 +54,7 @@
 			{fbvElement type="checkbox" id="abstractsNotRequired" checked=$abstractsNotRequired label="manager.sections.abstractsNotRequired"}
 			{fbvElement type="checkbox" id="metaIndexed" checked=$metaIndexed label="manager.sections.submissionIndexing"}
 			{fbvElement type="checkbox" id="editorRestriction" checked=$editorRestriction label="manager.sections.editorRestriction"}
+			{fbvElement type="checkbox" id="notBrowsable" checked=$notBrowsable label="manager.sections.notBrowsable"}
 		{/fbvFormSection}
 
 		{fbvFormSection for="identifyType" title="manager.sections.identifyType"}

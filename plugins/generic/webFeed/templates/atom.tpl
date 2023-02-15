@@ -48,7 +48,7 @@
 		{assign var=publication value=$submission->getCurrentPublication()}
 		<entry>
 			{* required elements *}
-			<id>{url page="preprint" op="view" path=$submission->getBestId()}</id>
+			<id>{url page="preprints" op="view" path=$submission->getBestId()}</id>
 			<title>{$publication->getLocalizedTitle()|strip|escape:"html"}</title>
 			<updated>{$publication->getData('lastModified')|date_format:"%Y-%m-%dT%T%z"|regex_replace:"/00$/":":00"}</updated>
 
@@ -63,10 +63,10 @@
 				</author>
 			{/foreach}{* authors *}
 
-			<link rel="alternate" href="{url page="preprint" op="view" path=$submission->getBestId()}" />
+			<link rel="alternate" href="{url page="preprints" op="view" path=$submission->getBestId()}" />
 
 			{if $publication->getLocalizedData('abstract') || $includeIdentifiers}
-				<summary type="html" xml:base="{url page="preprint" op="view" path=$submission->getBestId()}">
+				<summary type="html" xml:base="{url page="preprints" op="view" path=$submission->getBestId()}">
 					{if $includeIdentifiers}
 						{foreach from=$item.identifiers item=identifier}
 							{$identifier.label|strip|escape:"html"}: {', '|implode:$identifier.values|strip|escape:"html"}&lt;br /&gt;

@@ -57,7 +57,7 @@ msgstr "Public galley identification already exists."
 msgid "section.description"
 msgstr "Section archive Description"
 
-msgid "section.pathDescription"
+msgid "section.urlPathDescription"
 msgstr "Section URL Path. Use hyphens (-) instead of spaces."
 
 msgid "section.emptySection"

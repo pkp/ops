@@ -8,7 +8,7 @@
  * @brief Display the reader-facing sections page.
  *
  * @uses $section Section
- * @uses $sectionPath string The URL path for this section
+ * @uses $sectionUrlPath string The URL path for this section
  * @uses $sectionDescription string
  * @uses $preprints array List of Submission objects
  * @uses $currentlyShowingStart int 20 in `20-30 of 100 results`
@@ -20,7 +20,7 @@
 
 {include file="frontend/components/header.tpl" pageTitleTranslated=$section->getLocalizedTitle()|escape}
 
-<div class="page page_section page_section_{$sectionPath|escape}">
+<div class="page page_section page_section_{$sectionUrlPath|escape}">
 	<h1 class="page_title">
 		{$section->getLocalizedTitle()|escape}
 	</h1>
@@ -46,12 +46,12 @@
 
 			{* Pagination *}
 			{if $prevPage > 1}
-				{capture assign="prevUrl"}{url router=PKPApplication::ROUTE_PAGE page="section" op="view" path=$sectionPath|to_array:$prevPage}{/capture}
+				{capture assign="prevUrl"}{url router=PKPApplication::ROUTE_PAGE page="preprints" op="section" path=$sectionUrlPath|to_array:$prevPage}{/capture}
 			{elseif $prevPage === 1}
-				{capture assign="prevUrl"}{url router=PKPApplication::ROUTE_PAGE page="section" op="view" path=$sectionPath}{/capture}
+				{capture assign="prevUrl"}{url router=PKPApplication::ROUTE_PAGE page="preprints" op="section" path=$sectionUrlPath}{/capture}
 			{/if}
 			{if $nextPage}
-				{capture assign="nextUrl"}{url router=PKPApplication::ROUTE_PAGE page="section" op="view" path=$sectionPath|to_array:$nextPage}{/capture}
+				{capture assign="nextUrl"}{url router=PKPApplication::ROUTE_PAGE page="preprints" op="section" path=$sectionUrlPath|to_array:$nextPage}{/capture}
 			{/if}
 			{include
 				file="frontend/components/pagination.tpl"

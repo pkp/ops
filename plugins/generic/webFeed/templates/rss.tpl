@@ -59,7 +59,7 @@
 		<items>
 			<rdf:Seq>
 			{foreach from=$submissions item=item}
-				<rdf:li rdf:resource="{url page="preprint" op="view" path=$item.submission->getBestId()}"/>
+				<rdf:li rdf:resource="{url page="preprints" op="view" path=$item.submission->getBestId()}"/>
 			{/foreach}{* articles *}
 			</rdf:Seq>
 		</items>
@@ -68,11 +68,11 @@
 {foreach from=$submissions item=item}
 	{assign var=submission value=$item.submission}
 	{assign var=publication value=$submission->getCurrentPublication()}
-	<item rdf:about="{url page="preprint" op="view" path=$submission->getBestId()}">
+	<item rdf:about="{url page="preprints" op="view" path=$submission->getBestId()}">
 
 		{* required elements *}
 		<title>{$publication->getLocalizedTitle()|strip|escape:"html"}</title>
-		<link>{url page="preprint" op="view" path=$submission->getBestId()}</link>
+		<link>{url page="preprints" op="view" path=$submission->getBestId()}</link>
 
 		{* optional elements *}
 		{if $publication->getLocalizedData('abstract') || $includeIdentifiers}

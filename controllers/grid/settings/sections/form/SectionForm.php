@@ -22,6 +22,9 @@ use PKP\controllers\grid\settings\sections\form\PKPSectionForm;
 
 class SectionForm extends PKPSectionForm
 {
+    /** @var int $_serverId */
+    public $_serverId;
+
     /**
      * Constructor.
      *
@@ -36,11 +39,22 @@ class SectionForm extends PKPSectionForm
             $sectionId
         );
 
+        $this->_serverId = $serverId = $request->getContext()->getId();
+
         // Validation checks for this form
+        $form = $this;
         $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'title', 'required', 'manager.setup.form.section.nameRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'abbrev', 'required', 'manager.sections.form.abbrevRequired'));
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'path', 'required', 'manager.setup.form.section.pathRequired'));
-        $server = $request->getServer();
+        $this->addCheck(new \PKP\form\validation\FormValidatorRegExp($this, 'urlPath', 'required', 'grid.section.urlPathAlphaNumeric', '/^[a-zA-Z0-9\/._-]+$/'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom(
+            $this,
+            'urlPath',
+            'required',
+            'grid.section.urlPathExists',
+            function ($urlPath) use ($form, $serverId) {
+                return !Repo::section()->getCollector()->filterByUrlPaths([$urlPath])->filterByContextIds([$serverId])->getMany()->first() || ($form->getData('oldPath') != null && $form->getData('oldPath') == $urlPath);
+            }
+        ));
     }
 
     /**
@@ -62,6 +76,8 @@ class SectionForm extends PKPSectionForm
                 'abbrev' => $this->section->getAbbrev(null), // Localized
                 'reviewFormId' => $this->section->getReviewFormId(),
                 'isInactive' => $this->section->getIsInactive(),
+                'urlPath' => $this->section->getUrlPath(),
+                'notBrowsable' => $this->section->getNotBrowsable(),
                 'metaIndexed' => !$this->section->getMetaIndexed(), // #2066: Inverted
                 'metaReviewed' => !$this->section->getMetaReviewed(), // #2066: Inverted
                 'abstractsNotRequired' => $this->section->getAbstractsNotRequired(),
@@ -71,7 +87,6 @@ class SectionForm extends PKPSectionForm
                 'hideAuthor' => $this->section->getHideAuthor(),
                 'policy' => $this->section->getPolicy(null), // Localized
                 'wordCount' => $this->section->getAbstractWordCount(),
-                'path' => $this->section->getPath(),
                 'description' => $this->section->getDescription(null)
             ]);
         }
@@ -125,7 +140,12 @@ class SectionForm extends PKPSectionForm
     public function readInputData()
     {
         parent::readInputData();
-        $this->readUserVars(['abbrev', 'path', 'description', 'policy', 'identifyType', 'isInactive', 'metaIndexed', 'abstractsNotRequired', 'editorRestriction', 'wordCount']);
+        $this->readUserVars(['abbrev', 'urlPath', 'description', 'policy', 'identifyType', 'isInactive', 'notBrowsable', 'metaIndexed', 'abstractsNotRequired', 'editorRestriction', 'wordCount']);
+        // For path duplicate checking; excuse the current path.
+        if ($sectionId = $this->getSectionId()) {
+            $section = Repo::section()->get($sectionId, $this->_serverId);
+            $this->setData('oldPath', $section->getUrlPath());
+        }
     }
 
     /**
@@ -157,9 +177,10 @@ class SectionForm extends PKPSectionForm
         // Populate/update the section object from the form
         $section->setTitle($this->getData('title'), null); // Localized
         $section->setAbbrev($this->getData('abbrev'), null); // Localized
-        $section->setPath($this->getData('path'));
+        $section->setUrlPath($this->getData('urlPath'));
         $section->setDescription($this->getData('description'), null); // Localized
         $section->setIsInactive($this->getData('isInactive') ? 1 : 0);
+        $section->setNotBrowsable($this->getData('notBrowsable') ? 1 : 0);
         $section->setMetaIndexed($this->getData('metaIndexed') ? 0 : 1); // #2066: Inverted
         $section->setAbstractsNotRequired($this->getData('abstractsNotRequired') ? 1 : 0);
         $section->setIdentifyType($this->getData('identifyType'), null); // Localized

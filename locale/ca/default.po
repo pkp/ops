@@ -11,7 +11,7 @@ msgstr ""
 msgid "section.default.abbrev"
 msgstr ""
 
-msgid "section.default.path"
+msgid "section.default.urlPath"
 msgstr ""
 
 msgid "section.default.policy"

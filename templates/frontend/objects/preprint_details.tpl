@@ -79,7 +79,7 @@
 	{* Notification that this is an old version *}
 	{if $currentPublication->getId() !== $publication->getId()}
 		<div class="cmp_notification notice">
-			{capture assign="latestVersionUrl"}{url page="preprint" op="view" path=$preprint->getBestId()}{/capture}
+			{capture assign="latestVersionUrl"}{url page="preprints" op="view" path=$preprint->getBestId()}{/capture}
 			{translate key="submission.outdatedVersion"
 				datePublished=$publication->getData('datePublished')|date_format:$dateFormatShort
 				urlRecentVersion=$latestVersionUrl|escape
@@ -336,9 +336,9 @@
 									{if $iPublication->getId() === $publication->getId()}
 										{$name}
 									{elseif $iPublication->getId() === $currentPublication->getId()}
-										<a href="{url page="preprint" op="view" path=$preprint->getBestId()}">{$name}</a>
+										<a href="{url page="preprints" op="view" path=$preprint->getBestId()}">{$name}</a>
 									{else}
-										<a href="{url page="preprint" op="view" path=$preprint->getBestId()|to_array:"version":$iPublication->getId()}">{$name}</a>
+										<a href="{url page="preprints" op="view" path=$preprint->getBestId()|to_array:"version":$iPublication->getId()}">{$name}</a>
 									{/if}
 								</li>
 							{/foreach}

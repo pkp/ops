@@ -40,7 +40,7 @@ class Schema extends \PKP\publication\maps\Schema
                 $this->request,
                 PKPApplication::ROUTE_PAGE,
                 $this->context->getData('urlPath'),
-                'preprint',
+                'preprints',
                 'view',
                 [
                     $this->submission->getBestId(),
