@@ -28,7 +28,7 @@
 <div class="obj_preprint_summary">
 	{if $preprint->getCurrentPublication()->getLocalizedData('coverImage')}
 		<div class="cover">
-			<a {if $server}href="{url server=$server->getPath() page="preprint" op="view" path=$preprintPath}"{else}href="{url page="preprint" op="view" path=$preprintPath}"{/if} class="file">
+			<a {if $server}href="{url server=$server->getPath() page="preprints" op="view" path=$preprintPath}"{else}href="{url page="preprints" op="view" path=$preprintPath}"{/if} class="file">
 				{assign var="coverImage" value=$preprint->getCurrentPublication()->getLocalizedData('coverImage')}
 				<img
 					src="{$preprint->getCurrentPublication()->getLocalizedCoverImageUrl($preprint->getData('contextId'))|escape}"
@@ -39,7 +39,7 @@
 	{/if}
 
 	<{$heading} class="title">
-		<a id="preprint-{$preprint->getId()}" {if $server}href="{url server=$server->getPath() page="preprint" op="view" path=$preprintPath}"{else}href="{url page="preprint" op="view" path=$preprintPath}"{/if}>
+		<a id="preprint-{$preprint->getId()}" {if $server}href="{url server=$server->getPath() page="preprints" op="view" path=$preprintPath}"{else}href="{url page="preprints" op="view" path=$preprintPath}"{/if}>
 			{assign var=publication value=$preprint->getCurrentPublication()}
 			{$publication->getLocalizedTitle(null, 'html')|strip_unsafe_html}
 			{if $publication->getLocalizedSubtitle()}

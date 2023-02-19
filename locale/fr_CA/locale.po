@@ -262,6 +262,9 @@ msgid "about.onlineSubmissions.submissionActions"
 msgstr "{$newSubmission} ou {$viewSubmissions}."
 
 #, fuzzy
+msgid "section.urlPathDescription"
+msgstr ""
+
 msgid "about.onlineSubmissions.submitToSection"
 msgstr ""
 "Faire une nouvelle soumission à la série <a href=\"{$url}\">{$name}</a>."

@@ -105,6 +105,9 @@ msgstr "Identify items posted in this section as a(n)"
 msgid "manager.sections.identifyTypeExamples"
 msgstr "(For example etc.)"
 
+msgid "manager.sections.notBrowsable"
+msgstr "Disable the page that allows readers to browse all preprints in this section"
+
 msgid "manager.sections.policy"
 msgstr "Section Policy"
 

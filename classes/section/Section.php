@@ -191,47 +191,19 @@ class Section extends \PKP\section\PKPSection
     }
 
     /**
-     * Get section path.
-     *
-     * @return string
+     * Set if section is browsable.
      */
-    public function getPath()
+    public function setNotBrowsable(bool $notBrowsable): void
     {
-        return $this->getData('path');
+        $this->setData('notBrowsable', $notBrowsable);
     }
 
     /**
-     * Set section path.
-     *
-     * @param string $path
+     * Return boolean indicating if section is browsable.
      */
-    public function setPath($path)
+    public function getNotBrowsable(): bool
     {
-        return $this->setData('path', $path);
-    }
-
-    /**
-     * Get localized series description.
-     */
-    public function getLocalizedDescription(): ?string
-    {
-        return $this->getLocalizedData('description');
-    }
-
-    /**
-     * Get series description.
-     */
-    public function getDescription(?string $locale): string|array|null
-    {
-        return $this->getData('description', $locale);
-    }
-
-    /**
-     * Set series description.
-     */
-    public function setDescription(string|array $description, string $locale = null): void
-    {
-        $this->setData('description', $description, $locale);
+        return $this->getData('notBrowsable');
     }
 }
 

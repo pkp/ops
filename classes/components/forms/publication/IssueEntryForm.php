@@ -75,7 +75,7 @@ class IssueEntryForm extends FormComponent
             }
             $categoryOptions[] = [
                 'value' => (int) $category->getId(),
-                'label' => $category->getLocalizedTitle(),
+                'label' => $label,
             ];
         }
         if (!empty($categoryOptions)) {

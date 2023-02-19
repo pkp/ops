@@ -53,9 +53,10 @@ msgid "submission.layout.galleyPublicIdentificationExists"
 msgstr "Es gibt bereits eine öffentliche Kennzeichnung der Gesamtpfahne."
 
 msgid "section.description"
-msgstr "Abschnittsarchiv Beschreibung"
+msgstr ""
+"Abschnitt URL-Pfad. Verwenden Sie Bindestriche (-) anstelle von Leerzeichen."
 
-msgid "section.pathDescription"
+msgid "section.urlPathDescription"
 msgstr ""
 "Abschnitt URL-Pfad. Verwenden Sie Bindestriche (-) anstelle von Leerzeichen."
 

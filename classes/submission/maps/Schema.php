@@ -29,7 +29,7 @@ class Schema extends \PKP\submission\maps\Schema
                 $this->request,
                 Application::ROUTE_PAGE,
                 $this->context->getPath(),
-                'preprint',
+                'preprints',
                 'view',
                 $submission->getBestId()
             );

@@ -57,7 +57,7 @@
 			<item>
 				{* required elements *}
 				<title>{$publication->getLocalizedTitle()|strip|escape:"html"}</title>
-				<link>{url page="preprint" op="view" path=$submission->getBestId()}</link>
+				<link>{url page="preprints" op="view" path=$submission->getBestId()}</link>
 				{if $publication->getLocalizedData('abstract') || $includeIdentifiers}
 					<description>
 						{if $includeIdentifiers}
@@ -89,7 +89,7 @@
 					{$publication->getData('licenseUrl')|escape}
 				</dc:rights>
 				<cc:license {if $publication->getData('accessStatus') == \APP\submission\Submission::PREPRINT_ACCESS_OPEN && $publication->isCCLicense()}rdf:resource="{$publication->getData('licenseUrl')|escape}"{/if} />
-				<guid isPermaLink="true">{url page="preprint" op="view" path=$submission->getBestId()}</guid>
+				<guid isPermaLink="true">{url page="preprints" op="view" path=$submission->getBestId()}</guid>
 				<pubDate>{$publication->getData('datePublished')|date_format:$smarty.const.DATE_RSS}</pubDate>
 			</item>
 		{/foreach}{* articles *}
