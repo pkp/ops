@@ -22,6 +22,7 @@ use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\server\ServerDAO;
 use APP\template\TemplateManager;
+use Exception;
 use PKP\context\Context;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
@@ -804,6 +805,14 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     }
 
     /**
+     * Retrieve the form class
+     */
+    public function getSettingsFormClassName()
+    {
+        throw new Exception('Not implemented');
+    }
+
+    /**
      * Get the DAOs for objects that need to be augmented with additional settings.
      *
      * @return array
@@ -834,6 +843,26 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
         }
 
         return false;
+    }
+
+    /**
+     * Get pub ID type
+     *
+     * @return string
+     */
+    public function getPubIdType()
+    {
+        throw new Exception('Not implemented');
+    }
+
+    /**
+     * Get pub ID display type
+     *
+     * @return string
+     */
+    public function getPubIdDisplayType()
+    {
+        throw new Exception('Not implemented');
     }
 }
 
