@@ -22,6 +22,8 @@ class GalleyQueryBuilder implements EntityQueryBuilderInterface {
 	/** @var array get authors for one or more publications */
 	protected $publicationIds = [];
 
+	protected $columns;
+
 	/**
 	 * Set publicationIds filter
 	 *

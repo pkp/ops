@@ -192,7 +192,7 @@ class DOIPubIdPlugin extends PubIdPlugin {
 	 * @copydoc PKPPubIdPlugin::isObjectTypeEnabled()
 	 */
 	function isObjectTypeEnabled($pubObjectType, $contextId) {
-		return (boolean) $this->getSetting($contextId, "enable${pubObjectType}Doi");
+		return (boolean) $this->getSetting($contextId, "enable{$pubObjectType}Doi");
 	}
 
 	/**
