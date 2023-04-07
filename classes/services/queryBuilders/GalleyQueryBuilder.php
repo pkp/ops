@@ -59,9 +59,7 @@ class GalleyQueryBuilder implements EntityQueryBuilderInterface
     {
         return $this
             ->getQuery()
-            ->select('g.galley_id')
-            ->get()
-            ->count();
+            ->safeCount();
     }
 
     /**
