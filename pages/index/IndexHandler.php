@@ -60,6 +60,7 @@ class IndexHandler extends PKPIndexHandler
         $this->setupTemplate($request);
         $router = $request->getRouter();
         $templateMgr = TemplateManager::getManager($request);
+        $this->_setupAnnouncements($server, $templateMgr);
         if ($server) {
             // OPS: sections
             $sections = Repo::section()->getCollector()->filterByContextIds([$server->getId()])->getMany();
@@ -91,8 +92,6 @@ class IndexHandler extends PKPIndexHandler
                 'publishedSubmissions' => $publishedSubmissions->toArray(),
                 'authorUserGroups' => Repo::userGroup()->getCollector()->filterByRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])->filterByContextIds([$server->getId()])->getMany()->remember(),
             ]);
-
-            $this->_setupAnnouncements($server, $templateMgr);
 
             $templateMgr->display('frontend/pages/indexServer.tpl');
             event(new UsageEvent(Application::ASSOC_TYPE_SERVER, $server));
