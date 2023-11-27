@@ -64,6 +64,7 @@
  * @uses $licenseUrl string URL to license. Only assigned if license should be
  *   included with published submissions.
  * @uses $ccLicenseBadge string An image and text with details about the license
+ * @uses $pubLocaleData array Array of formatted publication locale metadata: titles, abstracts, keywords,
  *}
 <article class="obj_preprint_details">
 
@@ -109,13 +110,12 @@
 	<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
 	<span class="preprint_version">{translate key="publication.version" version=$publication->getData('version')}</span>
 
-	<h1 class="page_title">
-		{$publication->getLocalizedTitle(null, 'html')|strip_unsafe_html}
+	<h1 class="page_title" lang="{$pubLocaleData.primaryLocale|replace:"_":"-"}">
+		{$pubLocaleData.title.text[$pubLocaleData.primaryLocale]|strip_unsafe_html}
 	</h1>
-
-	{if $publication->getLocalizedData('subtitle')}
-		<h2 class="subtitle">
-			{$publication->getLocalizedSubTitle(null, 'html')|strip_unsafe_html}
+	{if isset($pubLocaleData.subtitle.text[$pubLocaleData.primaryLocale])}
+		<h2 class="subtitle" lang="{$pubLocaleData.primaryLocale|replace:"_":"-"}">
+			{$pubLocaleData.subtitle.text[$pubLocaleData.primaryLocale]|strip_unsafe_html}
 		</h2>
 	{/if}
 
@@ -168,28 +168,60 @@
 				</section>
 			{/if}
 
-			{* Keywords *}
-			{if !empty($publication->getLocalizedData('keywords'))}
-			<section class="item keywords">
-				<h2 class="label">
-					{capture assign=translatedKeywords}{translate key="preprint.subject"}{/capture}
-					{translate key="semicolon" label=$translatedKeywords}
-				</h2>
-				<span class="value">
-					{foreach name="keywords" from=$publication->getLocalizedData('keywords') item="keyword"}
-						{$keyword|escape}{if !$smarty.foreach.keywords.last}{translate key="common.commaListSeparator"}{/if}
-					{/foreach}
-				</span>
-			</section>
-			{/if}
+			{*
+			 * Show preprint keywords and abstract in ui, or submission, language by default.
+			 * Show optional multilingual metadata: titles, keywords, abstracts.
+			 *}
+			 {foreach from=$pubLocaleData.languages item=lang}
+				<section class="metadata">
+				{assign "hLvl" "2"}
+				{* Multilingual metadata title *}
+				{if $lang !== $pubLocaleData.primaryLocale}
+					{assign "hLvl" "3"}
+					<h2 class="item label page_metadata_title" lang={$lang|replace:"_":"-"}>
+						{translate key="plugins.themes.default.submissionMetadataInLanguage" locale=$lang}
+					</h2>
+					{* Title in other language *}
+					{if isset($pubLocaleData.title.text[$lang])}
+						<section class="item page_locale_title">
+							<h{$hLvl} class="label" lang="{$pubLocaleData.title.headingLang[$lang]|replace:"_":"-"}">
+								{translate key="submission.title" locale=$pubLocaleData.title.headingLang[$lang]}
+							</h{$hLvl}>
+							<p lang="{$lang|replace:"_":"-"}">
+								{$pubLocaleData.title.text[$lang]|strip_tags}
+								{if isset($pubLocaleData.subtitle.text[$lang])}
+									{translate key="plugins.themes.default.titleSubtitleSeparator" locale=$pubLocaleData.title.headingLang[$lang]}{$pubLocaleData.subtitle.text[$lang]|strip_tags}
+								{/if}
+							</p>
+						</section>
+					{/if}
+				{/if}
 
-			{* Abstract *}
-			{if $publication->getLocalizedData('abstract')}
-				<section class="item abstract">
-					<h2 class="label">{translate key="common.abstract"}</h2>
-					{$publication->getLocalizedData('abstract')|strip_unsafe_html}
+				{* Keywords *}
+				{if isset($pubLocaleData.keywords.text[$lang])}
+					<section class="item keywords">
+						<h{$hLvl} class="label" lang="{$pubLocaleData.keywords.headingLang[$lang]|replace:"_":"-"}">
+							{translate key="common.keywords" locale=$pubLocaleData.keywords.headingLang[$lang]}
+						</h{$hLvl}>
+						<p class="value" lang="{$lang|replace:"_":"-"}">
+						{foreach from=$pubLocaleData.keywords.text[$lang] item="keyword"}
+							{$keyword|escape}{if !$keyword@last}{translate key="common.commaListSeparator" locale=$pubLocaleData.keywords.headingLang[$lang]}{/if}
+						{/foreach}
+						</p>
+					</section>
+				{/if}
+
+				{* Abstract *}
+				{if isset($pubLocaleData.abstract.text[$lang])}
+					<section class="item abstract">
+						<h{$hLvl} class="label" lang="{$pubLocaleData.abstract.headingLang[$lang]|replace:"_":"-"}">
+							{translate key="common.abstract" locale=$pubLocaleData.abstract.headingLang[$lang]}
+						</h{$hLvl}>
+						<p lang="{$lang|replace:"_":"-"}">{$pubLocaleData.abstract.text[$lang]|strip_tags}</p>
+					</section>
+				{/if}
 				</section>
-			{/if}
+			{/foreach}
 
 			{call_hook name="Templates::Preprint::Main"}
 

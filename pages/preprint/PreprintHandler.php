@@ -23,6 +23,7 @@ use APP\core\Services;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\observers\events\UsageEvent;
+use APP\publication\Publication;
 use APP\security\authorization\OpsServerMustPublishPolicy;
 use APP\template\TemplateManager;
 use Firebase\JWT\JWT;
@@ -169,6 +170,7 @@ class PreprintHandler extends Handler
      *
      * @param array $args
      * @param \APP\core\Request $request
+     *
      * @hook PreprintHandler::view [[&$request, &$preprint, $publication]]
      * @hook PreprintHandler::view::galley [[&$request, &$this->galley, &$preprint, $publication]]
      */
@@ -294,6 +296,13 @@ class PreprintHandler extends Handler
                 $templateMgr->addHeader('canonical', '<link rel="canonical" href="' . $url . '">');
             }
 
+            $templateMgr->assign('pubLocaleData', $this->getPublicationLocaleData(
+                $publication,
+                $context->getPrimaryLocale(),
+                $templateMgr->getTemplateVars('activeTheme')->getOption('showMultilingualMetadata') ?: [],
+                $templateMgr->getTemplateVars('activeTheme')->getOption('showMetadata') ?: []
+            ));
+
             if (!Hook::call('PreprintHandler::view', [&$request, &$preprint, $publication])) {
                 $templateMgr->display('frontend/pages/preprint.tpl');
                 event(new UsageEvent(Application::ASSOC_TYPE_SUBMISSION, $context, $preprint));
@@ -330,6 +339,7 @@ class PreprintHandler extends Handler
      *
      * @param array $args
      * @param Request $request
+     *
      * @hook PreprintHandler::download [[$this->preprint, &$this->galley, &$this->submissionFileId]]
      * @hook FileManager::downloadFileFinished [[&$returner]]
      */
@@ -414,5 +424,39 @@ class PreprintHandler extends Handler
             return true;
         }
         return false;
+    }
+
+    /**
+     * Format multilingual publication data for template:
+     * Default data at least includes in one language: full title, title, subtitle, keywords, abstract
+     * showMultilingualMetadataOpts adds multilingual metadata: title (by default includes fullTitle and subtitle), keywords, abstract, etc.
+     * showMetadataOpts: additional metadata
+     */
+    protected function getPublicationLocaleData(Publication $publication, string $contextPrimaryLocale, array $showMultilingualMetadataOpts, array $showMetadataOpts): array
+    {
+        $titles = collect([
+            'title' => $publication->getTitles('html'),
+            'subtitle' => $publication->getSubtitles('html'),
+            'fullTitle' => $publication->getFullTitles('html'),
+        ]);
+        $metadataOpts = collect(['keywords', 'abstract'])->concat($showMetadataOpts)->diff($titles->keys())->unique()->values();
+        $multilingualOpts = collect($showMultilingualMetadataOpts)
+            ->when(in_array('title', $showMultilingualMetadataOpts), fn ($m) => $m->concat(['subtitle', 'fullTitle'])->unique()->values());
+        $primaryLocale = isset($titles->get('title')[$contextPrimaryLocale]) ? $contextPrimaryLocale : $publication->getData('locale');
+
+        $getText = fn (array $item, string $opt): array => [
+            $opt => [
+                'text' => ($text = array_filter($item, fn (string $locale) => $multilingualOpts->contains($opt) || $locale === $primaryLocale, ARRAY_FILTER_USE_KEY)),
+                'headingLang' => collect($text)->map(fn ($_, string $locale): string => $locale === $primaryLocale ? $contextPrimaryLocale : $locale)->toArray()
+            ],
+        ];
+
+        $pubLocaleData = $titles->mapWithKeys($getText)
+            ->union($metadataOpts->mapWithKeys(fn (string $opt): array => $getText($publication->getData($opt) ?? [], $opt)));
+        return $pubLocaleData
+            ->put('languages', $pubLocaleData->map(fn (array $item): array => array_keys($item['text']))
+                ->flatten()->sort()->prepend($primaryLocale)->unique()->values())
+            ->put('primaryLocale', $primaryLocale)
+            ->toArray();
     }
 }

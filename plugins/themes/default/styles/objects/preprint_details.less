@@ -37,7 +37,7 @@
 			margin-bottom: 0;
 		}
 
-		> h2 + p {
+		> h2 + p, h3 + p {
 			margin-top: 0;
 		}
 	}
@@ -51,6 +51,10 @@
 	}
 
 	.main_entry {
+
+		.metadata > .page_metadata_title {
+			margin: 0;
+		}
 
 		.item {
 
@@ -118,8 +122,7 @@
 		}
 	}
 
-	.item.doi,
-	.item.keywords {
+	.item.doi {
 		padding-top: 0;
 	}
 
@@ -302,8 +305,7 @@
 				font-weight: @bold;
 			}
 
-			&.doi .label,
-			&.keywords .label {
+			&.doi .label {
 				display: inline;
 				font-size: @font-base;
 			}
