@@ -306,6 +306,18 @@ msgstr ""
 msgid "manager.setup.restrictSiteAccess"
 msgstr ""
 
+msgid "manager.setup.reviewOptions.occurrencesForInvite"
+msgstr "Nombre d'occurrences pour le rappel des demandes d'évaluations"
+
+msgid "manager.setup.reviewOptions.occurrencesForInvite.description"
+msgstr "Laisser le champ vide pour ne pas limiter le nombre d'occurrences"
+
+msgid "manager.setup.reviewOptions.occurrencesForSubmit"
+msgstr "Nombre d'occurrences pour le rappel des délais d'échéances"
+
+msgid "manager.setup.reviewOptions.occurrencesForSubmit.description"
+msgstr "Laisser le champ vide pour ne pas limiter le nombre d'occurrences"
+
 msgid "manager.setup.searchEngineIndexing"
 msgstr ""
 

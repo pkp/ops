@@ -292,6 +292,18 @@ msgstr "Users must be registered and log in to view open access content."
 msgid "manager.setup.restrictSiteAccess"
 msgstr "Users must be registered and log in to view the server site."
 
+msgid "manager.setup.reviewOptions.occurrencesForInvite"
+msgstr "Number of occurrences for the response reminder"
+
+msgid "manager.setup.reviewOptions.occurrencesForInvite.description"
+msgstr "Leave the field empty to avoid limiting the number of occurrences"
+
+msgid "manager.setup.reviewOptions.occurrencesForSubmit"
+msgstr "Number of occurrences for the review reminder"
+
+msgid "manager.setup.reviewOptions.occurrencesForSubmit.description"
+msgstr "Leave the field empty to avoid limiting the number of occurrences"
+
 msgid "manager.setup.searchEngineIndexing"
 msgstr "Search Indexing"
 
