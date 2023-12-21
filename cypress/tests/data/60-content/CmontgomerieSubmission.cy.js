@@ -104,7 +104,9 @@ describe('Data suite: Cmontgomerie', function() {
 		cy.get('[id^="publish"] button:contains("Post")').click();
 
 		// Create 2nd version and change copyright holder
+		cy.wait(1500);
 		cy.get('div.pkpPublication button:contains("Create New Version"):visible').click();
+		cy.wait(1500);
 		cy.get('div:contains("Are you sure you want to create a new version?")');
 		cy.get('.modal__footer button').contains('Yes').click();
 		cy.get('#license-button').click();
