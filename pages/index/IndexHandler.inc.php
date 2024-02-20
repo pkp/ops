@@ -52,7 +52,7 @@ class IndexHandler extends PKPIndexHandler {
 
 			// OPS: categories
 			$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
-			$categories = $categoryDao->getByContextId($journal->getId());			
+			$categories = $categoryDao->getByContextId($journal->getId());
 
 			// Latest preprints
 			import('classes.submission.Submission');
@@ -92,7 +92,7 @@ class IndexHandler extends PKPIndexHandler {
 				'pageTitleTranslated' => $site->getLocalizedTitle(),
 				'about' => $site->getLocalizedAbout(),
 				'journalFilesPath' => $request->getBaseUrl() . '/' . Config::getVar('files', 'public_files_dir') . '/journals/',
-				'journals' => $journalDao->getAll(true),
+				'journals' => $journalDao->getAll(true)->toArray(),
 				'site' => $site,
 			));
 			$templateMgr->setCacheability(CACHEABILITY_PUBLIC);
