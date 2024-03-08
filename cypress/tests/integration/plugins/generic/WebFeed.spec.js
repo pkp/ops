@@ -24,11 +24,15 @@ describe('Web Feed plugin tests', () => {
 		cy.waitJQuery();
 
 		// Enable the wed feed plugin's sidebar
+
+
+		// Ensure plugin is enabled as a blockplugin
 		cy.visit('publicknowledge/management/settings/website#appearance');
 		cy.reload();
 		cy.get('#appearance #setup-button').click();
-		cy.contains('Web Feed Plugin').click();
+		cy.get('input[value=WebFeedBlockPlugin]').check();
 		cy.contains('Web Feed Plugin').parents('form').find('button:contains("Save")').click();
+
 
 		// Visit homepage
 		cy.visit('');
