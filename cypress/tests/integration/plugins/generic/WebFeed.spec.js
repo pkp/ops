@@ -18,6 +18,7 @@ describe('Web Feed plugin tests', () => {
 		cy.wait(2e3);
 		cy.get('a[id^="component-grid-settings-plugins-settingsplugingrid-category-generic-row-webfeedplugin-settings-button-"]').click({force: true});
 		cy.get('#displayPage-all').check();
+		cy.wait(2000);
 		cy.get('input[id^="recentItems"]').clear().type(feedSize, {delay: 0});
 		cy.get('#includeIdentifiers').check();
 		cy.get('form[id="webFeedSettingsForm"] button[id^="submitFormButton"]').click();
