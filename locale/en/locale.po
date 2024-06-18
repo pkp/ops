@@ -215,6 +215,9 @@ msgstr "Contact"
 msgid "about.aboutContext"
 msgstr "About the Server"
 
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "View <a href=\"{$url}\">Editorial History</a> for this journal"
+
 msgid "about.submissions"
 msgstr "Submissions"
 
