@@ -266,7 +266,7 @@ msgstr ""
 msgid "manager.setup.contextTitle"
 msgstr "Server title"
 
-msgid "manager.setup.editorialMasthead.description"
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
 msgstr "Please provide the editorial history of your server, including the full name, affiliation, and start and end dates of each editor."
 
 msgid "manager.setup.lists"
