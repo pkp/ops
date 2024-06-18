@@ -252,13 +252,15 @@ class Submission extends PKPSubmission {
 		$application = Application::get();
 		$publications = $this->getPublishedPublications();
 		$views = 0;
+		$fileIds = [];
 
 		foreach ($publications as $publication) {
 			foreach ((array) $publication->getData('galleys') as $galley) {
 				$file = $galley->getFile();
- 				if (!$galley->getRemoteUrl() && $file) {
+				if (!$galley->getRemoteUrl() && $file && !in_array($file->getId(), $fileIds)) {
  					$views = $views + $application->getPrimaryMetricByAssoc(ASSOC_TYPE_SUBMISSION_FILE, $file->getId());
- 				}
+					$fileIds[] = $file->getId();
+				}
 			}
 		}
 		return $views;
