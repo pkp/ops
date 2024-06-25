@@ -44,7 +44,7 @@ class PreprintSearch extends SubmissionSearch
         $i = 0;
         $contextIds = [];
         foreach ($unorderedResults as $submissionId => $data) {
-            $data[$submissionId]['score'] = ($resultCount * $data['count']) + $i++;
+            $unorderedResults[$submissionId]['score'] = ($resultCount * $data['count']) + $i++;
             $contextIds[] = $data['server_id'];
         }
 
