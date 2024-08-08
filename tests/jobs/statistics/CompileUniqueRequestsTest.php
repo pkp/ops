@@ -25,7 +25,7 @@ use PKP\tests\PKPTestCase;
 class CompileUniqueRequestsTest extends PKPTestCase
 {
     /**
-     * base64_encoded serializion from OJS 3.4.0
+     * base64_encoded serializion from OPS 3.4.0
      */
     protected string $serializedJobData = <<<END
     O:41:"APP\jobs\statistics\CompileUniqueRequests":3:{s:9:"\0*\0loadId";s:25:"usage_events_20240130.log";s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
