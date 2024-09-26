@@ -114,6 +114,7 @@ class SectionsHandler extends Handler
             'section' => $section,
             'sectionPath' => $sectionPath,
             'preprints' => $submissions,
+            'authorUserGroups' => Repo::userGroup()->getCollector()->filterByRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])->filterByContextIds([$context->getId()])->getMany()->remember(),
             'showingStart' => $showingStart,
             'showingEnd' => $showingEnd,
             'total' => $total,
