@@ -22,6 +22,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\observers\events\UsageEvent;
+use APP\publication\Publication;
 use APP\security\authorization\OpsServerMustPublishPolicy;
 use APP\template\TemplateManager;
 use Firebase\JWT\JWT;
@@ -296,6 +297,12 @@ class PreprintHandler extends Handler
                 $templateMgr->addHeader('canonical', '<link rel="canonical" href="' . $url . '">');
             }
 
+            $templateMgr->assign('pubLocaleData', $this->getMultilingualMetadataOpts(
+                $publication,
+                $templateMgr->getTemplateVars('currentLocale'),
+                $templateMgr->getTemplateVars('activeTheme')->getOption('showMultilingualMetadata') ?: [],
+            ));
+
             if (!Hook::call('PreprintHandler::view', [&$request, &$preprint, $publication])) {
                 $templateMgr->display('frontend/pages/preprint.tpl');
                 event(new UsageEvent(Application::ASSOC_TYPE_SUBMISSION, $context, $preprint));
@@ -417,5 +424,27 @@ class PreprintHandler extends Handler
             return true;
         }
         return false;
+    }
+
+    /**
+     * Multilingual publication metadata for template:
+     * showMultilingualMetadataOpts - Show metadata in other languages: title (+ subtitle), keywords, abstract, etc.
+     */
+    protected function getMultilingualMetadataOpts(Publication $publication, string $currentUILocale, array $showMultilingualMetadataOpts): array
+    {
+        $langNames = collect($publication->getLanguageNames())
+            ->sortKeys();
+        $langs = $langNames->keys();
+        return [
+            'opts' => array_flip($showMultilingualMetadataOpts),
+            'localeNames' => $langNames,
+            'langTags' => $langNames->map(fn ($_, $l) => preg_replace(['/@.+$/', '/_/'], ['', '-'], $l))->toArray() /* remove @ and text after */,
+            'localeOrder' => collect($publication->getLocalePrecedence())
+                ->intersect($langs) /* remove locales not in publication's languages */
+                ->concat($langs)
+                ->unique()
+                ->values()
+                ->toArray(),
+        ];
     }
 }

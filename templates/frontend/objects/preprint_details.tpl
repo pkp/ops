@@ -64,8 +64,12 @@
  * @uses $licenseUrl string URL to license. Only assigned if license should be
  *   included with published submissions.
  * @uses $ccLicenseBadge string An image and text with details about the license
+ * @uses $pubLocaleData Array of e.g. publication's locales and metadata field names to show in multiple languages
  *}
-<article class="obj_preprint_details">
+<article
+	class="obj_preprint_details"
+	data-pkp-locales="{","|implode:$pubLocaleData.localeOrder}"
+>
 
 	{* Indicate if this is only a preview *}
 	{if $publication->getData('status') !== \PKP\submission\PKPSubmission::STATUS_PUBLISHED}
@@ -109,14 +113,53 @@
 	<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
 	<span class="preprint_version">{translate key="publication.version" version=$publication->getData('version')}</span>
 
-	<h1 class="page_title">
-		{$publication->getLocalizedTitle(null, 'html')|strip_unsafe_html}
+	<h1
+		id="publication-title"
+		class="page_title"
+		data-pkp-switcher-text="title"
+	>
+		{$publicationTitles=$publication->getTitles('html')}
+		{$first=true}
+		{foreach from=$pubLocaleData.localeOrder item=$localeKey}
+			{if !isset($publicationTitles[$localeKey])}{continue}{/if}
+			<span
+				class="collapse-text{if $first} show-text{/if}"
+				lang="{$pubLocaleData.langTags[$localeKey]}"
+				data-pkp-locale="{$localeKey}"
+				data-pkp-locale-name="{$pubLocaleData.langTags[$localeKey]}"
+			>
+				{$publicationTitles[$localeKey]|strip_unsafe_html}
+			</span>
+			{if !isset($pubLocaleData.opts.title)}{break}{/if}
+			{$first=false}
+		{/foreach}
 	</h1>
 
-	{if $publication->getLocalizedData('subtitle')}
-		<h2 class="subtitle">
-			{$publication->getLocalizedSubTitle(null, 'html')|strip_unsafe_html}
+	{if $publication->getSubTitles('html')}
+		<h2
+			id="publication-subtitle"
+			class="subtitle"
+			data-pkp-switcher-text="title"
+		>
+		{$publicationSubtitles=$publication->getSubTitles('html')}
+		{$first=true}
+		{foreach from=$pubLocaleData.localeOrder item=$localeKey}
+			{if !isset($publicationSubtitles[$localeKey])}{continue}{/if}
+			<span
+				class="collapse-text{if $first} show-text{/if}"
+				lang="{$pubLocaleData.langTags[$localeKey]}"
+				data-pkp-locale="{$localeKey}"
+				data-pkp-locale-name="{$pubLocaleData.langTags[$localeKey]}"
+			>
+				{$publicationSubtitles[$localeKey]|strip_unsafe_html}
+			</span>
+			{if !isset($pubLocaleData.opts.title)}{break}{/if}
+			{$first=false}
+		{/foreach}
 		</h2>
+	{/if}
+	{if isset($pubLocaleData.opts.title)}
+		<span class="collapse-switcher" data-pkp-switcher-target="title" aria-description="{translate key="plugins.themes.default.ariaDescription.languageSwitcher"}"></span>
 	{/if}
 
 	<div class="row">
@@ -129,10 +172,29 @@
 						<li>
 							<span class="name">
 								{$author->getFullName()|escape}
+								{if isset($pubLocaleData.opts.author)}
+									<span class="collapse-switcher" data-pkp-switcher-target="author{$author@index}" aria-description="{translate key="plugins.themes.default.ariaDescription.languageSwitcher"}"></span>
+								{/if}
 							</span>
-							{if $author->getLocalizedData('affiliation')}
+							{if $author->getData('affiliation')}
 								<span class="affiliation">
-									{$author->getLocalizedData('affiliation')|escape}
+									<span id="publication-author{$author@index}" data-pkp-switcher-text="author{$author@index}">
+										{$authorAffiliations=$author->getData('affiliation')}
+										{$first=true}
+										{foreach from=$pubLocaleData.localeOrder item=$localeKey}
+											{if !isset($authorAffiliations[$localeKey])}{continue}{/if}
+											<span
+												class="collapse-text{if $first} show-text{/if}"
+												lang="{$pubLocaleData.langTags[$localeKey]}"
+												data-pkp-locale="{$localeKey}"
+												data-pkp-locale-name="{$pubLocaleData.langTags[$localeKey]}"
+											>
+												{$authorAffiliations[$localeKey]|strip_unsafe_html}
+											</span>
+											{if !isset($pubLocaleData.opts.author)}{break}{/if}
+											{$first=false}
+										{/foreach}
+									</span>
 								</span>
 							{/if}
 							{if $author->getData('orcid')}
@@ -169,25 +231,69 @@
 			{/if}
 
 			{* Keywords *}
-			{if !empty($publication->getLocalizedData('keywords'))}
-			<section class="item keywords">
-				<h2 class="label">
-					{capture assign=translatedKeywords}{translate key="preprint.subject"}{/capture}
-					{translate key="semicolon" label=$translatedKeywords}
-				</h2>
-				<span class="value">
-					{foreach name="keywords" from=$publication->getLocalizedData('keywords') item="keyword"}
-						{$keyword|escape}{if !$smarty.foreach.keywords.last}{translate key="common.commaListSeparator"}{/if}
+			{if $publication->getData('keywords')}
+				<section class="item keywords">
+					<h2 class="label">
+						{capture assign=translatedKeywords}{translate key="common.keywords"}{/capture}
+						{translate key="semicolon" label=$translatedKeywords}
+					</h2>
+					<span
+						id="publication-keywords"
+						class="value"
+						data-pkp-switcher-text="keywords"
+					>
+					{$publicationKeywords=$publication->getData('keywords')}
+					{$first=true}
+					{foreach from=$pubLocaleData.localeOrder item=$localeKey}
+						{if !isset($publicationKeywords[$localeKey])}{continue}{/if}
+						<span
+							class="collapse-text{if $first} show-text{/if}"
+							lang="{$pubLocaleData.langTags[$localeKey]}"
+							data-pkp-locale="{$localeKey}"
+							data-pkp-locale-name="{$pubLocaleData.langTags[$localeKey]}"
+						>
+						{foreach from=$publicationKeywords[$localeKey] item="keyword"}
+							{$keyword|escape}{if !$keyword@last}{translate key="common.commaListSeparator"}{/if}
+						{/foreach}
+						</span>
+						{if !isset($pubLocaleData.opts.keywords)}{break}{/if}
+						{$first=false}
 					{/foreach}
-				</span>
-			</section>
+					{if isset($pubLocaleData.opts.keywords)}
+						<span class="collapse-switcher" data-pkp-switcher-target="keywords" aria-description="{translate key="plugins.themes.default.ariaDescription.languageSwitcher"}"></span>
+					{/if}
+					</span>
+				</section>
 			{/if}
 
 			{* Abstract *}
-			{if $publication->getLocalizedData('abstract')}
-				<section class="item abstract">
-					<h2 class="label">{translate key="common.abstract"}</h2>
-					{$publication->getLocalizedData('abstract')|strip_unsafe_html}
+			{if $publication->getData('abstract')}
+				<section
+					id="publication-abstract"
+					class="item abstract"
+					data-pkp-switcher-text="abstract"
+				>
+					<h2 class="label">
+						{translate key="common.abstract"}
+					{if isset($pubLocaleData.opts.abstract)}
+						<span class="collapse-switcher" data-pkp-switcher-target="abstract" aria-description="{translate key="plugins.themes.default.ariaDescription.languageSwitcher"}"></span>
+					{/if}
+					</h2>
+					{$publicationAbstracts=$publication->getData('abstract')}
+					{$first=true}
+					{foreach from=$pubLocaleData.localeOrder item=$localeKey}
+						{if !isset($publicationAbstracts[$localeKey])}{continue}{/if}
+						<span
+							class="collapse-text{if $first} show-text{/if}"
+							lang="{$pubLocaleData.langTags[$localeKey]}"
+							data-pkp-locale="{$localeKey}"
+							data-pkp-locale-name="{$pubLocaleData.langTags[$localeKey]}"
+						>
+							{$publicationAbstracts[$localeKey]|strip_unsafe_html}
+						</span>
+						{if !isset($pubLocaleData.opts.abstract)}{break}{/if}
+						{$first=false}
+					{/foreach}
 				</section>
 			{/if}
 
