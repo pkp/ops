@@ -439,7 +439,7 @@ class ArticleGalleyGridHandler extends GridHandler {
 
 		if ($submission->getDateSubmitted() == null) return true;
 
-		if (Services::get('submission')->canEditPublication($submission->getId(), $user->getId())) {
+		if (Services::get('submission')->canEditPublication($submission, $user->getId())) {
 			return true;
 		}
 
