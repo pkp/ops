@@ -23,13 +23,14 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\server\Server;
+use PKP\controlledVocab\ControlledVocab;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\search\SubmissionSearch;
 use PKP\submission\PKPSubmission;
-use PKP\submission\SubmissionKeywordDAO;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 
 class PreprintSearch extends SubmissionSearch
 {
@@ -80,7 +81,8 @@ class PreprintSearch extends SubmissionSearch
         }
 
         $i = 0; // Used to prevent ties from clobbering each other
-        $authorUserGroups = Repo::userGroup()->getCollector()->filterByRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])->getMany();
+        $authorUserGroups = UserGroup::withRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])
+            ->get();
         foreach ($unorderedResults as $submissionId => $data) {
             // Exclude unwanted IDs.
             if (in_array($submissionId, $exclude)) {
@@ -318,9 +320,14 @@ class PreprintSearch extends SubmissionSearch
             $preprint = Repo::submission()->get($submissionId);
             if ($preprint->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
                 // Retrieve keywords (if any).
-                /** @var SubmissionKeywordDAO */
-                $submissionSubjectDao = DAORegistry::getDAO('SubmissionKeywordDAO');
-                $allSearchTerms = array_filter($submissionSubjectDao->getKeywords($preprint->getId(), [Locale::getLocale(), $preprint->getData('locale'), Locale::getPrimaryLocale()]));
+                $allSearchTerms = array_filter(
+                    Repo::controlledVocab()->getBySymbolic(
+                        ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
+                        Application::ASSOC_TYPE_PUBLICATION,
+                        $preprint->getId(),
+                        [Locale::getLocale(), $preprint->getData('locale'), Locale::getPrimaryLocale()]
+                    )
+                );
                 foreach ($allSearchTerms as $locale => $localeSearchTerms) {
                     $searchTerms += $localeSearchTerms;
                 }

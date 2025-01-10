@@ -26,14 +26,12 @@ use APP\facades\Repo;
 use APP\oai\ops\OAIDAO;
 use APP\plugins\PubIdPlugin;
 use APP\submission\Submission;
+use PKP\controlledVocab\ControlledVocab;
 use PKP\db\DAORegistry;
-use PKP\facades\Locale;
 use PKP\metadata\MetadataDataObjectAdapter;
 use PKP\metadata\MetadataDescription;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
-use PKP\submission\SubmissionKeywordDAO;
-use PKP\submission\SubmissionSubjectDAO;
 
 class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
 {
@@ -88,14 +86,17 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         }
 
         // Subject
-        /** @var SubmissionKeywordDAO */
-        $submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
-        /** @var SubmissionSubjectDAO */
-        $submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO');
-        $supportedLocales = array_keys(Locale::getSupportedFormLocales());
         $subjects = array_merge_recursive(
-            (array) $submissionKeywordDao->getKeywords($publication->getId(), $supportedLocales),
-            (array) $submissionSubjectDao->getSubjects($publication->getId(), $supportedLocales)
+            Repo::controlledVocab()->getBySymbolic(
+                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
+                Application::ASSOC_TYPE_PUBLICATION,
+                $publication->getId()
+            ),
+            Repo::controlledVocab()->getBySymbolic(
+                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
+                Application::ASSOC_TYPE_PUBLICATION,
+                $publication->getId()
+            )
         );
         $this->_addLocalizedElements($dc11Description, 'dc:subject', $subjects);
 
@@ -114,7 +115,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         // Contributor
         $contributors = (array) $publication->getData('sponsor');
         foreach ($contributors as $locale => $contributor) {
-            $contributors[$locale] = array_map('trim', explode(';', $contributor));
+            $contributors[$locale] = array_map(trim(...), explode(';', $contributor));
         }
         $this->_addLocalizedElements($dc11Description, 'dc:contributor', $contributors);
 

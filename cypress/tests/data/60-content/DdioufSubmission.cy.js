@@ -57,8 +57,9 @@ describe('Data suite: Ddiouf', function() {
 		cy.findSubmissionAsEditor('dbarnes', null, 'Diouf');
 		cy.clickDecision('Decline Submission');
 		cy.recordDecisionDecline(['Diaga Diouf']);
-		cy.get('.pkp_workflow_last_decision').contains('Submission declined.');
-		cy.get('button').contains('Change decision').click();
+		// TODO re-add this check once its determined where to indicate it in new design
+		//cy.get('.pkp_workflow_last_decision').contains('Submission declined.');
+		cy.openWorkflowMenu('Production');
 		cy.clickDecision('Revert Decline');
 		cy.recordDecisionRevertDecline(['Diaga Diouf']);
 		cy.clickDecision('Decline Submission');
