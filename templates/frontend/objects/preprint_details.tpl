@@ -137,7 +137,7 @@
 							{/if}
 							{if $author->getData('orcid')}
 								<span class="orcid">
-									{if $author->getData('orcidAccessToken') && $author->hasVerifiedOrcid()}
+									{if $author->hasVerifiedOrcid()}
 										{$orcidIcon}
 									{else}
 										{$orcidUnauthenticatedIcon}
