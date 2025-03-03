@@ -6,7 +6,7 @@ on:
     branches:
       ['stable-3_4_0']
 
-name: ops
+name: ops-stable-3_4_0
 jobs:
   ops:
     runs-on: ubuntu-latest
