@@ -29,8 +29,6 @@ jobs:
             SAVE_BUILD: 'save_build'
             upgrade: 'upgrade'
             upgrade_test: 'stable-3_3_0,stable-3_4_0'
-
-
     name: ops-main-schedule
     steps:
       - uses: pkp/pkp-github-actions@v1
@@ -63,13 +61,12 @@ jobs:
             SAVE_BUILD: 'save_build'
             upgrade: 'upgrade'
             upgrade_test: '3.1.0,3.1.1-2,3.1.2,stable-3_2_0,stable-3_2_1,stable-3_3_0'
-
-    name: ops-stable-3_4_0
+    name: ops-stable-3_5_0
     steps:
       - uses: pkp/pkp-github-actions@v1
         with:
           node_version: 16
-          dataset_branch: 'stable-3_4_0'
+          dataset_branch: 'stable-3_5_0'
           DATASETS_ACCESS_KEY: ${{secrets.DATASETS_ACCESS_KEY}}
           DEBUG_IN_TMATE: false
 
@@ -96,7 +93,6 @@ jobs:
             SAVE_BUILD: 'save_build'
             upgrade: 'upgrade'
             upgrade_test: '3.1.0,3.1.1-2,3.1.2,stable-3_2_0,stable-3_2_1,stable-3_3_0'
-
     name: ops-stable-3_4_0
     steps:
       - uses: pkp/pkp-github-actions@v1
