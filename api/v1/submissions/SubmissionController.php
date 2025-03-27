@@ -27,6 +27,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\LazyCollection;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
@@ -232,5 +233,137 @@ class SubmissionController extends \PKP\API\v1\submissions\PKPSubmissionControll
         );
 
         return response()->json($this->getLocalizedForm($issueEntryForm, $submission->getData('locale'), $locales), Response::HTTP_OK);
+    }
+
+    /**
+     * Add a new submission
+     */
+    public function add(Request $illuminateRequest): JsonResponse
+    {
+        $request = $this->getRequest();
+        $context = $request->getContext();
+        $user = $request->getUser();
+
+        if ($context->getData('disableSubmissions')) {
+            return response()->json([
+                'error' => __('author.submit.notAccepting'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION, $illuminateRequest->input());
+
+        $readOnlyErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_SUBMISSION, $params);
+        if (!empty($readOnlyErrors)) {
+            return response()->json($readOnlyErrors, Response::HTTP_BAD_REQUEST);
+        }
+
+        $params['contextId'] = $context->getId();
+
+        $errors = Repo::submission()->validate(null, $params, $context);
+
+        $sectionIdPropName = Application::getSectionIdPropName();
+        if (isset($params[$sectionIdPropName])) {
+            $sectionId = $params[$sectionIdPropName];
+            $section = Repo::section()->get($sectionId, $context->getId());
+
+            if (!$section) {
+                $errors[$sectionIdPropName] = [__('api.submission.400.sectionDoesNotExist')];
+            } else {
+                if ($section->getIsInactive()) {
+                    $errors[$sectionIdPropName] = [__('api.submission.400.inactiveSection')];
+                } else {
+                    if ($section->getEditorRestricted() && !$this->isEditor()) {
+                        $errors[$sectionIdPropName] = [__('submission.sectionRestrictedToEditors')];
+                    }
+                }
+            }
+        }
+        $submitterUserGroups = UserGroup::withContextIds($context->getId())
+            ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_AUTHOR])
+            ->whereHas('userUserGroups', function ($query) use ($user) {
+                $query->withUserId($user->getId());
+            })
+            ->get();
+
+
+        $userGroupIdPropName = 'userGroupId';
+
+        if (isset($params[$userGroupIdPropName])) {
+            $submitAsUserGroup = $submitterUserGroups
+                ->first(function (UserGroup $userGroup) use ($params, $userGroupIdPropName) {
+                    return $userGroup->id === $params[$userGroupIdPropName];
+                });
+            if (!$submitAsUserGroup) {
+                $errors[$userGroupIdPropName] = [__('api.submissions.400.invalidSubmitAs')];
+            }
+        } elseif ($submitterUserGroups->count()) {
+            $submitAsUserGroup = $submitterUserGroups
+                ->sort(function (UserGroup $a, UserGroup $b) {
+                    return $a->getRoleId() === Role::ROLE_ID_AUTHOR ? 1 : -1;
+                })
+                ->first();
+        } else {
+            $submitAsUserGroup = UserGroup::withContextIds($context->getId())->withRoleIds(Role::ROLE_ID_AUTHOR)->first();
+            if (!$submitAsUserGroup) {
+                $errors[$userGroupIdPropName] = [__('submission.wizard.notAllowed.description')];
+            } else {
+                Repo::userGroup()->assignUserToGroup(
+                    $user->getId(),
+                    $submitAsUserGroup->id
+                );
+            }
+        }
+
+        if (!empty($errors)) {
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
+        }
+
+        $publicationProps = [];
+        if (isset($params[$sectionIdPropName])) {
+            $publicationProps[$sectionIdPropName] = $params[$sectionIdPropName];
+            unset($params[$sectionIdPropName]);
+        }
+
+        $submission = Repo::submission()->newDataObject($params);
+        $publication = Repo::publication()->newDataObject($publicationProps);
+        $submissionId = Repo::submission()->add($submission, $publication, $request->getContext());
+
+        $submission = Repo::submission()->get($submissionId);
+
+        // Assign submitter to submission
+        Repo::stageAssignment()
+            ->build(
+                $submission->getId(),
+                $submitAsUserGroup->id,
+                $request->getUser()->getId(),
+                $submitAsUserGroup->recommendOnly,
+                // Authors can always edit metadata before submitting
+                $submission->getData('submissionProgress')
+                    ? true
+                    : $submitAsUserGroup->permitMetadataEdit
+            );
+
+        // Create an author record from the submitter's user account
+        if ($submitAsUserGroup->roleId === Role::ROLE_ID_AUTHOR) {
+            $author = Repo::author()->newAuthorFromUser($request->getUser(), $submission, $context);
+            $author->setData('publicationId', $publication->getId());
+            $author->setUserGroupId($submitAsUserGroup->id);
+            $authorId = Repo::author()->add($author);
+            Repo::publication()->edit($publication, ['primaryContactId' => $authorId]);
+        }
+
+        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
+
+        /** @var GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+
+        if (!$userGroups instanceof LazyCollection) {
+            $userGroups = $userGroups->lazy();
+        }
+
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+
+        return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres, $userRoles), Response::HTTP_OK);
     }
 }
