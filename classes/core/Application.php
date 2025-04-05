@@ -197,4 +197,12 @@ class Application extends PKPApplication
     {
         return ['context' => '/contexts/', 'submission' => '/submissions/'];
     }
+
+    /**
+     * Define if the application support customizable reviewer recommendation functionality
+     */
+    public function hasCustomizableReviewerRecommendation(): bool
+    {
+        return false;
+    }
 }
