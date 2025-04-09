@@ -51,6 +51,7 @@
 	<migration class="PKP\migration\install\AffiliationsMigration" />
 	<migration class="PKP\migration\install\RorsMigration" />
 	<migration class="PKP\migration\install\ReviewAssignmentSettings" />
+	<migration class="PKP\migration\install\EmailTemplateUserGroupAccessMigration"/>
 
 	<!-- Other install tasks -->
 	<code function="createData"/>
