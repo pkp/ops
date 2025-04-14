@@ -227,7 +227,7 @@ class Submission extends PKPSubmission
     {
         $submissionFileIds = collect($this->getPublishedPublications())
             ->flatMap(fn (Publication $publication) => $publication->getData('galleys')->all())
-            ->map(fn (Galley $submissionFileId) => (int) $submissionFileId->getData('submissionFileId'))
+            ->map(fn (Galley $galley) => (int) $galley->getData('submissionFileId'))
             ->unique()
             ->filter(fn (int $submissionFileId) => (bool) $submissionFileId)
             ->all();
