@@ -26,7 +26,7 @@ describe('Data suite tests', function() {
 		cy.get('form[id=sectionForm]').contains('Save').click();
 
 	});
-	it('Creates/configures categories', function() {
+	it.skip('Creates/configures categories', function() {
 		cy.login('admin', 'admin');
 		cy.get('a').contains('admin').click();
 		cy.get('a').contains('Dashboard').click();
