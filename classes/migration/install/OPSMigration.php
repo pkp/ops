@@ -88,7 +88,6 @@ class OPSMigration extends \PKP\migration\Migration
 
             $table->tinyInteger('status')->default(1); // PKPSubmission::STATUS_QUEUED
             $table->string('url_path', 64)->nullable();
-            $table->bigInteger('version')->nullable();
             $table->index(['url_path'], 'publications_url_path');
 
             $table->bigInteger('doi_id')->nullable();
