@@ -20,10 +20,13 @@ namespace APP\publication;
 
 use APP\core\Application;
 use APP\file\PublicFileManager;
+use APP\publication\enums\VersionStage;
 use PKP\publication\PKPPublication;
 
 class Publication extends PKPPublication
 {
+    public const DEFAULT_VERSION_STAGE = VersionStage::AUTHOR_ORIGINAL;
+
     public const PUBLICATION_RELATION_NONE = 1;
     public const PUBLICATION_RELATION_PUBLISHED = 3;
 
