@@ -15,6 +15,7 @@ namespace APP\publication;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\publication\enums\VersionStage;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\App;
 use PKP\context\Context;
@@ -22,7 +23,6 @@ use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\plugins\Hook;
 use PKP\publication\Collector;
-use PKP\publication\enums\VersionStage;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\user\User;
