@@ -7,6 +7,8 @@
  *
  */
 
+/// <reference types="cypress" />
+/* global Cypress, cy */
 describe('Data suite: Cmontgomerie', function() {
 
 	let submission;
@@ -95,12 +97,18 @@ describe('Data suite: Cmontgomerie', function() {
 
 		// Edit metadata in 1st version
 		cy.openWorkflowMenu('Author Original 1.0', 'Metadata')
-		cy.get('#metadata-keywords-control-en').type('employees{enter}');
-		cy.wait(500);
+		cy.intercept('GET', '**/publications/*/_components/metadata').as('loadMetadata');
+		cy.openWorkflowMenu('Author Original 1.0', 'Metadata');
+		cy.wait('@loadMetadata');
+
+		// find the actual input field for keywords
+		cy.get('input[id^="metadata-keywords-control-en"]', { timeout: 10000 })
+		.should('be.visible')
+		.type('employees{enter}', { force: true });
+		// save and verify
 		cy.get('button').contains('Save').click();
 		cy.get('[role="status"]').contains('Saved');
 		cy.get('#metadata-keywords-selected-en').contains('employees');
-		cy.wait(1500);
 
 		// Publish 1st version again
 		cy.get('button:contains("Post")').click();
@@ -116,11 +124,10 @@ describe('Data suite: Cmontgomerie', function() {
 		);
 
 		cy.openWorkflowMenu('Author Original 2.0', 'Permissions & Disclosure');
-		cy.get('input[id^="publicationLicense-copyrightHolder-control-en"').clear()
-		cy.get('input[id^="publicationLicense-copyrightHolder-control-en"').type('Craig Montgomerie', {delay: 0});
+		cy.get('input[id^="publicationLicense-copyrightHolder-control-en"').clear();
+		cy.get('input[id^="publicationLicense-copyrightHolder-control-en"').type('Craig Montgomerie');
 		cy.get('button').contains('Save').click();
-		cy.get('[role="status"]').contains('Saved');
-		cy.wait(1500);
+		cy.wait(1500)
 
 		// Publish 2nd version
 		cy.get('button').contains('Post').click();
@@ -128,4 +135,5 @@ describe('Data suite: Cmontgomerie', function() {
 		cy.get('.pkpWorkflow__publishModal button').contains('Post').click();
 
 	});
+
 })

@@ -488,12 +488,22 @@ class PreprintGalleyGridHandler extends GridHandler
         $submission = $this->getSubmission();
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
-        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
-            return false;
-        }
 
         if (in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
             return true;
+        }
+
+        // if it is published, allow managers or sub-editors
+        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+            // allow these roles to edit galleys even if published
+            if (
+                in_array(Role::ROLE_ID_MANAGER, $userRoles) ||
+                in_array(Role::ROLE_ID_SUB_EDITOR, $userRoles)
+            ) {
+                return true;
+            }
+            // otherwise block
+            return false;
         }
 
         if ($submission->getData('dateSubmitted') == null) {
