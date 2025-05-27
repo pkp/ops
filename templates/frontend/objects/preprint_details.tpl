@@ -193,7 +193,7 @@
 			{call_hook name="Templates::Preprint::Main"}
 
 			{* Usage statistics chart*}
-			{if $activeTheme->getOption('displayStats') != 'none'}
+			{if $activeTheme && $activeTheme->getOption('displayStats') != 'none'}
 				{$activeTheme->displayUsageStatsGraph($preprint->getId())}
 				<section class="item downloads_chart">
 					<h2 class="label">
