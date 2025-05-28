@@ -87,13 +87,13 @@ describe('Data suite: Cmontgomerie', function() {
 
 		// Unpost 1st version
 		cy.findSubmissionAsEditor('dbarnes', null, 'Montgomerie',  null, 'Published');
-		cy.openWorkflowMenu('Title & Abstract')
+		cy.openWorkflowMenu('Author Original 1.0', 'Title & Abstract')
 		cy.get('button:contains("Unpost")').should('be.visible').click();
 		cy.get('div:contains("Are you sure you don\'t want this to be posted?")');
 		cy.get('[data-cy=dialog] button').contains('Unpost').click();
 
 		// Edit metadata in 1st version
-		cy.openWorkflowMenu('Metadata')
+		cy.openWorkflowMenu('Author Original 1.0', 'Metadata')
 		cy.get('#metadata-keywords-control-en').type('employees{enter}');
 		cy.wait(500);
 		cy.get('#metadata-keywords-control-en').type('{enter}', {delay: 0});
@@ -108,13 +108,14 @@ describe('Data suite: Cmontgomerie', function() {
 		cy.get('[id^="publish"] button:contains("Post")').click();
 
 		// Create 2nd version and change copyright holder
-		cy.get('button:contains("Create New Version")').should('be.visible').click();
-		cy.get('div:contains("Are you sure you want to create a new version?")');
-		cy.get('[role=dialog] button').contains('Yes').click();
-		// TODO can be removed once we implement progress bars
-		cy.wait(5000);
+		cy.get(`[data-cy="active-modal"] nav a:contains('Create New Version')`).click();
+		cy.assignPublicationStage('AO', 'true');
+		// wait for the new publication data to appear on the side menu
+		cy.get('body').then($body =>
+			$body.find('[data-cy="dialog"]').length === 0
+		);
 
-		cy.openWorkflowMenu('Permissions & Disclosure');
+		cy.openWorkflowMenu('Author Original 1.1', 'Permissions & Disclosure');
 		cy.get('input[id^="publicationLicense-copyrightHolder-control-en"').clear()
 		cy.get('input[id^="publicationLicense-copyrightHolder-control-en"').type('Craig Montgomerie', {delay: 0});
 		cy.get('button').contains('Save').click();
