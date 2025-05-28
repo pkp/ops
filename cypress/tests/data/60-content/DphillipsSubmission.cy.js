@@ -63,7 +63,7 @@ describe('Data suite: Dphillips', function() {
 	it('Preprint is not available when unposted', function() {
 		cy.login('dbarnes');
 		cy.visit('/index.php/publicknowledge/en/workflow/access/' + submission.id);
-		cy.openWorkflowMenu('Title & Abstract')
+		cy.openWorkflowMenu('Author Original 1.0', 'Title & Abstract')
 		cy.get('button').contains('Unpost').click();
 		cy.contains('Are you sure you don\'t want this to be posted?');
 		cy.get('[data-cy=dialog] button').contains('Unpost').click();
@@ -82,7 +82,7 @@ describe('Data suite: Dphillips', function() {
 		// Re-post it
 		cy.login('dbarnes');
 		cy.visit('/index.php/publicknowledge/en/workflow/access/' + submission.id);
-		cy.openWorkflowMenu('Title & Abstract')
+		cy.openWorkflowMenu('Author Original 1.0', 'Title & Abstract')
 		cy.get('button').contains('Post').click();
 		cy.contains('All requirements have been met.');
 		cy.get('.pkpWorkflow__publishModal button').contains('Post').click();

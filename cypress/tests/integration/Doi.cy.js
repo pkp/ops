@@ -311,7 +311,7 @@ describe('DOI tests', function() {
 		})
 
 
-		cy.openWorkflowMenu('Title & Abstract')
+		cy.openWorkflowMenu('Author Original 1.0', 'Title & Abstract')
 		cy.get('button:contains("Unpost")').click();
 		cy.get('[data-cy="dialog"] button:contains("Unpost")').click();
 
@@ -357,12 +357,16 @@ describe('DOI tests', function() {
 		cy.contains('table tr', articleTitle).within(() => {
 			cy.get('button').contains('View').click()
 		})
-		cy.openWorkflowMenu('Title & Abstract')
+		cy.openWorkflowMenu('Author Original 1.0', 'Title & Abstract')
 
-		cy.get('button:contains("Create New Version")').click();
-		cy.get('[data-cy="active-modal"]').contains('Create New Version');
-		cy.get('[data-cy="dialog"] button:contains("Yes")').click();
+		cy.get(`[data-cy="active-modal"] nav a:contains('Create New Version')`).click();
+		cy.assignPublicationStage('AO', 'true');
+		// wait for the new publication data to appear on the side menu
+		cy.get('body').then($body =>
+			$body.find('[data-cy="dialog"]').length === 0
+		);
 
+		cy.openWorkflowMenu('Author Original 1.1', 'Title & Abstract');
 		cy.get('button:contains("Post")').click();
 		cy.get('div.pkpWorkflow__publishModal button:contains("Post")').click();
 		cy.get('div:contains("This version has been posted and can not be edited.")').should('exist');
@@ -497,7 +501,7 @@ describe('DOI tests', function() {
 		cy.contains('table tr', articleTitle).within(() => {
 			cy.get('button').contains('View').click()
 		})
-		cy.openWorkflowMenu('Title & Abstract')
+		cy.openWorkflowMenu('Author Original 1.1', 'Title & Abstract')
 
 		// We have to unpost it first
 		cy.get('button:contains("Unpost")').click();
