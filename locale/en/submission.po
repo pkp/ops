@@ -245,9 +245,3 @@ msgid "submission.copyright.description"
 msgstr ""
 "Please read and understand the copyright terms for submissions to this "
 "preprint server."
-
-msgid "publication.versionStage.authorOriginal"
-msgstr "Author Original"
-
-msgid "publication.versionStage.submittedManuscript"
-msgstr "Submitted Manuscript"
