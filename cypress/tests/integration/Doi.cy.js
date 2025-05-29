@@ -167,7 +167,7 @@ describe('DOI tests', function() {
 		cy.log('Check submission landing page shows correct DOI for each version');
 
 		// Go to Version 1 page
-		cy.get(`${modalSelector} a:contains("Version 1")`).should(($a) => {
+		cy.get(`${modalSelector} a:contains("Author Original 1.0")`).should(($a) => {
 			expect($a.attr('target'), 'target').to.be.string('_blank');
 			// Chnage target so we can follow the link directory rather than via `cy.visit()`.
 			$a.attr('target', '_self');
@@ -187,7 +187,7 @@ describe('DOI tests', function() {
 			`#submission-doi-management .listPanel__item:contains("${articleTitle}") button:contains("View all")`
 		).click();
 
-		cy.get(`${modalSelector} a:contains("Version 2")`).should(($a) => {
+		cy.get(`${modalSelector} a:contains("Author Original 1.1")`).should(($a) => {
 			expect($a.attr('target'), 'target').to.be.string('_blank');
 			// Chnage target so we can follow the link directory rather than via `cy.visit()`.
 			$a.attr('target', '_self');
