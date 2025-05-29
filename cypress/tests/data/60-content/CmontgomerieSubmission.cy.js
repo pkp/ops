@@ -91,12 +91,12 @@ describe('Data suite: Cmontgomerie', function() {
 		cy.get('button:contains("Unpost")').should('be.visible').click();
 		cy.get('div:contains("Are you sure you don\'t want this to be posted?")');
 		cy.get('[data-cy=dialog] button').contains('Unpost').click();
+		cy.get('div:contains("This version has been posted and can not be edited.")').should('not.exist');
 
 		// Edit metadata in 1st version
 		cy.openWorkflowMenu('Author Original 1.0', 'Metadata')
 		cy.get('#metadata-keywords-control-en').type('employees{enter}');
 		cy.wait(500);
-		cy.get('#metadata-keywords-control-en').type('{enter}', {delay: 0});
 		cy.get('button').contains('Save').click();
 		cy.get('[role="status"]').contains('Saved');
 		cy.get('#metadata-keywords-selected-en').contains('employees');
@@ -112,7 +112,7 @@ describe('Data suite: Cmontgomerie', function() {
 		cy.assignPublicationStage('AO', 'true');
 		// wait for the new publication data to appear on the side menu
 		cy.get('body').then($body =>
-			$body.find('[data-cy="dialog"]').length === 0
+			cy.get('span:contains("Unpublished")')
 		);
 
 		cy.openWorkflowMenu('Author Original 1.1', 'Permissions & Disclosure');
