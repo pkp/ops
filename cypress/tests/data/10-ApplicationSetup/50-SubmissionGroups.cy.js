@@ -26,7 +26,7 @@ describe('Data suite tests', function() {
 		cy.get('form[id=sectionForm]').contains('Save').click();
 
 	});
-	it.skip('Creates/configures categories', function() {
+	it('Creates/configures categories', function() {
 		cy.login('admin', 'admin');
 		cy.get('a').contains('admin').click();
 		cy.get('a').contains('Dashboard').click();
@@ -35,18 +35,22 @@ describe('Data suite tests', function() {
 		cy.get('nav').contains('Server').click({ force: true });
 		cy.get('button[id="categories-button"]').click();
 
-		cy.addCategory('History', 'history');
-		cy.addCategory('Biology', 'biology');
-		cy.addCategory('Social sciences', 'social-sciences');
-		cy.addCategory('Mathematics', 'mathematics');
+		// Create a Science category
+		cy.addCategory('Social Sciences', 'social-sciences');
 
-		// Create a Cultural History subcategory
-		cy.get('a[id^=component-grid-settings-category-categorycategorygrid-addCategory-button-]').click();
-		cy.wait(1000); // Avoid occasional failure due to form init taking time
-		cy.get('input[id^="name-en-"]').type('Cultural History', {delay: 0});
-		cy.get('select[id="parentId"],select[id="parentId"]').select('History');
-		cy.get('input[id^="path-"]').type('cultural-history', {delay: 0});
-		cy.get('form[id=categoryForm]').contains('OK').click();
+		// Create a Sociology subcategory
+		cy.addCategory('Sociology', 'sociology', 'Social Sciences');
+		cy.addCategory('Anthropology', 'anthropology', 'Social Sciences');
 
+		// Create an Applied Science category
+		cy.addCategory('Applied Science', 'applied-science');
+		// Create a Computer Science subcategory
+		cy.addCategory('Computer Science', 'comp-sci', 'Applied Science');
+
+		// Create a Computer Vision subcategory within Computer Science
+		cy.addCategory('Computer Vision', 'computer-vision', 'Computer Science');
+
+		// Create an Engineering category
+		cy.addCategory('Engineering', 'eng', 'Applied Science');
 	});
 })
