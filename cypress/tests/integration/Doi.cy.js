@@ -361,10 +361,6 @@ describe('DOI tests', function() {
 
 		cy.get(`[data-cy="active-modal"] nav a:contains('Create New Version')`).click();
 		cy.assignPublicationStage('AO', 'true');
-		// wait for the new publication data to appear on the side menu
-		cy.get('body').then($body =>
-			$body.find('[data-cy="dialog"]').length === 0
-		);
 
 		cy.openWorkflowMenu('Author Original 1.1', 'Title & Abstract');
 		cy.get('button:contains("Post")').click();
