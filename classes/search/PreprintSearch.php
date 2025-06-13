@@ -174,7 +174,9 @@ class PreprintSearch extends SubmissionSearch
             'subject' => $request->getUserVar('subject'),
             'type' => $request->getUserVar('type'),
             'coverage' => $request->getUserVar('coverage'),
-            'indexTerms' => $request->getUserVar('indexTerms')
+            'indexTerms' => $request->getUserVar('indexTerms'),
+            'categoryIds' => $request->getUserVar('categoryIds'),
+            'sectionIds' => $request->getUserVar('sectionIds'),
         ];
 
         // Is this a simplified query from the navigation
@@ -247,13 +249,12 @@ class PreprintSearch extends SubmissionSearch
     /**
      * See SubmissionSearch::formatResults()
      *
-     * @param array $results
      * @param User $user optional (if availability information is desired)
      *
      * @return array An array with the preprints, published submissions,
      * server, section.
      */
-    public function formatResults($results, $user = null)
+    public function formatResults(array $results, ?User $user = null): array
     {
         $contextDao = Application::getContextDAO();
 

@@ -144,13 +144,15 @@ class SearchHandler extends Handler
         // Retrieve results.
         $error = '';
         $results = $preprintSearch->retrieveResults(
-            $request,
-            $searchFilters['searchServer'],
-            $keywords,
-            $error,
-            $searchFilters['fromDate'],
-            $searchFilters['toDate'],
-            $rangeInfo
+            request: $request,
+            context: $searchFilters['searchServer'],
+            keywords: $keywords,
+            error: $error,
+            publishedFrom: $searchFilters['fromDate'] ?? null,
+            publishedTo: $searchFilters['toDate'] ?? null,
+            categoryIds: $searchFilters['categoryIds'] ?? null,
+            sectionIds: $searchFilters['sectionIds'] ?? null,
+            rangeInfo: $rangeInfo
         );
 
         // Prepare and display the search template.

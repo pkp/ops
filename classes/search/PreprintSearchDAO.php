@@ -18,6 +18,7 @@
 
 namespace APP\search;
 
+use PKP\context\Context;
 use PKP\search\SubmissionSearchDAO;
 use PKP\submission\PKPSubmission;
 
@@ -26,15 +27,18 @@ class PreprintSearchDAO extends SubmissionSearchDAO
     /**
      * Retrieve the top results for a phrases with the given
      * limit (default 500 results).
-     *
-     * @param null|mixed $publishedFrom
-     * @param null|mixed $publishedTo
-     * @param null|mixed $type
-     *
-     * @return array of results (associative arrays)
      */
-    public function getPhraseResults($server, $phrase, $publishedFrom = null, $publishedTo = null, $type = null, $limit = 500, $cacheHours = 24)
-    {
+    public function getPhraseResults(
+        Context $context,
+        array $phrase,
+        ?string $publishedFrom = null,
+        ?string $publishedTo = null,
+        ?array $categoryIds = null,
+        ?array $sectionIds = null,
+        ?int $type = null,
+        int $limit = 500,
+        int $cacheHours = 24
+    ) {
         if (empty($phrase)) {
             return [];
         }
@@ -59,6 +63,14 @@ class PreprintSearchDAO extends SubmissionSearchDAO
             }
 
             $params[] = $phrase[$i];
+        }
+
+        if (is_array($categoryIds)) {
+            $sqlWhere .= ' AND p.publication_id IN (SELECT publication_id FROM publication_categories WHERE category_id IN (' . implode(',', array_map(intval(...), $categoryIds)) . '))';
+        }
+
+        if (is_array($sectionIds)) {
+            $sqlWhere .= ' AND p.section_id IN (' . implode(',', array_map(intval(...), $sectionIds)) . ')';
         }
 
         if (!empty($type)) {
