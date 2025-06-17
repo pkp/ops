@@ -1,8 +1,9 @@
 # Matina Curic <matina.curic@mikado-ac.info>, 2021.
+# Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-01 08:06+0000\n"
-"Last-Translator: Matina Curic <matina.curic@mikado-ac.info>\n"
+"PO-Revision-Date: 2025-06-18 19:51+0000\n"
+"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/ops/"
 "author/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -10,15 +11,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "author.submit"
 msgstr "Nouvelle soumission"
 
 msgid "author.competingInterests"
 msgstr ""
-"Intérêts conflictuels <a target=\"_new\" class=\"action\" href="
-"\"{$competingInterestGuidelinesUrl}\">Politique de CI</a>"
+"Conflits d'intérêts <a target=\"_new\" class=\"action\" href=\""
+"{$competingInterestGuidelinesUrl}\">Politique de conflits d'intérêts</a>"
 
 msgid "author.submit.startHereLink"
 msgstr ""
