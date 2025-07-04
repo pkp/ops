@@ -78,7 +78,3 @@ class Upgrade extends Installer
         return true;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\install\Upgrade', '\Upgrade');
-}

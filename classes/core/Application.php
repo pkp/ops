@@ -43,21 +43,6 @@ class Application extends PKPApplication
     public function __construct()
     {
         parent::__construct();
-        if (!PKP_STRICT_MODE) {
-            foreach ([
-                'REQUIRES_XSL',
-                'ASSOC_TYPE_PREPRINT',
-                'ASSOC_TYPE_GALLEY',
-                'ASSOC_TYPE_SERVER',
-            ] as $constantName) {
-                if (!defined($constantName)) {
-                    define($constantName, constant('self::' . $constantName));
-                }
-            }
-            if (!class_exists('\Application')) {
-                class_alias('\APP\core\Application', '\Application');
-            }
-        }
 
         // Add application locales
         Locale::registerPath(BASE_SYS_DIR . '/locale');

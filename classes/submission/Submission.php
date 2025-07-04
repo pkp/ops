@@ -152,15 +152,3 @@ class Submission extends PKPSubmission
             ->value('metric');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\submission\Submission', '\Submission');
-    foreach ([
-        'AUTHOR_TOC_DEFAULT',
-        'AUTHOR_TOC_HIDE',
-        'AUTHOR_TOC_SHOW',
-        'PREPRINT_ACCESS_OPEN',
-    ] as $constantName) {
-        define($constantName, constant('\Submission::' . $constantName));
-    }
-}

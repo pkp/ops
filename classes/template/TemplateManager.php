@@ -116,7 +116,3 @@ class TemplateManager extends PKPTemplateManager
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\template\TemplateManager', '\TemplateManager');
-}

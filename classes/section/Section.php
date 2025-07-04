@@ -235,7 +235,3 @@ class Section extends \PKP\section\PKPSection
         $this->setData('description', $description, $locale);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\section\Section', '\Section');
-}

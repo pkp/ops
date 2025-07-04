@@ -69,7 +69,3 @@ define('SUBMISSION_LOG_LAYOUT_GALLEY_UNAVAILABLE', 0x70000007);
 class SubmissionEventLogEntry extends PKPSubmissionEventLogEntry
 {
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\log\event\SubmissionEventLogEntry', '\SubmissionEventLogEntry');
-}
