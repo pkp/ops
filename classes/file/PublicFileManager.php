@@ -29,7 +29,3 @@ class PublicFileManager extends PKPPublicFileManager
         return Config::getVar('files', 'public_files_dir') . '/contexts/' . (int) $contextId;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\file\PublicFileManager', '\PublicFileManager');
-}

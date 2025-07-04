@@ -103,7 +103,3 @@ class NavigationMenuService extends \PKP\services\PKPNavigationMenuService
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    define('NMI_TYPE_ARCHIVES', \APP\services\NavigationMenuService::NMI_TYPE_ARCHIVES);
-}

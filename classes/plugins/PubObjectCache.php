@@ -159,7 +159,3 @@ class PubObjectCache
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\plugins\PubObjectCache', '\PubObjectCache');
-}
