@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/OpsServerMustPublishPolicy.php
  *
@@ -64,8 +65,4 @@ class OpsServerMustPublishPolicy extends AuthorizationPolicy
 
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\security\authorization\OpsServerMustPublishPolicy', '\OpsServerMustPublishPolicy');
 }
