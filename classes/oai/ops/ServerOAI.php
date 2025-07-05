@@ -256,7 +256,3 @@ class ServerOAI extends OAI
         return $token;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\oai\ops\ServerOAI', '\ServerOAI');
-}

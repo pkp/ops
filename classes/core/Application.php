@@ -54,9 +54,6 @@ class Application extends PKPApplication
                     define($constantName, constant('self::' . $constantName));
                 }
             }
-            if (!class_exists('\Application')) {
-                class_alias('\APP\core\Application', '\Application');
-            }
         }
 
         // Add application locales

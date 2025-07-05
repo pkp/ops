@@ -89,7 +89,3 @@ class NotificationManager extends PKPNotificationManager
         return parent::getMgrDelegate($notificationType, $assocType, $assocId);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\notification\NotificationManager', '\NotificationManager');
-}

@@ -55,7 +55,4 @@ class Publication extends PKPPublication
 
 if (!PKP_STRICT_MODE) {
     class_alias('\APP\publication\Publication', '\Publication');
-    foreach (['PUBLICATION_RELATION_NONE', 'PUBLICATION_RELATION_PUBLISHED'] as $constantName) {
-        define($constantName, constant('\Publication::' . $constantName));
-    }
 }

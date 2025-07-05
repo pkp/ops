@@ -94,7 +94,7 @@ class PreprintSearchTest extends PKPTestCase
         $searchResult = $preprintSearch->retrieveResults($request, $server, $keywords, $error);
 
         // Test whether the result from the mocked DAOs is being returned.
-        self::assertInstanceOf('ItemIterator', $searchResult);
+        self::assertInstanceOf('\PKP\core\ItemIterator', $searchResult);
         $firstResult = $searchResult->next();
         self::assertArrayHasKey('preprint', $firstResult);
         self::assertEquals(self::SUBMISSION_SEARCH_TEST_DEFAULT_PREPRINT, $firstResult['preprint']->getId());
@@ -145,7 +145,7 @@ class PreprintSearchTest extends PKPTestCase
             self::assertCount(1, array_filter($calledHooks, fn ($hook) => $hook[0] === 'SubmissionSearch::retrieveResults'));
 
             // Test whether the result from the hook is being returned.
-            self::assertInstanceOf('VirtualArrayIterator', $searchResult);
+            self::assertInstanceOf('\PKP\core\VirtualArrayIterator', $searchResult);
 
             // Test the total count.
             self::assertEquals(3, $searchResult->getCount());
