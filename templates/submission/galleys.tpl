@@ -7,5 +7,5 @@
  *
  * Template which adds the galleys grid to the submission wizard
  *}
-{capture assign=galleysGridUrl}{url router=$smarty.const.ROUTE_COMPONENT  component="grid.preprintGalleys.PreprintGalleyGridHandler" op="fetchGrid" submissionId=$submission->getId() publicationId=$submission->getCurrentPublication()->getId() escape=false}{/capture}
+{capture assign=galleysGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.preprintGalleys.PreprintGalleyGridHandler" op="fetchGrid" submissionId=$submission->getId() publicationId=$submission->getCurrentPublication()->getId() escape=false}{/capture}
 {load_url_in_div id="galleysGridUrl" url=$galleysGridUrl inVueEl=true}

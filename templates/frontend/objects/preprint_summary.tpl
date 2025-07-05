@@ -23,7 +23,7 @@
 	{assign var="heading" value="h2"}
 {/if}
 
-{if (!$section.hideAuthor && $preprint->getData('hideAuthor') == $smarty.const.AUTHOR_TOC_DEFAULT) || $preprint->getData('hideAuthor') == $smarty.const.AUTHOR_TOC_SHOW}
+{if (!$section.hideAuthor && $preprint->getData('hideAuthor') == \APP\submission\Submission::AUTHOR_TOC_DEFAULT) || $preprint->getData('hideAuthor') == \APP\submission\Submission::AUTHOR_TOC_SHOW}
 	{assign var="showAuthor" value=true}
 {/if}
 
