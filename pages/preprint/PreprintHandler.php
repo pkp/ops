@@ -271,6 +271,11 @@ class PreprintHandler extends Handler
             'parsedCitations' => $publication->getData('citations'),
         ]);
 
+        // Credit Role Terms
+        $templateMgr->assign([
+            'creditRoleTerms' => Repo::CreditRole()->getTerms(),
+        ]);
+
         // Assign deprecated values to the template manager for
         // compatibility with older themes
         $templateMgr->assign([
