@@ -68,12 +68,12 @@ describe('Data suite: Ckwantes', function() {
 		cy.contains('Begin Submission').click();
 
 		// The submission wizard has loaded
-		cy.contains('Make a Submission: Details');
+		cy.contains('Make a Submission: Upload Files');
 		cy.get('.submissionWizard__submissionDetails').contains('Kwantes');
 		cy.get('.submissionWizard__submissionDetails').contains(submission.title);
 		cy.contains('Submitting in English');
-		cy.get('.pkpSteps__step__label--current').contains('Details');
-		cy.get('.pkpSteps__step__label').contains('Upload Files');
+		cy.get('.pkpSteps__step__label--current').contains('Upload Files');
+		cy.get('.pkpSteps__step__label').contains('Details');
 		cy.get('.pkpSteps__step__label').contains('Contributors');
 		cy.get('.pkpSteps__step__label').contains('For Readers');
 		cy.get('.pkpSteps__step__label').contains('Review');
@@ -83,6 +83,14 @@ describe('Data suite: Ckwantes', function() {
 			.then(search => {
 				submission.id = parseInt(search.split('=')[1]);
 			});
+
+		// Upload files and set file genres
+		cy.contains('Make a Submission: Upload Files');
+		cy.get('h2').contains('Upload Files');
+		cy.get('h2').contains('Files');
+		cy.addSubmissionGalleys(submission.files);
+
+		cy.get('.submissionWizard__footer button').contains('Continue').click();
 
 		// Enter details
 		cy.get('h2').contains('Submission Details');
@@ -97,14 +105,6 @@ describe('Data suite: Ckwantes', function() {
 		cy.get('#titleAbstract-keywords-selected-en .pkpBadge:contains(\'survey\')');
 		cy.setTinyMceContent('titleAbstract-abstract-control-en', submission.abstract);
 		cy.get('#titleAbstract-title-control-en').click({force: true}); // Ensure blur event is fired
-
-		cy.get('.submissionWizard__footer button').contains('Continue').click();
-
-		// Upload files and set file genres
-		cy.contains('Make a Submission: Upload Files');
-		cy.get('h2').contains('Upload Files');
-		cy.get('h2').contains('Files');
-		cy.addSubmissionGalleys(submission.files);
 
 		cy.get('.submissionWizard__footer button').contains('Continue').click();
 
