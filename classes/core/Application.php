@@ -20,8 +20,6 @@
 namespace APP\core;
 
 use APP\facades\Repo;
-use APP\search\PreprintSearchDAO;
-use APP\search\PreprintSearchIndex;
 use APP\server\ServerDAO;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
@@ -99,7 +97,6 @@ class Application extends PKPApplication
     public function getDAOMap(): array
     {
         return array_merge(parent::getDAOMap(), [
-            'PreprintSearchDAO' => 'APP\search\PreprintSearchDAO',
             'ServerDAO' => 'APP\server\ServerDAO',
             'OAIDAO' => 'APP\oai\ops\OAIDAO',
             'TemporaryTotalsDAO' => 'APP\statistics\TemporaryTotalsDAO',
@@ -148,22 +145,6 @@ class Application extends PKPApplication
     public static function getRepresentationDAO(): RepresentationDAOInterface
     {
         return Repo::galley()->dao;
-    }
-
-    /**
-     * Get a SubmissionSearchIndex instance.
-     */
-    public static function getSubmissionSearchIndex(): PreprintSearchIndex
-    {
-        return new PreprintSearchIndex();
-    }
-
-    /**
-     * Get a SubmissionSearchDAO instance.
-     */
-    public static function getSubmissionSearchDAO(): PreprintSearchDAO
-    {
-        return DAORegistry::getDAO('PreprintSearchDAO');
     }
 
     /**
