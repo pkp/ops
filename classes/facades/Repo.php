@@ -21,6 +21,7 @@ use APP\publication\Repository as PublicationRepository;
 use APP\section\Repository as SectionRepository;
 use APP\submission\Repository as SubmissionRepository;
 use APP\submissionFile\Repository as SubmissionFileRepository;
+use APP\userComment\Repository as UserCommentRepository;
 use PKP\galley\Repository as GalleyRepository;
 use PKP\submission\reviewAssignment\Repository as ReviewAssignmentRepository;
 use PKP\user\Repository as UserRepository;
@@ -75,5 +76,10 @@ class Repo extends \PKP\facades\Repo
     public static function reviewAssignment(): ReviewAssignmentRepository
     {
         return app(ReviewAssignmentRepository::class);
+    }
+
+    public static function userComment(): UserCommentRepository
+    {
+        return app(UserCommentRepository::class);
     }
 }
