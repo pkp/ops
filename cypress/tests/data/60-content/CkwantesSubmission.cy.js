@@ -91,6 +91,7 @@ describe('Data suite: Ckwantes', function() {
 		cy.addSubmissionGalleys(submission.files);
 
 		cy.get('.submissionWizard__footer button').contains('Continue').click();
+		cy.wait(2000);
 
 		// Enter details
 		cy.get('h2').contains('Submission Details');
