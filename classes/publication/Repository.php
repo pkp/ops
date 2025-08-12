@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/publication/Repository.php
  *
@@ -16,11 +17,14 @@ namespace APP\publication;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\enums\VersionStage;
+use APP\server\Server;
+use APP\server\ServerDAO;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\App;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPString;
+use PKP\doi\exceptions\DoiException;
 use PKP\plugins\Hook;
 use PKP\publication\Collector;
 use PKP\security\Role;
@@ -246,9 +250,44 @@ class Repository extends \PKP\publication\Repository
     /**
      * Create all DOIs associated with the publication
      */
-    protected function createDois(Publication $newPublication): void
+    public function createDois(Publication $publication): array
     {
-        $submission = Repo::submission()->get($newPublication->getData('submissionId'));
-        Repo::submission()->createDois($submission);
+        $submission = Repo::submission()->get($publication->getData('submissionId'));
+
+        /** @var ServerDAO $contextDao */
+        $contextDao = Application::getContextDAO();
+        /** @var Server $context */
+        $context = $contextDao->getById($submission->getData('contextId'));
+
+        $doiCreationFailures = [];
+
+        if ($context->isDoiTypeEnabled(Repo::doi()::TYPE_PUBLICATION) && empty($publication->getData('doiId'))) {
+            try {
+                $doiId = Repo::doi()->mintPublicationDoi($publication, $submission, $context);
+                Repo::publication()->edit($publication, ['doiId' => $doiId]);
+            } catch (DoiException $exception) {
+                $doiCreationFailures[] = $exception;
+            }
+        }
+
+        // Preprint Galleys
+        if ($context->isDoiTypeEnabled(Repo::doi()::TYPE_REPRESENTATION)) {
+            $galleys = Repo::galley()->getCollector()
+                ->filterByPublicationIds(['publicationIds' => $publication->getId()])
+                ->getMany();
+
+            foreach ($galleys as $galley) {
+                if (empty($galley->getData('doiId'))) {
+                    try {
+                        $doiId = Repo::doi()->mintGalleyDoi($galley, $publication, $submission, $context);
+                        Repo::galley()->edit($galley, ['doiId' => $doiId]);
+                    } catch (DoiException $exception) {
+                        $doiCreationFailures[] = $exception;
+                    }
+                }
+            }
+        }
+
+        return $doiCreationFailures;
     }
 }
