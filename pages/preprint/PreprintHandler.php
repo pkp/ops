@@ -26,6 +26,7 @@ use APP\security\authorization\OpsServerMustPublishPolicy;
 use APP\template\TemplateManager;
 use Firebase\JWT\JWT;
 use PKP\config\Config;
+use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -202,6 +203,21 @@ class PreprintHandler extends Handler
             'rorIdIcon' => $rorIdIcon,
         ]);
         $this->setupTemplate($request);
+
+        $doiObject = $publication->getData('doiObject');
+        if (!$doiObject) {
+            if ($context->getData(Context::SETTING_DOI_VERSIONING)) {
+                // get DOI from a sibling minor version
+                $doiObject = Repo::publication()->getMinorVersionsDoi($publication);
+            } else {
+                if ($publication->getId() !== $preprint->getCurrentPublication()->getId()) {
+                    $doiObject = $preprint->getCurrentPublication()->getData('doiObject');
+                }
+            }
+        }
+        $templateMgr->assign([
+            'doiObject' => $doiObject,
+        ]);
 
         $publicationCategories = Repo::category()->getCollector()
             ->filterByPublicationIds([$publication->getId()])
