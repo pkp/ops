@@ -272,9 +272,7 @@ class Repository extends \PKP\publication\Repository
 
         // Preprint Galleys
         if ($context->isDoiTypeEnabled(Repo::doi()::TYPE_REPRESENTATION)) {
-            $galleys = Repo::galley()->getCollector()
-                ->filterByPublicationIds(['publicationIds' => $publication->getId()])
-                ->getMany();
+            $galleys = $publication->getData('galleys');
 
             foreach ($galleys as $galley) {
                 if (empty($galley->getData('doiId'))) {
