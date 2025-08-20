@@ -531,7 +531,7 @@ class PreprintGalleyGridHandler extends GridHandler
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId(Application::get()->getRequest()->getContext()->getId())->toArray();
+        $genres = $genreDao->getByContextId(Application::get()->getRequest()->getContext()->getId())->toAssociativeArray();
 
         return Repo::galley()
             ->getSchemaMap($this->getSubmission(), $this->getPublication(), $genres)
