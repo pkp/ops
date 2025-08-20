@@ -160,7 +160,7 @@ class SubmissionController extends \PKP\API\v1\submissions\PKPSubmissionControll
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($request->getContext()->getId())->toArray();
+        $genres = $genreDao->getByContextId($request->getContext()->getId())->toAssociativeArray();
 
         return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
