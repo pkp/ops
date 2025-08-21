@@ -94,6 +94,9 @@ msgstr "Please indicate if this preprint has been published or submitted for pub
 msgid "publication.relation.none"
 msgstr "This preprint has not been published elsewhere."
 
+msgid "publication.relation.unknown"
+msgstr "This preprint's relations have not been entered."
+
 msgid "publication.relation.published"
 msgstr "This preprint has been published elsewhere."
 

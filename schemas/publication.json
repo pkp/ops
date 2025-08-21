@@ -35,9 +35,9 @@
 			"type": "integer",
 			"description": "Whether this preprint is submitted or published in a journal.",
 			"apiSummary": true,
-			"default": 1,
+			"default": 0,
 			"validation": [
-				"in:1,2,3"
+				"in:0,1,2,3"
 			]
 		},
 		"vorDoi": {

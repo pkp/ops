@@ -27,6 +27,7 @@ class Publication extends PKPPublication
 {
     public const DEFAULT_VERSION_STAGE = VersionStage::AUTHOR_ORIGINAL;
 
+    public const PUBLICATION_RELATION_UNKNOWN = 0;
     public const PUBLICATION_RELATION_NONE = 1;
     public const PUBLICATION_RELATION_PUBLISHED = 3;
 

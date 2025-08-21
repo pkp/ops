@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/publication/RelationForm.php
  *
@@ -42,6 +43,10 @@ class RelationForm extends FormComponent
             'type' => 'radio',
             'value' => null,
             'options' => [
+                [
+                    'value' => Publication::PUBLICATION_RELATION_UNKNOWN,
+                    'label' => __('publication.relation.unknown')
+                ],
                 [
                     'value' => Publication::PUBLICATION_RELATION_NONE,
                     'label' => __('publication.relation.none')
