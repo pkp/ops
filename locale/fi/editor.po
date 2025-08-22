@@ -1,7 +1,7 @@
-# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023.
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-03 18:39+0000\n"
+"PO-Revision-Date: 2025-08-23 04:51+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/ops/editor/fi/>"
 "\n"
@@ -23,10 +23,10 @@ msgstr "Lisää julkaistava tiedosto"
 
 msgid "editor.submission.proof.manageProofFilesDescription"
 msgstr ""
-"Mitä tahansa tiedostoja, joita on ladattu käsikirjoituksen eri "
-"lähetysvaiheissa, voidaan lisätä oikolukulistalle rastittamalla Sisällytä-"
-"valintaruutu alla ja klikkaamalla Etsi: kaikki saatavilla olevat tiedostot "
-"näytetään ja voidaan valita lisättäväksi."
+"Mitä tahansa tiedostoja, joita on ladattu käsikirjoituksen eri työvaiheissa, "
+"voidaan lisätä oikolukulistalle rastittamalla Sisällytä-valintaruutu alla ja "
+"klikkaamalla Etsi: kaikki saatavilla olevat tiedostot näytetään ja voidaan "
+"valita lisättäväksi."
 
 msgid "editor.publicIdentificationExistsForTheSameType"
 msgstr ""
