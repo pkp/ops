@@ -35,7 +35,7 @@
                     {translate key="publication.relation.published"}
                 </template>
             </template>
-            <template v-elseif="publication.relationStatus == {\APP\publication\Publication::PUBLICATION_RELATION_UNKNOWN}">
+            <template v-else-if="publication.relationStatus == {\APP\publication\Publication::PUBLICATION_RELATION_UNKNOWN}">
                 {translate key="publication.relation.unknown"}
             </template>
             <template v-else>
