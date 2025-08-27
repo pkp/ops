@@ -66,7 +66,7 @@ class IndexHandler extends PKPIndexHandler
             'highlights' => $this->getHighlights($server),
         ]);
 
-        $this->_setupAnnouncements($journal ?? $request->getSite(), $templateMgr);
+        $this->_setupAnnouncements($server ?? $request->getSite(), $templateMgr);
         if ($server) {
             // OPS: sections
             $sections = Repo::section()->getCollector()->filterByContextIds([$server->getId()])->getMany();
