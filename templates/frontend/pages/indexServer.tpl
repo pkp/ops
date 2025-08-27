@@ -31,6 +31,8 @@
 		<img src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" alt="{$homepageImageAltText|escape}">
 	{/if}
 
+	{include file="frontend/objects/announcements_list.tpl" numAnnouncements=$numAnnouncementsHomepage}
+
 	{* Search and category listing *}
 	{include file="frontend/components/archiveHeader.tpl"}
 
@@ -54,8 +56,6 @@
 			{$currentContext->getLocalizedData('description')}
 		</section>
 	{/if}
-
-	{include file="frontend/objects/announcements_list.tpl" numAnnouncements=$numAnnouncementsHomepage}
 
 	{* Additional Homepage Content *}
 	{if $additionalHomeContent}
