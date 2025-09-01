@@ -25,7 +25,6 @@ use APP\observers\events\UsageEvent;
 use APP\security\authorization\OpsServerMustPublishPolicy;
 use APP\template\TemplateManager;
 use Firebase\JWT\JWT;
-use PKP\citation\CitationDAO;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
@@ -269,10 +268,8 @@ class PreprintHandler extends Handler
 
         // Citations
         if ($publication->getData('citationsRaw')) {
-            $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
-            $parsedCitations = $citationDao->getByPublicationId($publication->getId());
             $templateMgr->assign([
-                'parsedCitations' => $parsedCitations->toArray(),
+                'parsedCitations' => $publication->getData('citations'),
             ]);
         }
 
