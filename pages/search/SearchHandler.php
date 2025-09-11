@@ -75,6 +75,7 @@ class SearchHandler extends Handler
             ->whereIn('categoryIds', $request->getUserVar('categoryIds'))
             ->whereIn('sectionIds', $request->getUserVar('sectionIds'))
             ->whereIn('keywords', $request->getUserVar('keywords'))
+            ->whereIn('subjects', $request->getUserVar('subjects'))
             ->paginate($rangeInfo->getCount(), 'submissions', $rangeInfo->getPage());
 
         // Prepare and display the search template.
