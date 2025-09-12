@@ -357,27 +357,25 @@
 						{/if}
 					</div>
 				</section>
-				{if count($preprint->getPublishedPublications()) > 1}
-					<section class="sub_item versions">
-						<h2 class="label">
-							{translate key="submission.versions"}
-						</h2>
-						<ul class="value">
-							{foreach from=array_reverse($preprint->getPublishedPublications()) item=iPublication}
-								{capture assign="name"}{translate key="submission.versionIdentity" datePublished=$iPublication->getData('datePublished')|date_format:$dateFormatShort version=$iPublication->getData('versionString')}{/capture}
-								<li>
-									{if $iPublication->getId() === $publication->getId()}
-										{$name}
-									{elseif $iPublication->getId() === $currentPublication->getId()}
-										<a href="{url page="preprint" op="view" path=$preprint->getBestId()}">{$name}</a>
-									{else}
-										<a href="{url page="preprint" op="view" path=$preprint->getBestId()|to_array:"version":$iPublication->getId()}">{$name}</a>
-									{/if}
-								</li>
-							{/foreach}
-						</ul>
-					</section>
-				{/if}
+				<section class="sub_item versions">
+					<h2 class="label">
+						{translate key="submission.versions"}
+					</h2>
+					<ul class="value">
+						{foreach from=array_reverse($preprint->getPublishedPublications()) item=iPublication}
+							{capture assign="name"}{translate key="submission.versionIdentity" datePublished=$iPublication->getData('datePublished')|date_format:$dateFormatShort version=$iPublication->getData('versionString')}{/capture}
+							<li>
+								{if $iPublication->getId() === $publication->getId()}
+									{$name}
+								{elseif $iPublication->getId() === $currentPublication->getId()}
+									<a href="{url page="preprint" op="view" path=$preprint->getBestId()}">{$name}</a>
+								{else}
+									<a href="{url page="preprint" op="view" path=$preprint->getBestId()|to_array:"version":$iPublication->getId()}">{$name}</a>
+								{/if}
+							</li>
+						{/foreach}
+					</ul>
+				</section>
 			</div>
 			{/if}
 
