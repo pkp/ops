@@ -109,13 +109,13 @@ describe('Data suite: Cmontgomerie', function() {
 
 		// Create 2nd version and change copyright holder
 		cy.get(`[data-cy="active-modal"] nav a:contains('Create New Version')`).click();
-		cy.assignPublicationStage('AO', 'true');
+		cy.assignPublicationStage('AO', 'false');
 		// wait for the new publication data to appear on the side menu
 		cy.get('body').then($body =>
 			cy.get('span:contains("Unpublished")')
 		);
 
-		cy.openWorkflowMenu('Author Original 1.1', 'Permissions & Disclosure');
+		cy.openWorkflowMenu('Author Original 2.0', 'Permissions & Disclosure');
 		cy.get('input[id^="publicationLicense-copyrightHolder-control-en"').clear()
 		cy.get('input[id^="publicationLicense-copyrightHolder-control-en"').type('Craig Montgomerie', {delay: 0});
 		cy.get('button').contains('Save').click();
@@ -126,5 +126,6 @@ describe('Data suite: Cmontgomerie', function() {
 		cy.get('button').contains('Post').click();
 		cy.contains('All requirements have been met.');
 		cy.get('.pkpWorkflow__publishModal button').contains('Post').click();
+
 	});
 })
