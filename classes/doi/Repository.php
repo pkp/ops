@@ -150,6 +150,39 @@ class Repository extends \PKP\doi\Repository
     }
 
     /**
+     * Gets all DOI IDs related to a publication
+     *
+     * @return array<int> DOI IDs
+     */
+    public function getDoisForPublication(Publication $publication): array
+    {
+        $doiIds = Collection::make();
+
+        $submission = Repo::submission()->get($publication->getData('submissionId'));
+
+        /** @var ServerDAO $contextDao */
+        $contextDao = Application::getContextDAO();
+        /** @var Server */
+        $context = $contextDao->getById($submission->getData('contextId'));
+
+        $publicationDoiId = $publication->getData('doiId');
+        if (!empty($publicationDoiId) && $context->isDoiTypeEnabled(self::TYPE_PUBLICATION)) {
+            $doiIds->add($publicationDoiId);
+        }
+
+        // Galleys
+        $galleys = $publication->getData('galleys');
+        foreach ($galleys as $galley) {
+            $galleyDoiId = $galley->getData('doiId');
+            if (!empty($galleyDoiId) && $context->isDoiTypeEnabled(self::TYPE_REPRESENTATION)) {
+                $doiIds->add($galleyDoiId);
+            }
+        }
+
+        return $doiIds->unique()->toArray();
+    }
+
+    /**
      * Checks whether a DOI object is referenced by ID on any pub objects for a given pub object type.
      *
      * @param string $pubObjectType One of Repo::doi()::TYPE_* constants
