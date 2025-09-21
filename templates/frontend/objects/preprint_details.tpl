@@ -108,7 +108,7 @@
 	{* Crossref requirements: The landing page must be labeled as not formally published (e.g. “preprint”, “unpublished manuscript”). This label must appear above the scroll. *}
 	<span class="preprint_label">{translate key="common.publication"}</span>
 	<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
-	<span class="preprint_version">{translate key="publication.version" version=$publication->getData('version')}</span>
+	<span class="preprint_version">{translate key="submission.versionIdentity" datePublished=$publication->getData('datePublished')|date_format:$dateFormatShort version=$publication->getData('versionString')}</span>
 
 	<h1 class="page_title">
 		{$publication->getLocalizedTitle(null, 'html')|strip_unsafe_html}
