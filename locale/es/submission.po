@@ -1,8 +1,9 @@
 # "Luis M. Montilla" <lmontilla@crossref.org>, 2025.
+# Alex Mendonça <alex.mendonca@scielo.org>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-06 03:14+0000\n"
-"Last-Translator: \"Luis M. Montilla\" <lmontilla@crossref.org>\n"
+"PO-Revision-Date: 2025-09-24 17:51+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/submissions/"
 "es/>\n"
 "Language: es\n"
@@ -240,6 +241,8 @@ msgstr ""
 
 msgid "submission.submit.complete.canPost"
 msgstr ""
+"Gracias por enviar su preprint. Ahora puede <a href=\"{$workflowUrl}\""
+">postar su preprint</a> públicamente."
 
 msgid "submission.submit.complete.canNotPost"
 msgstr ""
