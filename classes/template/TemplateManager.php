@@ -24,6 +24,7 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPSessionGuard;
 use PKP\facades\Locale;
 use PKP\i18n\LocaleMetadata;
+use PKP\security\Role;
 use PKP\site\Site;
 use PKP\template\PKPTemplateManager;
 
@@ -114,5 +115,64 @@ class TemplateManager extends PKPTemplateManager
                 ]);
             }
         }
+    }
+
+    /**
+     * @copydoc PKPTemplateManager::setupBackendPage()
+     */
+    public function setupBackendPage()
+    {
+        parent::setupBackendPage();
+
+        $request = Application::get()->getRequest();
+        if (PKPSessionGuard::isSessionDisable() ||
+            !$request->getContext() ||
+            !$request->getUser()) {
+
+            return;
+        }
+
+        /** @var PageRouter */
+        $router = $request->getRouter();
+        $handler = $router->getHandler();
+        $userRoles = (array) $handler->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+        $userGroups = (array) $router->getHandler()->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP);
+        $hasSettingsAccess = array_reduce($userGroups, fn ($carry, $userGroup) => $carry || $userGroup->permitSettings, false);
+
+        $menu = (array) $this->getState('menu');
+
+        // Add content before statistics menu
+        if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
+            $contentSubmenu = [];
+
+            if ($hasSettingsAccess) {
+                $contentSubmenu['userComments'] = [
+                    'name' => __('manager.userComment.comments'),
+                    'url' => $router->url($request, null, 'management', 'settings', ['userComments']),
+                    'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('userComments', (array) $router->getRequestedArgs($request)),
+                ];
+            } else {
+                // If the user doesn't have access to settings, we can't show the content menu.
+                return;
+            }
+
+            $contentLink = [
+                'name' => __('navigation.content'),
+                'icon' => 'Content',
+                'submenu' => $contentSubmenu
+            ];
+
+            $index = false;
+            $index = array_search('statistics', array_keys($menu));
+            if ($index === false || count($menu) === $index) {
+                $menu['content'] = $contentLink;
+            } else {
+                $menu = array_slice($menu, 0, $index, true) +
+                    ['content' => $contentLink] +
+                    array_slice($menu, $index, null, true);
+            }
+        }
+
+        $this->setState(['menu' => $menu]);
     }
 }
