@@ -136,25 +136,23 @@ class TemplateManager extends PKPTemplateManager
         $router = $request->getRouter();
         $handler = $router->getHandler();
         $userRoles = (array) $handler->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        $userGroups = (array) $router->getHandler()->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP);
-        $hasSettingsAccess = array_reduce($userGroups, fn ($carry, $userGroup) => $carry || $userGroup->permitSettings, false);
 
         $menu = (array) $this->getState('menu');
 
         // Add content before statistics menu
         if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
-            $contentSubmenu = [];
-
-            if ($hasSettingsAccess) {
-                $contentSubmenu['userComments'] = [
-                    'name' => __('manager.userComment.comments'),
-                    'url' => $router->url($request, null, 'management', 'settings', ['userComments']),
-                    'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('userComments', (array) $router->getRequestedArgs($request)),
-                ];
-            } else {
-                // If the user doesn't have access to settings, we can't show the content menu.
+            // The only submenu item for Content menu in OPS is User Comments.
+            // If the public comments is disabled, we can't show the whole Content menu.
+            if (!$request->getContext()->getData('enablePublicComments')) {
                 return;
             }
+
+            $contentSubmenu = [];
+            $contentSubmenu['userComments'] = [
+                'name' => __('manager.userComment.comments'),
+                'url' => $router->url($request, null, 'management', 'settings', ['userComments']),
+                'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('userComments', (array) $router->getRequestedArgs($request)),
+            ];
 
             $contentLink = [
                 'name' => __('navigation.content'),
