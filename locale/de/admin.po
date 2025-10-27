@@ -1,8 +1,8 @@
 # Matina Curic <matina.curic@mikado-ac.info>, 2021.
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2023.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2023, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-05-01 21:49+0000\n"
+"PO-Revision-Date: 2025-10-28 10:06+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/admin/de/>\n"
 "Language: de\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.hostedContexts"
 msgstr "Gehostete Server"
@@ -144,6 +144,5 @@ msgstr ""
 "privat zu machen. Wenn Sie jedoch die öffentliche API deaktivieren, können "
 "die Server ihre eigene API nicht öffentlich machen."
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Website als Plattform für alle Zeitschriften verwenden."
+msgstr "Seite als Plattform für alle Server verwenden."
