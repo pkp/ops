@@ -55,10 +55,9 @@ describe('Data suite tests', function() {
 				'roles': ['Moderator']
 			}
 		];
+		cy.logout();
 		users.forEach(user => {
 			cy.createUserByInvitation(user);
 		});
-		cy.logout();
-
 	});
 })
