@@ -23,6 +23,7 @@ describe('Data suite tests', function() {
 		cy.get('label').contains('Stephanie Berardo').click();
 		cy.get('form[id=sectionForm]').contains('Save').click();
 
+		cy.logout();
 	});
 	it('Creates/configures categories', function() {
 		cy.login('admin', 'admin');
@@ -43,6 +44,6 @@ describe('Data suite tests', function() {
 		cy.get('select[id="parentId"],select[id="parentId"]').select('History');
 		cy.get('input[id^="path-"]').type('cultural-history', {delay: 0});
 		cy.get('form[id=categoryForm]').contains('OK').click();
-
+		cy.logout();
 	});
 })
