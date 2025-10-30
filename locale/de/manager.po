@@ -1,9 +1,9 @@
 # Matina Curic <matina.curic@mikado-ac.info>, 2021.
 # Barbara Bornewasser <bornewasser@mikado-ac.info>, 2021.
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2023.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2023, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-05-01 21:49+0000\n"
+"PO-Revision-Date: 2025-10-28 10:06+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/manager/de/>"
 "\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.distribution.access"
 msgstr "Zugang"
@@ -936,3 +936,8 @@ msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
 "Diese E-Mail benachrichtigt die Autor/innen, dass ihr Preprint zur "
 "Veröffentlichung angenommen wurde."
+
+msgid "manager.setup.contextSummary.description"
+msgstr ""
+"Bieten Sie eine kurze Beschreibung des Servers an, um Informationen zu den "
+"Inhalten und Zwecken zu teilen."
