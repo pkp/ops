@@ -49,6 +49,7 @@ describe('Crossref tests', function () {
 		cy.get(
 			'#doiSetup input[name="enabledDoiTypes"][value="representation"]'
 		).should('not.exist');
+		cy.logout();
 	});
 
 	it('Check Crossref Export', function() {
@@ -88,5 +89,6 @@ describe('Crossref tests', function () {
 		// Save
 		cy.get('#doisRegistration button').contains('Save').click();
 		cy.get('#doisRegistration [role="status"]').contains('Saved');
+		cy.logout();
 	});
 });
