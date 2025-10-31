@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file classes/submission/maps/Schema.php
  *
@@ -29,9 +28,9 @@ class Schema extends \PKP\submission\maps\Schema
     /**
      * @copydoc \PKP\submission\maps\Schema::mapByProperties()
      */
-    protected function mapByProperties(array $props, Submission $submission, Iterable $reviewRounds, Iterable $reviewers, bool|Collection $anonymizeReviews = false): array
+    protected function mapByProperties(array $props, Submission $submission, bool|Collection $anonymizeReviews = false): array
     {
-        $output = parent::mapByProperties($props, $submission, $reviewRounds, $reviewers, $anonymizeReviews);
+        $output = parent::mapByProperties($props, $submission, $anonymizeReviews);
         if (in_array('urlPublished', $props)) {
             $output['urlPublished'] = $this->request->getDispatcher()->url(
                 $this->request,
