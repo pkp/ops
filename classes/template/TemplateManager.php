@@ -142,32 +142,30 @@ class TemplateManager extends PKPTemplateManager
         // Add content before statistics menu
         if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
             // The only submenu item for Content menu in OPS is User Comments.
-            // If the public comments is disabled, we can't show the whole Content menu.
-            if (!$request->getContext()->getData('enablePublicComments')) {
-                return;
-            }
+            // If the public comments is disabled, we can't show the Content menu.
+            if ($request->getContext()->getData('enablePublicComments')) {
+                $contentSubmenu = [];
+                $contentSubmenu['userComments'] = [
+                    'name' => __('manager.userComment.comments'),
+                    'url' => $router->url($request, null, 'management', 'settings', ['userComments']),
+                    'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('userComments', (array) $router->getRequestedArgs($request)),
+                ];
 
-            $contentSubmenu = [];
-            $contentSubmenu['userComments'] = [
-                'name' => __('manager.userComment.comments'),
-                'url' => $router->url($request, null, 'management', 'settings', ['userComments']),
-                'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('userComments', (array) $router->getRequestedArgs($request)),
-            ];
+                $contentLink = [
+                    'name' => __('navigation.content'),
+                    'icon' => 'Content',
+                    'submenu' => $contentSubmenu
+                ];
 
-            $contentLink = [
-                'name' => __('navigation.content'),
-                'icon' => 'Content',
-                'submenu' => $contentSubmenu
-            ];
-
-            $index = false;
-            $index = array_search('statistics', array_keys($menu));
-            if ($index === false || count($menu) === $index) {
-                $menu['content'] = $contentLink;
-            } else {
-                $menu = array_slice($menu, 0, $index, true) +
-                    ['content' => $contentLink] +
-                    array_slice($menu, $index, null, true);
+                $index = false;
+                $index = array_search('statistics', array_keys($menu));
+                if ($index === false || count($menu) === $index) {
+                    $menu['content'] = $contentLink;
+                } else {
+                    $menu = array_slice($menu, 0, $index, true) +
+                        ['content' => $contentLink] +
+                        array_slice($menu, $index, null, true);
+                }
             }
         }
 
