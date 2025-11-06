@@ -20,9 +20,7 @@ use PKP\mail\variables\ContextEmailVariable as PKPContextEmailVariable;
 
 class ContextEmailVariable extends PKPContextEmailVariable
 {
-    public const CONTEXT_NAME = 'serverName';
-    public const CONTEXT_URL = 'serverUrl';
-    public const CONTEXT_SIGNATURE = 'serverSignature';
+    public const CONTEXT_ACRONYM = 'contextAcronym';
 
     /**
      * @copydoc Variable::values()
