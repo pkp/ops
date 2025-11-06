@@ -65,14 +65,6 @@
 					{html_select_date_a11y legend=$dateFromTo prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd}
 				</div>
 			</div>
-			<div class="author">
-				<label class="label" for="authors">
-					{translate key="search.author"}
-				</label>
-				{block name=searchAuthors}
-					<input type="text" id="authors" name="authors" value="{$authors|escape}">
-				{/block}
-			</div>
 			{call_hook name="Templates::Search::SearchResults::AdditionalFilters"}
 		</fieldset>
 
