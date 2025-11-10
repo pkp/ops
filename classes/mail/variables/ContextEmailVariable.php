@@ -20,8 +20,6 @@ use PKP\mail\variables\ContextEmailVariable as PKPContextEmailVariable;
 
 class ContextEmailVariable extends PKPContextEmailVariable
 {
-    public const CONTEXT_ACRONYM = 'contextAcronym';
-
     /**
      * @copydoc Variable::values()
      */
