@@ -29,7 +29,6 @@ use APP\services\StatsPublicationService;
 use APP\statistics\StatisticsHelper;
 use PKP\galley\Galley;
 use PKP\submission\PKPSubmission;
-use PKP\userGroup\UserGroup;
 
 class Submission extends PKPSubmission
 {
@@ -68,10 +67,7 @@ class Submission extends PKPSubmission
                         if (!$publication) {
                             $publication = $this->getCurrentPublication();
                         }
-                        $authorUserGroups = UserGroup::withRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])
-                            ->withContextIds([$context->getId()])
-                            ->get();
-                        $fieldValue = [$context->getPrimaryLocale() => $publication->getAuthorString($authorUserGroups)];
+                        $fieldValue = [$context->getPrimaryLocale() => $publication->getAuthorString()];
                         break;
                     case 'context':
                     case null:

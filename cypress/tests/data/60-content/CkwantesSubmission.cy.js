@@ -121,7 +121,8 @@ describe('Data suite: Ckwantes', function() {
 		cy.get('#contributor-country-error').contains('This field is required.');
 		cy.get('.pkpFormField:contains("Given Name")').find('input[name*="givenName-en"]').type(submission.authors[0].givenName);
 		cy.get('.pkpFormField:contains("Family Name")').find('input[name*="familyName-en"]').type(submission.authors[0].familyName);
-		cy.get('.pkpFormField:contains("Country")').find('select').select(submission.authors[0].country)
+		cy.get('.pkpFormField:contains("Country")').find('select').select(submission.authors[0].country);
+		cy.get(`input[name=contributorRoles][value="${Cypress.env('contributorRoleAuthor')}"]`).check();
 		cy.get('.pkpFormField:contains("Email")').find('input').type('notanemail');
 		cy.get('div[role=dialog]:contains("Add Contributor")').find('button').contains('Save').click();
 		cy.get('#contributor-email-error').contains('This is not a valid email address.');
@@ -134,16 +135,16 @@ describe('Data suite: Ckwantes', function() {
 		cy.get('button').contains('Save Order').click();
 		cy.get('button:contains("Preview")').click(); // Will only appear after order is saved
 		cy.get('div[role=dialog]:contains("List of Contributors")').find('tr:contains("Abbreviated")').contains('Kekkonen et al.');
-		cy.get('div[role=dialog]:contains("List of Contributors")').find('tr:contains("Publication Lists")').contains('Urho Kekkonen, Catherine Kwantes (Author)');
-		cy.get('div[role=dialog]:contains("List of Contributors")').find('tr:contains("Full")').contains('Urho Kekkonen, Catherine Kwantes (Author)');
+		cy.get('div[role=dialog]:contains("List of Contributors")').find('tr:contains("Publication Lists")').contains('Urho Kekkonen (Author); Catherine Kwantes (Author)');
+		cy.get('div[role=dialog]:contains("List of Contributors")').find('tr:contains("Full")').contains('Urho Kekkonen (Author); Catherine Kwantes (Author)');
 		cy.get('div[role=dialog]:contains("List of Contributors")').find('button:contains("Close")').click();
 		cy.get('.listPanel:contains("Contributors")').find('button').contains('Order').click();
 		cy.get('button:contains("Increase position of Catherine Kwantes")').click();
 		cy.get('.listPanel:contains("Contributors")').find('button').contains('Save Order').click();
 		cy.get('.listPanel:contains("Contributors") button:contains("Preview")').click(); // Will only appear after order is saved
 		cy.get('div[role=dialog]:contains("List of Contributors")').find('tr:contains("Abbreviated")').contains('Kwantes et al.');
-		cy.get('div[role=dialog]:contains("List of Contributors")').find('tr:contains("Publication Lists")').contains('Catherine Kwantes, Urho Kekkonen (Author)');
-		cy.get('div[role=dialog]:contains("List of Contributors")').find('tr:contains("Full")').contains('Catherine Kwantes, Urho Kekkonen (Author)');
+		cy.get('div[role=dialog]:contains("List of Contributors")').find('tr:contains("Publication Lists")').contains('Catherine Kwantes (Author); Urho Kekkonen (Author)');
+		cy.get('div[role=dialog]:contains("List of Contributors")').find('tr:contains("Full")').contains('Catherine Kwantes (Author); Urho Kekkonen (Author)');
 		cy.get('div[role=dialog]:contains("List of Contributors")').find('button:contains("Close")').click();
 
 		// Delete a contributor
@@ -151,6 +152,7 @@ describe('Data suite: Ckwantes', function() {
 		cy.get('.pkpFormField:contains("Given Name")').find('input[name*="givenName-en"]').type('Fake Author Name');
 		cy.get('.pkpFormField:contains("Email")').find('input').type('delete@mailinator.com');
 		cy.get('.pkpFormField:contains("Country")').find('select').select('Barbados');
+		cy.get(`input[name=contributorRoles][value="${Cypress.env('contributorRoleAuthor')}"]`).check();
 		cy.get('div[role=dialog]:contains("Add Contributor")').find('button').contains('Save').click();
 		cy.get('.listPanel__item:contains("Fake Author Name")').find('button').contains('Delete').click();
 		cy.get('div[role=dialog]:contains("Are you sure you want to remove Fake Author Name as a contributor?")').find('button').contains('Delete Contributor').click();

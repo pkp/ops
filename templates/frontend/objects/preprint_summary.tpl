@@ -8,7 +8,6 @@
  * @brief View of an Preprint summary which is shown within a list of preprints.
  *
  * @uses $preprint Preprint The preprint
- * @uses $authorUserGroups Traversible The set of author user groups
  * @uses $hasAccess bool Can this user access galleys for this context? The
  *       context is a preprint.
  * @uses $showDatePublished bool Show the date this preprint was published?
@@ -55,7 +54,7 @@
 
 		{if $showAuthor}
 		<div class="authors">
-			{$preprint->getCurrentPublication()->getAuthorString($authorUserGroups)|escape}
+			{$preprint->getCurrentPublication()->getAuthorString()|escape}
 		</div>
 		{/if}
 

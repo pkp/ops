@@ -16,7 +16,8 @@ module.exports = defineConfig({
       en: 'PKP',
     },
     defaultGenre: 'Preprint Text',
-    authorUserGroupId: 4,
+    contributorTypePerson: 'PERSON',
+    contributorRoleAuthor: 1,
     dataAvailabilityTest: {
       submission: {
         title: 'The influence of lactation on the quantity and quality of cashmere production',

@@ -25,6 +25,7 @@ describe('Data suite: Kalkhafaji', function() {
 			assignedAuthorNames: ['Karim Al-Khafaji'],
 			additionalAuthors: [
 				{
+					contributorType: Cypress.env('contributorTypePerson'),
 					givenName: {en: 'Margaret'},
 					familyName: {en: 'Morse'},
 					country: 'US',
@@ -34,7 +35,7 @@ describe('Data suite: Kalkhafaji', function() {
 						}
 					],
 					email: 'mmorse@mailinator.com',
-					userGroupId: Cypress.env('authorUserGroupId')
+					contributorRoles: [Cypress.env('contributorRoleAuthor')],
 				}
 			],
 			files: [
