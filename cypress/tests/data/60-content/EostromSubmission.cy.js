@@ -25,6 +25,7 @@ describe('Data suite: Eostrom', function() {
 			assignedAuthorNames: ['Elinor Ostrom'],
 			additionalAuthors: [
 				{
+					contributorType: Cypress.env('contributorTypePerson'),
 					givenName: {en: 'Frank'},
 					familyName: {en: 'van Laerhoven'},
 					country: 'US',
@@ -34,7 +35,7 @@ describe('Data suite: Eostrom', function() {
 						}
 					],
 					email: 'fvanlaerhoven@mailinator.com',
-					userGroupId: Cypress.env('authorUserGroupId')
+					contributorRoles: [Cypress.env('contributorRoleAuthor')],
 				}
 			],
 			files: [
