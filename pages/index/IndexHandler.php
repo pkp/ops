@@ -28,7 +28,6 @@ use PKP\db\DAORegistry;
 use PKP\pages\index\PKPIndexHandler;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Validation;
-use PKP\userGroup\UserGroup;
 
 class IndexHandler extends PKPIndexHandler
 {
@@ -96,9 +95,6 @@ class IndexHandler extends PKPIndexHandler
                 'categories' => iterator_to_array($categories),
                 'pubIdPlugins' => PluginRegistry::loadCategory('pubIds', true),
                 'publishedSubmissions' => $publishedSubmissions->toArray(),
-                'authorUserGroups' => UserGroup::withRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])
-                    ->withContextIds([$server->getId()])
-                    ->get(),
             ]);
 
             $templateMgr->registerClass(Server::class, Server::class);
