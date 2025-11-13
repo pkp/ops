@@ -19,13 +19,11 @@ namespace APP\publication\enums;
 enum VersionStage: string
 {
     case AUTHOR_ORIGINAL = 'AO';
-    case SUBMITTED_MANUSCRIPT = 'SM';
 
     public function labelKey(): string
     {
         return match ($this) {
             self::AUTHOR_ORIGINAL => 'publication.versionStage.authorOriginal',
-            self::SUBMITTED_MANUSCRIPT => 'publication.versionStage.submittedManuscript',
         };
     }
 
@@ -33,7 +31,6 @@ enum VersionStage: string
     {
         return match ($this) {
             self::AUTHOR_ORIGINAL => 1,
-            self::SUBMITTED_MANUSCRIPT => 2,
         };
     }
 
