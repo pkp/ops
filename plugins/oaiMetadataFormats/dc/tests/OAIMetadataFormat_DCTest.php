@@ -38,6 +38,7 @@ use Illuminate\Support\LazyCollection;
 use Mockery;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
+use PKP\controlledVocab\ControlledVocab;
 use PKP\controlledVocab\Repository as ControlledVocabRepository;
 use PKP\core\Dispatcher;
 use PKP\core\Registry;
@@ -96,6 +97,27 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
         ]);
         $author->setEmail('someone@example.com');
 
+        /** @var ControlledVocabRepository|MockObject */
+        $controlledVocabRepoMock = Mockery::mock(ControlledVocabRepository::class)
+            ->makePartial()
+            ->shouldReceive('getBySymbolic')
+            ->twice()
+            ->andReturn(
+                [
+                    'en' => [
+                        ['name' => 'preprint-keyword'],
+                    ]
+                ],
+                [
+                    'en' => [
+                        ['name' => 'preprint-subject'],
+                        ['name' => 'preprint-subject-class'],
+                    ]
+                ]
+            )
+            ->getMock();
+        app()->instance(ControlledVocabRepository::class, $controlledVocabRepoMock);
+
         /** @var Publication|MockObject */
         $publication = $this->getMockBuilder(Publication::class)
             ->onlyMethods([])
@@ -113,6 +135,24 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
         $publication->setData('copyrightYear', 'year');
         $publication->setData('datePublished', '2010-11-05');
         $publication->setData('authors', collect([$author]));
+        $publication->setData(
+            'keywords',
+            Repo::controlledVocab()->getBySymbolic(
+                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
+                0,
+                Application::ASSOC_TYPE_PUBLICATION
+            )['en'],
+            'en'
+        );
+        $publication->setData(
+            'subjects',
+            Repo::controlledVocab()->getBySymbolic(
+                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
+                0,
+                Application::ASSOC_TYPE_PUBLICATION
+            )['en'],
+            'en'
+        );
 
         // Preprint
         /** @var Submission|MockObject */
@@ -240,19 +280,6 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
             ->method('getMany')
             ->willReturn(LazyCollection::wrap($galleys));
         app()->instance(GalleyCollector::class, $mockGalleyCollector);
-
-        $controlledVocabRepoMock = Mockery::mock(ControlledVocabRepository::class)
-            ->makePartial()
-            ->shouldReceive('getBySymbolic')
-            ->twice()
-            ->withAnyArgs()
-            ->andReturn(
-                ['en' => ['preprint-keyword']],
-                ['en' => ['preprint-subject', 'preprint-subject-class']]
-            )
-            ->getMock();
-
-        app()->instance(ControlledVocabRepository::class, $controlledVocabRepoMock);
 
         //
         // Test
