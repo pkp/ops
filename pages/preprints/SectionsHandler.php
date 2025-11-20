@@ -26,7 +26,6 @@ use APP\submission\Collector;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\security\authorization\ContextRequiredPolicy;
-use PKP\userGroup\UserGroup;
 
 class SectionsHandler extends Handler
 {
@@ -116,9 +115,6 @@ class SectionsHandler extends Handler
             'total' => $total,
             'nextPage' => $nextPage,
             'prevPage' => $prevPage,
-            'authorUserGroups' => UserGroup::withRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])
-                ->withContextIds([$contextId])
-                ->get(),
         ]);
 
         $templateMgr->display('frontend/pages/sections.tpl');

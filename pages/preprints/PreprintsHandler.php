@@ -27,7 +27,6 @@ use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\ContextRequiredPolicy;
-use PKP\userGroup\UserGroup;
 
 class PreprintsHandler extends Handler
 {
@@ -89,9 +88,6 @@ class PreprintsHandler extends Handler
             'categories' => iterator_to_array($categories),
             'publishedSubmissions' => $publishedSubmissions,
             'pubIdPlugins' => PluginRegistry::loadCategory('pubIds', true),
-            'authorUserGroups' => UserGroup::withRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])
-                ->withContextIds([$context->getId()])
-                ->get(),
             'showingStart' => $showingStart,
             'showingEnd' => $showingEnd,
             'total' => $total,

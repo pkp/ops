@@ -38,6 +38,9 @@ use Illuminate\Support\LazyCollection;
 use Mockery;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
+use PKP\author\contributorRole\ContributorRole;
+use PKP\author\contributorRole\ContributorRoleIdentifier;
+use PKP\author\contributorRole\ContributorType;
 use PKP\controlledVocab\Repository as ControlledVocabRepository;
 use PKP\core\Dispatcher;
 use PKP\core\Registry;
@@ -95,6 +98,16 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
             ])
         ]);
         $author->setEmail('someone@example.com');
+        $author->setData('contributorType', ContributorType::PERSON->getName());
+        // Set author role and it to author object
+        $contributorRoleAuthor = new ContributorRole();
+        $contributorRoleAuthor->fill([
+            'contributor_role_id' => 1,
+            'context_id' => $journalId,
+            'contributor_role_identifier' => ContributorRoleIdentifier::AUTHOR->getName(),
+            'name' => ['en' => 'Author'],
+        ]);
+        $author->setContributorRoles([$contributorRoleAuthor]);
 
         /** @var Publication|MockObject */
         $publication = $this->getMockBuilder(Publication::class)
