@@ -24,7 +24,6 @@ switch ($op) {
     case 'index':
     case 'authorizationDenied':
     case 'toggleHelp':
-    case 'getInterests':
         return new APP\pages\user\UserHandler();
     default:
         return require_once('lib/pkp/pages/user/index.php');
