@@ -148,7 +148,3 @@ class Submission extends PKPSubmission
             ->value('metric');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\submission\Submission', '\Submission');
-}
