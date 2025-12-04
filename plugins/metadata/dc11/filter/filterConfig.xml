@@ -17,7 +17,7 @@
 			symbolic="preprint=>dc11"
 			displayName="plugins.metadata.dc11.preprintAdapter.displayName"
 			description="plugins.metadata.dc11.preprintAdapter.description"
-			inputType="class::classes.submission.Submission"
+			inputType="class::APP\submission\Submission"
 			outputType="metadata::APP\plugins\metadata\dc11\schema\Dc11Schema(PREPRINT)" />
 	</filterGroups>
 	<filters>
