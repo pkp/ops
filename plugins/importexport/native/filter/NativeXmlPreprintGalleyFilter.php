@@ -17,6 +17,7 @@
 namespace APP\plugins\importexport\native\filter;
 
 use APP\core\Application;
+use APP\submission\Submission;
 use APP\facades\Repo;
 use DOMElement;
 use PKP\galley\Galley;
@@ -58,7 +59,7 @@ class NativeXmlPreprintGalleyFilter extends \PKP\plugins\importexport\native\fil
         $deployment = $this->getDeployment();
         $context = $deployment->getContext();
         $submission = $deployment->getSubmission();
-        assert(is_a($submission, 'Submission'));
+        assert(is_a($submission, Submission::class));
 
         $submissionFileRefNodes = $node->getElementsByTagName('submission_file_ref');
         assert($submissionFileRefNodes->length <= 1);
