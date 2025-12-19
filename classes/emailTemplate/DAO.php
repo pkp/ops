@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/emailTemplate/DAO.php
  *
@@ -21,9 +22,10 @@ class DAO extends \PKP\emailTemplate\DAO
     protected function variablesToRename(): array
     {
         return [
-            'contextName' => 'serverName',
-            'contextUrl' => 'serverUrl',
-            'contextSignature' => 'serverSignature',
+            'serverName' => 'contextName',
+            'serverUrl' => 'contextUrl',
+            'serverSignature' => 'contextSignature',
+            'serverAcronym' => 'contextAcronym',
         ];
     }
 }
