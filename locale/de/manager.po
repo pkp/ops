@@ -3,7 +3,7 @@
 # Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2023, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-10-28 10:06+0000\n"
+"PO-Revision-Date: 2025-12-25 01:51+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/manager/de/>"
 "\n"
@@ -643,7 +643,7 @@ msgid "doi.manager.settings.galleysWithDescription"
 msgstr "Preprint-Fahnen, wie z.B. ein veröffentlichtes PDF"
 
 msgid "doi.manager.settings.enableRepresentationDoi"
-msgstr "Gesamtfahnen"
+msgstr "Preprint Fahnen"
 
 msgid "doi.manager.settings.publicationDoiAutoAssign"
 msgstr "Automatische Zuweisung"
