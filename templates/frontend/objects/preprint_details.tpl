@@ -468,6 +468,14 @@
 				</section>
 			{/if}
 
+			{* Funding Statement *}
+			{if $publication->getLocalizedData('fundingStatement')}
+				<section class="item fundingStatement">
+					<h2 class="label">{translate key="submission.fundingStatement"}</h2>
+					{$publication->getLocalizedData('fundingStatement')|strip_unsafe_html}
+				</section>
+			{/if}
+
 			{* PubIds (requires plugins) *}
 			{foreach from=$pubIdPlugins item=pubIdPlugin}
 				{if $pubIdPlugin->getPubIdType() == 'doi'}
