@@ -446,11 +446,6 @@ msgstr "Плагинот не е целосно поставен."
 msgid "plugins.importexport.common.settings.form.password"
 msgstr "Лозинка"
 
-msgid "plugins.importexport.common.settings.form.password.description"
-msgstr ""
-"Ве молиме имајте во предвид дека лозинката ќе биде зачувана како обичен "
-"текст, т.е. нема да биде шифрирана."
-
 msgid "plugins.importexport.common.status.any"
 msgstr "Било кој статус"
 

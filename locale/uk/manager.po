@@ -783,11 +783,6 @@ msgstr ""
 msgid "plugins.importexport.common.settings.form.password"
 msgstr "Пароль"
 
-msgid "plugins.importexport.common.settings.form.password.description"
-msgstr ""
-"Зверніть увагу, що пароль буде збережено як звичайний текст, тобто не "
-"зашифрований (це небезпечно!)."
-
 msgid "plugins.importexport.common.validation"
 msgstr "Перевірити XML перед експортом і реєстрацією."
 

@@ -448,11 +448,6 @@ msgstr "Das Plugin ist nicht vollständig eingerichtet."
 msgid "plugins.importexport.common.settings.form.password"
 msgstr "Passwort"
 
-msgid "plugins.importexport.common.settings.form.password.description"
-msgstr ""
-"Bitte beachten Sie, dass das Passwort im Klartext, d.h. unverschlüsselt, "
-"gespeichert wird."
-
 msgid "plugins.importexport.common.status.any"
 msgstr "Jeder Status"
 

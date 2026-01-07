@@ -440,11 +440,6 @@ msgstr "Плъгинът не е напълно настроен."
 msgid "plugins.importexport.common.settings.form.password"
 msgstr "Парола"
 
-msgid "plugins.importexport.common.settings.form.password.description"
-msgstr ""
-"Моля, обърнете внимание, че паролата ще бъде запазена като обикновен текст, "
-"т.е. не е криптирана."
-
 msgid "plugins.importexport.common.status.any"
 msgstr "Всеки статус"
 

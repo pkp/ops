@@ -441,11 +441,6 @@ msgstr ""
 msgid "plugins.importexport.common.settings.form.password"
 msgstr "Contraseña"
 
-msgid "plugins.importexport.common.settings.form.password.description"
-msgstr ""
-"Tome nota de que la contraseña se guardará como texto plano, es decir, no se "
-"cifrará."
-
 msgid "plugins.importexport.common.status.any"
 msgstr ""
 

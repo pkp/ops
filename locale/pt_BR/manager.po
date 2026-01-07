@@ -446,11 +446,6 @@ msgstr "O plugin não está totalmente configurado."
 msgid "plugins.importexport.common.settings.form.password"
 msgstr "Senha"
 
-msgid "plugins.importexport.common.settings.form.password.description"
-msgstr ""
-"Observe que a senha será salva como texto simples, ou seja, não "
-"criptografada."
-
 msgid "plugins.importexport.common.status.any"
 msgstr "Qualquer status"
 
