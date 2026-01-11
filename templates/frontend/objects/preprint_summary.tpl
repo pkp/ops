@@ -82,7 +82,7 @@
 		<div class="keywords">
 			<ul class="keyword_links">
 				{foreach name="keywords" from=$preprint->getCurrentPublication()->getLocalizedData('keywords') item="keyword"}
-					<li>{$keyword|escape}</li>
+					<li>{$keyword.name|escape}</li>
 				{/foreach}
 			</ul>
 		</div>
