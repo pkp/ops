@@ -26,7 +26,6 @@ use APP\facades\Repo;
 use APP\oai\ops\OAIDAO;
 use APP\plugins\PubIdPlugin;
 use APP\submission\Submission;
-use PKP\controlledVocab\ControlledVocab;
 use PKP\db\DAORegistry;
 use PKP\metadata\MetadataDataObjectAdapter;
 use PKP\metadata\MetadataDescription;
@@ -87,16 +86,20 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
 
         // Subject
         $subjects = array_merge_recursive(
-            Repo::controlledVocab()->getBySymbolic(
-                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
-                Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId()
-            ),
-            Repo::controlledVocab()->getBySymbolic(
-                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
-                Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId()
-            )
+            collect($publication->getData('keywords'))
+                ->map(
+                    fn (array $items): array => collect($items)
+                        ->pluck('name')
+                        ->all()
+                )
+                ->all(),
+            collect($publication->getData('subjects'))
+                ->map(
+                    fn (array $items): array => collect($items)
+                        ->pluck('name')
+                        ->all()
+                )
+                ->all()
         );
         $this->_addLocalizedElements($dc11Description, 'dc:subject', $subjects);
 
