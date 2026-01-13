@@ -8,14 +8,13 @@
  * @brief Display the page to view a category of the catalog.
  *
  * @uses $category Category Current category being viewed
- * @uses $publishedSubmissions array List of published submissions in this category
+ * @uses $results array List of published submissions in this category
  * @uses $parentCategory Category Parent category if one exists
  * @uses $subcategories array List of subcategories if they exist
  * @uses $prevPage int The previous page number
  * @uses $nextPage int The next page number
  * @uses $showingStart int The number of the first item on this page
  * @uses $showingEnd int The number of the last item on this page
- * @uses $total int Count of all published submissions in this category
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$category->getLocalizedTitle()|escape}
 
@@ -29,7 +28,7 @@
 
 	{* Count of preprints in this category *}
 	<div class="preprint_count">
-		{translate key="catalog.browseTitles" numTitles=$total}
+		{translate key="catalog.browseTitles" numTitles=$results->total()}
 	</div>
 
 	{* Image and description *}
@@ -68,34 +67,19 @@
 	</h2>
 
 	{* No published titles in this category *}
-	{if empty($publishedSubmissions)}
+	{if empty($results)}
 		<p>{translate key="catalog.category.noItems"}</p>
 	{else}
 		<ul class="cmp_preprint_list preprints">
-			{foreach from=$publishedSubmissions item=preprint}
+			{foreach from=$results item=result}
 				<li>
-					{include file="frontend/objects/preprint_summary.tpl" preprint=$preprint hideGalleys=true heading="h3"}
+					{include file="frontend/objects/preprint_summary.tpl" preprint=$result.submission hideGalleys=true heading="h3"}
 				</li>
 			{/foreach}
 		</ul>
 
-		{* Pagination *}
-		{if $prevPage > 1}
-			{capture assign=prevUrl}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="preprints" op="category" path=$category->getPath()|to_array:$prevPage}{/capture}
-		{elseif $prevPage === 1}
-			{capture assign=prevUrl}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="preprints" op="category" path=$category->getPath()}{/capture}
-		{/if}
-		{if $nextPage}
-			{capture assign=nextUrl}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="preprints" op="category" path=$category->getPath()|to_array:$nextPage}{/capture}
-		{/if}
-		{include
-			file="frontend/components/pagination.tpl"
-			prevUrl=$prevUrl
-			nextUrl=$nextUrl
-			showingStart=$showingStart
-			showingEnd=$showingEnd
-			total=$total
-		}
+		{page_info iterator=$results}
+		{page_links anchor="results" iterator=$results name="category" query=$query searchContext=$searchContext authors=$authors dateFromMonth=$dateFromMonth dateFromDay=$dateFromDay dateFromYear=$dateFromYear dateToMonth=$dateToMonth dateToDay=$dateToDay dateToYear=$dateToYear}
 	{/if}
 
 </div><!-- .page -->
