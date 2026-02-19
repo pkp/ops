@@ -22,7 +22,6 @@ use APP\server\Server;
 use APP\server\ServerDAO;
 use Illuminate\Support\Collection;
 use PKP\context\Context;
-use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\doi\exceptions\DoiException;
 use PKP\submission\DashboardView;
@@ -79,7 +78,7 @@ class Repository extends \PKP\submission\Repository
     }
 
     /** @copydoc \PKP\submission\Repo::updateStatus() */
-    public function updateStatus(Submission $submission, ?int $newStatus = null, ?Section $section = null)
+    public function updateStatus(Submission $submission, ?int $newStatus = null, ?Section $section = null): void
     {
         $oldStatus = $submission->getData('status');
         parent::updateStatus($submission, $newStatus);

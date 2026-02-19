@@ -23,7 +23,6 @@ use APP\submission\Submission;
 use Illuminate\Support\Facades\App;
 use PKP\context\Context;
 use PKP\core\Core;
-use PKP\core\PKPString;
 use PKP\doi\exceptions\DoiException;
 use PKP\plugins\Hook;
 use PKP\publication\Collector;
@@ -117,9 +116,9 @@ class Repository extends \PKP\publication\Repository
     }
 
     /** @copydoc \PKP\publication\Repository::version() */
-    public function version(Publication $publication, ?VersionStage $versionStage = null, bool $isMinorVersion = true): int
+    public function version(Publication $publication, ?VersionStage $versionStage = null, bool $isMinorVersion = true, ?int $submissionStatus = null): int
     {
-        $newId = parent::version($publication, $versionStage, $isMinorVersion);
+        $newId = parent::version($publication, $versionStage, $isMinorVersion, $submissionStatus);
 
         $context = Application::get()->getRequest()->getContext();
 
@@ -169,7 +168,7 @@ class Repository extends \PKP\publication\Repository
     }
 
     /** @copydoc \PKP\publication\Repository::delete() */
-    public function delete(Publication $publication)
+    public function delete(Publication $publication, false|int|null $submissionStatus = null): null
     {
         $galleys = Repo::galley()->getCollector()
             ->filterByPublicationIds([$publication->getId()])
@@ -179,8 +178,7 @@ class Repository extends \PKP\publication\Repository
             Repo::galley()->delete($galley);
         }
 
-
-        parent::delete($publication);
+        parent::delete($publication, $submissionStatus);
     }
 
     /**
