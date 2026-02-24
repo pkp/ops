@@ -191,6 +191,7 @@ msgstr "Jste si jistí, že nechcete, aby se toto naplánovalo ke zveřejnění?
 msgid "publication.version.details"
 msgstr "Podrobnosti verze {$version}"
 
+#, fuzzy
 msgid "submission.queries.production"
 msgstr "Diskuse"
 

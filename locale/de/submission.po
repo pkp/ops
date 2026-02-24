@@ -238,6 +238,7 @@ msgstr ""
 msgid "publication.version.details"
 msgstr "Details für Version {$version}"
 
+#, fuzzy
 msgid "submission.queries.production"
 msgstr "Diskussionen"
 
