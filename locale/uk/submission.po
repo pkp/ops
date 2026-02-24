@@ -150,6 +150,7 @@ msgstr "Прибрати з опублікованого"
 msgid "publication.version.details"
 msgstr "Деталі версії {$version}"
 
+#, fuzzy
 msgid "submission.queries.production"
 msgstr "Обговорення"
 

@@ -258,6 +258,7 @@ msgstr ""
 msgid "publication.version.details"
 msgstr "Подробности за версия {$version}"
 
+#, fuzzy
 msgid "submission.queries.production"
 msgstr "Дискусии"
 
