@@ -203,7 +203,7 @@ msgid "publication.version.details"
 msgstr "Details for version {$version}"
 
 msgid "submission.queries.production"
-msgstr "Discussions"
+msgstr "Production Tasks & Discussions"
 
 msgid "doi.submission.incorrectContext"
 msgstr "Could not create a DOI for the following submission: {$pubObjectTitle}. It does not exist in the current server context."
