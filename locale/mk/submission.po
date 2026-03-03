@@ -220,6 +220,7 @@ msgstr "Дали сте сигурни дека не сакате ова да б
 msgid "publication.version.details"
 msgstr "Детали за верзијата {$version}"
 
+#, fuzzy
 msgid "submission.queries.production"
 msgstr "Дискусии"
 
