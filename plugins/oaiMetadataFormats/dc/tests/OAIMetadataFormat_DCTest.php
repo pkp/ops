@@ -305,7 +305,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
         $record->setData('server', $server);
         $record->setData('section', $section);
 
-        // Instantiate the OAI meta-data format.
+        // Instantiate the OAI metadata format.
         $prefix = OAIMetadataFormatPlugin_DC::getMetadataPrefix();
         $schema = OAIMetadataFormatPlugin_DC::getSchema();
         $namespace = OAIMetadataFormatPlugin_DC::getNamespace();
