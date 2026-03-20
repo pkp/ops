@@ -50,6 +50,7 @@
 		<migration class="APP\migration\upgrade\v3_4_0\I7264_UpdateEmailTemplates"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I7014_DoiMigration"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I7265_EditorialDecisions"/>
+		<migration class="APP\migration\upgrade\v3_4_0\I7725_DecisionConstantsUpdate"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I5774_SetRelationVariables"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I7624_StrftimeDeprecation"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I7592_RemoveUnusedEmailTemplates"/>
@@ -123,6 +124,11 @@
 		<!-- Only new 3.4 installations need this fix -->
 		<migration class="PKP\migration\upgrade\v3_4_0\I8592_SiteNotificationSubscriptions"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I9822_ChangeUsageStatsTemporaryTablesIndexes"/>
+	</upgrade>
+
+	<upgrade minversion="3.4.0.0" maxversion="3.4.0.10">
+		<!-- Only existing 3.4 installations upgraded from pre-3.4 that need it -->
+		<migration class="APP\migration\upgrade\v3_4_0\I12140_MissingDecisionConstantsUpdate"/>
 	</upgrade>
 
 	<!-- update plugin configuration - should be done as the final upgrade task -->
