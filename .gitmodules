@@ -31,3 +31,7 @@
 [submodule "plugins/generic/webFeed"]
 	path = plugins/generic/webFeed
 	url = https://github.com/pkp/webFeed.git
+[submodule "plugins/generic/credit"]
+	path = plugins/generic/credit
+	url = https://github.com/pkp/credit
+	branch = stable-3_5_0
