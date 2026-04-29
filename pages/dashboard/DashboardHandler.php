@@ -21,6 +21,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\pages\dashboard\PKPDashboardHandler;
+use PKP\publication\enums\UpdateType;
 
 class DashboardHandler extends PKPDashboardHandler
 {
@@ -37,8 +38,18 @@ class DashboardHandler extends PKPDashboardHandler
 
         $relationForm = new \APP\components\forms\publication\RelationForm('emit');
 
+        $updateTypeOptions = [];
+        foreach (UpdateType::cases() as $updateType) {
+            $updateTypeOptions[] = [
+                'label' => $updateType->label(),
+                'value' => $updateType->value,
+            ];
+        }
+
         $pageInitConfig = $templateMgr->getState('pageInitConfig');
         $pageInitConfig['componentForms']['relationForm'] = $relationForm->getConfig();
+        $pageInitConfig['componentForms']['updateTypeOptions'] = $updateTypeOptions;
+        $pageInitConfig['componentForms']['defaultUpdateType'] = UpdateType::NEW_VERSION->value;
         $templateMgr->setState(['pageInitConfig' => $pageInitConfig]);
 
         $templateMgr->assign([
