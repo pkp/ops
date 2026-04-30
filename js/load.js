@@ -34,7 +34,7 @@ import StatsPublicationsPage from '@/components/Container/StatsPublicationsPage.
 import StatsContextPage from '@/components/Container/StatsContextPage.vue';
 import StatsUsersPage from '@/components/Container/StatsUsersPage.vue';
 import SubmissionWizardPage from '@/components/Container/SubmissionWizardPageOPS.vue';
-import SubmissionFileMetadataForm from '@/components/Container/SubmissionFileMetadataForm.vue';
+import FileMetadataForm from '@/managers/FileManager/modals/FileMetadataForm.vue';
 
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from '../lib/pkp/js/classes/VueRegistry.js';
@@ -60,6 +60,6 @@ window.pkp = Object.assign(PkpLoad, window.pkp || {}, {
 		StatsContextPage,
 		StatsUsersPage,
 		SubmissionWizardPage,
-		SubmissionFileMetadataForm,
+		FileMetadataForm,
 	},
 });
