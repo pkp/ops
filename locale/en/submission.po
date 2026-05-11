@@ -82,6 +82,9 @@ msgstr "The preprint entry details have been updated."
 msgid "publication.datePublished.description"
 msgstr "The posted date will be set automatically when the preprint is posted. Do not enter a posted date unless you need to backdate it."
 
+msgid "publication.section.description"
+msgstr "Choose the section where this preprint will appear."
+
 msgid "publication.relation"
 msgstr "Relations"
 
