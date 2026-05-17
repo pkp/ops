@@ -375,7 +375,8 @@ class PreprintHandler extends Handler
                 throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
             }
 
-            // If the file ID is not the galley's file ID, ensure it is a dependent file, or else 404.
+            // If the file ID is not the galley's file ID, ensure it is a dependent file
+            // of the galley file or a media file attached to the galley's publication, or else 404.
             if ($this->submissionFileId != $this->galley->getData('submissionFileId')) {
                 $dependentFileIds = Repo::submissionFile()
                     ->getCollector()
@@ -387,7 +388,17 @@ class PreprintHandler extends Handler
                     ->getIds()
                     ->toArray();
 
-                if (!in_array($this->submissionFileId, $dependentFileIds)) {
+                $mediaFileIds = Repo::submissionFile()
+                    ->getCollector()
+                    ->filterByAssoc(
+                        Application::ASSOC_TYPE_PUBLICATION,
+                        [$this->galley->getData('publicationId')]
+                    )
+                    ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_MEDIA])
+                    ->getIds()
+                    ->toArray();
+
+                if (!in_array($this->submissionFileId, [...$dependentFileIds, ...$mediaFileIds])) {
                     throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
                 }
             }
