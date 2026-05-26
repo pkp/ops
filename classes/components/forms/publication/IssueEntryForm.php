@@ -102,7 +102,7 @@ class IssueEntryForm extends FormComponent
                 'groupId' => self::GROUP_PLACEMENT,
                 'label' => __('submission.submit.placement.categories'),
                 'value' => (array) $publication->getData('categoryIds'),
-                'description' => $hasAllBreadcrumbs ? '' : __('submission.categories.circularReferenceWarning'),
+                'description' => __('publication.categories.description') . ($hasAllBreadcrumbs ? '' : ' ' . __('submission.categories.circularReferenceWarning')),
                 'options' => $categoryOptions,
                 'vocabularies' => [
                     [
@@ -143,6 +143,7 @@ class IssueEntryForm extends FormComponent
             ->addField(new FieldUploadImage('coverImage', [
                 'groupId' => self::GROUP_DISPLAY,
                 'label' => __('editor.preprint.coverImage'),
+                'description' => __('publication.coverImage.description'),
                 'value' => $publication->getData('coverImage'),
                 'isMultilingual' => true,
                 'baseUrl' => $baseUrl,
