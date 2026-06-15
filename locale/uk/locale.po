@@ -1,9 +1,10 @@
 # Sasz <skolomon@yahoo.com>, 2023.
 # Ivan <salarysalo@gmail.com>, 2025.
+# Petro Bilous <petrobilous@ukr.net>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-16 12:59+0000\n"
-"Last-Translator: Ivan <salarysalo@gmail.com>\n"
+"PO-Revision-Date: 2026-06-15 14:57+0000\n"
+"Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/ops/locale/uk/"
 ">\n"
 "Language: uk\n"
@@ -553,3 +554,6 @@ msgstr ""
 
 msgid "notification.type.submissionSubmitted"
 msgstr "Новий препринт, \"{$title}\", надано."
+
+msgid "article.pageTitle"
+msgstr "Вигляд {$title}"
