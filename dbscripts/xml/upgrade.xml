@@ -162,6 +162,7 @@
 	<upgrade minversion="3.5.0.0" maxversion="3.5.0.9">
 		<migration class="PKP\migration\upgrade\v3_5_0\I11603_AddMissingUserRoleAssignmentInvitationEmail"/>
 		<migration class="PKP\migration\upgrade\v3_5_0\I11800_AddUserRoleMastheadUpdateEmail"/>
+		<migration class="PKP\migration\upgrade\v3_5_0\I12608_RestoreActiveReviewerInvitations"/>
 	</upgrade>
 
 	<upgrade minversion="3.3.0.0" maxversion="3.5.9.9">
