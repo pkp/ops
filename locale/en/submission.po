@@ -151,6 +151,10 @@ msgstr "The copyright year will be set automatically based on the posted date."
 msgid "publication.datePublished"
 msgstr "Date Posted"
 
+msgid "publication.serverIdentity"
+msgstr "Server Identity"
+
+
 msgid "publication.editDisabled"
 msgstr "This version has been posted and can not be edited."
 
