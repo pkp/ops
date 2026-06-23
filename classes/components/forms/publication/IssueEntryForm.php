@@ -20,6 +20,7 @@ use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\server\Server;
 use PKP\components\forms\FieldAutosuggestPreset;
+use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FieldText;
@@ -36,6 +37,7 @@ class IssueEntryForm extends FormComponent
     public const GROUP_VERSION_AND_UPDATES = 'versionAndUpdates';
     public const GROUP_DISPLAY = 'display';
     public const GROUP_ACCESS = 'access';
+    public const GROUP_SERVER_IDENTITY = 'serverIdentity';
 
     public $id = self::FORM_ISSUE_ENTRY;
     public $method = 'PUT';
@@ -157,5 +159,35 @@ class IssueEntryForm extends FormComponent
                 'description' => __('publication.urlPath.description'),
                 'value' => $publication->getData('urlPath'),
             ]));
+
+        $this->addStampedIdentityField($publication, $publicationContext);
+    }
+
+    protected function addStampedIdentityField(Publication $publication, Server $server): void
+    {
+        $parts = [];
+
+        if ($publication->getData('contextName')) {
+            $parts[] = '<li><strong>' . htmlspecialchars(__('manager.setup.contextTitle')) . ':</strong> '
+                . htmlspecialchars($publication->getPrimaryContextName($server)) . '</li>';
+        }
+        if ($publisherLocation = $publication->getData('publisherLocation')) {
+            $parts[] = '<li><strong>' . htmlspecialchars(__('manager.setup.publisherLocation')) . ':</strong> '
+                . htmlspecialchars($publisherLocation) . '</li>';
+        }
+
+        if (empty($parts)) {
+            return;
+        }
+
+        $this->addGroup(
+            ['id' => self::GROUP_SERVER_IDENTITY, 'label' => __('publication.serverIdentity')]
+        );
+        $this->addField(new FieldHTML('serverIdentity', [
+            'groupId' => self::GROUP_SERVER_IDENTITY,
+            'label' => __('publication.serverIdentity'),
+            'description' => __('publication.identityAtPublication.description')
+                . '<ul>' . implode('', $parts) . '</ul>',
+        ]));
     }
 }
