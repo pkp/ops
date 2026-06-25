@@ -20,6 +20,15 @@ enum VersionStage: string
 {
     case AUTHOR_ORIGINAL = 'AO';
 
+    /**
+     * The version stage that, when published, marks a submission as final
+     * (i.e. eligible to move to the Done workflow stage).
+     */
+    public static function finalVersionStage(): self
+    {
+        return self::AUTHOR_ORIGINAL;
+    }
+
     public function labelKey(): string
     {
         return match ($this) {
