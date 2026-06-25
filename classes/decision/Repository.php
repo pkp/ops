@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/Repository.php
  *
@@ -17,6 +18,9 @@ use APP\decision\types\Decline;
 use APP\decision\types\RevertDecline;
 use Illuminate\Database\Eloquent\Collection;
 use PKP\decision\types\InitialDecline;
+use PKP\decision\types\MoveToDone;
+use PKP\decision\types\ReturnToDone;
+use PKP\decision\types\ReturnToWorkflow;
 use PKP\plugins\Hook;
 
 class Repository extends \PKP\decision\Repository
@@ -30,6 +34,9 @@ class Repository extends \PKP\decision\Repository
             $decisionTypes = new Collection([
                 new Decline(),
                 new RevertDecline(),
+                new MoveToDone(),
+                new ReturnToWorkflow(),
+                new ReturnToDone(),
             ]);
             Hook::call('Decision::types', [$decisionTypes]);
             $this->decisionTypes = $decisionTypes;

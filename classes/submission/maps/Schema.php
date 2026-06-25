@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/submission/maps/Schema.php
  *
@@ -14,14 +15,18 @@
 namespace APP\submission\maps;
 
 use APP\core\Application;
+use APP\decision\Decision;
 use APP\decision\types\Decline;
 use APP\decision\types\RevertDecline;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use PKP\decision\DecisionType;
+use PKP\decision\types\ReturnToDone;
+use PKP\decision\types\ReturnToWorkflow;
 use PKP\plugins\Hook;
 use PKP\security\Role;
+use PKP\stageAssignment\StageAssignment;
 
 class Schema extends \PKP\submission\maps\Schema
 {
@@ -73,8 +78,20 @@ class Schema extends \PKP\submission\maps\Schema
         $userHasAccessibleRoles = $user->hasRole([Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_ASSISTANT], $request->getContext()->getId());
         $permissions = $this->checkDecisionPermissions($stageId, $submission, $user, $request->getContext()->getId());
 
-        /** Only the production stage is supported in OPS.*/
-        if ($stageId !== WORKFLOW_STAGE_ID_PRODUCTION || !$userHasAccessibleRoles || !$isActiveStage || !$permissions['canMakeDecision']) {
+        // Done has no stage assignments, so checkDecisionPermissions returns false for canMakeDecision
+        // for assigned sub-editors. Grant decision access to any editor assigned to this submission.
+        if ($stageId === WORKFLOW_STAGE_ID_DONE && !$permissions['canMakeDecision']) {
+            $isAssignedEditor = StageAssignment::withSubmissionIds([$submission->getId()])
+                ->withUserId($user->getId())
+                ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
+                ->exists();
+            if ($isAssignedEditor) {
+                $permissions['canMakeDecision'] = true;
+            }
+        }
+
+        /** Only the production and done stages are supported in OPS.*/
+        if (!in_array($stageId, [WORKFLOW_STAGE_ID_PRODUCTION, WORKFLOW_STAGE_ID_DONE]) || !$userHasAccessibleRoles || !$isActiveStage || !$permissions['canMakeDecision']) {
             return [];
         }
 
@@ -91,6 +108,17 @@ class Schema extends \PKP\submission\maps\Schema
                 case Submission::STATUS_QUEUED:
                     $decisionTypes[] = new Decline();
                     break;
+            }
+
+            if ($stageId === WORKFLOW_STAGE_ID_DONE) {
+                $decisionTypes = [new ReturnToWorkflow()];
+            }
+        }
+
+        // Offer ReturnToDone in any active stage when the submission was previously in Done.
+        if ($stageId !== WORKFLOW_STAGE_ID_DONE && $submission->getData('stageId') === $stageId) {
+            if (Repo::decision()->hasDoneHistory($submission->getId())) {
+                $decisionTypes[] = new ReturnToDone();
             }
         }
 
