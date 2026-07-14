@@ -160,7 +160,7 @@
 		<note file="docs/release-notes/README-3.5.0" />
 	</upgrade>
 
-	<upgrade minversion="3.5.0.0" maxversion="3.5.0.9">
+	<upgrade minversion="3.5.0.0" maxversion="3.5.0.99">
 		<migration class="PKP\migration\upgrade\v3_5_0\I11603_AddMissingUserRoleAssignmentInvitationEmail"/>
 		<migration class="PKP\migration\upgrade\v3_5_0\I11800_AddUserRoleMastheadUpdateEmail"/>
 		<migration class="PKP\migration\upgrade\v3_5_0\I12608_RestoreActiveReviewerInvitations"/>
@@ -186,29 +186,30 @@
 		<migration class="PKP\migration\upgrade\v3_6_0\I11779_UseEmailTemplateKeyOnEditTaskTemplates"/>
 		<migration class="PKP\migration\upgrade\v3_6_0\I11701_Notes"/>
 		<migration class="PKP\migration\upgrade\v3_6_0\I11917_TaskTemplateDueDate"/>
-        <migration class="PKP\migration\upgrade\v3_6_0\I11913_AssociatePublicationsWithReviewRounds"/>
+		<migration class="PKP\migration\upgrade\v3_6_0\I11913_AssociatePublicationsWithReviewRounds"/>
 		<migration class="PKP\migration\upgrade\v3_6_0\I857_ContributorRolesTypes"/>
-        <migration class="PKP\migration\upgrade\v3_6_0\I12046_AssignMachineReadableRecommendationType"/>
+		<migration class="PKP\migration\upgrade\v3_6_0\I12046_AssignMachineReadableRecommendationType"/>
 		<migration class="PKP\migration\upgrade\v3_6_0\I12108_RestrictEditTemplatesToUserGroups"/>
-        <migration class="PKP\migration\upgrade\v3_6_0\I12078_RemoveSettingTypeInCitationSettings"/>
+		<migration class="PKP\migration\upgrade\v3_6_0\I12078_RemoveSettingTypeInCitationSettings"/>
 		<migration class="PKP\migration\upgrade\v3_6_0\I11971_RemoveShowTitleInUserGroups"/>
 		<migration class="PKP\migration\upgrade\v3_6_0\I11583_ClassNamespaceFromDotNotationClassPath"/>
 		<migration class="PKP\migration\upgrade\v3_5_0\I10962_UpdateEmailTemplateVariables"/>
 		<migration class="PKP\migration\upgrade\v3_6_0\I12074_EncryptCredentials"/>
 		<migration class="PKP\migration\upgrade\v3_6_0\I12204_ReviewAssignmentPublicVisibility"/>
 		<migration class="PKP\migration\upgrade\v3_6_0\I12048_ReviewRoundAuthorResponse"/>
-        <migration class="PKP\migration\upgrade\v3_6_0\I11332_AddPeerReviewDois" />
+		<migration class="PKP\migration\upgrade\v3_6_0\I11332_AddPeerReviewDois" />
 		<migration class="PKP\migration\upgrade\v3_6_0\I6278_DataCitations" />
 		<migration class="PKP\migration\upgrade\v3_6_0\I12307_ReviewRoundRequestAuthorResponseMail" />
-        <migration class="PKP\migration\upgrade\v3_6_0\I12251_SupportMediaFiles" />
-        <migration class="PKP\migration\upgrade\v3_6_0\I12772_UserCommentForeignKeys" />
+		<migration class="PKP\migration\upgrade\v3_6_0\I12251_SupportMediaFiles" />
+		<migration class="PKP\migration\upgrade\v3_6_0\I12772_UserCommentForeignKeys" />
 		<migration class="PKP\migration\upgrade\v3_6_0\I12584_AddPublicationUpdateType" />
-        <migration class="PKP\migration\upgrade\v3_6_0\I12800_ReviewPublicationAssociationNullable" />
-        <migration class="PKP\migration\upgrade\v3_6_0\I12799_MovePublishedSubmissionsToDone"/>
+		<migration class="PKP\migration\upgrade\v3_6_0\I12800_ReviewPublicationAssociationNullable" />
+		<migration class="PKP\migration\upgrade\v3_6_0\I12799_MovePublishedSubmissionsToDone"/>
 		<migration class="PKP\migration\upgrade\v3_5_0\I12133_FixCategorySort"/>
 		<migration class="PKP\migration\upgrade\v3_6_0\I12392_Funders" />
 		<migration class="PKP\migration\upgrade\v3_6_0\I11914_MigrateCreditRoles" />
 		<migration class="PKP\migration\upgrade\v3_6_0\I12841_CreateLogsDirectory" />
+		<migration class="PKP\migration\upgrade\v3_6_0\InstallEmailTemplates"/>
 		<code function="rebuildSearchIndex" />
 		<note file="docs/release-notes/README-3.6.0" />
 	</upgrade>
