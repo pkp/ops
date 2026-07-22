@@ -3,8 +3,8 @@
 /**
  * @file plugins/metadata/dc11/filter/Dc11SchemaPreprintAdapter.php
  *
- * Copyright (c) 2014-2022 Simon Fraser University
- * Copyright (c) 2000-2022 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Dc11SchemaPreprintAdapter
@@ -25,6 +25,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\oai\ops\OAIDAO;
 use APP\plugins\PubIdPlugin;
+use APP\server\Server;
 use APP\submission\Submission;
 use PKP\db\DAORegistry;
 use PKP\metadata\MetadataDataObjectAdapter;
@@ -77,11 +78,11 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         $dc11Description = $this->instantiateMetadataDescription();
 
         // Title
-        $this->_addLocalizedElements($dc11Description, 'dc:title', $publication->getFullTitles());
+        $this->addLocalizedElements($dc11Description, 'dc:title', $publication->getFullTitles());
 
         // Creator
         foreach ($publication->getData('authors') as $author) {
-            $this->_addLocalizedElements($dc11Description, 'dc:creator', $author->getFullNames(false, true));
+            $this->addLocalizedElements($dc11Description, 'dc:creator', $author->getFullNames(false, true));
         }
 
         // Subject
@@ -101,10 +102,10 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
                 )
                 ->all()
         );
-        $this->_addLocalizedElements($dc11Description, 'dc:subject', $subjects);
+        $this->addLocalizedElements($dc11Description, 'dc:subject', $subjects);
 
         // Description
-        $this->_addLocalizedElements($dc11Description, 'dc:description', $publication->getData('abstract'));
+        $this->addLocalizedElements($dc11Description, 'dc:description', $publication->getData('abstract'));
 
         // Publisher
         $publisherInstitution = $server->getData('publisherInstitution');
@@ -113,14 +114,14 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         } else {
             $publishers = $server->getName(null); // Default
         }
-        $this->_addLocalizedElements($dc11Description, 'dc:publisher', $publishers);
+        $this->addLocalizedElements($dc11Description, 'dc:publisher', $publishers);
 
         // Contributor
         $contributors = (array) $publication->getData('sponsor');
         foreach ($contributors as $locale => $contributor) {
             $contributors[$locale] = array_map(trim(...), explode(';', $contributor));
         }
-        $this->_addLocalizedElements($dc11Description, 'dc:contributor', $contributors);
+        $this->addLocalizedElements($dc11Description, 'dc:contributor', $contributors);
 
 
         // Date
@@ -145,7 +146,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
 
         // Identifier: URL
         $request = Application::get()->getRequest();
-        $includeUrls = $server->getSetting('publishingMode') != \APP\server\Server::PUBLISHING_MODE_NONE;
+        $includeUrls = $server->getSetting('publishingMode') != Server::PUBLISHING_MODE_NONE;
         $dc11Description->addStatement('dc:identifier', $request->getDispatcher()->url($request, Application::ROUTE_PAGE, $server->getPath(), 'preprint', 'view', [$submission->getBestId()], urlLocaleForPage: ''));
 
         // Language
@@ -181,8 +182,18 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
             }
         }
 
+        // Relation: the immediately preceding published version of this preprint
+        $versionRelation = Repo::publication()->getVersionRelation($publication, $submission, $server);
+        if ($versionRelation) {
+            if ($versionRelation->doiUrl) {
+                $dc11Description->addStatement('dc:relation', $versionRelation->doiUrl);
+            } elseif ($includeUrls) {
+                $dc11Description->addStatement('dc:relation', $request->getDispatcher()->url($request, Application::ROUTE_PAGE, $server->getPath(), 'preprint', 'view', [$submission->getBestId(), 'version', $versionRelation->publicationId], urlLocaleForPage: ''));
+            }
+        }
+
         // Coverage
-        $this->_addLocalizedElements($dc11Description, 'dc:coverage', (array) $publication->getData('coverage'));
+        $this->addLocalizedElements($dc11Description, 'dc:coverage', (array) $publication->getData('coverage'));
 
         // Rights: Add both copyright statement and license
         $copyrightHolder = $publication->getLocalizedData('copyrightHolder');
@@ -204,7 +215,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
      *
      * @param bool $translated
      */
-    public function getDataObjectMetadataFieldNames($translated = true)
+    public function getDataObjectMetadataFieldNames($translated = true): array
     {
         // All DC fields are mapped.
         return [];
@@ -216,12 +227,8 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
     //
     /**
      * Add an array of localized values to the given description.
-     *
-     * @param MetadataDescription $description
-     * @param string $propertyName
-     * @param array $localizedValues
      */
-    public function _addLocalizedElements(&$description, $propertyName, $localizedValues)
+    private function addLocalizedElements(MetadataDescription &$description, string $propertyName, array $localizedValues): void
     {
         foreach (stripAssocArray((array) $localizedValues) as $locale => $values) {
             if (is_scalar($values)) {
