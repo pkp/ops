@@ -3,8 +3,8 @@
 /**
  * @file classes/oai/ops/OAIDAO.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2003-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OAIDAO
@@ -21,9 +21,11 @@ namespace APP\oai\ops;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\server\ServerDAO;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
+use PKP\db\DAO;
 use PKP\db\DAORegistry;
-use PKP\galley\DAO;
+use PKP\galley\DAO as PKPGalleyDAO;
 use PKP\oai\OAISet;
 use PKP\oai\OAIUtils;
 use PKP\oai\PKPOAIDAO;
@@ -34,13 +36,10 @@ use PKP\tombstone\DataObjectTombstoneDAO;
 class OAIDAO extends PKPOAIDAO
 {
     // Helper DAOs
-    /** @var ServerDAO */
-    public $serverDao;
-    /** @var DAO */
-    public $galleyDao;
-
-    public $serverCache;
-    public $sectionCache;
+    public DAO|ServerDAO $serverDao;
+    public PKPGalleyDAO $galleyDao;
+    public array $serverCache;
+    public array $sectionCache;
 
     /**
      * Constructor.
@@ -57,22 +56,16 @@ class OAIDAO extends PKPOAIDAO
 
     /**
      * Cached function to get a server
-     *
-     * @return object
      */
-    public function getServer(int $serverId)
+    public function getServer(int $serverId): object
     {
         return $this->serverCache[$serverId] ??= $this->serverDao->getById($serverId);
     }
 
     /**
      * Cached function to get a server section
-     *
-     * @param int $sectionId
-     *
-     * @return object
      */
-    public function &getSection($sectionId)
+    public function &getSection(int $sectionId): object
     {
         if (!isset($this->sectionCache[$sectionId])) {
             $this->sectionCache[$sectionId] = Repo::section()->get($sectionId);
@@ -87,14 +80,11 @@ class OAIDAO extends PKPOAIDAO
     /**
      * Return hierarchy of OAI sets (servers plus server sections).
      *
-     * @param int $offset
-     * @param int $total
-     *
      * @return array OAISet
      *
      * @hook OAIDAO::getServerSets [[$this, $serverId, $offset, $limit, $total, &$sets]]
      */
-    public function &getServerSets(int $serverId, $offset, $limit, &$total)
+    public function &getServerSets(?int $serverId, int $offset, $limit, int &$total): array
     {
         if (isset($serverId)) {
             $servers = [$this->serverDao->getById($serverId)];
@@ -107,9 +97,9 @@ class OAIDAO extends PKPOAIDAO
         $sets = [];
         foreach ($servers as $server) {
             $title = $server->getLocalizedName();
-            array_push($sets, new OAISet(self::setSpec($server), $title, ''));
+            $sets[] = new OAISet(self::setSpec($server), $title, '');
 
-            /** @var DataObjectTombstoneDAO */
+            /** @var DataObjectTombstoneDAO $tombstoneDao */
             $tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO');
             $preprintTombstoneSets = $tombstoneDao->getSets(Application::ASSOC_TYPE_SERVER, $server->getId());
 
@@ -122,10 +112,10 @@ class OAIDAO extends PKPOAIDAO
                 if (array_key_exists($setSpec, $preprintTombstoneSets)) {
                     unset($preprintTombstoneSets[$setSpec]);
                 }
-                array_push($sets, new OAISet($setSpec, $section->getLocalizedTitle(), ''));
+                $sets[] = new OAISet($setSpec, $section->getLocalizedTitle(), '');
             }
             foreach ($preprintTombstoneSets as $preprintTombstoneSetSpec => $preprintTombstoneSetName) {
-                array_push($sets, new OAISet($preprintTombstoneSetSpec, $preprintTombstoneSetName, ''));
+                $sets[] = new OAISet($preprintTombstoneSetSpec, $preprintTombstoneSetName, '');
             }
         }
 
@@ -140,13 +130,9 @@ class OAIDAO extends PKPOAIDAO
     /**
      * Return the server ID and section ID corresponding to a server/section pairing.
      *
-     * @param string $serverSpec
-     * @param string $sectionSpec
-     * @param int $restrictServerId
-     *
      * @return int[] (int, int)
      */
-    public function getSetServerSectionId($serverSpec, $sectionSpec, $restrictServerId = null)
+    public function getSetServerSectionId(string $serverSpec, ?string $sectionSpec, ?int $restrictServerId = null): array
     {
         $server = $this->serverDao->getByPath($serverSpec);
         if (!isset($server) || (isset($restrictServerId) && $server->getId() != $restrictServerId)) {
@@ -190,7 +176,7 @@ class OAIDAO extends PKPOAIDAO
         $section = $this->getSection($row['section_id']);
         $preprintId = $row['submission_id'];
 
-        /** @var ServerOAI */
+        /** @var ServerOAI $oai */
         $oai = $this->oai;
         $record->identifier = $oai->preprintIdToIdentifier($preprintId);
         $record->sets = [self::setSpec($server, $section)];
@@ -211,12 +197,20 @@ class OAIDAO extends PKPOAIDAO
     }
 
     /**
-     * @copydoc PKPOAIDAO::_getRecordsRecordSetQuery
+     * @copydoc PKPOAIDAO::getRecordsRecordSetQuery
      *
-     * @param null|mixed $submissionId
+     * The $publicationId parameter is unused here; it is kept for signature
+     * compatibility with the base class per-version OAI record support.
      */
-    public function _getRecordsRecordSetQuery($setIds, $from, $until, $set, $submissionId = null, $orderBy = 'server_id, submission_id')
-    {
+    public function getRecordsRecordSetQuery(
+        array $setIds,
+        int|string|null $from,
+        int|string|null $until,
+        ?string $set,
+        ?int $submissionId = null,
+        string $orderBy = 'server_id, submission_id',
+        ?int $publicationId = null
+    ): Builder {
         $serverId = array_shift($setIds);
         $sectionId = array_shift($setIds);
 
