@@ -94,7 +94,7 @@ class OAIDAO extends PKPOAIDAO
      *
      * @hook OAIDAO::getServerSets [[$this, $serverId, $offset, $limit, $total, &$sets]]
      */
-    public function &getServerSets(int $serverId, $offset, $limit, &$total)
+    public function &getServerSets(?int $serverId, $offset, $limit, &$total)
     {
         if (isset($serverId)) {
             $servers = [$this->serverDao->getById($serverId)];
