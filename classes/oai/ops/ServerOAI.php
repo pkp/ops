@@ -3,8 +3,8 @@
 /**
  * @file classes/oai/ops/ServerOAI.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2003-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ServerOAI
@@ -22,8 +22,10 @@ namespace APP\oai\ops;
 
 use APP\core\Application;
 use APP\server\Server;
+use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\oai\OAI;
+use PKP\oai\OAIRecord;
 use PKP\oai\OAIRepository;
 use PKP\oai\OAIResumptionToken;
 use PKP\plugins\Hook;
@@ -32,16 +34,10 @@ use PKP\site\VersionDAO;
 
 class ServerOAI extends OAI
 {
-    /** @var Site associated site object */
-    public $site;
-
-    /** @var Server associated server object */
-    public $server;
-
+    public ?Site $site;
+    public ?Server $server;
     public ?int $serverId;
-
-    /** @var OAIDAO DAO for retrieving OAI records/tokens from database */
-    public $dao;
+    public DAO|OAIDAO $dao;
 
 
     /**
@@ -55,31 +51,22 @@ class ServerOAI extends OAI
         $this->site = $request->getSite();
         $this->server = $request->getServer();
         $this->serverId = isset($this->server) ? $this->server->getId() : null;
-        /** @var OAIDAO */
         $this->dao = DAORegistry::getDAO('OAIDAO');
         $this->dao->setOAI($this);
     }
 
     /**
      * Convert preprint ID to OAI identifier.
-     *
-     * @param int $preprintId
-     *
-     * @return string
      */
-    public function preprintIdToIdentifier($preprintId)
+    public function preprintIdToIdentifier(int $preprintId): string
     {
         return 'oai:' . $this->config->repositoryId . ':' . 'preprint/' . $preprintId;
     }
 
     /**
      * Convert OAI identifier to preprint ID.
-     *
-     * @param string $identifier
-     *
-     * @return int
      */
-    public function identifierToPreprintId($identifier)
+    public function identifierToPreprintId(string $identifier): false|int
     {
         $prefix = 'oai:' . $this->config->repositoryId . ':' . 'preprint/';
         if (strstr($identifier, $prefix)) {
@@ -92,13 +79,11 @@ class ServerOAI extends OAI
     /**
      * Get the server ID and section ID corresponding to a set specifier.
      *
-     * @param null|mixed $serverId
-     *
      * @return int[]
      */
-    public function setSpecToSectionId($setSpec, $serverId = null)
+    public function setSpecToSectionId($setSpec): array
     {
-        $tmpArray = preg_split('/:/', $setSpec);
+        $tmpArray = explode(':', $setSpec);
         if (count($tmpArray) == 1) {
             [$serverSpec] = $tmpArray;
             $sectionSpec = null;
@@ -118,7 +103,7 @@ class ServerOAI extends OAI
     /**
      * @copydoc OAI::repositoryInfo()
      */
-    public function repositoryInfo()
+    public function repositoryInfo(): OAIRepository
     {
         $info = new OAIRepository();
 
@@ -134,7 +119,7 @@ class ServerOAI extends OAI
         $info->earliestDatestamp = $this->dao->getEarliestDatestamp([$this->serverId]);
 
         $info->toolkitTitle = 'Open Preprint Systems';
-        /** @var VersionDAO */
+        /** @var VersionDAO $versionDao */
         $versionDao = DAORegistry::getDAO('VersionDAO');
         $currentVersion = $versionDao->getCurrentVersion();
         $info->toolkitVersion = $currentVersion->getVersionString();
@@ -146,7 +131,7 @@ class ServerOAI extends OAI
     /**
      * @copydoc OAI::validIdentifier()
      */
-    public function validIdentifier($identifier)
+    public function validIdentifier(string $identifier): bool
     {
         return $this->identifierToPreprintId($identifier) !== false;
     }
@@ -154,7 +139,7 @@ class ServerOAI extends OAI
     /**
      * @copydoc OAI::identifierExists()
      */
-    public function identifierExists($identifier)
+    public function identifierExists(string $identifier): bool
     {
         $recordExists = false;
         $preprintId = $this->identifierToPreprintId($identifier);
@@ -167,7 +152,7 @@ class ServerOAI extends OAI
     /**
      * @copydoc OAI::record()
      */
-    public function record($identifier)
+    public function record(string $identifier): OAIRecord|false
     {
         $preprintId = $this->identifierToPreprintId($identifier);
         if ($preprintId) {
@@ -184,8 +169,15 @@ class ServerOAI extends OAI
      *
      * @hook ServerOAI::records [[$this, $from, $until, $set, $offset, $limit, &$total, &$records]]
      */
-    public function records($metadataPrefix, $from, $until, $set, $offset, $limit, &$total)
-    {
+    public function records(
+        string $metadataPrefix,
+        ?int $from,
+        ?int $until,
+        ?string $set,
+        int $offset,
+        int $limit,
+        int &$total
+    ): ?array {
         $records = null;
         if (!Hook::call('ServerOAI::records', [$this, $from, $until, $set, $offset, $limit, &$total, &$records])) {
             $sectionId = null;
@@ -204,7 +196,7 @@ class ServerOAI extends OAI
      *
      * @hook ServerOAI::identifiers [[$this, $from, $until, $set, $offset, $limit, &$total, &$records]]
      */
-    public function identifiers($metadataPrefix, $from, $until, $set, $offset, $limit, &$total)
+    public function identifiers($metadataPrefix, $from, $until, $set, $offset, $limit, &$total): ?array
     {
         $records = null;
         if (!Hook::call('ServerOAI::identifiers', [$this, $from, $until, $set, $offset, $limit, &$total, &$records])) {
@@ -224,7 +216,7 @@ class ServerOAI extends OAI
      *
      * @hook ServerOAI::sets [[$this, $offset, $limit, &$total, &$sets]]
      */
-    public function sets($offset, $limit, &$total)
+    public function sets(int $offset, int $limit, int &$total): ?array
     {
         $sets = null;
         if (!Hook::call('ServerOAI::sets', [$this, $offset, $limit, &$total, &$sets])) {
@@ -236,7 +228,7 @@ class ServerOAI extends OAI
     /**
      * @copydoc OAI::resumptionToken()
      */
-    public function resumptionToken($tokenId)
+    public function resumptionToken(string $tokenId): false|OAIResumptionToken
     {
         $this->dao->clearTokens();
         $token = $this->dao->getToken($tokenId);
@@ -249,7 +241,7 @@ class ServerOAI extends OAI
     /**
      * @copydoc OAI::saveResumptionToken()
      */
-    public function saveResumptionToken($offset, $params)
+    public function saveResumptionToken(int $offset, array $params): OAIResumptionToken
     {
         $token = new OAIResumptionToken(null, $offset, $params, time() + $this->config->tokenLifetime);
         $this->dao->insertToken($token);

@@ -78,6 +78,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
         // Create test data.
         //
         $serverId = 1;
+        $sectionId = 1;
 
         // Publication
         /** @var Doi|MockObject */
@@ -104,7 +105,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
         $contributorRoleAuthor = new ContributorRole();
         $contributorRoleAuthor->fill([
             'contributor_role_id' => 1,
-            'context_id' => $journalId,
+            'context_id' => $serverId,
             'contributor_role_identifier' => ContributorRoleIdentifier::AUTHOR->getName(),
             'name' => ['en' => 'Author'],
         ]);
@@ -136,6 +137,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
             ->onlyMethods([])
             ->getMock();
         $publication->setData('id', 0);
+        $publication->setData('sectionId', $sectionId);
         $publication->setData('pages', 15);
         $publication->setData('type', 'art-type', 'en');
         $publication->setData('title', 'preprint-title-en', 'en');
@@ -229,6 +231,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
 
         // Section
         $section = new Section();
+        $section->setId($sectionId);
         $section->setIdentifyType('section-identify-type', 'en');
 
         //
