@@ -8,8 +8,16 @@
  *
  * The send-invitation wizard, "Invite user to take a role":
  *
- *   invite mode  /{ctx}/invitation/create/userRoleAssignment   3 steps
- *   edit mode    /{ctx}/invitation/edit/{id}                   2 steps (no search)
+ *   invite mode    /{ctx}/invitation/create/userRoleAssignment   3 steps
+ *   edit mode      /{ctx}/invitation/edit/{id}                   2 steps (no search)
+ *   edit-user mode /{ctx}/management/settings/user/{userId}      the page the
+ *                                                                users list's row
+ *                                                                "Edit" opens
+ *
+ * The third is where *Users management* (U53) meets this page: the row's "Edit"
+ * lands on the same details step, preloaded with the account, and its roles
+ * table is the only screen that drives U53's single-role operations (its Rule 8)
+ * — "Remove Role" per row, and the Server Masthead selector beside it.
  *
  * Both modes share every control, so the step-numbered headings are matched with
  * `STEP \d+` — in edit mode "Enter details" is step 1 and the composer step 2.
@@ -155,6 +163,51 @@ class InvitationWizardPage extends BasePage {
 	async send() {
 		await this.sendButton.click();
 		await this.sentDialog.waitFor();
+	}
+
+	//
+	// Edit-user mode — the page the Users & Roles row's "Edit" opens
+	//
+
+	/**
+	 * @param {string} contextPath
+	 * @param {number} userId
+	 */
+	static editUserUrl(contextPath, userId) {
+		return BasePage.contextUrl(
+			contextPath,
+			`/management/settings/user/${userId}`,
+		);
+	}
+
+	/**
+	 * A row of the roles table, by role label.
+	 *
+	 * @param {string} role e.g. "Moderator", "Reader"
+	 */
+	roleRow(role) {
+		return this.roleTable.locator('tbody tr').filter({hasText: role});
+	}
+
+	/** The confirmation "Remove Role" opens. */
+	get removeRoleDialog() {
+		return this.page
+			.locator('[role=dialog]')
+			.filter({hasText: 'Are you sure you want to remove this role?'});
+	}
+
+	/**
+	 * End ONE of the user's roles — U53 Rule 8a. It takes effect immediately, on
+	 * this page, before any invitation business is saved.
+	 *
+	 * @param {string} role
+	 */
+	async removeRole(role) {
+		await this.roleRow(role).getByRole('button', {name: 'Remove Role'}).click();
+		await this.removeRoleDialog
+			.getByRole('button', {name: 'Remove Role', exact: true})
+			.click();
+		await this.removeRoleDialog.waitFor({state: 'hidden'});
 	}
 }
 
