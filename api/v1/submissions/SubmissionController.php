@@ -192,7 +192,7 @@ class SubmissionController extends \PKP\API\v1\submissions\PKPSubmissionControll
             $publicationApiUrl,
             $locales,
             $publication,
-            $section->getData('wordCount'),
+            (int) $section->getData('wordCount'),
             !$section->getData('abstractsNotRequired')
         );
         return response()->json($this->getLocalizedForm($titleAbstract, $submissionLocale, $locales), Response::HTTP_OK);
