@@ -25,3 +25,5 @@ registry/uiLocaleKeysBackend.json
 # Playwright e2e harness (local, generated, or secret-bearing)
 /config.test.inc.php
 .env.playwright
+playwright/.auth/
+playwright/test-results/
