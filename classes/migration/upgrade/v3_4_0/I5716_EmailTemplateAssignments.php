@@ -16,7 +16,6 @@ namespace APP\migration\upgrade\v3_4_0;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use PKP\mail\mailables\DiscussionProduction;
 
 class I5716_EmailTemplateAssignments extends \PKP\migration\upgrade\v3_4_0\I5716_EmailTemplateAssignments
 {
@@ -44,7 +43,7 @@ class I5716_EmailTemplateAssignments extends \PKP\migration\upgrade\v3_4_0\I5716
     protected function getDiscussionTemplates(): Collection
     {
         return collect([
-            DiscussionProduction::getEmailTemplateKey(),
+            'DISCUSSION_NOTIFICATION_PRODUCTION',
         ]);
     }
 
