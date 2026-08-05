@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/mailable/Repository.php
  *
@@ -38,7 +39,6 @@ class Repository extends \PKP\mail\Repository
             \PKP\mail\mailables\DecisionInitialDeclineNotifyAuthor::class,
             \PKP\mail\mailables\DecisionNotifyOtherAuthors::class,
             \PKP\mail\mailables\DecisionRevertInitialDeclineNotifyAuthor::class,
-            \PKP\mail\mailables\DiscussionProduction::class,
             \PKP\mail\mailables\EditorAssigned::class,
             \PKP\mail\mailables\PasswordResetRequested::class,
             \PKP\mail\mailables\StatisticsReportNotify::class,
