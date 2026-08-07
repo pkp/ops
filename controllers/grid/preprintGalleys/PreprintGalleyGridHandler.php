@@ -497,7 +497,7 @@ class PreprintGalleyGridHandler extends GridHandler
             return true;
         }
 
-        if (Repo::submission()->canEditPublication($submission->getId(), $user->getId())) {
+        if (Repo::submission()->canEditPublication($submission, $user->getId())) {
             return true;
         }
 
