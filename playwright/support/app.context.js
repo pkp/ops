@@ -2,7 +2,7 @@
  * @file playwright/support/app.context.js
  *
  * OPS capability map + seeded-actor roster. Capability names are canonical in
- * lib/pkp/docs/product/APP-GLOSSARY.md §2 — verbatim.
+ * lib/pkp/docs/e2e/specs/GLOSSARY.md Part II §2 — verbatim.
  *
  * OPS has no review stage, no copyediting, no reviewer groups and no
  * editor/copyeditor/layout/proofreader accounts — those archetypes map to

@@ -2,7 +2,7 @@
  * @file playwright/pages/OrcidPages.js
  *
  * OPS-local Page Objects and helpers for the ORCID integration feature
- * (spec: lib/pkp/docs/product/specs/orcid-integration.md, read with the
+ * (spec: lib/pkp/docs/e2e/specs/U04-orcid-integration.md, read with the
  * application glossary: "journal" = preprint server, "Journal Manager" =
  * Preprint Server Manager).
  *
@@ -17,9 +17,9 @@
  *   straight on "Workflow: Production"), its Publication → Contributors
  *   panel and the contributor edit modal's "ORCID iD" field (FieldOrcid).
  *
- * Verbatim strings and DOM anchors were live-confirmed in the U4 probe
- * reports (lib/pkp/docs/product/.reports/u4-orcid/probe-group{A,B,C,D}.md,
- * 2026-08-07 — every OPS spot/control leg matched OJS exactly).
+ * Verbatim strings and DOM anchors were live-confirmed by the U04 probes
+ * (2026-08-07; every OPS spot/control leg matched OJS exactly). Retained
+ * evidence: lib/pkp/docs/e2e/specs/U04-orcid-integration.md footnotes.
  */
 const {expect} = require('@playwright/test');
 const {BasePage} = require('../../lib/pkp/playwright/pages/BasePage.js');

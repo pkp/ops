@@ -3,7 +3,7 @@
  * @file playwright/tests/user-invitations.spec.js
  *
  * U6 — User invitations, OPS suite. One test per canonical scenario of
- * lib/pkp/docs/product/specs/user-invitations.md (common scenarios 1–8 in OPS
+ * lib/pkp/docs/e2e/specs/U06-user-invitations.md (common scenarios 1–8 in OPS
  * vocabulary — preprint server, Moderators — plus the OPS-specific scenario 9,
  * register OPS1). Every mutating flow runs on its own scratch preprint server
  * seeded through the scenario endpoint with throwaway users; `publicknowledge`

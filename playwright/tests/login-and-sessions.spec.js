@@ -3,7 +3,7 @@
  * @file playwright/tests/login-and-sessions.spec.js
  *
  * U1 — Login & sessions, OPS suite. One test per canonical scenario of
- * lib/pkp/docs/product/specs/login-and-sessions.md, in OPS vocabulary
+ * lib/pkp/docs/e2e/specs/U01-login-and-sessions.md, in OPS vocabulary
  * (preprint server, Moderators; the reduced roster has no editor/reviewer/
  * copyeditor accounts). Scenario 6 is {OJS OMP} — its Create New Reviewer
  * path does not exist on a preprint server, so it costs one absence test

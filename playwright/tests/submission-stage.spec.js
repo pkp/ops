@@ -3,7 +3,7 @@
  * @file playwright/tests/submission-stage.spec.js
  *
  * U25 — Submission stage
- * (lib/pkp/docs/product/specs/submission-stage.md): the OPS ABSENCE suite.
+ * (lib/pkp/docs/e2e/specs/U25-submission-stage.md): the OPS ABSENCE suite.
  * OPS runs a single-stage workflow — Production only, register OPS1 — so no
  * preprint ever occupies a Submission stage and none of the spec's panels or
  * decision buttons render here. Per RUNBOOK multi-app rule 3 the feature

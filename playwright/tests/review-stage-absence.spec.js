@@ -3,7 +3,7 @@
  * @file playwright/tests/review-stage-absence.spec.js
  *
  * U26 — Review stage & rounds
- * (lib/pkp/docs/product/specs/review-stage-and-rounds.md): the OPS ABSENCE
+ * (lib/pkp/docs/e2e/specs/U26-review-stage-and-rounds.md): the OPS ABSENCE
  * test, spec scenario 14. OPS does not install a review stage — a preprint
  * server's workflow goes straight from submission to Production (spec footnote
  * p, an install fact) — so per RUNBOOK multi-app rule 3 the whole feature

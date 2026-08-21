@@ -3,7 +3,7 @@
  * @file playwright/tests/reviewer-assignment-absence.spec.js
  *
  * U27 — Reviewer assignment & management
- * (lib/pkp/docs/product/specs/reviewer-assignment-and-management.md): the OPS
+ * (lib/pkp/docs/e2e/specs/U27-reviewer-assignment-and-management.md): the OPS
  * ABSENCE test, spec scenario 15. OPS installs no review stage and no
  * reviewer role (spec footnote p, install facts) — no "Reviewers" panel
  * exists on any preprint workflow screen and Users & Roles offers no

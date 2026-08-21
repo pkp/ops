@@ -1,6 +1,6 @@
 ---
 name: ops-playwright-tests
-description: OPS Playwright e2e suite — entry point. Loads the shared harness docs (lib/pkp/docs/e2e/dev/) and carries the OPS-specific deltas. Use when writing or debugging Playwright specs, POMs, fixtures, or scenario seeds in OPS.
+description: OPS Playwright e2e suite — entry point. Loads the shared harness docs (lib/pkp/docs/e2e/process/) and carries the OPS-specific deltas. Use when writing or debugging Playwright specs, POMs, fixtures, or scenario seeds in OPS.
 ---
 
 # OPS Playwright Tests
@@ -9,15 +9,15 @@ Entry point for Playwright e2e work in OPS. The knowledge lives in the
 **shared docs inside the lib/pkp submodule** — read them on demand, they are
 the single home (OJS and OMP point at the same files):
 
-- `lib/pkp/docs/e2e/dev/harness.md` — layout, fleets, config contract, env
+- `lib/pkp/docs/e2e/process/harness.md` — layout, fleets, config contract, env
   vars, running the suite, quick start. **Start here.**
-- `lib/pkp/docs/e2e/dev/patterns.md` — locators, waits, parallel-load
+- `lib/pkp/docs/e2e/process/patterns.md` — locators, waits, parallel-load
   lessons, tag conventions, POMs, probe cookbook.
-- `lib/pkp/docs/e2e/dev/scenarios.md` — seeding API (live + recorded
+- `lib/pkp/docs/e2e/process/scenarios.md` — seeding API (live + recorded
   designs), decision quirks, Mailpit.
-- `lib/pkp/docs/e2e/dev/users.md` — role vocabularies, the 18-user roster,
+- `lib/pkp/docs/e2e/process/users.md` — role vocabularies, the 18-user roster,
   passwords, login internals.
-- `lib/pkp/docs/e2e/PRINCIPLES.md` — the test-authoring contract.
+- `lib/pkp/docs/e2e/process/PRINCIPLES.md` — the test-authoring contract.
 
 Skip this skill for Cypress work (legacy, out of scope) and general OPS
 development unrelated to testing.
@@ -26,7 +26,7 @@ development unrelated to testing.
 
 - **Fleet**: port 8200, DB `ops_test`, project name `ops`. Context is a
   *preprint server*; cross-app vocabulary in
-  `lib/pkp/docs/product/APP-GLOSSARY.md`.
+  `lib/pkp/docs/e2e/specs/GLOSSARY.md` Part II.
 - **Single stage**: Production only — there is NO review stage; the
   submission scenario REJECTS `reviewRounds`. Decisions: Post the preprint /
   Decline / Revert Decline.
