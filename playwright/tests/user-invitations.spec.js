@@ -29,7 +29,7 @@
  * - A1 (wizard address gate) and A2 (draft cleanup): open questions; A1's
  *   live outcomes live in the maintainer's private security file.
  * - Rule 2/4 expiry timing and the daily cleanup task: need a per-invitation
- *   expiry scenario key (PRINCIPLES design record 9), not a config edit.
+ *   expiry scenario key (PRINCIPLES D9), not a config edit.
  */
 const {test, expect} = require('../support/fixtures.js');
 const {LoginPage} = require('../../lib/pkp/playwright/pages/LoginPage.js');

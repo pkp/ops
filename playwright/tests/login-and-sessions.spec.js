@@ -16,7 +16,7 @@
  * - Scenario 9 / Rule 16 (Confirm Access): gated by `[security]
  *   password_timeout`, which is off in this fleet's config.test.inc.php.
  *   Editing the running config is global across workers and fleets
- *   (PRINCIPLES design record 9), so the gate stays uncovered rather than
+ *   (PRINCIPLES D9), so the gate stays uncovered rather than
  *   covered unsafely.
  * - Rule 5 / Rule 18 session lifetimes and teardowns (idle expiry,
  *   remember-me window, session_expire_on_close, session_check_ip, the
