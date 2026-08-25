@@ -1,13 +1,9 @@
----
-name: ops-playwright-tests
-description: OPS Playwright e2e suite — entry point. Loads the shared harness docs (lib/pkp/docs/e2e/process/) and carries the OPS-specific deltas. Use when writing or debugging Playwright specs, POMs, fixtures, or scenario seeds in OPS.
----
-
-# OPS Playwright Tests
+# OPS Playwright e2e — app entry point
 
 Entry point for Playwright e2e work in OPS. The knowledge lives in the
 **shared docs inside the lib/pkp submodule** — read them on demand, they are
-the single home (OJS and OMP point at the same files):
+the single home (OJS and OMP carry the same per-app entry point and point at
+the same files):
 
 - `lib/pkp/docs/e2e/process/harness.md` — layout, fleets, config contract, env
   vars, running the suite, quick start. **Start here.**
@@ -19,8 +15,8 @@ the single home (OJS and OMP point at the same files):
   passwords, login internals.
 - `lib/pkp/docs/e2e/process/PRINCIPLES.md` — the test-authoring contract.
 
-Skip this skill for Cypress work (legacy, out of scope) and general OPS
-development unrelated to testing.
+Out of scope here: Cypress work (legacy) and general OPS development
+unrelated to testing.
 
 ## OPS-specific facts
 
@@ -37,7 +33,8 @@ development unrelated to testing.
   `seed.actors` maps those archetypes to null (gate shared code on
   capabilities, never app names — PRINCIPLES M2).
 - **Scenario role keys**: only `manager`, `sectionEditor`, `author`,
-  `reader`, `editorialBoardMember` (dev/users.md).
+  `reader`, `editorialBoardMember`
+  (`lib/pkp/docs/e2e/process/users.md`).
 - Specs import `require('../support/fixtures.js')` for the app fixture,
   `require('../support/base-test.js')` in shared specs.
 
