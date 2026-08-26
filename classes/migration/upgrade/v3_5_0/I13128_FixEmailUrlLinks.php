@@ -22,8 +22,9 @@ class I13128_FixEmailUrlLinks extends \PKP\migration\upgrade\v3_5_0\I13128_FixEm
 
         $this->replace('POSTED_ACK', '{$submissionUrl}', '<a href="{$submissionUrl}">{$submissionUrl}</a>', 'href="{$submissionUrl}"');
 
-        // es kept a variable from the old template, which no longer exists
+        // es kept a variable which no longer exists
         $this->replace('USER_VALIDATE_CONTEXT', '{$enableUrl}', '<a href="{$activateUrl}">{$activateUrl}</a>', '', 'es');
+        $this->replace('USER_REGISTER', '{$подпис}', '{$signature}');
     }
 
     public function down(): void
