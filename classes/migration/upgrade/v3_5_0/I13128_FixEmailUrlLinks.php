@@ -9,7 +9,7 @@
  *
  * @class I13128_FixEmailUrlLinks
  *
- * @brief Adds the replacements that only occur in the OPS translations
+ * @brief Adds the replacements that only occur in the OPS translations.
  */
 
 namespace APP\migration\upgrade\v3_5_0;
@@ -24,6 +24,7 @@ class I13128_FixEmailUrlLinks extends \PKP\migration\upgrade\v3_5_0\I13128_FixEm
 
         // es kept a variable which no longer exists
         $this->replace('USER_VALIDATE_CONTEXT', '{$enableUrl}', '<a href="{$activateUrl}">{$activateUrl}</a>', '', 'es');
+        $this->replace('USER_REGISTER', '{$подпис}', '{$signature}');
     }
 
     public function down(): void
