@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/submission/DAO.php
  *
@@ -98,6 +99,14 @@ class DAO extends \PKP\submission\DAO
             ->select('s.*');
 
         $rows = $this->deprecatedDao->retrieveRange($q, [], $rangeInfo);
-        return new DAOResultFactory($rows, $this, 'fromRow', [], $q, [], $rangeInfo);
+        return new DAOResultFactory($rows, $this, 'fromRowDeprecated', [], $q, [], $rangeInfo);
+    }
+
+    /**
+     * DEPRECATED: Remove me once getExportable is refactored/removed
+     */
+    public function fromRowDeprecated($row): Submission
+    {
+        return $this->fromRow($row, [$row->submission_id], (object) []);
     }
 }

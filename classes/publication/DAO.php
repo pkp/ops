@@ -15,6 +15,8 @@
 namespace APP\publication;
 
 use APP\facades\Repo;
+use Illuminate\Support\LazyCollection;
+use PKP\core\interfaces\CollectorInterface;
 
 class DAO extends \PKP\publication\DAO
 {
@@ -41,13 +43,16 @@ class DAO extends \PKP\publication\DAO
     /**
      * @copydoc SchemaDAO::_fromRow()
      */
-    public function fromRow(object $primaryRow): Publication
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): Publication
     {
-        $publication = parent::fromRow($primaryRow);
+        $publication = parent::fromRow($row, $ids, $cache, $query);
 
-        $publication->setData('galleys', Repo::galley()->getCollector()
-            ->filterByPublicationIds([$publication->getId()])
-            ->getMany());
+        $publication->setData('galleys', LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->galleys ??= Repo::galley()->getCollector()->filterByPublicationIds($ids)->getMany()
+                ->collect()
+                ->groupBy(fn ($galley) => $galley->getData('publicationId'));
+            yield from $cache->galleys->get($row->publication_id) ?? [];
+        }));
 
         return $publication;
     }
