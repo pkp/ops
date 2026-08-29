@@ -55,6 +55,12 @@ msgstr ""
 msgid "submission.sectionOptions"
 msgstr "Section Options"
 
+msgid "submission.dashboard.view.withdrawn"
+msgstr "Cancelled"
+
+msgid "submissions.withdrawn"
+msgstr "Cancelled"
+
 msgid "catalog.browseTitles"
 msgstr "{$numTitles} Items"
 
@@ -181,8 +187,8 @@ msgstr "Post"
 msgid "publication.publish.requirements"
 msgstr "The following requirements must be met before this can be posted."
 
-msgid "publication.required.declined"
-msgstr "A declined submission can not be posted."
+msgid "publication.required.declinedOrWithdrawn"
+msgstr "A declined or cancelled submission can not be posted."
 
 msgid "submission.license.description"
 msgstr "The license will be set automatically to <a href='{$licenseUrl}' target='_blank'>{$licenseName}</a> when this is posted."
@@ -248,3 +254,42 @@ msgid "submission.copyright.description"
 msgstr ""
 "Please read and understand the copyright terms for submissions to this "
 "preprint server."
+
+msgid "editor.submission.decision.withdraw"
+msgstr "Cancel Preprint"
+
+msgid "editor.submission.decision.withdraw.description"
+msgstr "Cancel this preprint."
+
+msgid "editor.submission.decision.withdraw.log"
+msgstr "The preprint was cancelled."
+
+msgid "editor.submission.decision.withdraw.completed"
+msgstr "Preprint Cancelled"
+
+msgid "editor.submission.decision.withdraw.completed.description"
+msgstr "The preprint \"{$title}\" has been cancelled."
+
+msgid "editor.submission.decision.withdraw.errorPublished"
+msgstr "This preprint cannot be cancelled because it has already been posted."
+
+msgid "editor.submission.decision.withdraw.notifyAuthorsDescription"
+msgstr "Send an email to notify the author(s) that their preprint has been cancelled."
+
+msgid "editor.submission.decision.revertWithdraw"
+msgstr "Revert Cancellation"
+
+msgid "editor.submission.decision.revertWithdraw.description"
+msgstr "Return this preprint to the active queue."
+
+msgid "editor.submission.decision.revertWithdraw.log"
+msgstr "The cancellation of the preprint was reverted."
+
+msgid "editor.submission.decision.revertWithdraw.completed"
+msgstr "Cancellation Reverted"
+
+msgid "editor.submission.decision.revertWithdraw.completed.description"
+msgstr "The cancellation of \"{$title}\" has been reverted. The preprint has been returned to the active queue."
+
+msgid "editor.submission.decision.revertWithdraw.notifyAuthorsDescription"
+msgstr "Send an email to notify the author(s) that the cancellation of their preprint has been reverted."

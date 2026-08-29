@@ -187,9 +187,6 @@ msgstr "Објава"
 msgid "publication.publish.requirements"
 msgstr "Следниве барања мора да бидат исполнети пред ова да биде објавено."
 
-msgid "publication.required.declined"
-msgstr "Одбиениот поднесок не може да се објави."
-
 msgid "publication.required.reviewStage"
 msgstr ""
 "Поднесокот мора да биде во фаза на производство пред да може да се објави."

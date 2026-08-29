@@ -245,3 +245,37 @@ msgstr ""
 "preprint to {$contextName}. The new version is now <a href="
 "\"{$submissionPublishedUrl}\">available</a>.</p><p>If you have any "
 "questions, please contact me.</p>{$signature}"
+
+msgid "mailable.decision.withdraw.notifyAuthor.name"
+msgstr "Notify Author of Cancellation"
+
+msgid "mailable.decision.withdraw.notifyAuthor.description"
+msgstr "This email is sent to the author(s) when their preprint is cancelled."
+
+msgid "mailable.decision.revertWithdraw.notifyAuthor.name"
+msgstr "Notify Author of Cancellation Revert"
+
+msgid "mailable.decision.revertWithdraw.notifyAuthor.description"
+msgstr "This email is sent to the author(s) when a cancelled preprint is returned to the active queue."
+
+msgid "emails.editorDecisionWithdraw.subject"
+msgstr "Your preprint has been cancelled"
+
+msgid "emails.editorDecisionWithdraw.body"
+msgstr ""
+"<p>Dear {$recipientName},</p>"
+"<p>I am writing to inform you that your preprint, {$submissionTitle}, has been cancelled at {$contextName}.</p>"
+"<p>If you have any questions, please contact me from your <a href=\"{$authorSubmissionUrl}\">submission dashboard</a>.</p>"
+"<p>Kind regards,</p>"
+"{$signature}"
+
+msgid "emails.editorDecisionRevertWithdraw.subject"
+msgstr "Your preprint has been returned to the active queue"
+
+msgid "emails.editorDecisionRevertWithdraw.body"
+msgstr ""
+"<p>Dear {$recipientName},</p>"
+"<p>I am writing to inform you that the cancellation of your preprint, {$submissionTitle}, has been reverted. Your preprint has been returned to the active queue at {$contextName}.</p>"
+"<p>If you have any questions, please contact me from your <a href=\"{$authorSubmissionUrl}\">submission dashboard</a>.</p>"
+"<p>Kind regards,</p>"
+"{$signature}"
