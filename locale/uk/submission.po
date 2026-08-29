@@ -133,9 +133,6 @@ msgstr "Подання для цього препринту не знайден�
 msgid "publication.publish"
 msgstr "Опублікувати"
 
-msgid "publication.required.declined"
-msgstr "Відхилений матеріал не може бути опублікований."
-
 msgid "submission.license.description"
 msgstr ""
 "Ліцензію буде автоматично встановлено на <a href='{$licenseUrl}' "

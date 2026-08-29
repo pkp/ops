@@ -158,7 +158,8 @@ class Repository extends \PKP\submission\Repository
             DashboardView::TYPE_PRODUCTION,
             DashboardView::TYPE_SCHEDULED,
             DashboardView::TYPE_PUBLISHED,
-            DashboardView::TYPE_DECLINED
+            DashboardView::TYPE_DECLINED,
+            DashboardView::TYPE_WITHDRAWN
         ])->flip();
 
         return parent::mapDashboardViews($appTypes, $context, $user, $canAccessUnassignedSubmission, $selectedRoleIds);
