@@ -99,7 +99,7 @@ class IndexHandler extends PKPIndexHandler
 
             $templateMgr->registerClass(Server::class, Server::class);
             $templateMgr->display('frontend/pages/indexServer.tpl');
-            event(new UsageEvent(Application::ASSOC_TYPE_SERVER, $server));
+            event(new UsageEvent(assocType: Application::ASSOC_TYPE_SERVER, context: $server));
             return;
         } else {
             $serverDao = DAORegistry::getDAO('ServerDAO'); /** @var ServerDAO $serverDao */
