@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/submission/maps/Schema.php
  *
@@ -18,7 +19,6 @@ use APP\decision\types\Decline;
 use APP\decision\types\RevertDecline;
 use APP\facades\Repo;
 use APP\submission\Submission;
-use Illuminate\Support\Collection;
 use PKP\decision\DecisionType;
 use PKP\plugins\Hook;
 use PKP\security\Role;
@@ -28,9 +28,13 @@ class Schema extends \PKP\submission\maps\Schema
     /**
      * @copydoc \PKP\submission\maps\Schema::mapByProperties()
      */
-    protected function mapByProperties(array $props, Submission $submission, bool|Collection $anonymizeReviews = false): array
-    {
-        $output = parent::mapByProperties($props, $submission, $anonymizeReviews);
+    protected function mapByProperties(
+        array       $props,
+        Submission  $submission,
+        array       $reviewsToAnonymize = [],
+        array       $submissionsToAnonymizeByAuthor = []
+    ): array {
+        $output = parent::mapByProperties($props, $submission, $reviewsToAnonymize, $submissionsToAnonymizeByAuthor);
         if (in_array('urlPublished', $props)) {
             $output['urlPublished'] = $this->request->getDispatcher()->url(
                 $this->request,
