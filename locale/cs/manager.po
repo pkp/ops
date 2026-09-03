@@ -1,7 +1,7 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023, 2025.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-01 18:40+0000\n"
+"PO-Revision-Date: 2026-09-04 06:59+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/ops/manager/cs/>\n"
 "Language: cs\n"
@@ -154,7 +154,7 @@ msgid "manager.setup"
 msgstr "Nastavení serveru"
 
 msgid "manager.setup.useStyleSheet"
-msgstr "Styl serveru"
+msgstr "Stylopis serveru"
 
 msgid "manager.setup.announcementsIntroduction.description"
 msgstr ""
@@ -506,7 +506,7 @@ msgstr ""
 "Tento e-mail oznamuje autorovi, že jeho preprint byl přijat k publikaci."
 
 msgid "mailable.validateEmailContext.name"
-msgstr "Validace emailu (Registrace serveru)"
+msgstr "Validace e-mailu (Registrace serveru)"
 
 msgid "mailable.validateEmailContext.description"
 msgstr ""
