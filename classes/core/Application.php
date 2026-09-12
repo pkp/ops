@@ -152,7 +152,6 @@ class Application extends PKPApplication
         // Only one stage in OPS
         return [
             WORKFLOW_STAGE_ID_PRODUCTION,
-            WORKFLOW_STAGE_ID_DONE,
         ];
     }
 
