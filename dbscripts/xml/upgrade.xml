@@ -46,9 +46,9 @@
 		<migration class="APP\migration\upgrade\v3_4_0\I6759_RenameVariables" />
 		<migration class="APP\migration\upgrade\v3_4_0\I6807_SetLastModified" />
 		<migration class="APP\migration\upgrade\v3_4_0\I4235_OAISetSpec" />
+		<migration class="APP\migration\upgrade\v3_4_0\I7014_DoiMigration"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I6091_AddFilterNamespaces" />
 		<migration class="APP\migration\upgrade\v3_4_0\I7264_UpdateEmailTemplates"/>
-		<migration class="APP\migration\upgrade\v3_4_0\I7014_DoiMigration"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I7265_EditorialDecisions"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I7725_DecisionConstantsUpdate"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I5774_SetRelationVariables"/>
@@ -129,6 +129,7 @@
 	<upgrade minversion="3.4.0.0" maxversion="3.4.0.10">
 		<!-- Only existing 3.4 installations upgraded from pre-3.4 that need it -->
 		<migration class="APP\migration\upgrade\v3_4_0\I12140_MissingDecisionConstantsUpdate"/>
+        <migration class="APP\migration\upgrade\v3_4_0\I11759_RemoveDuplicateFilters"/>
 	</upgrade>
 
 	<!-- update plugin configuration - should be done as the final upgrade task -->
