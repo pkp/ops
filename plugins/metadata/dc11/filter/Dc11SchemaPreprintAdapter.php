@@ -108,12 +108,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         $this->addLocalizedElements($dc11Description, 'dc:description', $publication->getData('abstract'));
 
         // Publisher
-        $publisherInstitution = $server->getData('publisherInstitution');
-        if (!empty($publisherInstitution)) {
-            $publishers = [$server->getPrimaryLocale() => $publisherInstitution];
-        } else {
-            $publishers = $server->getName(null); // Default
-        }
+        $publishers = $publication->getData('contextName', null) ?: $server->getName(null);
         $this->addLocalizedElements($dc11Description, 'dc:publisher', $publishers);
 
         // Contributor

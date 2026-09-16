@@ -21,10 +21,13 @@ namespace APP\publication;
 use APP\core\Application;
 use APP\file\PublicFileManager;
 use APP\publication\enums\VersionStage;
+use PKP\publication\HasContextIdentityMetadata;
 use PKP\publication\PKPPublication;
 
 class Publication extends PKPPublication
 {
+    use HasContextIdentityMetadata;
+
     public const DEFAULT_VERSION_STAGE = VersionStage::AUTHOR_ORIGINAL;
 
     public const PUBLICATION_RELATION_UNKNOWN = 0;
