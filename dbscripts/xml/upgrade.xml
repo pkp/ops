@@ -36,9 +36,9 @@
 		<migration class="APP\migration\upgrade\v3_4_0\I6759_RenameVariables" />
 		<migration class="APP\migration\upgrade\v3_4_0\I6807_SetLastModified" />
 		<migration class="APP\migration\upgrade\v3_4_0\I4235_OAISetSpec" />
+		<migration class="APP\migration\upgrade\v3_4_0\I7014_DoiMigration"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I6091_AddFilterNamespaces" />
 		<migration class="APP\migration\upgrade\v3_4_0\I7264_UpdateEmailTemplates"/>
-		<migration class="APP\migration\upgrade\v3_4_0\I7014_DoiMigration"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I7265_EditorialDecisions"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I7725_DecisionConstantsUpdate"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I5774_SetRelationVariables"/>
@@ -158,6 +158,7 @@
 		<migration class="APP\migration\upgrade\v3_5_0\I11241_MissingDecisionConstantsUpdate"/>
 		<migration class="PKP\migration\upgrade\v3_5_0\I10962_UpdateEmailTemplateVariables"/>
 		<migration class="PKP\migration\upgrade\v3_5_0\I12133_FixCategorySort"/>
+        <migration class="APP\migration\upgrade\v3_4_0\I11759_RemoveDuplicateFilters"/>
 		<code function="downloadIPGeoDB" />
 		<note file="docs/release-notes/README-3.5.0" />
 	</upgrade>
@@ -171,6 +172,7 @@
 		<migration class="PKP\migration\upgrade\v3_5_0\I12133_FixCategorySort"/>
 		<migration class="PKP\migration\upgrade\v3_5_0\I12792_FixInvitationEmailButtons"/>
 		<migration class="APP\migration\upgrade\v3_5_0\I13128_FixEmailUrlLinks"/>
+        <migration class="APP\migration\upgrade\v3_4_0\I11759_RemoveDuplicateFilters"/>
 	</upgrade>
 
 	<!-- update plugin configuration - should be done as the final upgrade task -->
