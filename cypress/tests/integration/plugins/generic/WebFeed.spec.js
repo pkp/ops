@@ -11,7 +11,7 @@ describe('Web Feed plugin tests', () => {
 	const feedSize = 3;
 	it('The side bar and the feeds are displayed properly', () => {
 		cy.login('admin', 'admin', 'publicknowledge');
-		cy.visit('publicknowledge/management/settings/website#plugins');
+		cy.visit('/index.php/publicknowledge/management/settings/website#plugins');
 
 		// Access the settings and setup some options
 		cy.get('a[id^="component-grid-settings-plugins-settingsplugingrid-category-generic-row-webfeedplugin-settings-button-"]');
@@ -28,7 +28,7 @@ describe('Web Feed plugin tests', () => {
 
 
 		// Ensure plugin is enabled as a blockplugin
-		cy.visit('publicknowledge/management/settings/website#appearance');
+		cy.visit('/index.php/publicknowledge/management/settings/website#appearance');
 		cy.reload();
 		cy.get('#appearance #setup-button').click();
 		cy.get('input[value=WebFeedBlockPlugin]').check();
