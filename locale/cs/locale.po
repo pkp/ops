@@ -1,7 +1,7 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023, 2024, 2025.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-05-16 16:32+0000\n"
+"PO-Revision-Date: 2026-09-05 08:59+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/ops/locale/cs/>\n"
 "Language: cs\n"
@@ -218,7 +218,8 @@ msgid "about.privacyStatement"
 msgstr "Prohlášení o ochraně osobních údajů"
 
 msgid "about.aboutThisPublishingSystem"
-msgstr "Více informací o publikačním systému, platformě a workflow OPS/PKP."
+msgstr ""
+"Více informací o publikačním systému, platformě a redakčním procesu OPS/PKP."
 
 msgid "about.aboutThisPublishingSystem.altText"
 msgstr "Proces prověřování a zveřejňování OPS"

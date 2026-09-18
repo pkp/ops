@@ -1,9 +1,10 @@
 # Teodora Fildishevska <t.fildishevska@gmail.com>, 2021.
 # katerina spiroska <kspiroska07@gmail.com>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-16 19:17+0000\n"
-"Last-Translator: katerina spiroska <kspiroska07@gmail.com>\n"
+"PO-Revision-Date: 2026-09-05 08:59+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/emails/"
 "mk/>\n"
 "Language: mk\n"
@@ -11,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "emails.passwordResetConfirm.subject"
 msgstr "Потврда за ресетирање на лозинка"
@@ -96,7 +97,6 @@ msgstr ""
 msgid "emails.postedAck.subject"
 msgstr "Објавено признание од предпечаток"
 
-#, fuzzy
 msgid "emails.postedAck.body"
 msgstr ""
 "{$recipientName}: <br />\n"
@@ -104,7 +104,8 @@ msgstr ""
 "Вашиот препечаток, &quot;{$submissionTitle}&quot; е објавен на Интернет на "
 "{$contextName}. <br />\n"
 "<br />\n"
-"URL на препечатокот: <a href=\"{$submissionUrl}\">{$submissionUrl}</a><br />\n"
+"URL на препечатокот: <a href=\"{$submissionUrl}\">{$submissionUrl}</a><br />"
+"\n"
 "<br />\n"
 "Доколку имате било какви прашања, Ве молам да ме контактирате.<br />\n"
 "<br />\n"
@@ -113,9 +114,8 @@ msgstr ""
 msgid "emails.submissionAckCanPost.subject"
 msgstr "Потврда за поднесување"
 
-#, fuzzy
 msgid "emails.submissionAckNotAuthor.subject"
-msgstr "Потврда за поднесување"
+msgstr "Благодарност за поднесување"
 
 msgid "emails.submissionAckNotAuthor.body"
 msgstr ""
@@ -128,9 +128,8 @@ msgstr ""
 "предвид овој сервер како место за Вашата работа.</p><p>Топли "
 "поздрави,</p>{$contextSignature}"
 
-#, fuzzy
 msgid "emails.editorAssign.subject"
-msgstr "Доделување модератор"
+msgstr "Доделени сте како модератор на поднесување до {$contextName}"
 
 msgid "emails.editorAssign.body"
 msgstr ""
@@ -144,9 +143,8 @@ msgstr ""
 "исполнува сите барања.</p><p>Ви благодариме однапред.</p><p>Топли "
 "поздрави,</p>{$contextSignature}"
 
-#, fuzzy
 msgid "emails.editorDecisionAccept.subject"
-msgstr "Одлука на модераторот"
+msgstr "Вашето поднесување помина модерација на {$contextName}"
 
 msgid "emails.editorDecisionAccept.body"
 msgstr ""
