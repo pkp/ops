@@ -36,9 +36,9 @@
 		<migration class="APP\migration\upgrade\v3_4_0\I6759_RenameVariables" />
 		<migration class="APP\migration\upgrade\v3_4_0\I6807_SetLastModified" />
 		<migration class="APP\migration\upgrade\v3_4_0\I4235_OAISetSpec" />
+		<migration class="APP\migration\upgrade\v3_4_0\I7014_DoiMigration"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I6091_AddFilterNamespaces" />
 		<migration class="APP\migration\upgrade\v3_4_0\I7264_UpdateEmailTemplates"/>
-		<migration class="APP\migration\upgrade\v3_4_0\I7014_DoiMigration"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I7265_EditorialDecisions"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I7725_DecisionConstantsUpdate"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I5774_SetRelationVariables"/>
@@ -217,6 +217,7 @@
 		<migration class="PKP\migration\upgrade\v3_6_0\I12347_FixRevisionUploadLogData" />
 		<migration class="PKP\migration\upgrade\v3_6_0\I13109_PermitPublishedMetadataEdit" />
 		<migration class="PKP\migration\upgrade\v3_6_0\I13213_TaskTemplateForeignConstraint"/>
+        <migration class="APP\migration\upgrade\v3_4_0\I11759_RemoveDuplicateFilters"/>
 		<code function="rebuildSearchIndex" />
 		<note file="docs/release-notes/README-3.6.0" />
 	</upgrade>
