@@ -6,6 +6,7 @@
 
 .swiper {
     --swiper-theme-color: @bg-base;
+    --swiper-navigation-color: @a11y-text-light-on-shade;
     --swiper-navigation-size: @triple;
     --swiper-navigation-sides-offset: @half;
 }
@@ -35,10 +36,10 @@
 .swiper-button-next {
     background: transparent;
     border: none;
-    color: @lift;
+    color: var(--swiper-navigation-color);
 
     &:focus-visible {
-        outline: 2px solid @lift;
+        outline: 2px solid var(--swiper-navigation-color);
         outline-offset: @half;
     }
 }
