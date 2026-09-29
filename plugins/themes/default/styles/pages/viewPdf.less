@@ -27,7 +27,7 @@
 		height: @line-header;
 		line-height: @line-header;
 		background: @bg;
-		color: @primary;
+		color: @a11y-link;
 		text-align: center;
 
 		&:before {
@@ -132,7 +132,7 @@
 		top: @line-header;
 		width: 100%;
 		height: @line-header * 2;
-		background: @no;
+		background: @a11y-error;
 	}
 
 	.galley_view_notice_message {
@@ -141,12 +141,12 @@
 		left: 50%;
 		width: 100%;
 		transform: translate(-50%, -50%);
-		color: @text-bg-base;
+		color: @a11y-text-on-error;
 		font-weight: @bold;
 		text-align: center;
 
 		a {
-			color: @text-bg-base;
+			color: @a11y-text-on-error;
 			text-decoration: underline;
 		}
 	}
