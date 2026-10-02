@@ -11,7 +11,7 @@
 	<dc:subject xml:lang="en">preprint-subject</dc:subject>
 	<dc:subject xml:lang="en">preprint-subject-class</dc:subject>
 	<dc:description xml:lang="en">preprint-abstract</dc:description>
-	<dc:publisher xml:lang="en">server-publisher</dc:publisher>
+	<dc:publisher xml:lang="en">server-title-stamped</dc:publisher>
 	<dc:contributor xml:lang="en">preprint-sponsor</dc:contributor>
 	<dc:date>2010-11-05</dc:date>
 	<dc:type>info:eu-repo/semantics/preprint</dc:type>
