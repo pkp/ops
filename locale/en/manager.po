@@ -248,7 +248,7 @@ msgstr ""
 "statement."
 
 msgid "manager.setup.contextInitials"
-msgstr "Server initials"
+msgstr "Server Initials"
 
 msgid "manager.setup.selectCountry"
 msgstr ""
@@ -264,7 +264,7 @@ msgstr ""
 "servers."
 
 msgid "manager.setup.contextTitle"
-msgstr "Server title"
+msgstr "Server Title"
 
 msgid "manager.setup.lists"
 msgstr "Lists"

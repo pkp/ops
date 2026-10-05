@@ -149,6 +149,8 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
         $publication->setData('copyrightHolder', 'preprint-copyright');
         $publication->setData('copyrightYear', 'year');
         $publication->setData('datePublished', '2010-11-05');
+        // Stamped at publication; differs from the current server name, which dc:publisher must not use
+        $publication->setData('contextName', ['en' => 'server-title-stamped']);
         $publication->setData('authors', collect([$author]));
         $publication->setData(
             'keywords',
@@ -220,7 +222,6 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
             ->with('publishingMode')
             ->willReturn(Server::PUBLISHING_MODE_OPEN);
         $server->setName('server-title', 'en');
-        $server->setData('publisherInstitution', 'server-publisher');
         $server->setData('supportedFormLocales', []);
         $server->setPrimaryLocale('en');
         $server->setPath('server-path');
