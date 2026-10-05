@@ -105,7 +105,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         $this->addLocalizedElements($dc11Description, 'dc:subject', $subjects);
 
         // Description
-        $this->addLocalizedElements($dc11Description, 'dc:description', $publication->getData('abstract'));
+        $this->addLocalizedElements($dc11Description, 'dc:description', (array) $publication->getData('abstract'));
 
         // Publisher
         $publishers = $publication->getData('contextName', null) ?: $server->getName(null);
@@ -223,7 +223,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
     /**
      * Add an array of localized values to the given description.
      */
-    private function addLocalizedElements(MetadataDescription &$description, string $propertyName, array $localizedValues): void
+    private function addLocalizedElements(MetadataDescription &$description, string $propertyName, ?array $localizedValues): void
     {
         foreach (stripAssocArray((array) $localizedValues) as $locale => $values) {
             if (is_scalar($values)) {
