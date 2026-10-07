@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\App;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\doi\exceptions\DoiException;
+use PKP\observers\events\PublicationVersioned;
 use PKP\plugins\Hook;
 use PKP\publication\Collector;
 use PKP\security\Role;
@@ -129,12 +130,14 @@ class Repository extends \PKP\publication\Repository
                 $newGalley = clone $galley;
                 $newGalley->setData('id', null);
                 $newGalley->setData('publicationId', $newId);
-                if ($isDoiVersioningEnabled) {
+                if ($isDoiVersioningEnabled && !$isMinorVersion) {
                     $newGalley->setData('doiId', null);
                 }
                 Repo::galley()->add($newGalley);
             }
         }
+
+        event(new PublicationVersioned($this->get($newId), $publication, Repo::submission()->get($publication->getData('submissionId')), $context));
 
         return $newId;
     }
