@@ -15,6 +15,8 @@
 namespace APP\publication;
 
 use APP\facades\Repo;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\interfaces\CollectorInterface;
 
@@ -55,5 +57,19 @@ class DAO extends \PKP\publication\DAO
         }));
 
         return $publication;
+    }
+
+    /**
+     * @copydoc \PKP\publication\DAO::whereHasDoi()
+     */
+    protected function whereHasDoi(Builder $q): Builder
+    {
+        return parent::whereHasDoi($q)
+            ->orWhereExists(
+                fn (Builder $q) => $q->select(DB::raw(1))
+                    ->from('publication_galleys as g')
+                    ->whereColumn('g.publication_id', '=', 'p.publication_id')
+                    ->whereNotNull('g.doi_id')
+            );
     }
 }
