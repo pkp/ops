@@ -90,16 +90,16 @@ describe('Data suite: Cmontgomerie', function() {
 
 		// Unpost 1st version
 		cy.findSubmissionAsEditor('dbarnes', null, 'Montgomerie',  null, 'Published');
-		cy.openWorkflowMenu('Author Original 1.0', 'Title & Abstract')
+		cy.openWorkflowMenu("Author's Original 1.0", 'Title & Abstract')
 		cy.get('button:contains("Unpost")').should('be.visible').click();
 		cy.get('div:contains("Are you sure you don\'t want this to be posted?")');
 		cy.get('[data-cy=dialog] button').contains('Unpost').click();
 		cy.get('div:contains("This version has been posted and can not be edited.")').should('not.exist');
 
 		// Edit metadata in 1st version
-		cy.openWorkflowMenu('Author Original 1.0', 'Metadata')
+		cy.openWorkflowMenu("Author's Original 1.0", 'Metadata')
 		cy.intercept('GET', '**/publications/*/_components/metadata').as('loadMetadata');
-		cy.openWorkflowMenu('Author Original 1.0', 'Metadata');
+		cy.openWorkflowMenu("Author's Original 1.0", 'Metadata');
 		cy.wait('@loadMetadata');
 
 		// find the actual input field for keywords
@@ -124,7 +124,7 @@ describe('Data suite: Cmontgomerie', function() {
 			cy.get('span:contains("Unpublished")')
 		);
 
-		cy.openWorkflowMenu('Author Original 2.0', 'Permissions & Disclosure');
+		cy.openWorkflowMenu("Author's Original 2.0", 'Permissions & Disclosure');
 		cy.get('input[id^="publicationLicense-copyrightHolder-control-en"').clear();
 		cy.get('input[id^="publicationLicense-copyrightHolder-control-en"').type('Craig Montgomerie');
 		cy.get('button').contains('Save').click();

@@ -167,7 +167,7 @@ describe('DOI tests', function() {
 		cy.log('Check submission landing page shows correct DOI for each version');
 
 		// Go to Version 1 page
-		cy.get(`${modalSelector} a:contains("Author Original 1.0")`).should(($a) => {
+		cy.get(`${modalSelector} a:contains("Author's Original 1.0")`).should(($a) => {
 			expect($a.attr('target'), 'target').to.be.string('_blank');
 			// Chnage target so we can follow the link directory rather than via `cy.visit()`.
 			$a.attr('target', '_self');
@@ -187,7 +187,7 @@ describe('DOI tests', function() {
 			`#submission-doi-management .listPanel__item:contains("${articleTitle}") button:contains("View all")`
 		).click();
 
-		cy.get(`${modalSelector} a:contains("Author Original 2.0")`).should(($a) => {
+		cy.get(`${modalSelector} a:contains("Author's Original 2.0")`).should(($a) => {
 			expect($a.attr('target'), 'target').to.be.string('_blank');
 			// Chnage target so we can follow the link directory rather than via `cy.visit()`.
 			$a.attr('target', '_self');
@@ -311,7 +311,7 @@ describe('DOI tests', function() {
 		})
 
 
-		cy.openWorkflowMenu('Author Original 1.0', 'Title & Abstract')
+		cy.openWorkflowMenu("Author's Original 1.0", 'Title & Abstract')
 		cy.get('button:contains("Unpost")').click();
 		cy.get('[data-cy="dialog"] button:contains("Unpost")').click();
 
@@ -357,12 +357,12 @@ describe('DOI tests', function() {
 		cy.contains('table tr', articleTitle).within(() => {
 			cy.get('button').contains('View').click()
 		})
-		cy.openWorkflowMenu('Author Original 1.0', 'Title & Abstract')
+		cy.openWorkflowMenu("Author's Original 1.0", 'Title & Abstract')
 
 		cy.get(`[data-cy="active-modal"] nav a:contains('Create New Version')`).click();
 		cy.assignPublicationStage('AO', 'false');
 
-		cy.openWorkflowMenu('Author Original 2.0', 'Title & Abstract');
+		cy.openWorkflowMenu("Author's Original 2.0", 'Title & Abstract');
 		cy.get('button:contains("Post")').click();
 		cy.get('div.pkpWorkflow__publishModal button:contains("Post")').click();
 		cy.get('div:contains("Warning: This version has been published. Editing it may impact the published content.")').should('exist');
@@ -497,7 +497,7 @@ describe('DOI tests', function() {
 		cy.contains('table tr', articleTitle).within(() => {
 			cy.get('button').contains('View').click()
 		})
-		cy.openWorkflowMenu('Author Original 2.0', 'Title & Abstract')
+		cy.openWorkflowMenu("Author's Original 2.0", 'Title & Abstract')
 
 		// We have to unpost it first
 		cy.get('button:contains("Unpost")').click();
