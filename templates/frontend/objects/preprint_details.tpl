@@ -292,7 +292,7 @@
 			{/if}
 
 			{* References *}
-			{if count($parsedCitations) || $publication->getData('citationsRaw')}
+			{if count($parsedCitations) || (string) $publication->getData('citationsRaw')}
 				<section class="item references">
 					<h2 class="label">
 						{translate key="submission.citations"}
