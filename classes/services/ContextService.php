@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/services/ContextService.php
  *
@@ -108,7 +109,7 @@ class ContextService extends \PKP\services\PKPContextService
                     $newContext,
                     $params['serverThumbnail'][$localeKey],
                     'serverThumbnail',
-                    $request->getUser()->getId(),
+                    $request->getUser(),
                     $localeKey,
                     true
                 );
