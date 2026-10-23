@@ -30,7 +30,7 @@ msgid "invitation.role.masthead"
 msgstr "Server Masthead"
 
 msgid "invitation.wizard.pageTitleDescription"
-msgstr "You are inviting a user to take a role in OPS along with appearing in the server masthead"
+msgstr "You are inviting a user to take a role in OPS"
 
 msgid "userInvitation.enterDetails.stepDescription"
 msgstr "You can invite them to take up a role in OPS"
