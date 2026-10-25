@@ -114,9 +114,6 @@ msgstr ""
 msgid "publication.event.scheduled"
 msgstr "Изпратените материали бяха насрочени за публикуване."
 
-msgid "publication.required.declined"
-msgstr "Отхвърлено изпращане на материали не може да бъде публикувано."
-
 msgid "submission.license.description"
 msgstr ""
 "Лицензът ще бъде зададен автоматично на <a href='{$licenseUrl}' "

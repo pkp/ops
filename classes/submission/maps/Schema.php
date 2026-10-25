@@ -24,6 +24,8 @@ use APP\submission\Submission;
 use PKP\decision\DecisionType;
 use PKP\decision\types\ReturnToDone;
 use PKP\decision\types\ReturnToWorkflow;
+use PKP\decision\types\RevertWithdrawInProduction;
+use PKP\decision\types\WithdrawInProduction;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
@@ -105,8 +107,12 @@ class Schema extends \PKP\submission\maps\Schema
                 case Submission::STATUS_DECLINED:
                     $decisionTypes[] = new RevertDecline();
                     break;
+                case Submission::STATUS_WITHDRAWN:
+                    $decisionTypes[] = new RevertWithdrawInProduction();
+                    break;
                 case Submission::STATUS_QUEUED:
                     $decisionTypes[] = new Decline();
+                    $decisionTypes[] = new WithdrawInProduction();
                     break;
             }
 

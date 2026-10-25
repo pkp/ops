@@ -166,9 +166,6 @@ msgstr "Zveřejnění"
 msgid "publication.publish.requirements"
 msgstr "Před zveřejněním musí být splněny následující požadavky."
 
-msgid "publication.required.declined"
-msgstr "Odmítnutý příspěvek nelze zveřejnit."
-
 msgid "publication.required.reviewStage"
 msgstr "Před zveřejněním musí být příspěvek ve fázi Produkce."
 

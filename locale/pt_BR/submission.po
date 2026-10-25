@@ -189,9 +189,6 @@ msgstr ""
 "Os seguinte requerimentos precisam ser cumpridos para que esse manuscrito "
 "possa ser postado."
 
-msgid "publication.required.declined"
-msgstr "Uma submissão rejeitada não pode ser postada."
-
 msgid "publication.required.reviewStage"
 msgstr ""
 "A submissão deve estar no estágio de Produção antes que possa ser postada."

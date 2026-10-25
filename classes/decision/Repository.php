@@ -21,6 +21,8 @@ use PKP\decision\types\InitialDecline;
 use PKP\decision\types\MoveToDone;
 use PKP\decision\types\ReturnToDone;
 use PKP\decision\types\ReturnToWorkflow;
+use PKP\decision\types\RevertWithdrawInProduction;
+use PKP\decision\types\WithdrawInProduction;
 use PKP\plugins\Hook;
 
 class Repository extends \PKP\decision\Repository
@@ -37,6 +39,8 @@ class Repository extends \PKP\decision\Repository
                 new MoveToDone(),
                 new ReturnToWorkflow(),
                 new ReturnToDone(),
+                new WithdrawInProduction(),
+                new RevertWithdrawInProduction(),
             ]);
             Hook::call('Decision::types', [$decisionTypes]);
             $this->decisionTypes = $decisionTypes;

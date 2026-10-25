@@ -194,9 +194,6 @@ msgid "publication.publish.requirements"
 msgstr ""
 "Los siguientes requisitos deben cumplirse antes de que esto pueda publicarse."
 
-msgid "publication.required.declined"
-msgstr "Un envío rechazado no puede publicarse."
-
 msgid "publication.required.reviewStage"
 msgstr ""
 

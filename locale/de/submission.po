@@ -200,9 +200,6 @@ msgstr ""
 "Die folgenden Voraussetzungen müssen erfüllt sein, damit die Stelle "
 "ausgeschrieben werden kann."
 
-msgid "publication.required.declined"
-msgstr "Ein abgelehnter Beitrag kann nicht veröffentlicht werden."
-
 msgid "publication.required.reviewStage"
 msgstr ""
 "Der Beitrag muss sich in der Produktionsphase befinden, bevor er "
