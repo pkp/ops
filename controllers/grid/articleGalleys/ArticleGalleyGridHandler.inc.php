@@ -255,6 +255,9 @@ class ArticleGalleyGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function clearPubId($args, $request) {
+		// Authors may not change the galleys of a version they can no longer edit
+		if (!Services::get('submission')->canEditRepresentations($this->getPublication(), $request->getUser())) return new JSONMessage(false, __('galley.cantEditPublished'));
+
 		if (!$request->checkCSRF()) return new JSONMessage(false);
 
 		$submission = $this->getSubmission();
@@ -289,6 +292,9 @@ class ArticleGalleyGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function deleteGalley($args, $request) {
+		// Authors may not change the galleys of a version they can no longer edit
+		if (!Services::get('submission')->canEditRepresentations($this->getPublication(), $request->getUser())) return new JSONMessage(false, __('galley.cantEditPublished'));
+
 		$galley = $this->getGalley();
 		if (!$galley || !$request->checkCSRF()) return new JSONMessage(false);
 
