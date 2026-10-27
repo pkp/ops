@@ -286,6 +286,11 @@ class PreprintGalleyGridHandler extends GridHandler
      */
     public function clearPubId($args, $request)
     {
+        // Authors may not change the galleys of a version they can no longer edit
+        if (!Repo::submission()->canEditRepresentations($this->getPublication(), $request->getUser())) {
+            return new JSONMessage(false, __('galley.cantEditPublished'));
+        }
+
         if (!$request->checkCSRF()) {
             return new JSONMessage(false);
         }
@@ -327,6 +332,11 @@ class PreprintGalleyGridHandler extends GridHandler
      */
     public function deleteGalley($args, $request)
     {
+        // Authors may not change the galleys of a version they can no longer edit
+        if (!Repo::submission()->canEditRepresentations($this->getPublication(), $request->getUser())) {
+            return new JSONMessage(false, __('galley.cantEditPublished'));
+        }
+
         $galley = $this->getGalley();
         if (!$galley || !$request->checkCSRF()) {
             return new JSONMessage(false);
