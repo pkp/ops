@@ -30,9 +30,13 @@ describe('Data suite tests', function() {
 		cy.get('a').contains('Review this submission').click();
 
 		// Edit metadata
+		// The workflow page loads its grids a second after it mounts; let that pass
+		// before typing, or the typed keyword can be lost.
+		cy.get('#contributors-grid .pkp_controllers_grid');
 		cy.get('button#metadata-button').click();
+		cy.get('#metadata-keywords-control-en_US').should('be.visible').and('be.enabled');
 		cy.get('#metadata-keywords-control-en_US').type('multinational', {delay: 0});
-		cy.wait(500);
+		cy.contains('#metadata .autosuggest__results-item', 'multinational');
 		cy.get('#metadata-keywords-control-en_US').type('{enter}', {delay: 0});
 		cy.get('#metadata button').contains('Save').click();
 		cy.get('#metadata-keywords-selected-en_US').contains('multinational');
