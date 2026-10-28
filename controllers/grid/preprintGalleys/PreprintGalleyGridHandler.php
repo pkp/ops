@@ -291,6 +291,10 @@ class PreprintGalleyGridHandler extends GridHandler
      */
     public function clearPubId($args, $request)
     {
+        if (!$this->canEdit()) {
+            return new JSONMessage(false, __('galley.cantEditPublished'));
+        }
+
         if (!$request->checkCSRF()) {
             return new JSONMessage(false);
         }
@@ -332,6 +336,10 @@ class PreprintGalleyGridHandler extends GridHandler
      */
     public function deleteGalley($args, $request)
     {
+        if (!$this->canEdit()) {
+            return new JSONMessage(false, __('galley.cantEditPublished'));
+        }
+
         $galley = $this->getGalley();
         if (!$galley || !$request->checkCSRF()) {
             return new JSONMessage(false);
