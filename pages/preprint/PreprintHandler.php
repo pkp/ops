@@ -116,7 +116,11 @@ class PreprintHandler extends Handler
         // Get the requested publication or if none requested get the current publication
         $subPath = empty($args) ? 0 : array_shift($args);
         if ($subPath === 'version') {
-            $publicationId = (int) array_shift($args);
+            $publicationId = (string) array_shift($args);
+            if (!ctype_digit($publicationId)) {
+                throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+            }
+            $publicationId = (int) $publicationId;
             $galleyId = empty($args) ? 0 : array_shift($args);
             foreach ($this->preprint->getData('publications') as $publication) {
                 if ($publication->getId() === $publicationId) {
