@@ -67,6 +67,18 @@ class SubmissionController extends \PKP\API\v1\submissions\PKPSubmissionControll
             ->whereNumber(['submissionId', 'publicationId']);
 
         Route::middleware([
+            self::roleAuthorizer([Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_ASSISTANT]),
+        ])->group(function () {
+            Route::prefix('{submissionId}/publications/{publicationId}/_components')->group(function () {
+                Route::get('issue', $this->getPublicationIssueForm(...))->name('submission.publication._components.issue');
+            })->whereNumber(['submissionId', 'publicationId']);
+        });
+
+        parent::getGroupRoutes();
+
+        // Let authors create and post versions. These replace the parent's editor-only
+        // routes for the same URIs, so they must be registered after them.
+        Route::middleware([
             self::roleAuthorizer([
                 Role::ROLE_ID_MANAGER,
                 Role::ROLE_ID_SUB_EDITOR,
@@ -90,16 +102,47 @@ class SubmissionController extends \PKP\API\v1\submissions\PKPSubmissionControll
                 ->name('submission.publication.unpublish')
                 ->whereNumber(['submissionId', 'publicationId']);
         });
+    }
 
-        Route::middleware([
-            self::roleAuthorizer([Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_ASSISTANT]),
-        ])->group(function () {
-            Route::prefix('{submissionId}/publications/{publicationId}/_components')->group(function () {
-                Route::get('issue', $this->getPublicationIssueForm(...))->name('submission.publication._components.issue');
-            })->whereNumber(['submissionId', 'publicationId']);
-        });
+    /**
+     * Add a new publication to this submission
+     *
+     * Authors may add a publication, but only a moderator or an author allowed
+     * to post (Publication::canAuthorPublish) may give it any status other
+     * than queued.
+     */
+    public function addPublication(Request $illuminateRequest): JsonResponse
+    {
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $params = $illuminateRequest->input();
 
-        parent::getGroupRoutes();
+        if (array_key_exists('status', $params)
+            && (int) $params['status'] !== Submission::STATUS_QUEUED
+            && !Repo::publication()->canCurrentUserPublish($submission->getId())) {
+            return response()->json([
+                'error' => __('api.publication.403.cantEditStatus'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        return parent::addPublication($illuminateRequest);
+    }
+
+    /**
+     * Unpublish one of this submission's publications
+     *
+     * Authors who may not post their own preprint may not unpost it either.
+     */
+    public function unpublishPublication(Request $illuminateRequest): JsonResponse
+    {
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        if (!Repo::publication()->canCurrentUserPublish($submission->getId())) {
+            return response()->json([
+                'error' => __('api.403.unauthorized'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        return parent::unpublishPublication($illuminateRequest);
     }
 
     /**
