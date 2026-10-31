@@ -20,6 +20,7 @@ namespace APP\API\v1\submissions;
 use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use PKP\core\APIResponse;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
@@ -67,6 +68,55 @@ class SubmissionHandler extends \PKP\API\v1\submissions\PKPSubmissionHandler
         }, $this->_endpoints['PUT']);
 
         parent::setupEndpoints();
+    }
+
+    /**
+     * Add a new publication to this submission
+     *
+     * Authors may add a publication, but only a moderator or an author allowed
+     * to post (Publication::canAuthorPublish) may give it any status other
+     * than queued.
+     *
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
+     * @param array $args arguments
+     *
+     * @return APIResponse
+     */
+    public function addPublication($slimRequest, $response, $args)
+    {
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $params = (array) $slimRequest->getParsedBody();
+
+        if (array_key_exists('status', $params)
+            && (int) $params['status'] !== Submission::STATUS_QUEUED
+            && !Repo::publication()->canCurrentUserPublish($submission->getId())) {
+            return $response->withStatus(403)->withJsonError('api.publication.403.cantEditStatus');
+        }
+
+        return parent::addPublication($slimRequest, $response, $args);
+    }
+
+    /**
+     * Unpublish one of this submission's publications
+     *
+     * Authors who may not post their own preprint may not unpost it either.
+     *
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
+     * @param array $args arguments
+     *
+     * @return APIResponse
+     */
+    public function unpublishPublication($slimRequest, $response, $args)
+    {
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        if (!Repo::publication()->canCurrentUserPublish($submission->getId())) {
+            return $response->withStatus(403)->withJsonError('api.403.unauthorized');
+        }
+
+        return parent::unpublishPublication($slimRequest, $response, $args);
     }
 
     /**
