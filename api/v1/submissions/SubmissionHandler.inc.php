@@ -60,6 +60,51 @@ class SubmissionHandler extends PKPSubmissionHandler {
 	}
 
 	/**
+	 * Add a new publication to this submission
+	 *
+	 * Authors may add a publication, but only a moderator or an author allowed
+	 * to post (Publication::canAuthorPublish) may give it any status other
+	 * than queued.
+	 *
+	 * @param $slimRequest Request Slim request object
+	 * @param $response Response object
+	 * @param array $args arguments
+	 * @return Response
+	 */
+	public function addPublication($slimRequest, $response, $args) {
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$params = (array) $slimRequest->getParsedBody();
+
+		if (array_key_exists('status', $params)
+				&& (int) $params['status'] !== STATUS_QUEUED
+				&& !Services::get('publication')->canAuthorPublish($submission->getId())) {
+			return $response->withStatus(403)->withJsonError('api.publication.403.cantEditStatus');
+		}
+
+		return parent::addPublication($slimRequest, $response, $args);
+	}
+
+	/**
+	 * Unpublish one of this submission's publications
+	 *
+	 * Authors who may not post their own preprint may not unpost it either.
+	 *
+	 * @param $slimRequest Request Slim request object
+	 * @param $response Response object
+	 * @param array $args arguments
+	 * @return Response
+	 */
+	public function unpublishPublication($slimRequest, $response, $args) {
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+
+		if (!Services::get('publication')->canAuthorPublish($submission->getId())) {
+			return $response->withStatus(403)->withJsonError('api.403.unauthorized');
+		}
+
+		return parent::unpublishPublication($slimRequest, $response, $args);
+	}
+
+	/**
 	 * Create relations for publications
 	 *
 	 * @param $slimRequest Request Slim request object
