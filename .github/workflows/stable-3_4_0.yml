@@ -9,7 +9,7 @@ on:
 name: ops-stable-3_4_0
 jobs:
   ops:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
