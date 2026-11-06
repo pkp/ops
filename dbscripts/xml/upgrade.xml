@@ -175,6 +175,7 @@
 		<migration class="APP\migration\upgrade\v3_5_0\I13128_FixEmailUrlLinks"/>
         <migration class="APP\migration\upgrade\v3_4_0\I11759_RemoveDuplicateFilters"/>
         <migration class="PKP\migration\upgrade\v3_5_0\I13283_RestoreDegradedOrcidFunctionality"/>
+		<migration class="APP\migration\upgrade\v3_5_0\I13562_RepairWeblateUILocales"/>
 	</upgrade>
 
 	<!-- update plugin configuration - should be done as the final upgrade task -->
