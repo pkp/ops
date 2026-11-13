@@ -454,7 +454,8 @@
 			line-height: @line-sml;
 		}
 
-		> li > a:focus {
+		> li > a:focus,
+		> li > button:focus {
 			outline: 0;
 			background: @text-bg-base;
 			color: @bg-base;
@@ -484,16 +485,19 @@
 		}
 
 		// Align to the right edge of the container
-		> li:last-child > a {
+		> li:last-child > a,
+		> li:last-child > button {
 			margin-right: -@base;
 		}
 
 		// Show the top-level task count in desktop nav
-		> li > a .task_count {
+		> li > a .task_count,
+		> li > button .task_count {
 			display: inline-block;
 		}
 
-		> li > a:focus .task_count {
+		> li > a:focus .task_count,
+		> li > button:focus .task_count {
 			background: @bg-base;
 			color: @text-bg-base;
 		}
