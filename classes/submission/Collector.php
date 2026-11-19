@@ -107,20 +107,22 @@ class Collector extends \PKP\submission\Collector
     /** @copydoc PKP/classes/submission/Collector::addFilterByAssociatedDoiIdsToQuery() */
     protected function addFilterByAssociatedDoiIdsToQuery(Builder $q)
     {
-        // Does two things:
-        // 1 - Defaults to empty result when no DOIs are enabled.
-        // 2 - Ensures that the union clause can be safely used if a query with a union clause is the only one that is executed.
-        $q->selectRaw('NULL AS submission_id')->whereRaw('1 = 0');
-
         $q->whereIn('s.submission_id', function (Builder $query) {
             $context = Application::get()->getRequest()->getContext();
 
+            // Does two things:
+            // 1 - Defaults to empty result when no DOIs are enabled.
+            // 2 - Ensures that the union clause can be safely used if a query with a union clause is the only one that is executed.
+            $query->selectRaw('NULL AS submission_id')->whereRaw('1 = 0');
+
             $query->when($context->isDoiTypeEnabled(Repo::doi()::TYPE_REPRESENTATION), function (Builder $q) {
-                $q->select('p.submission_id')
-                    ->from('publication_galleys AS g')
-                    ->join('dois AS d', 'g.doi_id', '=', 'd.doi_id')
-                    ->join('publications AS p', 'g.publication_id', '=', 'p.publication_id')
-                    ->whereLike('d.doi', "{$this->searchPhrase}%");
+                $q->union(function (Builder $q) {
+                    $q->select('p.submission_id')
+                        ->from('publication_galleys AS g')
+                        ->join('dois AS d', 'g.doi_id', '=', 'd.doi_id')
+                        ->join('publications AS p', 'g.publication_id', '=', 'p.publication_id')
+                        ->whereLike('d.doi', "{$this->searchPhrase}%");
+                });
             })
                 ->when($context->isDoiTypeEnabled(Repo::doi()::TYPE_PUBLICATION), function (Builder $q) {
                     $q->union(function (Builder $query) {
