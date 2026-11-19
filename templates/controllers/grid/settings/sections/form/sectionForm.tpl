@@ -68,7 +68,7 @@
 	{if count($subeditors)}
 		{fbvFormSection list=true title="user.role.subEditors"}
 			{foreach from=$subeditors item="subeditor" key="id"}
-				{fbvElement type="checkbox" id="subEditors[]" value=$id checked=in_array($id, $assignedSubeditors) label=$subeditor translate=false}
+				{fbvElement type="checkbox" id="subEditors[]" value=$id checked=in_array($id, $assignedSubeditors) label=$subeditor|escape translate=false}
 			{/foreach}
 		{/fbvFormSection}
 	{/if}
