@@ -13,23 +13,25 @@
  * @uses $currentTitle string The title to use for the current page.
  * @uses $currentTitleKey string Translation key for title of current page.
  *}
-
-<nav class="cmp_breadcrumbs" role="navigation" aria-label="{translate key="navigation.breadcrumbLabel"}">
+{assign var=preprintPath value=$preprint->getBestId()}
+<nav class="cmp_breadcrumbs" aria-label="{translate key="navigation.breadcrumbLabel"}">
 	<ol>
 		<li>
 			<a href="{url page="index" router=PKPApplication::ROUTE_PAGE}">
 				{translate key="common.homepageNavigationLabel"}
 			</a>
-			<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
+			<span class="separator" aria-hidden="true">{translate key="navigation.breadcrumbSeparator"}</span>
 		</li>
 		<li class="current" aria-current="page">
-			<span aria-current="page">
+			<a aria-current="page" id="preprint-{$preprint->getId()}" {if $server}href="{url server=$server->getPath() page="preprint" op="view" path=$preprintPath}"{else}href="{url page="preprint" op="view" path=$preprintPath}"{/if}>
+				{assign var=publication value=$preprint->getCurrentPublication()}
+				{$publication->getLocalizedTitle(null, 'html')|strip_unsafe_html}
 				{if $currentTitleKey}
 					{translate key=$currentTitleKey}
 				{else}
-					{$currentTitle|escape}
+					{$publication->getLocalizedSubtitle(null, 'html')|strip_unsafe_html}
 				{/if}
-			</span>
+			</a>
 		</li>
 	</ol>
 </nav>
