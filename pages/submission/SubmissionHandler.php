@@ -52,7 +52,7 @@ class SubmissionHandler extends PKPSubmissionHandler
         $userGroups = $this->getSubmitUserGroups($context, $request->getUser());
         if (!$userGroups->count()) {
             $this->showErrorPage(
-                'submission.wizard.notAllowed',
+                __('submission.wizard.notAllowed'),
                 __('submission.wizard.notAllowed.description', [
                     'email' => $context->getData('contactEmail'),
                     'name' => $context->getData('contactName'),
@@ -64,7 +64,7 @@ class SubmissionHandler extends PKPSubmissionHandler
         $sections = $this->getSubmitSections($context);
         if (empty($sections)) {
             $this->showErrorPage(
-                'submission.wizard.notAllowed',
+                __('submission.wizard.notAllowed'),
                 __('submission.wizard.noSectionAllowed.description', [
                     'email' => $context->getData('contactEmail'),
                     'name' => $context->getData('contactName'),
